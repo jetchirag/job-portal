@@ -20,7 +20,7 @@ const WhyUs = () => {
               </h3>
             </div>
             <div className="carousel-item active">
-              <img src="images/whyus.jpg" className="d-block w-100" alt="..." />
+              <img src="http://65.109.166.43:3000/image/whyus.jpg" className="d-block w-100" alt="..." />
               {/* <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>
@@ -29,11 +29,11 @@ const WhyUs = () => {
               </div> */}
             </div>
             <div className="carousel-item">
-              <img src="images/whyus.jpg" className="d-block w-100" alt="..." />
+              <img src="http://65.109.166.43:3000/image/whyus.jpg" className="d-block w-100" alt="..." />
               
             </div>
             <div className="carousel-item">
-              <img src="images/whyus.jpg" className="d-block w-100" alt="..." />
+              <img src="http://65.109.166.43:3000/image/whyus.jpg" className="d-block w-100" alt="..." />
               
             </div>
           </div>
@@ -56,15 +56,15 @@ const WhyUs = () => {
               </h3>
             </div>
             <div className="carousel-item active">
-              <img src="images/jaipur.jpg" className="d-block w-100" alt="..." />
+              <img src="http://65.109.166.43:3000/image/jaipur.jpg" className="d-block w-100" alt="..." />
               
             </div>
             <div className="carousel-item">
-              <img src="images/jaipur.jpg" className="d-block w-100" alt="..." />
+              <img src="http://65.109.166.43:3000/image/jaipur.jpg" className="d-block w-100" alt="..." />
               
             </div>
             <div className="carousel-item">
-              <img src="images/jaipur.jpg" className="d-block w-100" alt="..." />
+              <img src="http://65.109.166.43:3000/image/jaipur.jpg" className="d-block w-100" alt="..." />
               
             </div>
           </div>

@@ -37,7 +37,7 @@ const Carousel = () => {
         </div>
         <div className='carousel-item active'>
           <img
-            src='images/muj-main-dome.jpeg'
+            src='http://65.109.166.43:3000/image/muj-main-dome.jpeg'
             className='d-block w-100 muj-main-img'
             alt='...'
           />
@@ -48,7 +48,7 @@ const Carousel = () => {
         </div>
         <div className='carousel-item'>
           <img
-            src='images/muj-main-dome.jpeg'
+            src='http://65.109.166.43:3000/image/muj-main-dome.jpeg'
             className='d-block w-100 muj-main-img'
             alt='...'
           />
@@ -59,7 +59,7 @@ const Carousel = () => {
         </div>
         <div className='carousel-item'>
           <img
-            src='images/muj-main-dome.jpeg'
+            src='http://65.109.166.43:3000/image/muj-main-dome.jpeg'
             className='d-block w-100 muj-main-img'
             alt='...'
           />
