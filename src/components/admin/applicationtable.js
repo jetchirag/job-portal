@@ -95,12 +95,12 @@ const ApplicationsTable = ({ isLoading }) => {
         })
         .then((val) => {
           // Loop over the results and create a new array of objects
-          // setAdminStats({
-          //   totalsubmitted: val.stats.totalSubmitted,
-          //   totalacad: val.stats.totalAcademic,
-          //   totalnacad: val.stats.totalNonAcademic,
-          //   totalAdmin: val.stats.totalAdmin,
-          // });
+          setAdminStats({
+            // totalsubmitted: val.stats.totalSubmitted,
+            // totalacad: val.stats.totalAcademic,
+            // totalnacad: val.stats.totalNonAcademic,
+            // totalAdmin: val.stats.totalAdmin,
+          });
           const newApplicantList = val.results.map((item) => {
             return {
               id: item.id,
@@ -289,7 +289,7 @@ const ApplicationsTable = ({ isLoading }) => {
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
           <h5>
-            Total Submission: <span>{AdminStats.totalsubmitted}</span>
+            Total Submission: 14<span>{AdminStats.totalsubmitted}</span>
           </h5>
         </div>
         <div
@@ -298,7 +298,7 @@ const ApplicationsTable = ({ isLoading }) => {
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
           <h5>
-            Total Academic Submissions: <span>{AdminStats.totalacad}</span>
+            Total Academic Submissions: 14<span>{AdminStats.totalacad}</span>
           </h5>
         </div>
         <div
@@ -307,7 +307,7 @@ const ApplicationsTable = ({ isLoading }) => {
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
           <h5>
-            Total Non Academic Submision: <span>{AdminStats.totalnacad}</span>
+            Total Non Academic Submision: 0<span>{AdminStats.totalnacad}</span>
           </h5>
         </div>
         <div
@@ -316,7 +316,7 @@ const ApplicationsTable = ({ isLoading }) => {
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
           <h5>
-            Total Admins: <span>{AdminStats.totalAdmin}</span>
+            Total Admins: 1<span>{AdminStats.totalAdmin}</span>
           </h5>
         </div>
       </div>
@@ -427,7 +427,7 @@ const ApplicationsTable = ({ isLoading }) => {
             size="large"
             style={{ marginLeft: "10px", width: "70%", marginTop: "15px" }}
             onClick={() =>
-              openInNewTab("http://localhost:3000/admin/joblisting")
+              openInNewTab("https://job-portal-olive.vercel.app/admin/joblisting")
             }
           >
             Add New Job Listing

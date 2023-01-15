@@ -14,7 +14,7 @@ const Footer = () => {
                 style={{ width: "150px", height: "150px" }}
               >
                 <img
-                  src="images/cardimage.png"
+                  src="http://65.109.166.43:3000/image/cardimage.png"
                   height="120"
                   alt=""
                   loading="lazy"

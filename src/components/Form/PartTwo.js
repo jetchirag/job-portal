@@ -47,18 +47,30 @@ const PartTwo = (props) => {
         <label htmlFor="validationCustom04" className="form-label">
           Gender
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Male
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              Female
-            </a>
-          </li>
-        </ul>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="gender"
+            value="Male"
+            id="male"
+          />
+          <label className="form-check-label" htmlFor="male">
+            Male
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="gender"
+            value="Female"
+            id="female"
+          />
+          <label className="form-check-label" htmlFor="female">
+            Female
+          </label>
+        </div>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustomUsername" className="form-label">
@@ -215,28 +227,54 @@ const PartTwo = (props) => {
         <label htmlFor="validationCustom04" className="form-label">
           Marital Status
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Single
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              Engaged
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              Married
-            </a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              Divorced
-            </a>
-          </li>
-        </ul>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="marital-status"
+            value="single"
+            id="single"
+          />
+          <label className="form-check-label" htmlFor="single">
+            Single
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="marital-status"
+            value="engaged"
+            id="engaged"
+          />
+          <label className="form-check-label" htmlFor="engaged">
+            Engaged
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="marital-status"
+            value="married"
+            id="married"
+          />
+          <label className="form-check-label" htmlFor="married">
+            Married
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="radio"
+            name="marital-status"
+            value="divorced"
+            id="divorced"
+          />
+          <label className="form-check-label" htmlFor="divorced">
+            Divorced
+          </label>
+        </div>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">

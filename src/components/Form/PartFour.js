@@ -7,18 +7,6 @@ const PartFour = () => {
         <label htmlFor="validationCustom04" className="form-label">
           GATE
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Yes
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              No
-            </a>
-          </li>
-        </ul>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">
@@ -36,7 +24,7 @@ const PartFour = () => {
         <label htmlFor="validationCustom04" className="form-label">
           UGC Net
         </label>
-        <ul class="pagination pagination-lg">
+        {/* <ul class="pagination pagination-lg">
           <li class="page-item active" aria-current="page">
             <span class="page-link" style={{ "font-size": "0.5rem" }}>
               Yes
@@ -47,7 +35,7 @@ const PartFour = () => {
               No
             </a>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">
@@ -65,18 +53,6 @@ const PartFour = () => {
         <label htmlFor="validationCustom04" className="form-label">
           UGCC JRF
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Yes
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              No
-            </a>
-          </li>
-        </ul>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">
@@ -94,18 +70,6 @@ const PartFour = () => {
         <label htmlFor="validationCustom04" className="form-label">
           UGC CSIR
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Yes
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              No
-            </a>
-          </li>
-        </ul>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">
@@ -123,18 +87,6 @@ const PartFour = () => {
         <label htmlFor="validationCustom04" className="form-label">
           ICMR
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Yes
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              No
-            </a>
-          </li>
-        </ul>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">
@@ -152,18 +104,6 @@ const PartFour = () => {
         <label htmlFor="validationCustom04" className="form-label">
           ICAR
         </label>
-        <ul class="pagination pagination-lg">
-          <li class="page-item active" aria-current="page">
-            <span class="page-link" style={{ "font-size": "0.5rem" }}>
-              Yes
-            </span>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" style={{ "font-size": "0.5rem" }}>
-              No
-            </a>
-          </li>
-        </ul>
       </div>
       <div className="col-md-3">
         <label htmlFor="validationCustom03" className="form-label">
