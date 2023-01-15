@@ -11,15 +11,14 @@ import Login from "./components/Login";
 import Openings from "./components/Openings";
 import JobDesc from "./components/JobDesc";
 import Faq from "./components/FAQ";
-import "./components/css/styles.css"
-
-
+import "./components/css/styles.css";
 
 import Recognition from "./components/Recognition";
 import ApplicationDetails from "./components/admin/ApplicationDetails";
 // import Dashboard from "./components/dashboard/Dashboard";
 import ApplicationsTable from "./components/admin/applicationtable";
 import JobListing from "./components/JobListing";
+import Testing from "./components/Testing";
 
 function App() {
   return (
@@ -41,7 +40,11 @@ function App() {
               </div>
             }
           />
-          <Route exact path="/apply" element={<Form disabled={false} data={null} />} />
+          <Route
+            exact
+            path="/apply"
+            element={<Form disabled={false} data={null} />}
+          />
           <Route exact path="/admin" element={<Login />} />
           <Route exact path="/openings" element={<Openings />} />
           <Route
@@ -56,6 +59,7 @@ function App() {
           <Route exact path="/opening" element={<JobDesc />} />
           <Route exact path="/faq" element={<Faq />} />
           <Route exact path="/admin/joblisting" element={<JobListing />} />
+          <Route exact path="/testing" element={<Testing />} />
         </Routes>
         <Footer />
       </div>

@@ -68,7 +68,7 @@ const PartTwo = (props) => {
             id="female"
           />
           <label className="form-check-label" htmlFor="female">
-            Femail
+            Female
           </label>
         </div>
       </div>
