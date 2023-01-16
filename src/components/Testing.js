@@ -6,6 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Accordion from "react-bootstrap/Accordion";
 import { useForm } from "react-hook-form";
+import { facultiesList, list } from "../components/Form/faculties (1)";
 import {
   CountryDropdown,
   RegionDropdown,
@@ -17,12 +18,17 @@ const Testing = () => {
   const [cr_region, setcr_Region] = useState("");
   const [native_country, setnative_Country] = useState("");
   const [native_region, setnative_Region] = useState("");
+<<<<<<< Updated upstream
   const [aq_higher_secondary_country, setaq_higher_secondary_country] =
     useState("");
   const [aq_graduation_country, setaq_graduation_country] = useState("");
   const [aq_post_graduation_country, setaq_post_graduation_country] =
     useState("");
 
+=======
+  const [faculty, setFaculty] = useState("");
+  const [depts, setDepts] = useState("");
+>>>>>>> Stashed changes
   const {
     register,
     handleSubmit,
@@ -77,7 +83,123 @@ const Testing = () => {
         <Accordion defaultActiveKey="2">
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
-            <Accordion.Body></Accordion.Body>
+            <Accordion.Body>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="3" controlId="dob">
+                  <Form.Label>Job Type</Form.Label>
+
+                  <Form.Select
+                    aria-label="Default Job Type"
+                    {...register("jobtype", {
+                      required: true,
+                    })}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option>Academic</option>
+                    <option>Non Academic</option>
+                    <option>Administrative</option>
+                  </Form.Select>
+                  {errors.jobtype && (
+                    <p style={{ color: "red" }}>Please select your job type</p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="faculty">
+                  <Form.Label>Faculty</Form.Label>
+                  <Form.Select
+                    aria-label="Default Faculty Type"
+                    {...register("faculty", {
+                      required: true,
+                    })}
+                    placeholder="acad"
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+
+                    {list.map((faculty) => {
+                      return <option>{faculty}</option>;
+                    })}
+                  </Form.Select>
+                  {errors.faculty && (
+                    <p style={{ color: "red" }}>
+                      Please select your Faculty type
+                    </p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="school">
+                  <Form.Label>School</Form.Label>
+                  <Form.Select
+                    aria-label="Default Faculty Type"
+                    {...register("school", {
+                      required: true,
+                    })}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+
+                    {faculty &&
+                      Object.keys(facultiesList[faculty]).map((dept) => {
+                        return <option>{dept}</option>;
+                      })}
+                  </Form.Select>
+                  {errors.school && (
+                    <p style={{ color: "red" }}>Please select your school</p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="faculty">
+                  <Form.Label>Department</Form.Label>
+                  <Form.Select
+                    aria-label="Default Faculty Type"
+                    {...register("dept", {
+                      required: true,
+                    })}
+                    placeholder="acad"
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    {depts &&
+                      facultiesList[faculty][depts].map((dept) => {
+                        return <option>{dept}</option>;
+                      })}
+                  </Form.Select>
+                  {errors.dept && (
+                    <p style={{ color: "red" }}>
+                      Please select your Department
+                    </p>
+                  )}
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="faculty"
+                  {...register("natureofjob", {
+                    required: true,
+                  })}
+                >
+                  <Form.Label>Nature of Job</Form.Label>
+                  <Form.Check
+                    type={"radio"}
+                    placeholder="acad"
+                    label={"Full-time"}
+                  />
+                  <Form.Check
+                    type={"radio"}
+                    placeholder="acad"
+                    label={"Part-time"}
+                  />
+
+                  {errors.natureofjob && (
+                    <p style={{ color: "red" }}>
+                      Please select your Nature of Job
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="1">
             <Accordion.Header>2. Personal Information</Accordion.Header>
