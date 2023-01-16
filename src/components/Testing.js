@@ -5,29 +5,36 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import Accordion from "react-bootstrap/Accordion";
+import { useForm } from "react-hook-form";
+import {
+  CountryDropdown,
+  RegionDropdown,
+  CountryRegionData,
+} from "react-country-region-selector";
 
 const Testing = () => {
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
+  const [cr_country, setcr_Country] = useState("");
+  const [cr_region, setcr_Region] = useState("");
+  const [native_country, setnative_Country] = useState("");
+  const [native_region, setnative_Region] = useState("");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    data["cr_country"] = cr_country;
+    data["cr_state"] = cr_region;
+    data["native_country"] = native_country;
+    data["native_state"] = native_region;
+    console.log(data);
   };
+
   return (
     <div className="my-4">
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit}
-        action="/"
-        method="POST"
-      >
-        <Accordion defaultActiveKey="0">
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <Accordion defaultActiveKey="1">
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body></Accordion.Body>
@@ -36,49 +43,51 @@ const Testing = () => {
             <Accordion.Header>2. Personal Information</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
-                <Form.Group as={Col} md="3" controlId="firstname">
-                  <Form.Label>First name</Form.Label>
+                {/* First Name Details  */}
+                <Form.Group as={Col} md="3" controlId="firstName">
+                  <Form.Label>First Name</Form.Label>
                   <Form.Control
-                    required
+                    placeholder="First Name"
                     type="text"
-                    name="firstname"
-                    placeholder="First name"
+                    {...register("firstName", {
+                      required: true,
+                      maxLength: 20,
+                    })}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter your first name.
-                  </Form.Control.Feedback>
-                  {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+                  {errors.firstName && (
+                    <p style={{ color: "red" }}>Please enter your first name</p>
+                  )}
                 </Form.Group>
-                <Form.Group as={Col} md="3" controlId="lastname">
-                  <Form.Label>Last name</Form.Label>
+                {/* Last Name Details  */}
+                <Form.Group as={Col} md="3" controlId="lastName">
+                  <Form.Label>Last Name</Form.Label>
                   <Form.Control
-                    required
+                    placeholder="Last Name"
                     type="text"
-                    name="lastname"
-                    placeholder="Last name"
+                    {...register("lastName", { required: true, maxLength: 20 })}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please enter your Last Name.
-                  </Form.Control.Feedback>
-                  {/* <Form.Control.Feedback>Looks good!</Form.Control.Feedback> */}
+                  {errors.lastName && (
+                    <p style={{ color: "red" }}>Please enter your last name</p>
+                  )}
                 </Form.Group>
+                {/* Date of Birth Details  */}
                 <Form.Group as={Col} md="3" controlId="dob">
                   <Form.Label>Date of Birth</Form.Label>
                   <Form.Control
-                    required
-                    type="date"
-                    name="dob"
                     placeholder="DD/MM/YYYY"
+                    type="date"
+                    {...register("dob", { required: true })}
                   />
-                  <Form.Control.Feedback type="invalid">
-                    Please select your date of birth
-                  </Form.Control.Feedback>
+                  {errors.dob && (
+                    <p style={{ color: "red" }}>Please select your DOB</p>
+                  )}
                 </Form.Group>
+                {/* Gender Details */}
                 <Form.Group as={Col} md="3" controlId="gender">
                   <Form.Label>Gender</Form.Label>
                   <Form.Select
                     aria-label="Default select example"
-                    name="gender"
+                    {...register("gender", { required: true })}
                   >
                     <option disabled selected>
                       Select
@@ -86,10 +95,11 @@ const Testing = () => {
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </Form.Select>
-                  <Form.Control.Feedback type="invalid">
-                    Please select your gender
-                  </Form.Control.Feedback>
+                  {errors.gender && (
+                    <p style={{ color: "red" }}>Please select your gender</p>
+                  )}
                 </Form.Group>
+                {/* Mobile Details */}
                 <Form.Group as={Col} md="3" controlId="mobile">
                   <Form.Label>Mobile</Form.Label>
                   <InputGroup hasValidation>
@@ -97,47 +107,257 @@ const Testing = () => {
                       +91
                     </InputGroup.Text>
                     <Form.Control
-                      required
-                      type="number"
-                      min="1000000000"
-                      max="9999999999"
-                      name="mobile"
                       placeholder="Mobile No."
+                      type="tel"
+                      {...register("mobile", {
+                        required: true,
+                        minLength: 10,
+                        maxLength: 10,
+                        // pattern: ((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}
+                      })}
                     />
-                    <Form.Control.Feedback type="invalid">
-                      Please enter your mobile number
-                    </Form.Control.Feedback>
+                    {errors.mobile && (
+                      <p style={{ color: "red" }}>
+                        Please enter your mobile no.
+                      </p>
+                    )}
                   </InputGroup>
                 </Form.Group>
+                {/* Email Details */}
                 <Form.Group as={Col} md="3" controlId="email">
                   <Form.Label>Email</Form.Label>
                   <InputGroup hasValidation>
                     <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
                     <Form.Control
-                      required
-                      type="email"
-                      name="email"
                       placeholder="Email ID"
+                      type="email"
+                      {...register("email", {
+                        required: true,
+                        pattern:
+                          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      })}
                     />
-                    <Form.Control.Feedback type="invalid">
-                      Please enter your email id
-                    </Form.Control.Feedback>
+                    {errors.email && (
+                      <p style={{ color: "red" }}>Please enter your email id</p>
+                    )}
                   </InputGroup>
+                </Form.Group>
+              </Row>
+              <hr />
+              <p>
+                <b>Current Residence</b>
+              </p>
+              <Row className="mb-3">
+                {/* Country Details */}
+                <Form.Group as={Col} md="3" controlId="cr_country">
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={cr_country}
+                    onChange={(val) => setcr_Country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("cr_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.cr_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* State Details  */}
+                <Form.Group as={Col} md="3" controlId="cr_state">
+                  <Form.Label>State</Form.Label>
+                  <RegionDropdown
+                    country={cr_country}
+                    value={cr_region}
+                    onChange={(val) => setcr_Region(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("cr_state", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.cr_state && (
+                    <p style={{ color: "red" }}>Please select your state</p>
+                  )}
+                </Form.Group>
+                {/* City Details  */}
+                <Form.Group as={Col} md="3" controlId="cr_city">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    placeholder="City"
+                    type="text"
+                    // {...register("cr_city", {
+                    //   required: true,
+                    //   maxLength: 25,
+                    // })}
+                  />
+                  {errors.cr_city && (
+                    <p style={{ color: "red" }}>Please enter your city</p>
+                  )}
+                </Form.Group>
+              </Row>
+              <hr />
+              <p>
+                <b>Native Place</b>
+              </p>
+              <Row className="mb-3">
+                {/* Country Details */}
+                <Form.Group as={Col} md="3" controlId="native_country">
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={native_country}
+                    onChange={(val) => setnative_Country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("native_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.native_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* State Details  */}
+                <Form.Group as={Col} md="3" controlId="native_state">
+                  <Form.Label>State</Form.Label>
+                  <RegionDropdown
+                    country={native_country}
+                    value={native_region}
+                    onChange={(val) => setnative_Region(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("native_state", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.native_state && (
+                    <p style={{ color: "red" }}>Please select your state</p>
+                  )}
+                </Form.Group>
+                {/* City Details  */}
+                <Form.Group as={Col} md="3" controlId="native_city">
+                  <Form.Label>City</Form.Label>
+                  <Form.Control
+                    placeholder="City"
+                    type="text"
+                    {...register("native_city", {
+                      required: true,
+                      maxLength: 25,
+                    })}
+                  />
+                  {errors.native_city && (
+                    <p style={{ color: "red" }}>Please enter your city</p>
+                  )}
+                </Form.Group>
+              </Row>
+              <hr />
+              <Row className="mb-3">
+                {/* Religon  */}
+                <Form.Group as={Col} md="3" controlId="religion">
+                  <Form.Label>Religion</Form.Label>
+                  <Form.Select
+                    aria-label="Default select example"
+                    {...register("religion", { required: true })}
+                  >
+                    <option disabled selected>
+                      Select
+                    </option>
+                    <option value="buddh">Buddh</option>
+                    <option value="christian">Christian</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="islam">Islam</option>
+                    <option value="jain">Jain</option>
+                    <option value="sikh">Sikh</option>
+                    <option value="zoroastrian">Zoroastrian</option>
+                    <option value="other">Other</option>
+                  </Form.Select>
+                  {errors.religion && (
+                    <p style={{ color: "red" }}>Please select your religion</p>
+                  )}
+                </Form.Group>
+                {/* Marrital Status Details  */}
+                <Form.Group as={Col} md="3" controlId="marital_status">
+                  <Form.Label>Marital Status</Form.Label>
+                  <Form.Select
+                    aria-label="Default select example"
+                    {...register("marital_status", { required: true })}
+                  >
+                    <option disabled selected>
+                      Select
+                    </option>
+                    <option value="single">Single</option>
+                    <option value="engaged">Engaged</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                  </Form.Select>
+                  {errors.marital_status && (
+                    <p style={{ color: "red" }}>
+                      Please select your marital status
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Aadhaar Card Details  */}
+                <Form.Group as={Col} md="3" controlId="aadhaar_card">
+                  <Form.Label>Aadhaar Card</Form.Label>
+                  <Form.Control
+                    placeholder="Aadhaar Card"
+                    type="text"
+                    {...register("aadhaar_card", {
+                      required: true,
+                      minLength: 12,
+                      maxLength: 12,
+                    })}
+                  />
+                  {errors.aadhaar_card && (
+                    <p style={{ color: "red" }}>
+                      Please enter your aadhaar card number
+                    </p>
+                  )}
+                </Form.Group>
+                {/* PAN Card Details  */}
+                <Form.Group as={Col} md="3" controlId="pan_card">
+                  <Form.Label>PAN Card</Form.Label>
+                  <Form.Control
+                    placeholder="PAN Card"
+                    type="text"
+                    {...register("pan_card", {
+                      required: true,
+                      minLength: 10,
+                      maxLength: 10,
+                    })}
+                  />
+                  {errors.pan_card && (
+                    <p style={{ color: "red" }}>
+                      Please enter your pan card number
+                    </p>
+                  )}
                 </Form.Group>
               </Row>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-
-        <Form.Group className="mb-3">
-          <Form.Check
-            required
-            label="Agree to terms and conditions"
-            feedback="You must agree before submitting."
-            feedbackType="invalid"
-          />
-        </Form.Group>
-        <Button type="submit">Submit form</Button>
+        <Button type="submit">Submit</Button>
       </Form>
     </div>
   );
