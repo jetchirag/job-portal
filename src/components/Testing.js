@@ -18,17 +18,14 @@ const Testing = () => {
   const [cr_region, setcr_Region] = useState("");
   const [native_country, setnative_Country] = useState("");
   const [native_region, setnative_Region] = useState("");
-<<<<<<< Updated upstream
   const [aq_higher_secondary_country, setaq_higher_secondary_country] =
     useState("");
   const [aq_graduation_country, setaq_graduation_country] = useState("");
   const [aq_post_graduation_country, setaq_post_graduation_country] =
     useState("");
 
-=======
   const [faculty, setFaculty] = useState("");
   const [depts, setDepts] = useState("");
->>>>>>> Stashed changes
   const {
     register,
     handleSubmit,
