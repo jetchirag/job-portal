@@ -4,9 +4,9 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
+import { facultiesList, list } from "../components/Form/faculties (1)";
 import Accordion from "react-bootstrap/Accordion";
 import { useForm } from "react-hook-form";
-import { facultiesList, list } from "../components/Form/faculties (1)";
 import {
   CountryDropdown,
   RegionDropdown,
@@ -23,9 +23,13 @@ const Testing = () => {
   const [aq_graduation_country, setaq_graduation_country] = useState("");
   const [aq_post_graduation_country, setaq_post_graduation_country] =
     useState("");
+  const [aq_mphil_country, setaq_mphil_country] = useState("");
+  const [aq_phd_country, setaq_phd_country] = useState("");
+  const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState("");
 
   const [faculty, setFaculty] = useState("");
   const [depts, setDepts] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -33,6 +37,16 @@ const Testing = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    let applicant = {
+      fistName: data.firstName,
+      lastName: data.lastName,
+      dob: data.dob,
+      gender: data.gender,
+      religion: data.religion,
+      marital_status: data.marital_status,
+      mobile: data.mobile,
+      email: data.email,
+    };
     let aq_higher_secondary = {
       country: aq_higher_secondary_country,
       mode: data.higher_secondary_mode,
@@ -64,13 +78,48 @@ const Testing = () => {
       division: data.post_graduation_division,
       percentage: data.post_graduation_percentage,
     };
+    let aq_mphil = {
+      country: aq_mphil_country,
+      mode: data.mphil_mode,
+      institute: data.mphil_institute,
+      college: data.mphil_college,
+      year: data.mphil_year,
+      area: data.mphil_area,
+      division: data.mphil_division,
+      percentage: data.mphil_percentage,
+    };
+    let aq_phd = {
+      country: aq_phd_country,
+      mode: data.phd_mode,
+      institute: data.phd_institute,
+      college: data.phd_college,
+      year: data.phd_year,
+      area: data.phd_area,
+      teachingExperience: data.phd_teaching_experience,
+      year2: data.phd_anti_completion_year,
+    };
+    let aq_post_doctoral = {
+      country: aq_post_doctoral_country,
+      mode: data.post_doctoral_mode,
+      institute: data.post_doctoral_institute,
+      college: data.post_doctoral_college,
+      year: data.post_doctoral_year,
+      area: data.post_doctoral_area,
+      course: data.post_doctoral_course,
+      division: data.post_doctoral_division,
+      percentage: data.post_doctoral_percentage,
+    };
     data["cr_country"] = cr_country;
     data["cr_state"] = cr_region;
     data["native_country"] = native_country;
     data["native_state"] = native_region;
+    data["applicant"] = applicant;
     data["aq_higher_secondary"] = aq_higher_secondary;
     data["aq_graduation"] = aq_graduation;
     data["aq_post_graduation"] = aq_post_graduation;
+    data["aq_mphil"] = aq_mphil;
+    data["aq_phd"] = aq_phd;
+    data["aq_post_doctoral"] = aq_post_doctoral;
     console.log(data);
   };
 
@@ -730,6 +779,7 @@ const Testing = () => {
                     placeholder="College Name"
                     type="text"
                     {...register("graduation_college", {
+                      required: true,
                       maxLength: 100,
                     })}
                   />
@@ -906,6 +956,7 @@ const Testing = () => {
                     placeholder="College Name"
                     type="text"
                     {...register("post_graduation_college", {
+                      required: true,
                       maxLength: 100,
                     })}
                   />
@@ -1014,17 +1065,501 @@ const Testing = () => {
               <p>
                 <b>M Phil</b>
               </p>
-              <Row className="mb-3"></Row>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="3" controlId="aq_mphil_country">
+                  {/* Academic Qualification M Phil Country  */}
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={aq_mphil_country}
+                    onChange={(val) => setaq_mphil_country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("cr_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.aq_mphil_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* Academic Qualification Education Mode Details  */}
+                <Form.Group as={Col} md="3" controlId="mphil_mode">
+                  <Form.Label>Education Mode</Form.Label>
+                  <Form.Select
+                    {...register("mphil_mode", {
+                      required: "Please select your mode of educatoin",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="regular">Regular</option>
+                    <option value="part-time">Part-Time</option>
+                    <option value="distance-learning-online">
+                      Distance Learning / Online
+                    </option>
+                  </Form.Select>
+                  {errors.mphil_mode && (
+                    <p style={{ color: "red" }}> {errors.mphil_mode.message}</p>
+                  )}
+                </Form.Group>
+                {/* University / Institute  */}
+                <Form.Group as={Col} md="3" controlId="mphil_institute">
+                  <Form.Label>University / Institute</Form.Label>
+                  <Form.Control
+                    placeholder="University/Institute Name"
+                    type="text"
+                    {...register("mphil_institute", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.mphil_institute && (
+                    <p style={{ color: "red" }}>
+                      Please enter your university / institute name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* College Name  */}
+                <Form.Group as={Col} md="3" controlId="mphil_college">
+                  <Form.Label>College</Form.Label>
+                  <Form.Control
+                    placeholder="College Name"
+                    type="text"
+                    {...register("mphil_college", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.mphil_college && (
+                    <p style={{ color: "red" }}>
+                      Please enter your college name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Graduation Year  */}
+                <Form.Group as={Col} md="3" controlId="mphil_year">
+                  <Form.Label>Graduation Year</Form.Label>
+                  <Form.Control
+                    placeholder="Graduation Year"
+                    type="number"
+                    {...register("mphil_year", {
+                      required: true,
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.mphil_year && (
+                    <p style={{ color: "red" }}>
+                      Please enter your m phil year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Area Details  */}
+                <Form.Group as={Col} md="3" controlId="mphil_area">
+                  <Form.Label>Area</Form.Label>
+                  <Form.Control
+                    placeholder="Area"
+                    type="text"
+                    {...register("mphil_area", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.mphil_area && (
+                    <p style={{ color: "red" }}>Please enter your area</p>
+                  )}
+                </Form.Group>
+                {/* M Phil Division Details  */}
+                <Form.Group as={Col} md="3" controlId="mphil_division">
+                  <Form.Label>Division</Form.Label>
+                  <Form.Select
+                    {...register("mphil_division", {
+                      required: "Please select your division",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="third">Third</option>
+                  </Form.Select>
+                  {errors.mphil_division && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.mphil_division.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* M Phil Aggregate Percentage  */}
+                <Form.Group as={Col} md="3" controlId="mphil_percentage">
+                  <Form.Label>Aggregate Percentage</Form.Label>
+                  <Form.Control
+                    placeholder="Aggregate Percentage"
+                    type="number"
+                    {...register("mphil_percentage", {
+                      required: true,
+                      minValue: 0,
+                      maxValue: 100,
+                    })}
+                  />
+                  {errors.mphil_percentage && (
+                    <p style={{ color: "red" }}>Please enter your percentage</p>
+                  )}
+                </Form.Group>
+              </Row>
               <hr />
               <p>
                 <b>Ph.D</b>
               </p>
-              <Row className="mb-3"></Row>
+              <Row className="mb-3">
+                {/* PHD Status Details  */}
+                <Form.Group as={Col} md="3" controlId="phd_status">
+                  <Form.Label>Status</Form.Label>
+                  <Form.Select
+                    {...register("phd_status", {
+                      required: "Please select your status",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="pursuing">Pursuing</option>
+                    <option value="awarded">awarded</option>
+                    <option value="thesis-submitted">Thesis Submitted</option>
+                  </Form.Select>
+                  {errors.phd_status && (
+                    <p style={{ color: "red" }}> {errors.phd_status.message}</p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="3" controlId="aq_phd_country">
+                  {/* Academic Qualification PhD Country  */}
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={aq_phd_country}
+                    onChange={(val) => setaq_phd_country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("cr_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.aq_phd_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* Academic Qualification Education Mode Details  */}
+                <Form.Group as={Col} md="3" controlId="phd_mode">
+                  <Form.Label>Education Mode</Form.Label>
+                  <Form.Select
+                    {...register("phd_mode", {
+                      required: "Please select your mode of educatoin",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="regular">Regular</option>
+                    <option value="part-time">Part-Time</option>
+                    <option value="distance-learning-online">
+                      Distance Learning / Online
+                    </option>
+                  </Form.Select>
+                  {errors.phd_mode && (
+                    <p style={{ color: "red" }}> {errors.phd_mode.message}</p>
+                  )}
+                </Form.Group>
+                {/* University / Institute  */}
+                <Form.Group as={Col} md="3" controlId="phd_institute">
+                  <Form.Label>University / Institute</Form.Label>
+                  <Form.Control
+                    placeholder="University/Institute Name"
+                    type="text"
+                    {...register("phd_institute", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.phd_institute && (
+                    <p style={{ color: "red" }}>
+                      Please enter your university / institute name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* College Name  */}
+                <Form.Group as={Col} md="3" controlId="phd_college">
+                  <Form.Label>College</Form.Label>
+                  <Form.Control
+                    placeholder="College Name"
+                    type="text"
+                    {...register("phd_college", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.phd_college && (
+                    <p style={{ color: "red" }}>
+                      Please enter your college name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Completion Year  */}
+                <Form.Group as={Col} md="3" controlId="phd_year">
+                  <Form.Label>Completion Year</Form.Label>
+                  <Form.Control
+                    placeholder="Completion Year"
+                    type="number"
+                    {...register("phd_year", {
+                      required: true,
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.phd_year && (
+                    <p style={{ color: "red" }}>
+                      Please enter your completion year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Area Details  */}
+                <Form.Group as={Col} md="3" controlId="phd_area">
+                  <Form.Label>Area</Form.Label>
+                  <Form.Control
+                    placeholder="Area"
+                    type="text"
+                    {...register("phd_area", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.phd_area && (
+                    <p style={{ color: "red" }}>Please enter your area</p>
+                  )}
+                </Form.Group>
+                {/* If pursuilng teaching experiance during phd  */}
+                <Form.Group as={Col} md="3" controlId="phd_teaching_experience">
+                  <Form.Label>
+                    If pursuing, teaching experience during PhD
+                  </Form.Label>
+                  <Form.Select
+                    {...register("phd_teaching_experience", {
+                      required: "Please select your mode of educatoin",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </Form.Select>
+                  {errors.phd_teaching_experience && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.phd_teaching_experience.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Anticipated Completion Year  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="phd_anti_completion_year"
+                >
+                  <Form.Label>Anticipated Completion Year</Form.Label>
+                  <Form.Control
+                    placeholder="Anticipated Completion Year"
+                    type="number"
+                    {...register("phd_anti_completion_year", {
+                      required: true,
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.phd_anti_completion_year && (
+                    <p style={{ color: "red" }}>
+                      Please enter your anticipated completion year
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
               <hr />
               <p>
                 <b>Post Doctoral</b>
               </p>
-              <Row className="mb-3"></Row>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="aq_post_doctoral_country"
+                >
+                  {/* Academic Qualification Post Doctoral Country  */}
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={aq_post_doctoral_country}
+                    onChange={(val) => setaq_post_doctoral_country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("cr_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.post_doctoral_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* Academic Qualification Education Mode Details  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_mode">
+                  <Form.Label>Education Mode</Form.Label>
+                  <Form.Select
+                    {...register("post_doctoral_mode", {
+                      required: "Please select your mode of educatoin",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="regular">Regular</option>
+                    <option value="part-time">Part-Time</option>
+                    <option value="distance-learning-online">
+                      Distance Learning / Online
+                    </option>
+                  </Form.Select>
+                  {errors.post_doctoral_mode && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.post_doctoral_mode.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* University / Institute  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_institute">
+                  <Form.Label>University / Institute</Form.Label>
+                  <Form.Control
+                    placeholder="University/Institute Name"
+                    type="text"
+                    {...register("post_doctoral_institute", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.post_doctoral_institute && (
+                    <p style={{ color: "red" }}>
+                      Please enter your university / institute name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* College Name  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_college">
+                  <Form.Label>College</Form.Label>
+                  <Form.Control
+                    placeholder="College Name"
+                    type="text"
+                    {...register("post_doctoral_college", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.post_doctoral_college && (
+                    <p style={{ color: "red" }}>
+                      Please enter your college name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Graduation Year  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_year">
+                  <Form.Label>Year</Form.Label>
+                  <Form.Control
+                    placeholder="Graduation Year"
+                    type="number"
+                    {...register("post_doctoral_year", {
+                      required: true,
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.post_doctoral_year && (
+                    <p style={{ color: "red" }}>
+                      Please enter your post doctoral year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Area Details  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_area">
+                  <Form.Label>Area</Form.Label>
+                  <Form.Control
+                    placeholder="Area"
+                    type="text"
+                    {...register("post_doctoral_area", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.post_doctoral_area && (
+                    <p style={{ color: "red" }}>Please enter your area</p>
+                  )}
+                </Form.Group>
+                {/* Course Details  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_course">
+                  <Form.Label>Course Name</Form.Label>
+                  <Form.Control
+                    placeholder="Course Name"
+                    type="text"
+                    {...register("post_doctoral_course", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.post_doctoral_course && (
+                    <p style={{ color: "red" }}>
+                      Please enter your course name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Graduation Division Details  */}
+                <Form.Group as={Col} md="3" controlId="post_doctoral_division">
+                  <Form.Label>Division</Form.Label>
+                  <Form.Select
+                    {...register("post_doctoral_division", {
+                      required: "Please select your division",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="third">Third</option>
+                  </Form.Select>
+                  {errors.post_doctoral_division && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.post_doctoral_division.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Graduation Aggregate Percentage  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="post_doctoral_percentage"
+                >
+                  <Form.Label>Aggregate Percentage</Form.Label>
+                  <Form.Control
+                    placeholder="Aggregate Percentage"
+                    type="number"
+                    {...register("post_doctoral_percentage", {
+                      required: true,
+                      minValue: 0,
+                      maxValue: 100,
+                    })}
+                  />
+                  {errors.post_doctoral_percentage && (
+                    <p style={{ color: "red" }}>Please enter your percentage</p>
+                  )}
+                </Form.Group>
+              </Row>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
