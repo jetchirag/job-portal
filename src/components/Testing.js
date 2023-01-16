@@ -241,24 +241,27 @@ const Testing = () => {
                     </p>
                   )}
                 </Form.Group>
-                <Form.Group
-                  as={Col}
-                  md="3"
-                  controlId="faculty"
-                  {...register("natureofjob", {
-                    required: true,
-                  })}
-                >
+                <Form.Group as={Col} md="3" controlId="faculty">
                   <Form.Label>Nature of Job</Form.Label>
                   <Form.Check
                     type={"radio"}
                     placeholder="acad"
                     label={"Full-time"}
+                    id={"natureofjob"}
+                    name={"natureofjob"}
+                    {...register("natureofjob", {
+                      required: true,
+                    })}
                   />
                   <Form.Check
                     type={"radio"}
                     placeholder="acad"
                     label={"Part-time"}
+                    id={"natureofjob"}
+                    name={"natureofjob"}
+                    {...register("natureofjob", {
+                      required: true,
+                    })}
                   />
 
                   {errors.natureofjob && (
@@ -1830,6 +1833,252 @@ const Testing = () => {
                   </tbody>
                 </Table>
               </Form.Group>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="12">
+            <Accordion.Header>12. Other Information</Accordion.Header>
+            <Accordion.Body>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="12"
+                  {...register("previoussalary", {
+                    required: true,
+                  })}
+                >
+                  <Form.Label>
+                    Present / Last Drawn salary (monthly in INR)
+                  </Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Amount" />
+                  {errors.previoussalary && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                  {...register("noticeperiod", {
+                    required: true,
+                  })}
+                >
+                  <Form.Label>Notice period (in Days)</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Days" />
+                  {errors.noticeperiod && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+
+                <Form.Group as={Col} md="12">
+                  <Form.Label>Do You Know anyone in MUJ ?</Form.Label>
+                  <Form.Check
+                    type="radio"
+                    label="Yes"
+                    value={"Yes"}
+                    name={"knowanyone"}
+                    {...register("knowanyone", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  <Form.Check
+                    type="radio"
+                    label="No"
+                    value={"No"}
+                    name={"knowanyone"}
+                    {...register("knowanyone", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  {errors.knowanyone && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="12">
+                  <Form.Label>
+                    <u>if Yes?</u>
+                  </Form.Label>
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Name" />
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>Designation</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    placeholder="Designation"
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>Department</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    placeholder="Department"
+                  />
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                 
+                >
+                  <Form.Label>
+                    Have you ever been interviewed in MUJ earlier?
+                  </Form.Label>
+                  <Form.Check
+                    type="radio"
+                    label="Yes"
+                    value={"Yes"}
+                    name={"interviewed"}
+                    {...register("interviewed", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  <Form.Check
+                    type="radio"
+                    label="No"
+                    value={"No"}
+                    name={"interviewed"}
+                    {...register("interviewed", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  {errors.interviewed && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                 
+                >
+                  <Form.Label>Given Offer to join?</Form.Label>
+                  <Form.Check
+                    type="radio"
+                    label="Yes"
+                    value={"Yes"}
+                    name={"offerjoined"}
+                    {...register("offerjoined", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  <Form.Check
+                    type="radio"
+                    label="No"
+                    value={"No"}
+                    name={"offerjoined"}
+                    {...register("offerjoined", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  {errors.offerjoined && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                 
+                >
+                  <Form.Label>Joined?</Form.Label>
+                  <Form.Check
+                    type="radio"
+                    label="Yes"
+                    value={"Yes"}
+                    name={"joined"}
+                    {...register("joined", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  <Form.Check
+                    type="radio"
+                    label="No"
+                    value={"No"}
+                    name={"joined"}
+                    {...register("joined", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  {errors.joined && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                  
+                >
+                  <Form.Label>
+                    Have you ever been punished during your service or convicted
+                    by a court of law?
+                  </Form.Label>
+                  <Form.Check
+                    type="radio"
+                    label="Yes"
+                    value={"Yes"}
+                    name={"convicted"}
+                    {...register("convicted", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  <Form.Check
+                    type="radio"
+                    label="No"
+                    value={"No"}
+                    name={"convicted"}
+                    {...register("convicted", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  {errors.convicted && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="12">
+                  <Form.Label>
+                    <u>is Yes, Please Explain</u>
+                  </Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Explain" />
+                </Form.Group>
+                <Form.Group
+                  as={Col}
+                  md="12"
+                 
+                >
+                  <Form.Label>
+                    Do you have any case pending against you in court of law?
+                  </Form.Label>
+                  <Form.Check
+                    type="radio"
+                    label="Yes"
+                    value={"Yes"}
+                    name={"pendingcases"}
+                    id={"pendingcases"}
+                    {...register("pendingcases", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  <Form.Check
+                    type="radio"
+                    label="No"
+                    value={"No"}
+                    name={"pendingcases"}
+                    id={"pendingcases"}
+                    {...register("pendingcases", {
+                      required: true,
+                    })}
+                  ></Form.Check>
+                  {errors.pendingcases && (
+                    <p style={{ color: "red" }}>Please enter</p>
+                  )}
+                </Form.Group>
+                <Form.Group as={Col} md="12">
+                  <Form.Label>
+                    <u>is Yes, Please Explain</u>
+                  </Form.Label>
+                  <Form.Control size="sm" type="text" placeholder="Explain" />
+                </Form.Group>
+              </Row>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
