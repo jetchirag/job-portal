@@ -6,6 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Row from "react-bootstrap/Row";
 import { facultiesList, list } from "../components/Form/faculties (1)";
 import Accordion from "react-bootstrap/Accordion";
+import { Table } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import {
   CountryDropdown,
@@ -14,6 +15,23 @@ import {
 } from "react-country-region-selector";
 
 const Testing = () => {
+  const [part8, setPart8] = useState(true);
+  const handlePart8 = () => {
+    setPart8(!part8);
+  };
+  const [part9, setPart9] = useState(true);
+  const handlePart9 = () => {
+    setPart9(!part9);
+  };
+  const [part10, setPart10] = useState(true);
+  const handlePart10 = () => {
+    setPart10(!part10);
+  };
+
+  const [part11, setPart11] = useState(true);
+  const handlePart11 = () => {
+    setPart11(!part11);
+  };
   const [cr_country, setcr_Country] = useState("");
   const [cr_region, setcr_Region] = useState("");
   const [native_country, setnative_Country] = useState("");
@@ -126,7 +144,8 @@ const Testing = () => {
   return (
     <div className="my-4">
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Accordion defaultActiveKey="2">
+        {/* This is part 1 */}
+        <Accordion style={{ padding: "5%" }}>
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body>
@@ -135,6 +154,7 @@ const Testing = () => {
                   <Form.Label>Job Type</Form.Label>
 
                   <Form.Select
+                    size="sm"
                     aria-label="Default Job Type"
                     {...register("jobtype", {
                       required: true,
@@ -154,6 +174,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="faculty">
                   <Form.Label>Faculty</Form.Label>
                   <Form.Select
+                    size="sm"
                     aria-label="Default Faculty Type"
                     {...register("faculty", {
                       required: true,
@@ -177,6 +198,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="school">
                   <Form.Label>School</Form.Label>
                   <Form.Select
+                    size="sm"
                     aria-label="Default Faculty Type"
                     {...register("school", {
                       required: true,
@@ -198,6 +220,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="faculty">
                   <Form.Label>Department</Form.Label>
                   <Form.Select
+                    size="sm"
                     aria-label="Default Faculty Type"
                     {...register("dept", {
                       required: true,
@@ -247,6 +270,7 @@ const Testing = () => {
               </Row>
             </Accordion.Body>
           </Accordion.Item>
+          {/* This is part 2 */}
           <Accordion.Item eventKey="1">
             <Accordion.Header>2. Personal Information</Accordion.Header>
             <Accordion.Body>
@@ -255,6 +279,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="firstName">
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="First Name"
                     type="text"
                     {...register("firstName", {
@@ -270,6 +295,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="lastName">
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Last Name"
                     type="text"
                     {...register("lastName", { required: true, maxLength: 20 })}
@@ -282,6 +308,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="dob">
                   <Form.Label>Date of Birth</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="DD/MM/YYYY"
                     type="date"
                     {...register("dob", { required: true })}
@@ -294,11 +321,14 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="gender">
                   <Form.Label>Gender</Form.Label>
                   <Form.Select
+                    size="sm"
                     {...register("gender", {
                       required: "Please select your gender",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                   </Form.Select>
@@ -314,6 +344,7 @@ const Testing = () => {
                       +91
                     </InputGroup.Text>
                     <Form.Control
+                      size="sm"
                       placeholder="Mobile No."
                       type="tel"
                       {...register("mobile", {
@@ -337,6 +368,7 @@ const Testing = () => {
                   <InputGroup hasValidation>
                     <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
                     <Form.Control
+                      size="sm"
                       placeholder="Email ID"
                       type="email"
                       {...register("email", {
@@ -404,6 +436,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="cr_city">
                   <Form.Label>City</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="City"
                     type="text"
                     {...register("cr_city", {
@@ -468,6 +501,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="native_city">
                   <Form.Label>City</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="City"
                     type="text"
                     {...register("native_city", {
@@ -486,12 +520,15 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="religion">
                   <Form.Label>Religion</Form.Label>
                   <Form.Select
+                    size="sm"
                     aria-label="Default select example"
                     {...register("religion", {
                       required: "Please select your religion",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="buddh">Buddh</option>
                     <option value="christian">Christian</option>
                     <option value="hindu">Hindu</option>
@@ -509,12 +546,15 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="marital_status">
                   <Form.Label>Marital Status</Form.Label>
                   <Form.Select
+                    size="sm"
                     aria-label="Default select example"
                     {...register("marital_status", {
                       required: "Please select your marital status",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="single">Single</option>
                     <option value="engaged">Engaged</option>
                     <option value="married">Married</option>
@@ -531,6 +571,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="aadhaar_card">
                   <Form.Label>Aadhaar Card</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Aadhaar Card"
                     type="text"
                     {...register("aadhaar_card", {
@@ -549,6 +590,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="pan_card">
                   <Form.Label>PAN Card</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="PAN Card"
                     type="text"
                     {...register("pan_card", {
@@ -566,6 +608,7 @@ const Testing = () => {
               </Row>
             </Accordion.Body>
           </Accordion.Item>
+          {/*This is part 3  */}
           <Accordion.Item eventKey="2">
             <Accordion.Header>
               3. Academic / Professional Qualificaiton
@@ -605,11 +648,14 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="higher_secondary_mode">
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
+                    size="sm"
                     {...register("higher_secondary_mode", {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -627,6 +673,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="school">
                   <Form.Label>School</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="School Name"
                     type="text"
                     {...register("school", {
@@ -644,6 +691,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="board">
                   <Form.Label>Board</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Board Name"
                     type="text"
                     {...register("board", {
@@ -659,6 +707,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="passingYear">
                   <Form.Label>Passing Year</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Passing Year"
                     type="number"
                     {...register("passingYear", {
@@ -677,11 +726,14 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="division">
                   <Form.Label>Division</Form.Label>
                   <Form.Select
+                    size="sm"
                     {...register("division", {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -694,6 +746,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="percentage">
                   <Form.Label>Aggregate Percentage</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Aggregate Percentage"
                     type="number"
                     {...register("percentage", {
@@ -737,11 +790,14 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_mode">
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
+                    size="sm"
                     {...register("graduation_mode", {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -759,6 +815,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_institute">
                   <Form.Label>University / Institute</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="University/Institute Name"
                     type="text"
                     {...register("graduation_institute", {
@@ -776,6 +833,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_college">
                   <Form.Label>College</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="College Name"
                     type="text"
                     {...register("graduation_college", {
@@ -793,6 +851,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_year">
                   <Form.Label>Graduation Year</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Graduation Year"
                     type="number"
                     {...register("graduation_year", {
@@ -811,6 +870,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_area">
                   <Form.Label>Area</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Area"
                     type="text"
                     {...register("graduation_area", {
@@ -826,6 +886,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_course">
                   <Form.Label>Course Name</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Course Name"
                     type="text"
                     {...register("graduation_course", {
@@ -843,11 +904,14 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_division">
                   <Form.Label>Division</Form.Label>
                   <Form.Select
+                    size="sm"
                     {...register("graduation_division", {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -863,6 +927,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="graduation_percentage">
                   <Form.Label>Aggregate Percentage</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Aggregate Percentage"
                     type="number"
                     {...register("graduation_percentage", {
@@ -914,7 +979,9 @@ const Testing = () => {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -953,6 +1020,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="post_graduation_college">
                   <Form.Label>College</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="College Name"
                     type="text"
                     {...register("post_graduation_college", {
@@ -970,6 +1038,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="post_graduation_year">
                   <Form.Label>Graduation Year</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Graduation Year"
                     type="number"
                     {...register("post_graduation_year", {
@@ -988,6 +1057,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="post_graduation_area">
                   <Form.Label>Area</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Area"
                     type="text"
                     {...register("post_graduation_area", {
@@ -1003,6 +1073,7 @@ const Testing = () => {
                 <Form.Group as={Col} md="3" controlId="post_graduation_course">
                   <Form.Label>Course Name</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Course Name"
                     type="text"
                     {...register("post_graduation_course", {
@@ -1024,11 +1095,14 @@ const Testing = () => {
                 >
                   <Form.Label>Division</Form.Label>
                   <Form.Select
+                    size="sm"
                     {...register("post_graduation_division", {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="" />
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -1048,6 +1122,7 @@ const Testing = () => {
                 >
                   <Form.Label>Aggregate Percentage</Form.Label>
                   <Form.Control
+                    size="sm"
                     placeholder="Aggregate Percentage"
                     type="number"
                     {...register("post_graduation_percentage", {
@@ -1560,6 +1635,201 @@ const Testing = () => {
                   )}
                 </Form.Group>
               </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+          {/*This is part 8  */}
+          <Accordion.Item eventKey="8">
+            <Accordion.Header>
+              8.Books Authored/Co-Authored/Edited/Co-Edited (in last three
+              years)
+            </Accordion.Header>
+            <Accordion.Body>
+              <Form.Check
+                type="checkbox"
+                label="if Yes?"
+                onClick={handlePart8}
+              ></Form.Check>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="3" disabled={part8}>
+                  <Form.Label>Details</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    as="textarea"
+                    rows={1}
+                    disabled={part8}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>ISBN Number</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    rows={3}
+                    disabled={part8}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>Written As</Form.Label>
+                  <Form.Select size="sm" type="text" rows={3} disabled={part8}>
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option>Principal Writer</option>
+                    <option>Co Writer</option>
+                  </Form.Select>
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="9">
+            <Accordion.Header>
+              9. Patent Details (in last three years)
+            </Accordion.Header>
+            <Accordion.Body>
+              <Form.Check
+                type="checkbox"
+                label="if Yes?"
+                onClick={handlePart9}
+              ></Form.Check>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="3" disabled={part9}>
+                  <Form.Label>Patent Details</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    as="textarea"
+                    rows={1}
+                    disabled={part9}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    type="text"
+                    rows={3}
+                    disabled={part9}
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md="3">
+                  <Form.Label>Patent Status</Form.Label>
+                  <Form.Select size="sm" type="text" rows={3} disabled={part9}>
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option>Filled</option>
+                    <option>Granted</option>
+                  </Form.Select>
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="10">
+            <Accordion.Header>
+              10. Consultancy (in last three years)
+            </Accordion.Header>
+            <Accordion.Body>
+              <Form.Check
+                type="checkbox"
+                label="if Yes?"
+                onClick={handlePart10}
+              ></Form.Check>
+              <Form.Group>
+                <Table responsive="sm">
+                  <thead>
+                    <td>#</td>
+                    <td>No. assignments</td>
+                    <td>for Amount (in INR)</td>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Completed</td>
+                      <td>
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part10}
+                        />
+                      </td>
+                      <td>
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part10}
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>ongoing</td>
+                      <td>
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part10}
+                        />
+                      </td>
+                      <td>
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part10}
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Form.Group>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="11">
+            <Accordion.Header>11. Peer Recognition / Awards</Accordion.Header>
+            <Accordion.Body>
+              <Form.Check
+                type="checkbox"
+                label="if Yes?"
+                onClick={handlePart11}
+              ></Form.Check>
+              <Form.Group>
+                <Table responsive="sm">
+                  <thead>
+                    <td>Awards / Honors</td>
+                    <td>No. assignments</td>
+                    <td>for Amount (in INR)</td>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        {" "}
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part11}
+                        />
+                      </td>
+                      <td>
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part11}
+                        />
+                      </td>
+                      <td>
+                        <Form.Control
+                          size="sm"
+                          type="text"
+                          rows={3}
+                          disabled={part11}
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Form.Group>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
