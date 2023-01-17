@@ -175,6 +175,38 @@ const Testing = () => {
       nop_three_web_science: data.research_nop_three_web_science,
       nop_three_google_scholar: data.research_nop_three_google_scholar,
       nop_three_scopus: data.research_nop_three_scopus,
+      number_citations: data.research_number_citations,
+      completed_funded_projects: data.research_completed_funded_projects,
+      amount_completed_funded_projects:
+        data.research_amount_completed_funded_projects,
+      ongoing_funded_projects: data.research_ongoing_funded_projects,
+      amount_ongoing_funded_projects:
+        data.research_amount_ongoing_funded_projects,
+      presented_total: data.research_presented_total,
+      presented_national: data.research_presented_national,
+      presented_international: data.research_presented_international,
+      attended_total: data.research_attended_total,
+      attended_national: data.research_attended_national,
+      attended_international: data.research_attended_international,
+      organized_total: data.research_organized_total,
+      organized_national: data.research_organized_national,
+      organized_international: data.research_organized_international,
+      guidance_completed_independent_mphil:
+        data.research_guidance_completed_independent_mphil,
+      guidance_completed_independent_phd:
+        data.research_guidance_completed_independent_phd,
+      guidance_completed_supervisor_mphil:
+        data.research_guidance_completed_supervisor_mphil,
+      guidance_completed_supervisor_phd:
+        data.research_guidance_completed_supervisor_phd,
+      guidance_supervision_independent_mphil:
+        data.research_guidance_supervision_independent_mphil,
+      guidance_supervision_independent_phd:
+        data.research_guidance_supervision_independent_phd,
+      guidance_supervision_supervisor_mphil:
+        data.research_guidance_supervision_supervisor_mphil,
+      guidance_supervision_supervisor_phd:
+        data.research_guidance_supervision_supervisor_phd,
     };
 
     data["cr_country"] = cr_country;
@@ -2578,6 +2610,575 @@ const Testing = () => {
                   )}
                 </Form.Group>
               </Row>
+              <hr />
+              <p>
+                <b>Number of citations (in last three years)</b>
+              </p>
+              <Row className="mb-3">
+                {/* Number of citations (in last three years) */}
+                <Form.Group
+                  as={Col}
+                  md="6"
+                  controlId="research_number_citations"
+                >
+                  <Form.Control
+                    size="sm"
+                    placeholder="Number of citations (in last three years)"
+                    type="number"
+                    {...register("research_number_citations", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_number_citations && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of citations (in last three
+                      years)
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              {/* No. of Funded Projects (in last three years) */}
+              <hr />
+              <p>
+                <b>No. of Funded Projects (in last three years)</b>
+              </p>
+              <hr />
+              <p>Completed</p>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="6"
+                  controlId="research_completed_funded_projects"
+                >
+                  <Form.Label>No. of Projects</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Number of citations (in last three years)"
+                    type="number"
+                    {...register("research_completed_funded_projects", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_completed_funded_projects && (
+                    <p style={{ color: "red" }}>
+                      Please enter total no. of funded projects (in last three
+                      years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Amount  */}
+                <Form.Group
+                  as={Col}
+                  md="6"
+                  controlId="research_amount_completed_funded_projects"
+                >
+                  <Form.Label>Amount (INR)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Number of citations (in last three years)"
+                    type="number"
+                    {...register("research_amount_completed_funded_projects", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_amount_completed_funded_projects && (
+                    <p style={{ color: "red" }}>
+                      Please enter amount of funds (in last three years)
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              <hr />
+              <p>Ongoing</p>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="6"
+                  controlId="research_ongoing_funded_projects"
+                >
+                  <Form.Label>No. of Projects</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Number of citations (in last three years)"
+                    type="number"
+                    {...register("research_ongoing_funded_projects", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_ongoing_funded_projects && (
+                    <p style={{ color: "red" }}>
+                      Please enter total no. of funded projects (in last three
+                      years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Amount  */}
+                <Form.Group
+                  as={Col}
+                  md="6"
+                  controlId="research_amount_ongoing_funded_projects"
+                >
+                  <Form.Label>Amount (INR)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Number of citations (in last three years)"
+                    type="number"
+                    {...register("research_amount_ongoing_funded_projects", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_amount_ongoing_funded_projects && (
+                    <p style={{ color: "red" }}>
+                      Please enter amount of funds (in last three years)
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              {/* No. of conferences, seminars, workshops, training programmes (in last three years) */}
+              <hr />
+              <p>
+                <b>
+                  No. of conferences, seminars, workshops, training programmes
+                  (in last three years)
+                </b>
+              </p>
+              <hr />
+              <p>Presented at</p>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_presented_total"
+                >
+                  <Form.Label>Total (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Total"
+                    type="number"
+                    {...register("research_presented_total", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_presented_total && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes present in (in last three
+                      years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* National */}
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_presented_national"
+                >
+                  <Form.Label>National (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="National"
+                    type="number"
+                    {...register("research_presented_national", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_presented_national && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes present (national) in (in
+                      last three years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* International */}
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_presented_international"
+                >
+                  <Form.Label>International (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="International"
+                    type="number"
+                    {...register("research_presented_international", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_presented_international && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes present (international) in
+                      (in last three years)
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              <hr />
+              <p>Attended</p>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="4" controlId="research_attended_total">
+                  <Form.Label>Total (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Total"
+                    type="number"
+                    {...register("research_attended_total", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_attended_total && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes attended in (in last three
+                      years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* National */}
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_attended_national"
+                >
+                  <Form.Label>National (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="National"
+                    type="number"
+                    {...register("research_attended_national", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_attended_national && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes attended (national) in (in
+                      last three years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* International */}
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_attended_international"
+                >
+                  <Form.Label>International (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="International"
+                    type="number"
+                    {...register("research_attended_international", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_attended_international && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes attended (international) in
+                      (in last three years)
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              <hr />
+              <p>Organized</p>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_organized_total"
+                >
+                  <Form.Label>Total (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Total"
+                    type="number"
+                    {...register("research_organized_total", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_organized_total && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes organized in (in last three
+                      years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* National */}
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_organized_national"
+                >
+                  <Form.Label>National (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="National"
+                    type="number"
+                    {...register("research_organized_national", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_organized_national && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes organized (national) in (in
+                      last three years)
+                    </p>
+                  )}
+                </Form.Group>
+                {/* International */}
+                <Form.Group
+                  as={Col}
+                  md="4"
+                  controlId="research_organized_international"
+                >
+                  <Form.Label>International (No.)</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="International"
+                    type="number"
+                    {...register("research_organized_international", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_organized_international && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of conferences, seminars,
+                      workshops, training programmes organized (international)
+                      in (in last three years)
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              {/* Research Guidance (in last three years) */}
+              <hr />
+              <p>
+                <b>Research Guidance (in last three years)</b>
+              </p>
+              <hr />
+              <p>Successfully Completed</p>
+              <div className="container border rounded-2">
+                <p>Independent</p>
+                {/* M Phil. Equivalent (No.) */}
+                <Row className="mb-3">
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_completed_independent_mphil"
+                  >
+                    <Form.Label>M Phil. Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="M Phil. Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_completed_independent_mphil",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_completed_independent_mphil && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of m phil. equivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                  {/* PhD Equivalent (No.) */}
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_completed_independent_phd"
+                  >
+                    <Form.Label>PhD Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="PhD Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_completed_independent_phd",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_completed_independent_phd && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of phd quivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                </Row>
+                <hr />
+                <p>As Co-supervisor</p>
+                <Row className="mb-3">
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_completed_supervisor_mphil"
+                  >
+                    <Form.Label>M Phil. Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="M Phil. Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_completed_supervisor_mphil",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_completed_supervisor_mphil && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of m phil. equivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                  {/* PhD Equivalent (No.) */}
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_completed_supervisor_phd"
+                  >
+                    <Form.Label>PhD Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="PhD Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_completed_supervisor_phd",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_completed_supervisor_phd && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of phd quivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                </Row>
+              </div>
+              {/* Under Supervision */}
+              <hr />
+              <p>Under Supervision</p>
+              <div className="container border rounded-2">
+                <p>Independent</p>
+                <Row className="mb-3">
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_supervision_independent_mphil"
+                  >
+                    <Form.Label>M Phil. Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="M Phil. Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_supervision_independent_mphil",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_supervision_independent_mphil && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of m phil. equivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                  {/* PhD Equivalent (No.) */}
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_supervision_independent_phd"
+                  >
+                    <Form.Label>PhD Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="PhD Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_supervision_independent_phd",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_supervision_independent_phd && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of phd quivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                </Row>
+                <hr />
+                <p>As Co-supervisor</p>
+                <Row className="mb-3">
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_supervision_supervisor_mphil"
+                  >
+                    <Form.Label>M Phil. Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="M Phil. Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_supervision_supervisor_mphil",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_supervision_supervisor_mphil && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of m phil. equivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                  {/* PhD Equivalent (No.) */}
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="research_guidance_supervision_supervisor_phd"
+                  >
+                    <Form.Label>PhD Equivalent (No.)</Form.Label>
+                    <Form.Control
+                      size="sm"
+                      placeholder="PhD Equivalent (No.)"
+                      type="number"
+                      {...register(
+                        "research_guidance_supervision_supervisor_phd",
+                        {
+                          maxLength: 15,
+                        }
+                      )}
+                    />
+                    {errors.research_guidance_supervision_supervisor_phd && (
+                      <p style={{ color: "red" }}>
+                        Please enter total number of phd quivalent research
+                        guidance
+                      </p>
+                    )}
+                  </Form.Group>
+                </Row>
+              </div>
             </Accordion.Body>
           </Accordion.Item>
 
