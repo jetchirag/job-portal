@@ -158,6 +158,24 @@ const Testing = () => {
       dateFrom: data.nonAcademicExperience_datefrom,
       dateTo: data.nonAcademicExperience_dateto,
     };
+    let research = {
+      orcid: data.research_orcid,
+      scopus: data.research_scopus,
+      webofscience: data.research_webofscience,
+      cif: data.research_cif,
+      nop_total: data.research_nop_total,
+      nop_ugc_care_list: data.research_nop_ugc_care_list,
+      nop_sci: data.research_nop_sci,
+      nop_web_science: data.research_nop_web_science,
+      nop_google_scholar: data.research_nop_google_scholar,
+      nop_scopus: data.research_nop_scopus,
+      nop_three_total: data.research_nop_three_total,
+      nop_three_ugc_care_list: data.research_nop_three_ugc_care_list,
+      nop_three_sci: data.research_nop_three_sci,
+      nop_three_web_science: data.research_nop_three_web_science,
+      nop_three_google_scholar: data.research_nop_three_google_scholar,
+      nop_three_scopus: data.research_nop_three_scopus,
+    };
 
     data["cr_country"] = cr_country;
     data["cr_state"] = cr_region;
@@ -173,6 +191,7 @@ const Testing = () => {
     data["academicQualification"] = academicQualification;
     data["academicExperience"] = academicExperience;
     data["nonAcademicExperience"] = nonAcademicExperience;
+    data["research"] = research;
     console.log(data);
   };
 
@@ -2137,6 +2156,424 @@ const Testing = () => {
                   {errors.nonAcademicExperience_dateto && (
                     <p style={{ color: "red" }}>
                       Please select the date you are working to
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+          {/* This is part 6 */}
+          <Accordion.Item eventKey="5">
+            <Accordion.Header>6. Fellowships Achieved</Accordion.Header>
+            <Accordion.Body>
+              <Row className="mb-3">
+                {/* Fellowship Details  */}
+                <Form.Group as={Col} md="12" controlId="fellowship_details">
+                  <Form.Label>Fellowship Detail</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Fellowship Detail"
+                    type="text"
+                    {...register("fellowship_details", {
+                      required: false,
+                      maxLength: 300,
+                    })}
+                  />
+                  {errors.fellowship_details && (
+                    <p style={{ color: "red" }}>
+                      Please enter your fellowship detail
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Fellowship Year Detail  */}
+                <Form.Group as={Col} md="3" controlId="fellowship_year">
+                  <Form.Label>Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Year"
+                    type="number"
+                    {...register("fellowship_year", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.fellowship_year && (
+                    <p style={{ color: "red" }}>
+                      Please enter your fellowship year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Fellowship Amount Detail  */}
+                <Form.Group as={Col} md="3" controlId="fellowship_amount">
+                  <Form.Label>Amount per annum</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Amount per annum"
+                    type="number"
+                    {...register("fellowship_amount", {
+                      maxLength: 15,
+                      minLength: 0,
+                    })}
+                  />
+                  {errors.fellowship_amount && (
+                    <p style={{ color: "red" }}>
+                      Please enter your fellowship amount per annum
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Fellowship Status Details  */}
+                <Form.Group as={Col} md="3" controlId="fellowship_status">
+                  <Form.Label>Fellowship Status</Form.Label>
+                  <Form.Select
+                    {...register("fellowship_status", {
+                      required: "Please select your fellowship status",
+                    })}
+                  >
+                    <option value="" />
+                    <option value="ongoing">Ongoing</option>
+                    <option value="completed">Completed</option>
+                  </Form.Select>
+                  {errors.fellowship_status && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.fellowship_status.message}
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+          {/* This is part 7  */}
+          <Accordion.Item eventKey="6">
+            <Accordion.Header>7. Research Work</Accordion.Header>
+            <Accordion.Body>
+              <Row className="mb-3">
+                {/* Research Work Main  */}
+                <Form.Group as={Col} md="6" controlId="research_orcid">
+                  <Form.Label>Your orcid ID</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="orcid ID"
+                    type="text"
+                    {...register("research_orcid", {
+                      required: false,
+                      maxLength: 400,
+                    })}
+                  />
+                  {errors.research_orcid && (
+                    <p style={{ color: "red" }}>Please enter your orcid ID</p>
+                  )}
+                </Form.Group>
+                {/* h-Index as per SCOPUS */}
+                <Form.Group as={Col} md="6" controlId="research_scopus">
+                  <Form.Label>h-Index as per SCOPUS</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="h-Index - SCOPUS"
+                    type="text"
+                    {...register("research_scopus", {
+                      required: false,
+                      maxLength: 400,
+                    })}
+                  />
+                  {errors.research_scopus && (
+                    <p style={{ color: "red" }}>
+                      Please enter your h-Index as per SCOPUS
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              <Row className="mb-3">
+                {/* h-Index as per Web of science  */}
+                <Form.Group as={Col} md="6" controlId="research_webofscience">
+                  <Form.Label>h-Index as per Web of science</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="h-Index"
+                    type="text"
+                    {...register("research_webofscience", {
+                      required: false,
+                      maxLength: 400,
+                    })}
+                  />
+                  {errors.research_webofscience && (
+                    <p style={{ color: "red" }}>
+                      Please enter your h-Index as per Web of science
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Cumulative Impact Factor */}
+                <Form.Group as={Col} md="6" controlId="research_cif">
+                  <Form.Label>Cumulative Impact Factor</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Cumulative Impact Factor"
+                    type="text"
+                    {...register("research_cif", {
+                      required: false,
+                      maxLength: 400,
+                    })}
+                  />
+                  {errors.research_cif && (
+                    <p style={{ color: "red" }}>
+                      Please enter your Cumulative Impact Factor
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              {/* Number of publications */}
+              <hr />
+              <p>
+                <b>Number of publications</b>
+              </p>
+              <hr />
+              <p>Research Paper Published (Total)</p>
+              <Row className="mb-3">
+                <Form.Group as={Col} md="3" controlId="research_nop_total">
+                  <Form.Label>Total</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Total"
+                    type="number"
+                    {...register("research_nop_total", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_total && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published
+                    </p>
+                  )}
+                </Form.Group>
+                {/* As per UGC Care List */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_ugc_care_list"
+                >
+                  <Form.Label>As per UGC Care List</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="As per UGC Care List"
+                    type="number"
+                    {...register("research_nop_ugc_care_list", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_ugc_care_list && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published as
+                      per UGC care list
+                    </p>
+                  )}
+                </Form.Group>
+                {/* SCI */}
+                <Form.Group as={Col} md="3" controlId="research_nop_sci">
+                  <Form.Label>SCI</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="SCI"
+                    type="number"
+                    {...register("research_nop_sci", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_sci && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published SCI
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Web of Science */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_web_science"
+                >
+                  <Form.Label>Web of Science</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Web of Science"
+                    type="number"
+                    {...register("research_nop_web_science", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_web_science && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published web
+                      of science
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Google Scholar */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_google_scholar"
+                >
+                  <Form.Label>Google Scholar</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Google Scholar"
+                    type="number"
+                    {...register("research_nop_google_scholar", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_google_scholar && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published on
+                      google scholar
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Scopus */}
+                <Form.Group as={Col} md="3" controlId="research_nop_scopus">
+                  <Form.Label>Scopus</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Scopus"
+                    type="number"
+                    {...register("research_nop_scopus", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_scopus && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published on
+                      scopus
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              {/* Research Paper Published in the last three years  */}
+              <hr />
+              <p>Research Paper Published in the last three years</p>
+              <Row className="mb-3">
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_three_total"
+                >
+                  <Form.Label>Total</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Total"
+                    type="number"
+                    {...register("research_nop_three_total", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_three_total && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published in
+                      last three years
+                    </p>
+                  )}
+                </Form.Group>
+                {/* As per UGC Care List */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_three_ugc_care_list"
+                >
+                  <Form.Label>As per UGC Care List</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="As per UGC Care List"
+                    type="number"
+                    {...register("research_nop_three_ugc_care_list", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_three_ugc_care_list && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published as
+                      per UGC care list
+                    </p>
+                  )}
+                </Form.Group>
+                {/* SCI */}
+                <Form.Group as={Col} md="3" controlId="research_nop_three_sci">
+                  <Form.Label>SCI</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="SCI"
+                    type="number"
+                    {...register("research_nop_three_sci", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_three_sci && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published SCI
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Web of Science */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_three_web_science"
+                >
+                  <Form.Label>Web of Science</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Web of Science"
+                    type="number"
+                    {...register("research_nop_three_web_science", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_three_web_science && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published web
+                      of science
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Google Scholar */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_three_google_scholar"
+                >
+                  <Form.Label>Google Scholar</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Google Scholar"
+                    type="number"
+                    {...register("research_nop_three_google_scholar", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_three_google_scholar && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published on
+                      google scholar
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Scopus */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="research_nop_three_scopus"
+                >
+                  <Form.Label>Scopus</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Scopus"
+                    type="number"
+                    {...register("research_nop_three_scopus", {
+                      maxLength: 15,
+                    })}
+                  />
+                  {errors.research_nop_three_scopus && (
+                    <p style={{ color: "red" }}>
+                      Please enter total number of research paper published on
+                      scopus
                     </p>
                   )}
                 </Form.Group>
