@@ -44,6 +44,10 @@ const Testing = () => {
   const [aq_mphil_country, setaq_mphil_country] = useState("");
   const [aq_phd_country, setaq_phd_country] = useState("");
   const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState("");
+  const [academicExperience_country, setacademicExperience_country] =
+    useState("");
+  const [nonAcademicExperience_country, setnonAcademicExperience_country] =
+    useState("");
 
   const [faculty, setFaculty] = useState("");
   const [depts, setDepts] = useState("");
@@ -127,6 +131,34 @@ const Testing = () => {
       division: data.post_doctoral_division,
       percentage: data.post_doctoral_percentage,
     };
+    let academicQualification = {
+      gate: data.gate,
+      ugcNet: data.ugcNet,
+      ugcJrf: data.ugcJrf,
+      urcCsir: data.urcCsir,
+      icmr: data.icmr,
+      icar: data.icar,
+    };
+    let academicExperience = {
+      natureOfJob: data.academicExperience_mode,
+      country: academicExperience_country,
+      university: data.academicExperience_university,
+      college: data.academicExperience_college,
+      position: data.academicExperience_position,
+      academicDomain: data.academicExperience_domain,
+      dateFrom: data.academicExperience_datefrom,
+      dateTo: data.academicExperience_dateto,
+    };
+    let nonAcademicExperience = {
+      natureOfJob: data.nonAcademicExperience_mode,
+      country: nonAcademicExperience_country,
+      organization: data.nonAcademicExperience_organization,
+      designation: data.nonAcademicExperience_designation,
+      department: data.nonAcademicExperience_department,
+      dateFrom: data.nonAcademicExperience_datefrom,
+      dateTo: data.nonAcademicExperience_dateto,
+    };
+
     data["cr_country"] = cr_country;
     data["cr_state"] = cr_region;
     data["native_country"] = native_country;
@@ -138,6 +170,9 @@ const Testing = () => {
     data["aq_mphil"] = aq_mphil;
     data["aq_phd"] = aq_phd;
     data["aq_post_doctoral"] = aq_post_doctoral;
+    data["academicQualification"] = academicQualification;
+    data["academicExperience"] = academicExperience;
+    data["nonAcademicExperience"] = nonAcademicExperience;
     console.log(data);
   };
 
@@ -146,7 +181,7 @@ const Testing = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* This is part 1 */}
         <Accordion style={{ padding: "5%" }}>
-          <Accordion.Item eventKey="0">
+          {/* <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
@@ -201,7 +236,7 @@ const Testing = () => {
                     size="sm"
                     aria-label="Default Faculty Type"
                     {...register("school", {
-                      required: true,
+                       required: true,
                     })}
                   >
                     <option selected="" disabled="" value="">
@@ -223,7 +258,7 @@ const Testing = () => {
                     size="sm"
                     aria-label="Default Faculty Type"
                     {...register("dept", {
-                      required: true,
+                      // required: true,
                     })}
                     placeholder="acad"
                   >
@@ -272,7 +307,7 @@ const Testing = () => {
                 </Form.Group>
               </Row>
             </Accordion.Body>
-          </Accordion.Item>
+          </Accordion.Item> */}
           {/* This is part 2 */}
           <Accordion.Item eventKey="1">
             <Accordion.Header>2. Personal Information</Accordion.Header>
@@ -659,6 +694,7 @@ const Testing = () => {
                     <option selected="" disabled="" value="">
                       Choose...
                     </option>
+                    higher_secondary_mode
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -1640,6 +1676,474 @@ const Testing = () => {
               </Row>
             </Accordion.Body>
           </Accordion.Item>
+          {/* This is part 4  */}
+          <Accordion.Item eventKey="3">
+            <Accordion.Header>4.Qualified in:</Accordion.Header>
+            <Accordion.Body>
+              <Row className="mb-3">
+                {/* Gate Details  */}
+                <Form.Group as={Col} md="3" controlId="gate">
+                  <Form.Label>Gate Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Gate Year"
+                    type="number"
+                    {...register("gate", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.gate && (
+                    <p style={{ color: "red" }}>Please enter your gate year</p>
+                  )}
+                </Form.Group>
+                {/* UGC Net Details  */}
+                <Form.Group as={Col} md="3" controlId="ugcNet">
+                  <Form.Label>UGC Net Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="UGC Net Year"
+                    type="number"
+                    {...register("ugcNet", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.ugcNet && (
+                    <p style={{ color: "red" }}>
+                      Please enter your UGC Net year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* UGC JRF Details  */}
+                <Form.Group as={Col} md="3" controlId="ugcJrf">
+                  <Form.Label>UGC JRF Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="UGC JRF Year"
+                    type="number"
+                    {...register("ugcJrf", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.ugcJrf && (
+                    <p style={{ color: "red" }}>
+                      Please enter your UGC JRF year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* URC CSIR Details  */}
+                <Form.Group as={Col} md="3" controlId="urcCsir">
+                  <Form.Label>URC CSIR Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="URC CSIR Year"
+                    type="number"
+                    {...register("urcCsir", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.urcCsir && (
+                    <p style={{ color: "red" }}>
+                      Please enter your URC CSIR year
+                    </p>
+                  )}
+                </Form.Group>
+                {/* ICMR Details  */}
+                <Form.Group as={Col} md="3" controlId="icmr">
+                  <Form.Label>ICMR Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="ICMR Year"
+                    type="number"
+                    {...register("icmr", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.icmr && (
+                    <p style={{ color: "red" }}>Please enter your ICMR year</p>
+                  )}
+                </Form.Group>
+                {/* ICAR Details  */}
+                <Form.Group as={Col} md="3" controlId="icar">
+                  <Form.Label>ICAR Year</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="ICAR Year"
+                    type="number"
+                    {...register("icar", {
+                      maxLength: 4,
+                      minLength: 4,
+                    })}
+                  />
+                  {errors.icar && (
+                    <p style={{ color: "red" }}>Please enter your ICAR year</p>
+                  )}
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+          {/* This is part 5 */}
+          <Accordion.Item eventKey="4">
+            <Accordion.Header>5. Experience</Accordion.Header>
+            <Accordion.Body>
+              <p>
+                <b>Academic</b>
+              </p>
+              <Row className="mb-3">
+                {/* Nature of job  */}
+                <Form.Group as={Col} md="3" controlId="academicExperience_mode">
+                  <Form.Label>Nature of Job</Form.Label>
+                  <Form.Select
+                    size="sm"
+                    {...register("academicExperience_mode", {
+                      required: "Please select the nature of your job",
+                    })}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option value="regular">Regular</option>
+                    <option value="part-time">Part-Time</option>
+                  </Form.Select>
+                  {errors.academicExperience_mode && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.academicExperience_mode.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Country of job  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_country"
+                >
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={academicExperience_country}
+                    onChange={(val) => setacademicExperience_country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("native_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.academicExperience_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* University  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_university"
+                >
+                  <Form.Label>University</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="University"
+                    type="text"
+                    {...register("academicExperience_university", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.academicExperience_university && (
+                    <p style={{ color: "red" }}>
+                      Please enter your university name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* College Name  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_college"
+                >
+                  <Form.Label>College</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="College Name"
+                    type="text"
+                    {...register("academicExperience_college", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.academicExperience_college && (
+                    <p style={{ color: "red" }}>
+                      Please enter your college name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Postion of work  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_position"
+                >
+                  <Form.Label>Position</Form.Label>
+                  <Form.Select
+                    size="sm"
+                    {...register("academicExperience_position", {
+                      required: "Please select the position you worked in",
+                    })}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option value="professor">Professor</option>
+                    <option value="associate-professor">
+                      Associate Professor
+                    </option>
+                    <option value="assistant-professor">
+                      Assistant Professor
+                    </option>
+                    <option value="research-assistant">
+                      Research Assistant
+                    </option>
+                  </Form.Select>
+                  {errors.academicExperience_position && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.academicExperience_position.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Academic Domain Details  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_domain"
+                >
+                  <Form.Label>Academic Domain</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Academic Domain"
+                    type="text"
+                    {...register("academicExperience_domain", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.academicExperience_domain && (
+                    <p style={{ color: "red" }}>
+                      Please enter your academic domain
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Working From Date Details  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_datefrom"
+                >
+                  <Form.Label>Date From</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="DD/MM/YYYY"
+                    type="date"
+                    {...register("academicExperience_datefrom")}
+                  />
+                  {errors.academicExperience_datefrom && (
+                    <p style={{ color: "red" }}>
+                      Please select the date you are working from
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Working To Date Details  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="academicExperience_dateto"
+                >
+                  <Form.Label>Date To</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="DD/MM/YYYY"
+                    type="date"
+                    {...register("academicExperience_dateto")}
+                  />
+                  {errors.academicExperience_dateto && (
+                    <p style={{ color: "red" }}>
+                      Please select the date you are working to
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+              <hr />
+              <p>
+                <b>Non Academic</b>
+              </p>
+              <Row className="mb-3">
+                {/* Nature of job  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_mode"
+                >
+                  <Form.Label>Nature of Job</Form.Label>
+                  <Form.Select
+                    size="sm"
+                    {...register("nonAcademicExperience_mode", {
+                      required: "Please select the nature of your job",
+                    })}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option value="regular">Regular</option>
+                    <option value="part-time">Part-Time</option>
+                  </Form.Select>
+                  {errors.nonAcademicExperience_mode && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.nonAcademicExperience_mode.message}
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Country of job  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_country"
+                >
+                  <Form.Label>Country</Form.Label>
+                  <CountryDropdown
+                    value={nonAcademicExperience_country}
+                    onChange={(val) => setnonAcademicExperience_country(val)}
+                    style={{
+                      backgroundColor: "white",
+                      color: "black",
+                      height: "20px",
+                      borderRadius: "5px",
+                      width: "200px",
+                    }}
+                    // {...register("native_country", {
+                    //   required: true,
+                    // })}
+                  />
+                  {errors.nonAcademicExperience_country && (
+                    <p style={{ color: "red" }}>Please select your country</p>
+                  )}
+                </Form.Group>
+                {/* Organization Name  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_organization"
+                >
+                  <Form.Label>Organization</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Organization Name"
+                    type="text"
+                    {...register("nonAcademicExperience_organization", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.nonAcademicExperience_organization && (
+                    <p style={{ color: "red" }}>
+                      Please enter your organization name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Designation Name  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_designation"
+                >
+                  <Form.Label>Designation</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Designation Name"
+                    type="text"
+                    {...register("nonAcademicExperience_designation", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.nonAcademicExperience_designation && (
+                    <p style={{ color: "red" }}>
+                      Please enter your designation name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Department Name  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_department"
+                >
+                  <Form.Label>Department</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="Department Name"
+                    type="text"
+                    {...register("nonAcademicExperience_department", {
+                      required: true,
+                      maxLength: 100,
+                    })}
+                  />
+                  {errors.nonAcademicExperience_department && (
+                    <p style={{ color: "red" }}>
+                      Please enter your department name
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Working From Date Details  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_datefrom"
+                >
+                  <Form.Label>Date From</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="DD/MM/YYYY"
+                    type="date"
+                    {...register("nonAcademicExperience_datefrom")}
+                  />
+                  {errors.nonAcademicExperience_datefrom && (
+                    <p style={{ color: "red" }}>
+                      Please select the date you are working from
+                    </p>
+                  )}
+                </Form.Group>
+                {/* Working To Date Details  */}
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="nonAcademicExperience_dateto"
+                >
+                  <Form.Label>Date To</Form.Label>
+                  <Form.Control
+                    size="sm"
+                    placeholder="DD/MM/YYYY"
+                    type="date"
+                    {...register("nonAcademicExperience_dateto")}
+                  />
+                  {errors.nonAcademicExperience_dateto && (
+                    <p style={{ color: "red" }}>
+                      Please select the date you are working to
+                    </p>
+                  )}
+                </Form.Group>
+              </Row>
+            </Accordion.Body>
+          </Accordion.Item>
+
           {/*This is part 8  */}
           <Accordion.Item eventKey="8">
             <Accordion.Header>
@@ -1839,7 +2343,7 @@ const Testing = () => {
             <Accordion.Header>12. Other Information</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
-                <Form.Group
+                {/* <Form.Group
                   as={Col}
                   md="12"
                   {...register("previoussalary", {
@@ -1866,7 +2370,7 @@ const Testing = () => {
                   {errors.noticeperiod && (
                     <p style={{ color: "red" }}>Please enter</p>
                   )}
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group as={Col} md="12">
                   <Form.Label>Do You Know anyone in MUJ ?</Form.Label>
@@ -1917,11 +2421,7 @@ const Testing = () => {
                     placeholder="Department"
                   />
                 </Form.Group>
-                <Form.Group
-                  as={Col}
-                  md="12"
-                 
-                >
+                <Form.Group as={Col} md="12">
                   <Form.Label>
                     Have you ever been interviewed in MUJ earlier?
                   </Form.Label>
@@ -1947,11 +2447,7 @@ const Testing = () => {
                     <p style={{ color: "red" }}>Please enter</p>
                   )}
                 </Form.Group>
-                <Form.Group
-                  as={Col}
-                  md="12"
-                 
-                >
+                <Form.Group as={Col} md="12">
                   <Form.Label>Given Offer to join?</Form.Label>
                   <Form.Check
                     type="radio"
@@ -1975,11 +2471,7 @@ const Testing = () => {
                     <p style={{ color: "red" }}>Please enter</p>
                   )}
                 </Form.Group>
-                <Form.Group
-                  as={Col}
-                  md="12"
-                 
-                >
+                <Form.Group as={Col} md="12">
                   <Form.Label>Joined?</Form.Label>
                   <Form.Check
                     type="radio"
@@ -2003,11 +2495,7 @@ const Testing = () => {
                     <p style={{ color: "red" }}>Please enter</p>
                   )}
                 </Form.Group>
-                <Form.Group
-                  as={Col}
-                  md="12"
-                  
-                >
+                <Form.Group as={Col} md="12">
                   <Form.Label>
                     Have you ever been punished during your service or convicted
                     by a court of law?
@@ -2040,11 +2528,7 @@ const Testing = () => {
                   </Form.Label>
                   <Form.Control size="sm" type="text" placeholder="Explain" />
                 </Form.Group>
-                <Form.Group
-                  as={Col}
-                  md="12"
-                 
-                >
+                <Form.Group as={Col} md="12">
                   <Form.Label>
                     Do you have any case pending against you in court of law?
                   </Form.Label>
