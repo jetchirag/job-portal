@@ -7,7 +7,13 @@ import React from "react";
 
 // material-ui
 // import { useTheme } from "@mui/material/styles";
-import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColDef,
+  GridToolbar,
+  GridToolbarContainer,
+  GridToolbarExport,
+} from "@mui/x-data-grid";
 import {
   Button,
   Chip,
@@ -35,13 +41,11 @@ import {
 } from "./constants";
 import classes from "./ApplicationTable.module.css";
 
-
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const ApplicationsTable = ({ isLoading }) => {
   const URL = "http://65.109.166.43:3000/applications";
-  const URLFaculties =
-    "http://65.109.166.43:3000/applications/faculties";
+  const URLFaculties = "http://65.109.166.43:3000/applications/faculties";
 
   const [loading, setLoading] = useState(false);
   const [facultiesData, setFacultiesData] = useState({});
@@ -161,9 +165,8 @@ const ApplicationsTable = ({ isLoading }) => {
 
   useEffect(() => {
     // console.log(dateRange);
-  
-    FetchingData();
 
+    FetchingData();
   }, [FetchingData]);
 
   useEffect(() => {
@@ -209,6 +212,18 @@ const ApplicationsTable = ({ isLoading }) => {
   const handleDepartmentChange = (event: SelectChangeEvent<typeof filters>) => {
     setFilters({ ...filters, department: event.target.value });
   };
+
+  function CustomToolbar() {
+    return (
+      <GridToolbarContainer>
+        <GridToolbar excelOptions={{ allColumns: true }}
+          csvOptions={{ allColumns: true }}/>
+        {/* <GridToolbarExport
+          
+        /> */}
+      </GridToolbarContainer>
+    );
+  }
 
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 70 },
@@ -427,7 +442,9 @@ const ApplicationsTable = ({ isLoading }) => {
             size="large"
             style={{ marginLeft: "10px", width: "70%", marginTop: "15px" }}
             onClick={() =>
-              openInNewTab("https://job-portal-olive.vercel.app/admin/joblisting")
+              openInNewTab(
+                "https://job-portal-olive.vercel.app/admin/joblisting"
+              )
             }
           >
             Add New Job Listing
@@ -446,7 +463,7 @@ const ApplicationsTable = ({ isLoading }) => {
               density="comfortable"
               loading={loading}
               components={{
-                Toolbar: GridToolbar,
+                Toolbar: CustomToolbar,
                 LoadingOverlay: LinearProgress,
               }}
               componentsProps={{
