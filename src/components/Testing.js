@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -32,6 +32,22 @@ const Testing = () => {
   const handlePart11 = () => {
     setPart11(!part11);
   };
+
+  
+  const [faculty, setFaculty] = useState("");
+  const facultyHandler = (e) => {
+    setFaculty(e.target.value);
+  };
+
+  const [school, setSchool] = useState("");
+  const schoolHandler = (e) => {
+    setSchool(e.target.value);
+  };
+
+  // const [depts, setDepts] = useState("");
+  // const deptHandler = (e) => {
+  //   setDepts(e.target.value);
+  // };
   const [cr_country, setcr_Country] = useState("");
   const [cr_region, setcr_Region] = useState("");
   const [native_country, setnative_Country] = useState("");
@@ -48,9 +64,6 @@ const Testing = () => {
     useState("");
   const [nonAcademicExperience_country, setnonAcademicExperience_country] =
     useState("");
-
-  const [faculty, setFaculty] = useState("");
-  const [depts, setDepts] = useState("");
 
   const {
     register,
@@ -200,7 +213,7 @@ const Testing = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* This is part 1 */}
         <Accordion style={{ padding: "5%" }}>
-          {/* <Accordion.Item eventKey="0">
+          <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body>
               <Row className="mb-3">
@@ -234,13 +247,14 @@ const Testing = () => {
                       required: true,
                     })}
                     placeholder="acad"
+                    onChange={facultyHandler}
                   >
                     <option selected="" disabled="" value="">
                       Choose...
                     </option>
 
-                    {list.map((faculty) => {
-                      return <option>{faculty}</option>;
+                    {Object.keys(facultiesList).map((faculty) => {
+                      return <option value={faculty}>{faculty}</option>;
                     })}
                   </Form.Select>
                   {errors.faculty && (
@@ -249,29 +263,32 @@ const Testing = () => {
                     </p>
                   )}
                 </Form.Group>
-                <Form.Group as={Col} md="3" controlId="school">
-                  <Form.Label>School</Form.Label>
-                  <Form.Select
-                    size="sm"
-                    aria-label="Default Faculty Type"
-                    {...register("school", {
-                       required: true,
-                    })}
-                  >
-                    <option selected="" disabled="" value="">
-                      Choose...
-                    </option>
-
-                    {faculty &&
-                      Object.keys(facultiesList[faculty]).map((dept) => {
-                        return <option>{dept}</option>;
+                {faculty && (
+                  <Form.Group as={Col} md="3" controlId="faculty">
+                    <Form.Label>School</Form.Label>
+                    <Form.Select
+                      size="sm"
+                      aria-label="Default Faculty Type"
+                      {...register("school", {
+                        required: true,
                       })}
-                  </Form.Select>
-                  {errors.school && (
-                    <p style={{ color: "red" }}>Please select your school</p>
-                  )}
-                </Form.Group>
-                <Form.Group as={Col} md="3" controlId="faculty">
+                      onChange={schoolHandler}
+                    >
+                      <option selected="" disabled="" value="">
+                        Choose...
+                      </option>
+
+                      {faculty &&
+                        Object.keys(facultiesList[faculty]).map((sch) => {
+                          return <option value={sch}>{sch}</option>;
+                        })}
+                    </Form.Select>
+                    {errors.school && (
+                      <p style={{ color: "red" }}>Please select your school</p>
+                    )}
+                  </Form.Group>
+                )}
+                {school&&<Form.Group as={Col} md="3" controlId="faculty">
                   <Form.Label>Department</Form.Label>
                   <Form.Select
                     size="sm"
@@ -279,14 +296,13 @@ const Testing = () => {
                     {...register("dept", {
                       // required: true,
                     })}
-                    placeholder="acad"
                   >
                     <option selected="" disabled="" value="">
                       Choose...
                     </option>
-                    {depts &&
-                      facultiesList[faculty][depts].map((dept) => {
-                        return <option>{dept}</option>;
+                    {school &&
+                      facultiesList[faculty][school].map((dept) => {
+                        return <option value={dept}>{dept}</option>;
                       })}
                   </Form.Select>
                   {errors.dept && (
@@ -294,7 +310,7 @@ const Testing = () => {
                       Please select your Department
                     </p>
                   )}
-                </Form.Group>
+                </Form.Group>}
                 <Form.Group as={Col} md="3" controlId="faculty">
                   <Form.Label>Nature of Job</Form.Label>
                   <Form.Check
@@ -326,7 +342,7 @@ const Testing = () => {
                 </Form.Group>
               </Row>
             </Accordion.Body>
-          </Accordion.Item> */}
+          </Accordion.Item>
           {/* This is part 2 */}
           <Accordion.Item eventKey="1">
             <Accordion.Header>2. Personal Information</Accordion.Header>

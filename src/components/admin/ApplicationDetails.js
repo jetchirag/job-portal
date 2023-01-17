@@ -101,37 +101,7 @@ const ApplicationsDetails = () => {
     FetchingApplicant();
   }, [FetchingApplicant]);
 
-  // return (
-  //   <Card className="details">
-  //     <Card.Header>{`Application Number ${id}`}</Card.Header>
-  //     <Card.Body>
-  //       <Card.Title>{`Name : ${data.name}`}</Card.Title>
-  //       <hr></hr>
-  //       <Card.Text>
-  //         <h5>Applicant Details</h5>
-  //       </Card.Text>
-  //       <Card.Text>{`DOB : ${data.dob}`}</Card.Text>
-  //       <Card.Text>{`GENDER : ${data.gender}`}</Card.Text>
-  //       <Card.Text>{`Religion: ${data.religion}`}</Card.Text>
-  //       <Card.Text>{`Marital Status : ${data.marital}`}</Card.Text>
 
-  //       <Card.Text>{`Mobile: ${data.mobile}`}</Card.Text>
-  //       <Card.Text>{`Email: ${data.email}`}</Card.Text>
-  //       <Button variant="success" className="btn">
-  //         HR APPROVED
-  //       </Button>
-  //       <Button variant="success" className="btn">
-  //         DEPT APPROVED
-  //       </Button>
-  //       <Button variant="success" className="btn">
-  //         HOD APPROVED
-  //       </Button>
-  //       <Button variant="danger" className="btn" onClick={rejectApplication}>
-  //         REJECT
-  //       </Button>
-  //     </Card.Body>
-  //   </Card>
-  // );
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
