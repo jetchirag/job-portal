@@ -74,7 +74,7 @@ const facultiesList = {
   },
 
   'Faculty of Law': {
-    'School of Law': [],
+    'School of Law': ['Department of Law'],
   },
 };
 
