@@ -282,9 +282,12 @@ const Testing = () => {
 
   return (
     <div className="my-4">
+      <div className="container">
+        <h2 className="center">Job Application Form</h2>
+      </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* This is part 1 */}
-        <Accordion style={{ padding: "5%" }}>
+        <Accordion style={{ padding: "0 5%" }}>
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body>
@@ -1909,7 +1912,7 @@ const Testing = () => {
                   <Form.Select
                     size="sm"
                     {...register("academicExperience_mode", {
-                      required: "Please select the nature of your job",
+                      // required: "Please select the nature of your job",
                     })}
                   >
                     <option selected="" disabled="" value="">
