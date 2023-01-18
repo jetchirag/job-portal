@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -76,9 +76,9 @@ const Testing = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     let applicant = {
-      fistName: data.firstName,
+      firstName: data.firstName,
       lastName: data.lastName,
       dob: data.dob,
       gender: data.gender,
@@ -176,6 +176,12 @@ const Testing = () => {
       dateFrom: data.nonAcademicExperience_datefrom,
       dateTo: data.nonAcademicExperience_dateto,
     };
+    let fellowships = {
+      fellowshipDetail: data.fellowship_details,
+      year: data.fellowship_year,
+      amount: data.fellowship_amount,
+      fellowshipStatus: data.fellowship_status,
+    };
     let research = {
       orcid: data.research_orcid,
       scopus: data.research_scopus,
@@ -226,7 +232,29 @@ const Testing = () => {
       guidance_supervision_supervisor_phd:
         data.research_guidance_supervision_supervisor_phd,
     };
+    let books = {
+      detail: data.book_details,
+      ISBNNumber: data.book_isbn,
+      writtenAs: data.book_written,
+    };
 
+    let patent = {
+      patentDetail: data.patent_details,
+      year: data.patent_year,
+      status: data.patent_status,
+    };
+
+    let peerRecognition = {
+      awards: data.peerRecognition_awards,
+      agency: data.peerRecognition_agency,
+      year: data.peerRecognition_year,
+    };
+
+    data.jobType = data.jobtype;
+    data.faculty = data.faculty;
+    data.school_main = data.school;
+    data.department = data.department;
+    data.nature_of_job = data.natureofjob;
     data["cr_country"] = cr_country;
     data["cr_state"] = cr_region;
     data["native_country"] = native_country;
@@ -241,15 +269,31 @@ const Testing = () => {
     data["academicQualification"] = academicQualification;
     data["academicExperience"] = academicExperience;
     data["nonAcademicExperience"] = nonAcademicExperience;
+    data["fellowships"] = fellowships;
     data["research"] = research;
+    data["books"] = books;
+    data["patent"] = patent;
+    data["peerRecognition"] = peerRecognition;
     console.log(data);
+
+    try {
+      const response = await fetch("http://65.109.166.43:3000/applications", {
+        method: "post",
+        body: data,
+      });
+    } catch (err) {
+      console.error(`Error: ${err}`);
+    }
   };
 
   return (
     <div className="my-4">
+      <div className="container">
+        <h2 className="center">Job Application Form</h2>
+      </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* This is part 1 */}
-        <Accordion style={{ padding: "5%" }}>
+        <Accordion style={{ padding: "0 5%" }}>
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body>
@@ -267,9 +311,9 @@ const Testing = () => {
                     <option selected="" disabled="" value="">
                       Choose...
                     </option>
-                    <option>Academic</option>
-                    <option>Non Academic</option>
-                    <option>Administrative</option>
+                    <option value="academic">Academic</option>
+                    <option value="non_academic">Non Academic</option>
+                    <option value="administration">Administrative</option>
                   </Form.Select>
                   {errors.jobtype && (
                     <p style={{ color: "red" }}>Please select your job type</p>
@@ -325,29 +369,31 @@ const Testing = () => {
                     )}
                   </Form.Group>
                 )}
-                {school&&<Form.Group as={Col} md="3" controlId="faculty">
-                  <Form.Label>Department</Form.Label>
-                  <Form.Select
-                    size="sm"
-                    aria-label="Default Faculty Type"
-                    {...register("dept", {
-                      // required: true,
-                    })}
-                  >
-                    <option selected="" disabled="" value="">
-                      Choose...
-                    </option>
-                    {school &&
-                      facultiesList[faculty][school].map((dept) => {
-                        return <option value={dept}>{dept}</option>;
+                {school && (
+                  <Form.Group as={Col} md="3" controlId="faculty">
+                    <Form.Label>Department</Form.Label>
+                    <Form.Select
+                      size="sm"
+                      aria-label="Default Faculty Type"
+                      {...register("dept", {
+                        // required: true,
                       })}
-                  </Form.Select>
-                  {errors.dept && (
-                    <p style={{ color: "red" }}>
-                      Please select your Department
-                    </p>
-                  )}
-                </Form.Group>}
+                    >
+                      <option selected="" disabled="" value="">
+                        Choose...
+                      </option>
+                      {school &&
+                        facultiesList[faculty][school].map((dept) => {
+                          return <option value={dept}>{dept}</option>;
+                        })}
+                    </Form.Select>
+                    {errors.dept && (
+                      <p style={{ color: "red" }}>
+                        Please select your Department
+                      </p>
+                    )}
+                  </Form.Group>
+                )}
                 <Form.Group as={Col} md="3" controlId="faculty">
                   <Form.Label>Nature of Job</Form.Label>
                   <Form.Check
@@ -439,8 +485,8 @@ const Testing = () => {
                     <option selected="" disabled="" value="">
                       Choose...
                     </option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                   </Form.Select>
                   {errors.gender && (
                     <p style={{ color: "red" }}> {errors.gender.message}</p>
@@ -1872,7 +1918,7 @@ const Testing = () => {
                   <Form.Select
                     size="sm"
                     {...register("academicExperience_mode", {
-                      required: "Please select the nature of your job",
+                      // required: "Please select the nature of your job",
                     })}
                   >
                     <option selected="" disabled="" value="">
@@ -2279,7 +2325,6 @@ const Testing = () => {
                   <Form.Label>Fellowship Status</Form.Label>
                   <Form.Select
                     {...register("fellowship_status", {
-                      required: "Please select your fellowship status",
                     })}
                   >
                     <option value="" />
@@ -3216,33 +3261,65 @@ const Testing = () => {
                 onClick={handlePart8}
               ></Form.Check>
               <Row className="mb-3">
-                <Form.Group as={Col} md="3" disabled={part8}>
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  controlId="book_details"
+                  disabled={part8}
+                >
                   <Form.Label>Details</Form.Label>
                   <Form.Control
                     size="sm"
                     as="textarea"
                     rows={1}
                     disabled={part8}
+                    {...register("book_details", {
+                      maxLength: 500,
+                    })}
                   />
+                  {errors.book_details && (
+                    <p style={{ color: "red" }}>
+                      Please enter the book details
+                    </p>
+                  )}
                 </Form.Group>
-                <Form.Group as={Col} md="3">
+                <Form.Group as={Col} md="3" controlId="book_isbn">
                   <Form.Label>ISBN Number</Form.Label>
                   <Form.Control
                     size="sm"
                     type="text"
                     rows={3}
                     disabled={part8}
+                    {...register("book_isbn", {
+                      maxLength: 500,
+                    })}
                   />
+                  {errors.book_isbn && (
+                    <p style={{ color: "red" }}>
+                      Please enter the book isbn number
+                    </p>
+                  )}
                 </Form.Group>
-                <Form.Group as={Col} md="3">
+                <Form.Group as={Col} md="3" controlId="book_written">
                   <Form.Label>Written As</Form.Label>
-                  <Form.Select size="sm" type="text" rows={3} disabled={part8}>
-                    <option selected="" disabled="" value="">
-                      Choose...
-                    </option>
-                    <option>Principal Writer</option>
-                    <option>Co Writer</option>
+                  <Form.Select
+                    size="sm"
+                    type="text"
+                    rows={3}
+                    disabled={part8}
+                    {...register("book_written", {
+                    })}
+                  >
+                    <option value="" />
+                    <option value="principal-writer">Principal Writer</option>
+                    <option value="co-writer">Co Writer</option>
                   </Form.Select>
+                  {errors.book_written && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.book_written.message}
+                    </p>
+                  )}
                 </Form.Group>
               </Row>
             </Accordion.Body>
@@ -3258,33 +3335,68 @@ const Testing = () => {
                 onClick={handlePart9}
               ></Form.Check>
               <Row className="mb-3">
-                <Form.Group as={Col} md="3" disabled={part9}>
+                <Form.Group
+                  as={Col}
+                  md="3"
+                  disabled={part9}
+                  controlId="patent_details"
+                >
                   <Form.Label>Patent Details</Form.Label>
                   <Form.Control
                     size="sm"
                     as="textarea"
                     rows={1}
                     disabled={part9}
+                    {...register("patent_details", {
+                      maxLength: 500,
+                    })}
                   />
+                  {errors.patent_details && (
+                    <p style={{ color: "red" }}>
+                      Please enter the patent details
+                    </p>
+                  )}
                 </Form.Group>
-                <Form.Group as={Col} md="3">
+                <Form.Group as={Col} md="3" controlId="patent_year">
                   <Form.Label>Year</Form.Label>
                   <Form.Control
                     size="sm"
                     type="text"
                     rows={3}
                     disabled={part9}
+                    {...register("patent_year", {
+                      maxLength: 500,
+                    })}
                   />
+                  {errors.patent_year && (
+                    <p style={{ color: "red" }}>
+                      Please enter the patented year
+                    </p>
+                  )}
                 </Form.Group>
-                <Form.Group as={Col} md="3">
+                <Form.Group as={Col} md="3" controlId="patent_status">
                   <Form.Label>Patent Status</Form.Label>
-                  <Form.Select size="sm" type="text" rows={3} disabled={part9}>
+                  <Form.Select
+                    size="sm"
+                    type="text"
+                    rows={3}
+                    disabled={part9}
+                    {...register("patent_status", {
+                      required: "Please select",
+                    })}
+                  >
                     <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     <option>Filled</option>
                     <option>Granted</option>
                   </Form.Select>
+                  {errors.patent_status && (
+                    <p style={{ color: "red" }}>
+                      {" "}
+                      {errors.patent_status.message}
+                    </p>
+                  )}
                 </Form.Group>
               </Row>
             </Accordion.Body>
@@ -3362,8 +3474,8 @@ const Testing = () => {
                 <Table responsive="sm">
                   <thead>
                     <td>Awards / Honors</td>
-                    <td>No. assignments</td>
-                    <td>for Amount (in INR)</td>
+                    <td>Agency</td>
+                    <td>Year</td>
                   </thead>
                   <tbody>
                     <tr>
@@ -3374,7 +3486,15 @@ const Testing = () => {
                           type="text"
                           rows={3}
                           disabled={part11}
+                          {...register("peerRecognition_awards", {
+                            maxLength: 500,
+                          })}
                         />
+                        {errors.peerRecognition_awards && (
+                          <p style={{ color: "red" }}>
+                            Please enter the necessary details
+                          </p>
+                        )}
                       </td>
                       <td>
                         <Form.Control
@@ -3382,7 +3502,15 @@ const Testing = () => {
                           type="text"
                           rows={3}
                           disabled={part11}
+                          {...register("peerRecognition_agency", {
+                            maxLength: 500,
+                          })}
                         />
+                        {errors.peerRecognition_agency && (
+                          <p style={{ color: "red" }}>
+                            Please enter the necessary details
+                          </p>
+                        )}
                       </td>
                       <td>
                         <Form.Control
@@ -3390,7 +3518,15 @@ const Testing = () => {
                           type="text"
                           rows={3}
                           disabled={part11}
+                          {...register("peerRecognition_year", {
+                            maxLength: 500,
+                          })}
                         />
+                        {errors.peerRecognition_year && (
+                          <p style={{ color: "red" }}>
+                            Please enter the necessary details
+                          </p>
+                        )}
                       </td>
                     </tr>
                   </tbody>

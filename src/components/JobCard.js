@@ -7,10 +7,12 @@ const JobCard = () => {
       <Accordion>
         <Accordion.Item eventKey="0" className="acc">
           <Accordion.Header className="hell">
-            Invites application for the post of Assistant Professor @ Manipal University, Jaipur
+            Invites application for the post of Assistant Professor @ Manipal
+            University Jaipur
           </Accordion.Header>
           <Accordion.Body>
-            <h2 className="text-center">Manipal University, Jaipur</h2><hr />
+            <h2 className="text-center">Manipal University Jaipur</h2>
+            <hr />
             <div className="acc-div">
               <img src="./images/carriers.jpg" alt="" />
               <div className="acc-div-div">
@@ -34,7 +36,7 @@ const JobCard = () => {
                 <p>
                   <b>End Date: 24.01.2023</b>
                   <button className="btn btn-primary">
-                    <a href="/apply">Apply Now</a>
+                    <a href="/testing">Apply Now</a>
                   </button>
                 </p>
                 <p>
@@ -54,11 +56,13 @@ const JobCard = () => {
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="1" className="acc">
-        <Accordion.Header className="hell">
-            Invites application for the post of Assistant Professor @ Manipal University, Jaipur
+          <Accordion.Header className="hell">
+            Invites application for the post of Assistant Professor @ Manipal
+            University Jaipur
           </Accordion.Header>
           <Accordion.Body>
-            <h2 className="text-center">Manipal University, Jaipur</h2><hr />
+            <h2 className="text-center">Manipal University Jaipur</h2>
+            <hr />
             <div className="acc-div">
               <img src="./images/carriers.jpg" alt="" />
               <div className="acc-div-div">
@@ -82,7 +86,7 @@ const JobCard = () => {
                 <p>
                   <b>End Date: 24.01.2023</b>
                   <button className="btn btn-primary">
-                    <a href="/apply">Apply Now</a>
+                    <a href="/testing">Apply Now</a>
                   </button>
                 </p>
                 <p>
@@ -102,11 +106,13 @@ const JobCard = () => {
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3" className="acc">
-        <Accordion.Header className="hell">
-            Invites application for the post of Assistant Professor @ Manipal University, Jaipur
+          <Accordion.Header className="hell">
+            Invites application for the post of Assistant Professor @ Manipal
+            University Jaipur
           </Accordion.Header>
           <Accordion.Body>
-            <h2 className="text-center">Manipal University, Jaipur</h2><hr />
+            <h2 className="text-center">Manipal University Jaipur</h2>
+            <hr />
             <div className="acc-div">
               <img src="./images/carriers.jpg" alt="" />
               <div className="acc-div-div">
@@ -130,7 +136,7 @@ const JobCard = () => {
                 <p>
                   <b>End Date: 24.01.2023</b>
                   <button className="btn btn-primary">
-                    <a href="/apply">Apply Now</a>
+                    <a href="/testing">Apply Now</a>
                   </button>
                 </p>
                 <p>
@@ -151,10 +157,12 @@ const JobCard = () => {
         </Accordion.Item>
         <Accordion.Item eventKey="4" className="acc">
           <Accordion.Header className="hell">
-            Invites application for the post of Assistant Professor @ Manipal University, Jaipur
+            Invites application for the post of Assistant Professor @ Manipal
+            University Jaipur
           </Accordion.Header>
           <Accordion.Body>
-            <h2 className="text-center">Manipal University, Jaipur</h2><hr />
+            <h2 className="text-center">Manipal University Jaipur</h2>
+            <hr />
             <div className="acc-div">
               <img src="./images/carriers.jpg" alt="" />
               <div className="acc-div-div">
@@ -178,7 +186,7 @@ const JobCard = () => {
                 <p>
                   <b>End Date: 24.01.2023</b>
                   <button className="btn btn-primary">
-                    <a href="/apply">Apply Now</a>
+                    <a href="/testing">Apply Now</a>
                   </button>
                 </p>
                 <p>
@@ -199,10 +207,12 @@ const JobCard = () => {
         </Accordion.Item>
         <Accordion.Item eventKey="5" className="acc">
           <Accordion.Header className="hell">
-            Invites application for the post of Assistant Professor @ Manipal University, Jaipur
+            Invites application for the post of Assistant Professor @ Manipal
+            University Jaipur
           </Accordion.Header>
           <Accordion.Body>
-            <h2 className="text-center">Manipal University, Jaipur</h2><hr />
+            <h2 className="text-center">Manipal University Jaipur</h2>
+            <hr />
             <div className="acc-div">
               <img src="./images/carriers.jpg" alt="" />
               <div className="acc-div-div">
@@ -226,7 +236,7 @@ const JobCard = () => {
                 <p>
                   <b>End Date: 24.01.2023</b>
                   <button className="btn btn-primary">
-                    <a href="/apply">Apply Now</a>
+                    <a href="/testing">Apply Now</a>
                   </button>
                 </p>
                 <p>
@@ -247,10 +257,12 @@ const JobCard = () => {
         </Accordion.Item>
         <Accordion.Item eventKey="6" className="acc">
           <Accordion.Header className="hell">
-            Invites application for the post of Assistant Professor @ Manipal University, Jaipur
+            Invites application for the post of Assistant Professor @ Manipal
+            University Jaipur
           </Accordion.Header>
           <Accordion.Body>
-            <h2 className="text-center">Manipal University, Jaipur</h2><hr />
+            <h2 className="text-center">Manipal University Jaipur</h2>
+            <hr />
             <div className="acc-div">
               <img src="./images/carriers.jpg" alt="" />
               <div className="acc-div-div">
@@ -274,7 +286,7 @@ const JobCard = () => {
                 <p>
                   <b>End Date: 24.01.2023</b>
                   <button className="btn btn-primary">
-                    <a href="/apply">Apply Now</a>
+                    <a href="/testing">Apply Now</a>
                   </button>
                 </p>
                 <p>

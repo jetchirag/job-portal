@@ -1,87 +1,90 @@
-import React from 'react';
+import React from "react";
 
 const Carousel = () => {
   return (
     <div
-      id='carouselExampleCaptions'
-      className='carousel slide'
-      data-bs-ride='carousel'
+      id="carouselExampleCaptions"
+      className="carousel slide"
+      data-bs-ride="carousel"
     >
-      <div className='carousel-indicators'>
+      <div className="carousel-indicators">
         <button
-          type='button'
-          data-bs-target='#carouselExampleCaptions'
-          data-bs-slide-to='0'
-          className='active'
-          aria-current='true'
-          aria-label='Slide 1'
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="0"
+          className="active"
+          aria-current="true"
+          aria-label="Slide 1"
         ></button>
         <button
-          type='button'
-          data-bs-target='#carouselExampleCaptions'
-          data-bs-slide-to='1'
-          aria-label='Slide 2'
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
         ></button>
         <button
-          type='button'
-          data-bs-target='#carouselExampleCaptions'
-          data-bs-slide-to='2'
-          aria-label='Slide 3'
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
         ></button>
       </div>
-      <div className='carousel-inner'>
-        <div className='upperlayer'>
+      <div className="carousel-inner">
+        {/* <div className="upperlayer">
           <h1>MUJ</h1>
           <h1>Job</h1>
           <h1>Portal</h1>
+        </div> */}
+        <div className="upperlayer-car">
+          <h3 className="text-center"><b>Carrer @ MUJ</b></h3>
         </div>
-        <div className='carousel-item active'>
+        <div className="carousel-item active">
           <img
-            src='http://65.109.166.43:3000/image/muj-main-dome.jpeg'
-            className='d-block w-100 muj-main-img'
-            alt='...'
+            src="http://65.109.166.43:3000/image/carousel7.jpg"
+            className="d-block w-100 muj-main-img"
+            alt="..."
           />
           {/* <div className='carousel-caption d-none d-md-block'>
             <h5>First slide label</h5>
             <p>Some representative placeholder content for the first slide.</p>
           </div> */}
         </div>
-        <div className='carousel-item'>
+        <div className="carousel-item">
           <img
-            src='http://65.109.166.43:3000/image/muj-main-dome.jpeg'
-            className='d-block w-100 muj-main-img'
-            alt='...'
+            src="http://65.109.166.43:3000/image/carousel8.jpg"
+            className="d-block w-100 muj-main-img"
+            alt="..."
           />
           {/* <div className='carousel-caption d-none d-md-block'>
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
           </div> */}
         </div>
-        <div className='carousel-item'>
+        <div className="carousel-item">
           <img
-            src='http://65.109.166.43:3000/image/muj-main-dome.jpeg'
-            className='d-block w-100 muj-main-img'
-            alt='...'
+            src="http://65.109.166.43:3000/image/carousel9.jpg"
+            className="d-block w-100 muj-main-img"
+            alt="..."
           />
         </div>
       </div>
       <button
-        className='carousel-control-prev'
-        type='button'
-        data-bs-target='#carouselExampleCaptions'
-        data-bs-slide='prev'
+        className="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev"
       >
-        <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-        <span className='visually-hidden'>Previous</span>
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Previous</span>
       </button>
       <button
-        className='carousel-control-next'
-        type='button'
-        data-bs-target='#carouselExampleCaptions'
-        data-bs-slide='next'
+        className="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next"
       >
-        <span className='carousel-control-next-icon' aria-hidden='true'></span>
-        <span className='visually-hidden'>Next</span>
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="visually-hidden">Next</span>
       </button>
     </div>
   );
