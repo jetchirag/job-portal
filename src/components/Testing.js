@@ -2316,7 +2316,6 @@ const Testing = () => {
                   <Form.Label>Fellowship Status</Form.Label>
                   <Form.Select
                     {...register("fellowship_status", {
-                      required: "Please select your fellowship status",
                     })}
                   >
                     <option value="" />
@@ -3300,7 +3299,6 @@ const Testing = () => {
                     rows={3}
                     disabled={part8}
                     {...register("book_written", {
-                      required: "Please select",
                     })}
                   >
                     <option value="" />
