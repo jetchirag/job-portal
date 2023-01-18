@@ -12,9 +12,9 @@ body {
 .slider {
   background: rgb(255, 255, 255);
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  height: 69vh;
+  height: 65vh;
   margin: auto;
-  margin-top: 3em;
+  margin-top: 1em;
   overflow: hidden;
   position: relative;
 
@@ -65,9 +65,9 @@ body {
 }
 .heading {
   text-align: center;
-  margin: 2em;
+  margin: 1em;
 }
 .heading p {
-  font-size: 3.1em;
+  font-size: 2.5em;
   font-weight: 400;
 }

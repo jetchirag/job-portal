@@ -1,5 +1,5 @@
 import React from "react";
-import {FaGithub} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -21,23 +21,26 @@ const Footer = () => {
                 />
               </div>
 
-              <p className="text-center">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Facere, eum!
-              </p>
+              <p className="text-center">Manipal University Jaipur</p>
 
               <ul className="list-unstyled d-flex flex-row justify-content-center">
                 <li>
-                  <a className="text-dark px-2" href="#!">
+                  <a
+                    className="text-dark px-2"
+                    href="https://www.instagram.com/jaipurmanipal/"
+                  >
                     <i className="fa-brands fa-instagram fa-xl"></i>
                   </a>
                 </li>
                 <li>
-                  <a className="text-dark px-2" href="#!">
+                  <a
+                    className="text-dark px-2"
+                    href="https://www.facebook.com/manipal.university/"
+                  >
                     <i className="fa-brands fa-facebook fa-xl"></i>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a className="text-dark ps-2" href="#!">
                     <i className="fa-brands fa-linkedin fa-xl"></i>
                   </a>
@@ -46,24 +49,27 @@ const Footer = () => {
                   <a className="text-dark ps-2" href="#!">
                     <i className="fa-brands fa-github fa-xl"></i>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-              <h5 className="text-uppercase mb-4">Teams</h5>
+              <h5 className="text-uppercase mb-4">Important Links</h5>
 
               <ul className="list-unstyled">
                 <li className="mb-2">
-                  <a href="#!" className="text-dark">
-                    Our team
+                  <a href="https://jaipur.manipal.edu" className="text-dark">
+                    Manipal University Jaipur
                   </a>
                 </li>
                 <li className="mb-2">
-                  <a href="#!" className="text-dark">
-                    India
+                  <a
+                    href="https://jaipur.manipal.edu/muj/about-us.html"
+                    className="text-dark"
+                  >
+                    About Us
                   </a>
                 </li>
-                <li className="mb-2">
+                {/* <li className="mb-2">
                   <a href="#!" className="text-dark">
                     Something
                   </a>
@@ -72,10 +78,10 @@ const Footer = () => {
                   <a href="#!" className="text-dark">
                     Help
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
-            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            {/* <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
               <h5 className="text-uppercase mb-4">Members</h5>
 
               <ul className="list-unstyled">
@@ -95,7 +101,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div className="col-lg-3 col-md-6 mb-4 mb-md-0 ">
               <h5 className="text-uppercase mb-4 ">Contact</h5>
 
@@ -103,21 +109,18 @@ const Footer = () => {
                 <li>
                   <p>
                     <i className="fas fa-map-marker-alt pe-2 "></i>Manipal
-                    University, Jaipur
+                    University Jaipur
                   </p>
                 </li>
                 <li>
                   <p>
-                  <i className="fas fa-phone pe-2 "></i>1800 1020 128
-  
-                   
+                    <i className="fas fa-phone pe-2 "></i>0141-3999100
                   </p>
-
                 </li>
                 <li>
                   <p>
                     <i className="fas fa-envelope pe-2 mb-0 "></i>
-                    contact@jaipur.manipal.edu
+                    hr.muj@jaipur.manipal.edu
                   </p>
                 </li>
               </ul>
@@ -128,8 +131,9 @@ const Footer = () => {
           className="text-center p-3"
           style={{ "border-top": "2px solid black" }}
         >
-          © 2022 Manipal University, <a href="#">jaipur.manipal.edu</a>, Jaipur, Rajasthan
-          303007
+          © 2022 Manipal University,{" "}
+          <a href="https://jaipur.manipal.edu">jaipur.manipal.edu</a>, Jaipur,
+          Rajasthan 303007
         </div>
       </footer>
     </div>

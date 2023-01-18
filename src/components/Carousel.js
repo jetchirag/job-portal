@@ -28,6 +28,18 @@ const Carousel = () => {
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+        ></button>
       </div>
       <div className="carousel-inner">
         {/* <div className="upperlayer">
@@ -36,11 +48,13 @@ const Carousel = () => {
           <h1>Portal</h1>
         </div> */}
         <div className="upperlayer-car">
-          <h3 className="text-center"><b>Carrer @ MUJ</b></h3>
+          <h3 className="text-center">
+            <b>Carreers @ MUJ</b>
+          </h3>
         </div>
         <div className="carousel-item active">
           <img
-            src="http://65.109.166.43:3000/image/carousel7.jpg"
+            src="http://65.109.166.43:3000/image/carousel8.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
@@ -51,7 +65,7 @@ const Carousel = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="http://65.109.166.43:3000/image/carousel8.jpg"
+            src="http://65.109.166.43:3000/image/carousel111.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
@@ -62,7 +76,21 @@ const Carousel = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="http://65.109.166.43:3000/image/carousel9.jpg"
+            src="http://65.109.166.43:3000/image/carousel7.jpg"
+            className="d-block w-100 muj-main-img"
+            alt="..."
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            src="http://65.109.166.43:3000/image/carousel112.jpeg"
+            className="d-block w-100 muj-main-img"
+            alt="..."
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            src="http://65.109.166.43:3000/image/carousel113.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />

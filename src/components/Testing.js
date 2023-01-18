@@ -33,12 +33,11 @@ const Testing = () => {
     setPart11(!part11);
   };
 
-  const [knowanyone,setKnowAnyone] = useState(false);
-  const handleKnowAnyone = () =>{
+  const [knowanyone, setKnowAnyone] = useState(false);
+  const handleKnowAnyone = () => {
     setKnowAnyone(!knowanyone);
-  }
+  };
 
-  
   const [faculty, setFaculty] = useState("");
   const facultyHandler = (e) => {
     setFaculty(e.target.value);
@@ -293,7 +292,11 @@ const Testing = () => {
       </div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         {/* This is part 1 */}
-        <Accordion style={{ padding: "0 5%" }}>
+        <Accordion
+          defalultActiveKey={["0"]}
+          alwaysOpen
+          style={{ padding: "0 5%" }}
+        >
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. Application Information</Accordion.Header>
             <Accordion.Body>
@@ -2323,10 +2326,7 @@ const Testing = () => {
                 {/* Fellowship Status Details  */}
                 <Form.Group as={Col} md="3" controlId="fellowship_status">
                   <Form.Label>Fellowship Status</Form.Label>
-                  <Form.Select
-                    {...register("fellowship_status", {
-                    })}
-                  >
+                  <Form.Select {...register("fellowship_status", {})}>
                     <option value="" />
                     <option value="ongoing">Ongoing</option>
                     <option value="completed">Completed</option>
@@ -3307,8 +3307,7 @@ const Testing = () => {
                     type="text"
                     rows={3}
                     disabled={part8}
-                    {...register("book_written", {
-                    })}
+                    {...register("book_written", {})}
                   >
                     <option value="" />
                     <option value="principal-writer">Principal Writer</option>
@@ -3592,28 +3591,30 @@ const Testing = () => {
                     <p style={{ color: "red" }}>Please enter</p>
                   )}
                 </Form.Group>
-                {knowanyone&&<>
-                <Form.Group as={Col} md="3">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control size="sm" type="text" placeholder="Name" />
-                </Form.Group>
-                <Form.Group as={Col} md="3">
-                  <Form.Label>Designation</Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="text"
-                    placeholder="Designation"
-                  />
-                </Form.Group>
-                <Form.Group as={Col} md="3">
-                  <Form.Label>Department</Form.Label>
-                  <Form.Control
-                    size="sm"
-                    type="text"
-                    placeholder="Department"
-                  />
-                </Form.Group>
-               </> }
+                {knowanyone && (
+                  <>
+                    <Form.Group as={Col} md="3">
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control size="sm" type="text" placeholder="Name" />
+                    </Form.Group>
+                    <Form.Group as={Col} md="3">
+                      <Form.Label>Designation</Form.Label>
+                      <Form.Control
+                        size="sm"
+                        type="text"
+                        placeholder="Designation"
+                      />
+                    </Form.Group>
+                    <Form.Group as={Col} md="3">
+                      <Form.Label>Department</Form.Label>
+                      <Form.Control
+                        size="sm"
+                        type="text"
+                        placeholder="Department"
+                      />
+                    </Form.Group>
+                  </>
+                )}
                 <Form.Group as={Col} md="12">
                   <Form.Label>
                     Have you ever been interviewed in MUJ earlier?

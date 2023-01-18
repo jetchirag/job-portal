@@ -20,28 +20,28 @@ const Stats = () => {
       </div>
       <div className='stat'>
         <h2>
-          <Number n={25} />+
+          <Number n={150} />+
         </h2>
         <p>Onboarded Companies</p>
       </div>
       <div className='stat'>
         <h2>
-          <Number n={10000} />+
+          <Number n={100000} />+
         </h2>
         <p>Connections Made</p>
       </div>
       <div className='stat'>
         <h2>
-          <Number n={127} />+
+          <Number n={130} />+
         </h2>
         <p>Community Events</p>
       </div>
-      <div className='stat'>
+      {/* <div className='stat'>
         <h2>
           <Number n={10} />+
         </h2>
         <p>Student Members</p>
-      </div>
+      </div> */}
     </div>
   );
 };

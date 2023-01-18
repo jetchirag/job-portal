@@ -35,8 +35,8 @@ function App() {
                 <Stats />
                 <Recognition />
                 <JobCardMain />
-                <WhyUs />
-                <Testimonial />
+                {/* <WhyUs />
+                <Testimonial /> */}
               </div>
             }
           />
