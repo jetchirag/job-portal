@@ -33,6 +33,11 @@ const Testing = () => {
     setPart11(!part11);
   };
 
+  const [knowanyone,setKnowAnyone] = useState(false);
+  const handleKnowAnyone = () =>{
+    setKnowAnyone(!knowanyone);
+  }
+
   
   const [faculty, setFaculty] = useState("");
   const facultyHandler = (e) => {
@@ -3429,15 +3434,16 @@ const Testing = () => {
                 <Form.Group as={Col} md="12">
                   <Form.Label>Do You Know anyone in MUJ ?</Form.Label>
                   <Form.Check
-                    type="radio"
+                    type="checkbox"
                     label="Yes"
                     value={"Yes"}
                     name={"knowanyone"}
-                    {...register("knowanyone", {
-                      required: true,
-                    })}
+                    // {...register("knowanyone", {
+                    //   required: true,
+                    // })}
+                    onClick={handleKnowAnyone}
                   ></Form.Check>
-                  <Form.Check
+                  {/* <Form.Check
                     type="radio"
                     label="No"
                     value={"No"}
@@ -3445,16 +3451,12 @@ const Testing = () => {
                     {...register("knowanyone", {
                       required: true,
                     })}
-                  ></Form.Check>
+                  ></Form.Check> */}
                   {errors.knowanyone && (
                     <p style={{ color: "red" }}>Please enter</p>
                   )}
                 </Form.Group>
-                <Form.Group as={Col} md="12">
-                  <Form.Label>
-                    <u>if Yes?</u>
-                  </Form.Label>
-                </Form.Group>
+                {knowanyone&&<>
                 <Form.Group as={Col} md="3">
                   <Form.Label>Name</Form.Label>
                   <Form.Control size="sm" type="text" placeholder="Name" />
@@ -3475,6 +3477,7 @@ const Testing = () => {
                     placeholder="Department"
                   />
                 </Form.Group>
+               </> }
                 <Form.Group as={Col} md="12">
                   <Form.Label>
                     Have you ever been interviewed in MUJ earlier?
