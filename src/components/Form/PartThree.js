@@ -11,6 +11,18 @@ import {
 } from "react-country-region-selector";
 
 const PartThree = () => {
+  const [mphilVal, setMphil] = useState(true);
+  const handleMphil = () => {
+    setMphil(!mphilVal);
+  };
+  const [phdVal, setPhd] = useState(true);
+  const handlePhd = () => {
+    setPhd(!phdVal);
+  };
+  const [pdocVal, setPdoc] = useState(true);
+  const handlePdoc = () => {
+    setPdoc(!pdocVal);
+  };
   const [aq_higher_secondary_country, setaq_higher_secondary_country] =
     useState("");
   const [aq_graduation_country, setaq_graduation_country] = useState("");
@@ -505,6 +517,11 @@ const PartThree = () => {
         <hr />
         <p>
           <b>M Phil</b>
+          <Form.Check
+            type="checkbox"
+            label="if Yes?"
+            onClick={handleMphil}
+          ></Form.Check>
         </p>
         <Row className="mb-3">
           <Form.Group as={Col} md="3" controlId="aq_mphil_country">
@@ -517,6 +534,7 @@ const PartThree = () => {
               // {...register("cr_country", {
               //   required: true,
               // })}
+              disabled={mphilVal}
             />
             {errors.aq_mphil_country && (
               <p style={{ color: "red" }}>Please select your country</p>
@@ -526,6 +544,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_mode">
             <Form.Label>Education Mode</Form.Label>
             <Form.Select
+              disabled={mphilVal}
               {...register("mphil_mode", {
                 required: "Please select your mode of educatoin",
               })}
@@ -545,6 +564,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_institute">
             <Form.Label>University / Institute</Form.Label>
             <Form.Control
+              disabled={mphilVal}
               placeholder="University/Institute Name"
               type="text"
               {...register("mphil_institute", {
@@ -562,6 +582,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_college">
             <Form.Label>College</Form.Label>
             <Form.Control
+              disabled={mphilVal}
               placeholder="College Name"
               type="text"
               {...register("mphil_college", {
@@ -577,6 +598,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_year">
             <Form.Label>Graduation Year</Form.Label>
             <Form.Control
+              disabled={mphilVal}
               placeholder="Graduation Year"
               type="number"
               {...register("mphil_year", {
@@ -593,6 +615,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_area">
             <Form.Label>Area</Form.Label>
             <Form.Control
+              disabled={mphilVal}
               placeholder="Area"
               type="text"
               {...register("mphil_area", {
@@ -608,6 +631,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_division">
             <Form.Label>Division</Form.Label>
             <Form.Select
+              disabled={mphilVal}
               {...register("mphil_division", {
                 required: "Please select your division",
               })}
@@ -625,6 +649,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="mphil_percentage">
             <Form.Label>Aggregate Percentage</Form.Label>
             <Form.Control
+              disabled={mphilVal}
               placeholder="Aggregate Percentage"
               type="number"
               {...register("mphil_percentage", {
@@ -641,12 +666,14 @@ const PartThree = () => {
         <hr />
         <p>
           <b>Ph.D</b>
+          <Form.Check label="if Yes" onClick={handlePhd} />
         </p>
         <Row className="mb-3">
           {/* PHD Status Details  */}
           <Form.Group as={Col} md="3" controlId="phd_status">
             <Form.Label>Status</Form.Label>
             <Form.Select
+              disabled={phdVal}
               {...register("phd_status", {
                 required: "Please select your status",
               })}
@@ -664,6 +691,7 @@ const PartThree = () => {
             {/* Academic Qualification PhD Country  */}
             <Form.Label>Country</Form.Label>
             <CountryDropdown
+              disabled={phdVal}
               value={aq_phd_country}
               onChange={(val) => setaq_phd_country(val)}
               className="form-control-sm form-control"
@@ -679,6 +707,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_mode">
             <Form.Label>Education Mode</Form.Label>
             <Form.Select
+              disabled={phdVal}
               {...register("phd_mode", {
                 required: "Please select your mode of educatoin",
               })}
@@ -698,6 +727,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_institute">
             <Form.Label>University / Institute</Form.Label>
             <Form.Control
+              disabled={phdVal}
               placeholder="University/Institute Name"
               type="text"
               {...register("phd_institute", {
@@ -715,6 +745,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_college">
             <Form.Label>College</Form.Label>
             <Form.Control
+              disabled={phdVal}
               placeholder="College Name"
               type="text"
               {...register("phd_college", {
@@ -730,6 +761,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_year">
             <Form.Label>Completion Year</Form.Label>
             <Form.Control
+              disabled={phdVal}
               placeholder="Completion Year"
               type="number"
               {...register("phd_year", {
@@ -746,6 +778,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_area">
             <Form.Label>Area</Form.Label>
             <Form.Control
+              disabled={phdVal}
               placeholder="Area"
               type="text"
               {...register("phd_area", {
@@ -761,6 +794,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_teaching_experience">
             <Form.Label>If pursuing, teaching experience during PhD</Form.Label>
             <Form.Select
+              disabled={phdVal}
               {...register("phd_teaching_experience", {
                 required: "Please select your mode of educatoin",
               })}
@@ -780,6 +814,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="phd_anti_completion_year">
             <Form.Label>Anticipated Completion Year</Form.Label>
             <Form.Control
+              disabled={phdVal}
               placeholder="Anticipated Completion Year"
               type="number"
               {...register("phd_anti_completion_year", {
@@ -798,12 +833,18 @@ const PartThree = () => {
         <hr />
         <p>
           <b>Post Doctoral</b>
+          <Form.Check
+            type="checkbox"
+            label="if Yes?"
+            onClick={handlePdoc}
+          ></Form.Check>
         </p>
         <Row className="mb-3">
           <Form.Group as={Col} md="3" controlId="aq_post_doctoral_country">
             {/* Academic Qualification Post Doctoral Country  */}
             <Form.Label>Country</Form.Label>
             <CountryDropdown
+              disabled={pdocVal}
               value={aq_post_doctoral_country}
               onChange={(val) => setaq_post_doctoral_country(val)}
               className="form-control-sm form-control"
@@ -819,6 +860,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_mode">
             <Form.Label>Education Mode</Form.Label>
             <Form.Select
+                disabled={pdocVal}
               {...register("post_doctoral_mode", {
                 required: "Please select your mode of educatoin",
               })}
@@ -841,6 +883,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_institute">
             <Form.Label>University / Institute</Form.Label>
             <Form.Control
+                disabled={pdocVal}
               placeholder="University/Institute Name"
               type="text"
               {...register("post_doctoral_institute", {
@@ -858,6 +901,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_college">
             <Form.Label>College</Form.Label>
             <Form.Control
+                disabled={pdocVal}
               placeholder="College Name"
               type="text"
               {...register("post_doctoral_college", {
@@ -873,6 +917,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_year">
             <Form.Label>Year</Form.Label>
             <Form.Control
+                disabled={pdocVal}
               placeholder="Graduation Year"
               type="number"
               {...register("post_doctoral_year", {
@@ -891,6 +936,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_area">
             <Form.Label>Area</Form.Label>
             <Form.Control
+                disabled={pdocVal}
               placeholder="Area"
               type="text"
               {...register("post_doctoral_area", {
@@ -906,6 +952,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_course">
             <Form.Label>Course Name</Form.Label>
             <Form.Control
+                disabled={pdocVal}
               placeholder="Course Name"
               type="text"
               {...register("post_doctoral_course", {
@@ -921,6 +968,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_division">
             <Form.Label>Division</Form.Label>
             <Form.Select
+                disabled={pdocVal}
               {...register("post_doctoral_division", {
                 required: "Please select your division",
               })}
@@ -941,6 +989,7 @@ const PartThree = () => {
           <Form.Group as={Col} md="3" controlId="post_doctoral_percentage">
             <Form.Label>Aggregate Percentage</Form.Label>
             <Form.Control
+                disabled={pdocVal}
               placeholder="Aggregate Percentage"
               type="number"
               {...register("post_doctoral_percentage", {
