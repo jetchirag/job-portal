@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 // import Card from "react-bootstrap/Card";
 import "./ApplicationDetails.css";
-import Form from "../Form";
+// import Form from "../Form";
 import { Button } from "@mui/material";
 
 const ApplicationsDetails = () => {
@@ -126,7 +126,7 @@ const ApplicationsDetails = () => {
           </div>
         </div>
       </div>
-      <Form disabled={true} data={data} />
+      {/* <Form disabled={true} data={data} /> */}
     </>
   );
 };
