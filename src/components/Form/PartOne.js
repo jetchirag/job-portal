@@ -1,125 +1,157 @@
-import React, { useState } from "react";
-import { facultiesList, list } from "./faculties (1)";
-const PartOne = (props) => {
+import React from "react";
+import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+import Form from "react-bootstrap/Form";
+import Accordion from "react-bootstrap/Accordion";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import { facultiesList } from "./faculties";
+
+const Partone = () => {
   const [faculty, setFaculty] = useState("");
-  const [depts, setDepts] = useState("");
+  const [school, setSchool] = useState("");
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+  const facultyHandler = (e) => {
+    setFaculty(e.target.value);
+    setSchool("");
+
+  };
+  const schoolHandler = (e) => {
+    setSchool(e.target.value);
+  };
 
   return (
-    <>
-      <hr />
-      <div className="col-md-3">
-        <label htmlFor="validationCustom04" className="form-label">
-          Job Type
-        </label>
-        <select
-          className="form-select"
-          id="validationCustom04"
-          required=""
-          value={props?.data?.faculty}
-        >
-          {console.log(faculty)}
-          <option selected="" disabled="" value="">
-            Choose...
-          </option>
-          <option>Academic</option>
-          <option>Non Academic</option>
-          <option>Administrative</option>
-        </select>
-        <div className="invalid-feedback">Please select a job type.</div>
-      </div>
-      <div className="col-md-3">
-        <label htmlFor="validationCustom04" className="form-label">
-          Faculty
-        </label>
-        <select
-          className="form-select"
-          id="validationCustom04"
-          required=""
-          value={props?.data?.school}
-          onChange={(e) => setFaculty(e.target.value)}
-        >
-          <option selected="" disabled="" value="">
-            Choose...
-          </option>
+    <Accordion.Item eventKey="0">
+      <Accordion.Header>1. Application Information</Accordion.Header>
+      <Accordion.Body>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="3" controlId="dob">
+            <Form.Label>Job Type</Form.Label>
 
-          {list.map((faculty) => {
-            return <option>{faculty}</option>;
-          })}
-        </select>
-        <div className="invalid-feedback">Please select a valid faculty.</div>
-      </div>
-      <div className="col-md-3">
-        <label htmlFor="validationCustom04" className="form-label">
-          School
-        </label>
-        <select
-          className="form-select"
-          id="validationCustom04"
-          required=""
-          value={props?.data?.dept}
-          onChange={(e) => setDepts(e.target.value)}
-        >
-          <option selected="" disabled="" value="">
-            Choose...
-          </option>
-          {faculty &&
-            Object.keys(facultiesList[faculty]).map((dept) => {
-              return <option>{dept}</option>;
-            })}
-        </select>
-        <div className="invalid-feedback">Please select a valid school.</div>
-      </div>
-      <div className="col-md-3">
-        <label htmlFor="validationCustom04" className="form-label">
-          Department
-        </label>
-        <select
-          className="form-select"
-          id="validationCustom04"
-          required=""
-          value={props?.data?.acaddom}
-        >
-          <option selected="" disabled="" value="">
-            Choose...
-          </option>
-          {depts &&
-            facultiesList[faculty][depts].map((dept) => {
-              return <option>{dept}</option>;
-            })}
-        </select>
-        <div className="invalid-feedback">Please select a valid state.</div>
-      </div>
-      <div className="col-md-3">
-        <label htmlFor="validationCustom04" className="form-label">
-          Nature of Job
-        </label>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="nature"
-            value="Full-Time"
-            id="fulltime"
-          />
-          <label className="form-check-label" htmlFor="fulltime">
-            Full-Time
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="radio"
-            name="nature"
-            value="Part-Time"
-            id="parttime"
-          />
-          <label className="form-check-label" htmlFor="parttime">
-            Part-Time
-          </label>
-        </div>
-      </div>
-    </>
+            <Form.Select
+              size="sm"
+              aria-label="Default Job Type"
+              {...register("jobtype", {
+                required: true,
+              })}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              <option value="academic">Academic</option>
+              <option value="non_academic">Non Academic</option>
+              <option value="administration">Administrative</option>
+            </Form.Select>
+            {errors.jobtype && (
+              <p style={{ color: "red" }}>Please select your job type</p>
+            )}
+          </Form.Group>
+          <Form.Group as={Col} md="3" controlId="faculty">
+            <Form.Label>Faculty</Form.Label>
+            <Form.Select
+              size="sm"
+              aria-label="Default Faculty Type"
+              {...register("faculty", {
+                required: true,
+              })}
+              placeholder="acad"
+              onChange={facultyHandler}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+
+              {Object.keys(facultiesList).map((faculty) => {
+                return <option value={faculty}>{faculty}</option>;
+              })}
+            </Form.Select>
+            {errors.faculty && (
+              <p style={{ color: "red" }}>Please select your Faculty type</p>
+            )}
+          </Form.Group>
+          {faculty && (
+            <Form.Group as={Col} md="3" controlId="faculty">
+              <Form.Label>School</Form.Label>
+              <Form.Select
+                size="sm"
+                aria-label="Default Faculty Type"
+                {...register("school", {
+                  required: true,
+                })}
+                onChange={schoolHandler}
+              >
+                <option selected="" disabled="" value="">
+                  Choose...
+                </option>
+
+                {faculty &&
+                  Object.keys(facultiesList[faculty]).map((sch) => {
+                    return <option value={sch}>{sch}</option>;
+                  })}
+              </Form.Select>
+              {errors.school && (
+                <p style={{ color: "red" }}>Please select your school</p>
+              )}
+            </Form.Group>
+          )}
+          {school && (
+            <Form.Group as={Col} md="3" controlId="faculty">
+              <Form.Label>Department</Form.Label>
+              <Form.Select
+                size="sm"
+                aria-label="Default Faculty Type"
+                {...register("dept", {
+                  // required: true,
+                })}
+              >
+                <option selected="" disabled="" value="">
+                  Choose...
+                </option>
+                {school &&
+                  facultiesList[faculty][school].map((dept) => {
+                    return <option value={dept}>{dept}</option>;
+                  })}
+              </Form.Select>
+              {errors.dept && (
+                <p style={{ color: "red" }}>Please select your Department</p>
+              )}
+            </Form.Group>
+          )}
+          <Form.Group as={Col} md="3" controlId="faculty">
+            <Form.Label>Nature of Job</Form.Label>
+            <Form.Check
+              type={"radio"}
+              placeholder="acad"
+              label={"Full-time"}
+              id={"natureofjob"}
+              name={"natureofjob"}
+              {...register("natureofjob", {
+                required: true,
+              })}
+            />
+            <Form.Check
+              type={"radio"}
+              placeholder="acad"
+              label={"Part-time"}
+              id={"natureofjob"}
+              name={"natureofjob"}
+              {...register("natureofjob", {
+                required: true,
+              })}
+            />
+
+            {errors.natureofjob && (
+              <p style={{ color: "red" }}>Please select your Nature of Job</p>
+            )}
+          </Form.Group>
+        </Row>
+      </Accordion.Body>
+    </Accordion.Item>
   );
 };
 
-export default PartOne;
+export default Partone;

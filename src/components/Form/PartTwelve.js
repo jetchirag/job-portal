@@ -1,258 +1,225 @@
-import React, { useState } from 'react';
+import React from "react";
+import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+import Form from "react-bootstrap/Form";
+import Accordion from "react-bootstrap/Accordion";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const PartTwelve = () => {
-  const [knowMpal, setKnowMpal] = useState(['Hello']);
-  const [intBefore, setIntBefore] = useState(['Hello']);
-  const addHello1 = (e) => {
-    e.preventDefault();
-    setKnowMpal([...knowMpal, 'Hello']);
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const [knowanyone, setKnowAnyone] = useState(false);
+  const handleKnowAnyone = () => {
+    setKnowAnyone(!knowanyone);
   };
-  const addHello2 = (e) => {
-    e.preventDefault();
-    setIntBefore([...intBefore, 'Hello']);
+
+  const [interviewed, setInterviewed] = useState(false);
+  const interviewedHandle = () => {
+    setInterviewed(!interviewed);
   };
   return (
-    <>
-      <hr />
-      <div className='col-md-3'>
-        <label htmlFor='validationCustom03' className='form-label'>
-          <strong>
-            Present / Last Drawn salary <br />
-            (monthly in INR)
-          </strong>
-        </label>
-        <input
-          type='text'
-          className='form-control'
-          id='validationCustom03'
-          required=''
-        />
-        <div className='invalid-feedback'>Please provide your email.</div>
-      </div>
-      <div className='col-md-3'>
-        <label htmlFor='validationCustom03' className='form-label'>
-          <strong>
-            Notice period <br /> (in Days)
-          </strong>
-        </label>
-        <input
-          type='text'
-          className='form-control'
-          id='validationCustom03'
-          required=''
-        />
-        <div className='invalid-feedback'>Please provide your email.</div>
-      </div>
-      <br />
-      <hr />
-      <div className='col-md-3'>
-        <label htmlFor='validationCustom04' className='form-label'>
-          Do you know anyone in Manipal?
-        </label>
-        <ul class='pagination pagination-lg'>
-          <li class='page-item active' aria-current='page'>
-            <span class='page-link' style={{ 'font-size': '0.5rem' }}>
-              Yes
-            </span>
-          </li>
-          <li class='page-item'>
-            <a class='page-link' href='#' style={{ 'font-size': '0.5rem' }}>
-              No
-            </a>
-          </li>
-        </ul>
-      </div>
-      <p>
-        <b>If Yes?</b>
-      </p>
-      {knowMpal.map(() => {
-        return (
-          <>
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom03' className='form-label'>
-                Name
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                id='validationCustom03'
-                required=''
-              />
-              <div className='invalid-feedback'>Please provide your email.</div>
-            </div>
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom03' className='form-label'>
-                Department
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                id='validationCustom03'
-                required=''
-              />
-              <div className='invalid-feedback'>Please provide your email.</div>
-            </div>
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom03' className='form-label'>
-                Designation
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                id='validationCustom03'
-                required=''
-              />
-              <div className='invalid-feedback'>Please provide your email.</div>
-            </div>
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom03' className='form-label'>
-                Campus
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                id='validationCustom03'
-                required=''
-              />
-              <div className='invalid-feedback'>Please provide your email.</div>
-            </div>
-          </>
-        );
-      })}
-      <div className='col-md-12'>
-        <button className='btn btn-primary' type='button' onClick={addHello1}>
-          Add More
-        </button>
-      </div>
-      <hr />
-      <div className='col-md-3'>
-        <label htmlFor='validationCustom04' className='form-label'>
-          Have you been interviewed
-          <br /> in Manipal earlier?
-        </label>
-        <ul class='pagination pagination-lg'>
-          <li class='page-item active' aria-current='page'>
-            <span class='page-link' style={{ 'font-size': '0.5rem' }}>
-              Yes
-            </span>
-          </li>
-          <li class='page-item'>
-            <a class='page-link' href='#' style={{ 'font-size': '0.5rem' }}>
-              No
-            </a>
-          </li>
-        </ul>
-      </div>
-      <p>
-        <b>If Yes?</b>
-      </p>
-      <br />
-      {intBefore.map(() => {
-        return (
-          <>
-            <div></div>
-            <br />
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom04' className='form-label'>
-                Campus
-              </label>
-              <select
-                className='form-select'
-                id='validationCustom04'
-                required=''
-              >
-                <option selected='' disabled='' value=''>
-                  Choose...
-                </option>
-                <option>...</option>
-              </select>
-              <div className='invalid-feedback'>
-                Please select a valid state.
-              </div>
-            </div>
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp;
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom04' className='form-label'>
-                Given Offer to Join
-              </label>
-              <ul class='pagination pagination-lg'>
-                <li class='page-item active' aria-current='page'>
-                  <span class='page-link' style={{ 'font-size': '0.5rem' }}>
-                    Yes
-                  </span>
-                </li>
-                <li class='page-item'>
-                  <a
-                    class='page-link'
-                    href='#'
-                    style={{ 'font-size': '0.5rem' }}
-                  >
-                    No
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom04' className='form-label'>
-                Joined
-              </label>
-              <ul class='pagination pagination-lg'>
-                <li class='page-item active' aria-current='page'>
-                  <span class='page-link' style={{ 'font-size': '0.5rem' }}>
-                    Yes
-                  </span>
-                </li>
-                <li class='page-item'>
-                  <a
-                    class='page-link'
-                    href='#'
-                    style={{ 'font-size': '0.5rem' }}
-                  >
-                    No
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom03' className='form-label'>
-                If Joined, Date From
-              </label>
-              <input
-                type='date'
-                className='form-control'
-                id='validationCustom03'
-                required=''
-              />
-              <div className='invalid-feedback'>Please provide your email.</div>
-            </div>
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
-            &nbsp; &nbsp;
-            <div className='col-md-3'>
-              <label htmlFor='validationCustom03' className='form-label'>
-                Date To
-              </label>
-              <input
-                type='date'
-                className='form-control'
-                id='validationCustom03'
-                required=''
-              />
-              <br />
-              <div className='invalid-feedback'>Please provide your email.</div>
-            </div>
-            <br />
-          </>
-        );
-      })}
+    <Accordion.Item eventKey="12">
+      <Accordion.Header>12. Other Information</Accordion.Header>
+      <Accordion.Body>
+        <Row className="mb-3">
+          {/* <Form.Group
+            as={Col}
+            md="12"
+            {...register("previoussalary", {
+              required: true,
+            })}
+          >
+            <Form.Label>
+              Present / Last Drawn salary (monthly in INR)
+            </Form.Label>
+            <Form.Control size="sm" type="text" placeholder="Amount" />
+            {errors.previoussalary && (
+              <p style={{ color: "red" }}>Please enter</p>
+            )}
+          </Form.Group>
+          <Form.Group
+            as={Col}
+            md="12"
+            {...register("noticeperiod", {
+              required: true,
+            })}
+          >
+            <Form.Label>Notice period (in Days)</Form.Label>
+            <Form.Control size="sm" type="text" placeholder="Days" />
+            {errors.noticeperiod && (
+              <p style={{ color: "red" }}>Please enter</p>
+            )}
+          </Form.Group> */}
 
-      <div className='col-md-12'>
-        <button className='btn btn-primary' type='button' onClick={addHello2}>
-          Add More
-        </button>
-      </div>
-      <hr />
-    </>
+          <Form.Group as={Col} md="12">
+            <Form.Label>Do You Know anyone in MUJ ?</Form.Label>
+            <Form.Check
+              type="checkbox"
+              label="Yes"
+              value={"Yes"}
+              name={"knowanyone"}
+              // {...register("knowanyone", {
+              //   required: true,
+              // })}
+              onClick={handleKnowAnyone}
+            ></Form.Check>
+            {/* <Form.Check
+              type="radio"
+              label="No"
+              value={"No"}
+              name={"knowanyone"}
+              {...register("knowanyone", {
+                required: true,
+              })}
+            ></Form.Check> */}
+            {errors.knowanyone && <p style={{ color: "red" }}>Please enter</p>}
+          </Form.Group>
+          {knowanyone && (
+            <>
+              <Form.Group as={Col} md="3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control size="sm" type="text" placeholder="Name" />
+              </Form.Group>
+              <Form.Group as={Col} md="3">
+                <Form.Label>Designation</Form.Label>
+                <Form.Control size="sm" type="text" placeholder="Designation" />
+              </Form.Group>
+              <Form.Group as={Col} md="3">
+                <Form.Label>Department</Form.Label>
+                <Form.Control size="sm" type="text" placeholder="Department" />
+              </Form.Group>
+            </>
+          )}
+          <Form.Group as={Col} md="12">
+            <Form.Label>
+              Have you ever been interviewed in MUJ earlier?
+            </Form.Label>
+            <Form.Check
+              type="checkbox"
+              label="Yes?"
+              value={"Yes"}
+              name={"knowanyone"}
+              // {...register("knowanyone", {
+              //   required: true,
+              // })}
+              onClick={interviewedHandle}
+            ></Form.Check>
+          </Form.Group>
+          {interviewed && (
+            <>
+              <Form.Group as={Col} md="12">
+                <Form.Label>Given Offer to join?</Form.Label>
+                <Form.Check
+                  type="radio"
+                  label="Yes"
+                  value={"Yes"}
+                  name={"offerjoined"}
+                  {...register("offerjoined", {
+                    required: true,
+                  })}
+                ></Form.Check>
+                <Form.Check
+                  type="radio"
+                  label="No"
+                  value={"No"}
+                  name={"offerjoined"}
+                  {...register("offerjoined", {
+                    required: true,
+                  })}
+                ></Form.Check>
+                {errors.offerjoined && (
+                  <p style={{ color: "red" }}>Please enter</p>
+                )}
+              </Form.Group>
+              <Form.Group as={Col} md="12">
+                <Form.Label>Joined?</Form.Label>
+                <Form.Check
+                  type="radio"
+                  label="Yes"
+                  value={"Yes"}
+                  name={"joined"}
+                ></Form.Check>
+                <Form.Check
+                  type="radio"
+                  label="No"
+                  value={"No"}
+                  name={"joined"}
+                ></Form.Check>
+              </Form.Group>
+            </>
+          )}
+          <Form.Group as={Col} md="12">
+            <Form.Label>
+              Have you ever been punished during your service or convicted by a
+              court of law?
+            </Form.Label>
+            <Form.Check
+              type="radio"
+              label="Yes"
+              value={"Yes"}
+              name={"convicted"}
+              {...register("convicted", {
+                required: true,
+              })}
+            ></Form.Check>
+            <Form.Check
+              type="radio"
+              label="No"
+              value={"No"}
+              name={"convicted"}
+              {...register("convicted", {
+                required: true,
+              })}
+            ></Form.Check>
+            {errors.convicted && <p style={{ color: "red" }}>Please enter</p>}
+          </Form.Group>
+          <Form.Group as={Col} md="12">
+            <Form.Label>
+              <u>is Yes, Please Explain</u>
+            </Form.Label>
+            <Form.Control size="sm" type="text" placeholder="Explain" />
+          </Form.Group>
+          <Form.Group as={Col} md="12">
+            <Form.Label>
+              Do you have any case pending against you in court of law?
+            </Form.Label>
+            <Form.Check
+              type="radio"
+              label="Yes"
+              value={"Yes"}
+              name={"pendingcases"}
+              id={"pendingcases"}
+              {...register("pendingcases", {
+                required: true,
+              })}
+            ></Form.Check>
+            <Form.Check
+              type="radio"
+              label="No"
+              value={"No"}
+              name={"pendingcases"}
+              id={"pendingcases"}
+              {...register("pendingcases", {
+                required: true,
+              })}
+            ></Form.Check>
+            {errors.pendingcases && (
+              <p style={{ color: "red" }}>Please enter</p>
+            )}
+          </Form.Group>
+          <Form.Group as={Col} md="12">
+            <Form.Label>
+              <u>is Yes, Please Explain</u>
+            </Form.Label>
+            <Form.Control size="sm" type="text" placeholder="Explain" />
+          </Form.Group>
+        </Row>
+      </Accordion.Body>
+    </Accordion.Item>
   );
 };
 

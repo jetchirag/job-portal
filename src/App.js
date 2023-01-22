@@ -5,7 +5,7 @@ import JobCardMain from "./components/JobCardMain";
 import WhyUs from "./components/WhyUs";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
-import Form from "./components/Form";
+// import Form from "./components/Form";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Login from "./components/Login";
 import Openings from "./components/Openings";
@@ -40,11 +40,11 @@ function App() {
               </div>
             }
           />
-          <Route
+          {/* <Route
             exact
             path="/apply"
             element={<Form disabled={false} data={null} />}
-          />
+          /> */}
           <Route exact path="/admin" element={<Login />} />
           <Route exact path="/openings" element={<Openings />} />
           <Route
