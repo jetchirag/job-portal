@@ -234,10 +234,16 @@ const FormComponent = () => {
     console.log(data);
 
     try {
-      const response = await fetch("http://65.109.166.43:3000/applications", {
-        method: "post",
-        body: data,
+      const response = await fetch("http://localhost:4000/applications", {
+        body: JSON.stringify(data),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+      }
+          
       });
+      console.log(response);
+      
     } catch (err) {
       console.error(`Error: ${err}`);
     }
@@ -255,14 +261,15 @@ const FormComponent = () => {
         <div className="container">
           <h2 className="center">Job Application Form</h2>
         </div>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={methods.handleSubmit(onSubmit)}>
           {/* This is part 1 */}
           <Accordion
             defalultActiveKey={["0"]}
             alwaysOpen
             style={{ padding: "0 5%" }}
           >
-            <Partone />
+          
+            <Partone/>
             {/* This is part 2 */}
             <PartTwo />
             {/*This is part 3  */}
@@ -284,6 +291,7 @@ const FormComponent = () => {
             {/* This is part 12  */}
             <PartTwelve />
             <Button type="submit" style={{width:'98%'}}>Submit</Button>
+            
           </Accordion>
          
         </Form>

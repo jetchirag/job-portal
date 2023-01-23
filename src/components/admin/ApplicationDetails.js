@@ -127,9 +127,9 @@ const ApplicationsDetails = () => {
           </div>
         </div>
       </div>
-      <fieldset disabled="disabled">
+   
         <FormComponent/>
-      </fieldset>
+     
    
     </>
   );
