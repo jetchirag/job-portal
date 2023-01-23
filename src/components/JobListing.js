@@ -9,25 +9,25 @@ const JobListing = () => {
     <Container>
       <h3>Admin - Create new Job Listing</h3>
       <form className="row g-3" post="/" method="post">
-        <div class="mb-3">
-          <label for="formGroupExampleInput" class="form-label">
+        <div className="mb-3">
+          <label for="formGroupExampleInput" className="form-label">
             Job Title
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="heading"
             name="heading"
             placeholder="Job Tile"
             autocomplete="off"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlTextarea" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlTextarea" className="form-label">
             Details
           </label>
           <textarea
-            class="form-control"
+            className="form-control"
             id="exampleFormControlTextarea"
             rows="3"
             placeholder="Enter Card Body Text"
@@ -35,13 +35,13 @@ const JobListing = () => {
             autocomplete="off"
           ></textarea>
         </div>
-        <div class="mb-3">
-          <label for="formGroupExampleInput" class="form-label">
+        <div className="mb-3">
+          <label for="formGroupExampleInput" className="form-label">
             Last Date
           </label>
           <input
             type="date"
-            class="form-control"
+            className="form-control"
             id="time"
             name="time"
             placeholder="Enter date and time in exact format "
@@ -55,7 +55,7 @@ const JobListing = () => {
 
       <hr></hr>
       <h3>Delete Listing</h3>
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">#</th>

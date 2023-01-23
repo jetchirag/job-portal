@@ -129,7 +129,7 @@ const Footer = () => {
         </div>
         <div
           className="text-center p-3"
-          style={{ "border-top": "2px solid black" }}
+          style={{ "borderTop": "2px solid black" }}
         >
           © 2022 Manipal University,{" "}
           <a href="https://jaipur.manipal.edu">jaipur.manipal.edu</a>, Jaipur,

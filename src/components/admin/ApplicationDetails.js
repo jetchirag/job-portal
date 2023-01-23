@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import "./ApplicationDetails.css";
 // import Form from "../Form";
 import { Button } from "@mui/material";
+import FormComponent from "../FormComponent";
 
 const ApplicationsDetails = () => {
   const { id } = useParams();
@@ -107,26 +108,29 @@ const ApplicationsDetails = () => {
   };
   return (
     <>
-      <div class="card mb-3" style={{maxWidth: "540px", marginTop:'3%', marginLeft:'13%'}}>
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src={data.photo} class="img-fluid rounded-start" alt="..." />
+      <div className="card mb-3" style={{maxWidth: "540px", marginTop:'3%', marginLeft:'13%'}}>
+        <div className="row g-0">
+          <div className="col-md-4">
+            <img src={data.photo} className="img-fluid rounded-start" alt="..." />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{data.name}</h5>
-              <p class="card-text">
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">{data.name}</h5>
+              <p className="card-text">
                <Button variant="contained" color="primary"  onClick={() => openInNewTab(`${data.resume}`)}>Resume</Button>
                <Button variant="contained" color="primary" style={{marginLeft:'2px'}} onClick={() => openInNewTab(`${data.photo}`)}>Photo</Button>
               </p>
-              <p class="card-text">
-                <small class="text-muted">Last updated 3 mins ago</small>
+              <p className="card-text">
+                <small className="text-muted">Last updated 3 mins ago</small>
               </p>
             </div>
           </div>
         </div>
       </div>
-      {/* <Form disabled={true} data={data} /> */}
+      <fieldset disabled="disabled">
+        <FormComponent/>
+      </fieldset>
+   
     </>
   );
 };

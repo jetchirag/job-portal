@@ -21,9 +21,9 @@ const Sort = () => {
       </div>
       <hr />
       <div className='realsort'>
-        <div class='col-md-2'>
+        <div className='col-md-2'>
           <select
-            class='form-select'
+            className='form-select'
             id='validationCustom04'
             required
             onChange={(e) => {
@@ -37,11 +37,11 @@ const Sort = () => {
               return <option>{faculty}</option>;
             })}
           </select>
-          <div class='invalid-feedback'>Please select a valid state.</div>
+          <div className='invalid-feedback'>Please select a valid state.</div>
         </div>
-        <div class='col-md-2'>
+        <div className='col-md-2'>
           <select
-            class='form-select'
+            className='form-select'
             id='validationCustom04'
             required
             onChange={(e) => {
@@ -56,10 +56,10 @@ const Sort = () => {
                 return <option>{dept}</option>;
               })}
           </select>
-          <div class='invalid-feedback'>Please select a valid state.</div>
+          <div className='invalid-feedback'>Please select a valid state.</div>
         </div>
-        <div class='col-md-2'>
-          <select class='form-select' id='validationCustom04' required>
+        <div className='col-md-2'>
+          <select className='form-select' id='validationCustom04' required>
             <option selected disabled value=''>
               Department
             </option>
@@ -68,10 +68,10 @@ const Sort = () => {
                 return <option>{dept}</option>;
               })}
           </select>
-          <div class='invalid-feedback'>Please select a valid state.</div>
+          <div className='invalid-feedback'>Please select a valid state.</div>
         </div>
-        <div class='col-md-2'>
-          <select class='form-select' id='validationCustom04' required>
+        <div className='col-md-2'>
+          <select className='form-select' id='validationCustom04' required>
             <option selected disabled value=''>
               Type
             </option>
@@ -79,7 +79,7 @@ const Sort = () => {
             <option>Non-Academic</option>
             <option>Administrative</option>
           </select>
-          <div class='invalid-feedback'>Please select a valid state.</div>
+          <div className='invalid-feedback'>Please select a valid state.</div>
         </div>
       </div>
       <hr />
