@@ -234,7 +234,7 @@ const FormComponent = () => {
     console.log(data);
 
     try {
-      const response = await fetch("http://localhost:4000/applications", {
+      const response = await fetch("http://65.109.166.43:3000/applications", {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
