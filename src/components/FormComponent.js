@@ -15,7 +15,7 @@ import PartNineTen from "./form/PartNineTen";
 import PartEleven from "./form/PartEleven";
 import PartTwelve from "./form/PartTwelve";
 
-const Testing = () => {
+const FormComponent = () => {
   const [cr_country, setcr_Country] = useState("");
   const [cr_region, setcr_Region] = useState("");
   const [native_country, setnative_Country] = useState("");
@@ -292,4 +292,4 @@ const Testing = () => {
   );
 };
 
-export default Testing;
+export default FormComponent;

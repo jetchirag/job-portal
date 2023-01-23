@@ -2,7 +2,7 @@ import Carousel from "./components/Carousel";
 import Navbar from "./components/Navbar";
 import Stats from "./components/Stats";
 import JobCardMain from "./components/JobCardMain";
-import WhyUs from "./components/WhyUs";
+// import WhyUs from "./components/WhyUs";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 // import Form from "./components/Form";
@@ -18,7 +18,8 @@ import ApplicationDetails from "./components/admin/ApplicationDetails";
 // import Dashboard from "./components/dashboard/Dashboard";
 import ApplicationsTable from "./components/admin/applicationtable";
 import JobListing from "./components/JobListing";
-import Testing from "./components/Testing";
+
+import FormComponent from "./components/FormComponent";
 
 function App() {
   return (
@@ -59,7 +60,7 @@ function App() {
           <Route exact path="/opening" element={<JobDesc />} />
           <Route exact path="/faq" element={<Faq />} />
           <Route exact path="/admin/joblisting" element={<JobListing />} />
-          <Route exact path="/testing" element={<Testing />} />
+          <Route exact path="/apply" element={<FormComponent />} />
         </Routes>
         <Footer />
       </div>

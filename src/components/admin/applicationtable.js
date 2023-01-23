@@ -34,10 +34,7 @@ import { SelectChangeEvent } from "@mui/material/Select";
 import {
   jobTypeOptions,
   statusOptions,
-  statusColor,
-  departmentOptions,
-  schoolOptions,
-  facultiesOptions,
+  statusColor
 } from "./constants";
 import classes from "./ApplicationTable.module.css";
 
@@ -299,7 +296,7 @@ const ApplicationsTable = ({ isLoading }) => {
     <div className={classes.padding}>
       <div className="row">
         <div
-          class="alert alert-secondary col"
+          className="alert alert-secondary col"
           role="alert"
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
@@ -308,7 +305,7 @@ const ApplicationsTable = ({ isLoading }) => {
           </h5>
         </div>
         <div
-          class="alert alert-secondary col"
+          className="alert alert-secondary col"
           role="alert"
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
@@ -317,7 +314,7 @@ const ApplicationsTable = ({ isLoading }) => {
           </h5>
         </div>
         <div
-          class="alert alert-secondary col"
+          className="alert alert-secondary col"
           role="alert"
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
@@ -326,7 +323,7 @@ const ApplicationsTable = ({ isLoading }) => {
           </h5>
         </div>
         <div
-          class="alert alert-secondary col"
+          className="alert alert-secondary col"
           role="alert"
           style={{ maxWidth: "20rem", marginLeft: "20px" }}
         >
