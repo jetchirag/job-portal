@@ -3,17 +3,17 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 import { FormProvider, useForm } from "react-hook-form";
-import Partone from "./form/PartOne";
-import PartTwo from "./form/PartTwo";
-import PartThree from "./form/PartThree";
-import PartFour from "./form/PartFour";
-import PartFive from "./form/PartFive";
-import PartSix from "./form/PartSix";
-import PartSeven from "./form/PartSeven";
-import PartEight from "./form/PartEight";
-import PartNineTen from "./form/PartNineTen";
-import PartEleven from "./form/PartEleven";
-import PartTwelve from "./form/PartTwelve";
+import Partone from "./form-old/PartOne";
+import PartTwo from "./form-old/PartTwo";
+import PartThree from "./form-old/PartThree";
+import PartFour from "./form-old/PartFour";
+import PartFive from "./form-old/PartFive";
+import PartSix from "./form-old/PartSix";
+import PartSeven from "./form-old/PartSeven";
+import PartEight from "./form-old/PartEight";
+import PartNineTen from "./form-old/PartNineTen";
+import PartEleven from "./form-old/PartEleven";
+import PartTwelve from "./form-old/PartTwelve";
 
 const FormComponent = () => {
   const [cr_country, setcr_Country] = useState("");

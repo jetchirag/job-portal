@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './sort.css';
-import { facultiesList, list } from './form/faculties'
+import { facultiesList, list } from './form-old/faculties'
 
 const Sort = () => {
   const [fac, setFac] = useState('');
