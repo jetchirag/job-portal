@@ -31,7 +31,7 @@ body {
   text-decoration: none;
 }
 
-.navbar-brand>img {
+.navbar-brand > img {
   width: 250px;
 }
 
@@ -50,14 +50,16 @@ body {
   width: 50%;
   height: 100%;
   background: white;
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 1) 50%,
-      rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
   padding: 2% 0 2% 2%;
 }
 
-.upperlayer>h1 {
+.upperlayer > h1 {
   font-size: 5rem;
   font-weight: 600;
   margin-left: 1rem;
@@ -66,7 +68,7 @@ body {
   color: black;
 }
 
-.upperlayer>h3 {
+.upperlayer > h3 {
   margin-left: 5%;
   font-weight: 300;
 }
@@ -86,7 +88,7 @@ body {
   padding: 2% 0 2% 2%;
 }
 
-.upperlayer-car>h3 {
+.upperlayer-car > h3 {
   font-size: 2.5em;
   margin-left: 20px;
   font-weight: 300;
@@ -101,9 +103,11 @@ body {
   justify-content: space-between;
   padding: 0 2%;
   align-items: center;
+  grid-gap: 1rem;
 }
 
-.stats>div {
+.stats > div {
+  width: 250px;
   margin: 0 20px;
   border-bottom: 4px solid rgb(130, 37, 6);
 }
@@ -127,7 +131,7 @@ body {
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card>img {
+.card > img {
   position: absolute;
 }
 
@@ -143,21 +147,21 @@ body {
   padding: 2% 2% 0% 2%;
 }
 
-.jobcardmain>h2 {
+.jobcardmain > h2 {
   margin-top: 0%;
   font-size: 2.5em;
   font-weight: 400;
   text-align: center;
 }
 
-.whyus>h2 {
+.whyus > h2 {
   margin: 2% 0;
   font-size: 3rem;
   font-weight: 400;
   text-align: center;
 }
 
-.testimonial>h2 {
+.testimonial > h2 {
   margin: 2% 0;
   font-size: 3rem;
   font-weight: 400;
@@ -179,7 +183,7 @@ footer li img {
   width: 40px;
 }
 
-footer>.container {
+footer > .container {
   padding-bottom: 0 !important;
 }
 
@@ -276,7 +280,7 @@ img {
   }
 }
 
-.openings>h2 {
+.openings > h2 {
   margin: 2% 0;
   font-size: 3rem;
   font-weight: 400;
@@ -287,7 +291,7 @@ img {
   margin: 20px;
 }
 
-.jobdescmain>h2 {
+.jobdescmain > h2 {
   margin: 2% 0;
   font-size: 3rem;
   font-weight: 400;
@@ -299,7 +303,7 @@ img {
   justify-content: space-between;
 }
 
-.jobdescimg>img {
+.jobdescimg > img {
   width: 20vw;
   margin-right: 20px;
 }
@@ -334,7 +338,7 @@ img {
   display: flex;
 }
 
-.acc-div>img {
+.acc-div > img {
   width: 500px;
 }
 
@@ -342,7 +346,7 @@ img {
   padding-left: 20px;
 }
 
-.acc-div-div>p>button>a {
+.acc-div-div > p > button > a {
   color: white;
 }
 
@@ -380,4 +384,17 @@ img {
 .stat h2 div {
   width: 100px !important;
   display: inline;
+}
+
+@media screen and (max-width: 560px) {
+  .stats {
+    display: block;
+  }
+}
+.add-more-btn {
+  background-color: #0c6efd;
+  color: #fff;
+  border-radius: 7px;
+  border: none;
+  padding: 0.5rem 0.75rem;
 }

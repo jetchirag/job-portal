@@ -331,3 +331,9 @@ img {
   width: 100px !important;
   display: inline;
 }
+
+@media screen and (max-width: 560px) {
+  .stats {
+    display: block;
+  }
+}
