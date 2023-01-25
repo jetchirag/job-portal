@@ -18,7 +18,6 @@ const Partone = () => {
   const facultyHandler = (e) => {
     setFaculty(e.target.value);
     setSchool("");
-
   };
   const schoolHandler = (e) => {
     setSchool(e.target.value);
@@ -33,6 +32,7 @@ const Partone = () => {
             <Form.Label>Job Type</Form.Label>
 
             <Form.Select
+              isInvalid={errors.jobtype}
               size="sm"
               aria-label="Default Job Type"
               {...register("jobtype", {
@@ -46,13 +46,11 @@ const Partone = () => {
               <option value="non_academic">Non Academic</option>
               <option value="administration">Administrative</option>
             </Form.Select>
-            {errors.jobtype && (
-              <p style={{ color: "red" }}>Please select your job type</p>
-            )}
           </Form.Group>
           <Form.Group as={Col} md="3" controlId="faculty">
             <Form.Label>Faculty</Form.Label>
             <Form.Select
+              isInvalid={errors.faculty}
               size="sm"
               aria-label="Default Faculty Type"
               {...register("faculty", {
@@ -69,14 +67,12 @@ const Partone = () => {
                 return <option value={faculty}>{faculty}</option>;
               })}
             </Form.Select>
-            {errors.faculty && (
-              <p style={{ color: "red" }}>Please select your Faculty type</p>
-            )}
           </Form.Group>
           {faculty && (
             <Form.Group as={Col} md="3" controlId="faculty">
               <Form.Label>School</Form.Label>
               <Form.Select
+                isInvalid={errors.school}
                 size="sm"
                 aria-label="Default Faculty Type"
                 {...register("school", {
@@ -93,15 +89,13 @@ const Partone = () => {
                     return <option value={sch}>{sch}</option>;
                   })}
               </Form.Select>
-              {errors.school && (
-                <p style={{ color: "red" }}>Please select your school</p>
-              )}
             </Form.Group>
           )}
           {school && (
             <Form.Group as={Col} md="3" controlId="faculty">
               <Form.Label>Department</Form.Label>
               <Form.Select
+                isInvalid={errors.dept}
                 size="sm"
                 aria-label="Default Faculty Type"
                 {...register("dept", {
@@ -116,14 +110,12 @@ const Partone = () => {
                     return <option value={dept}>{dept}</option>;
                   })}
               </Form.Select>
-              {errors.dept && (
-                <p style={{ color: "red" }}>Please select your Department</p>
-              )}
             </Form.Group>
           )}
           <Form.Group as={Col} md="3" controlId="faculty">
             <Form.Label>Nature of Job</Form.Label>
             <Form.Check
+              isInvalid={errors.natureofjob}
               type={"radio"}
               placeholder="acad"
               label={"Full-time"}
@@ -134,6 +126,7 @@ const Partone = () => {
               })}
             />
             <Form.Check
+              isInvalid={errors.natureofjob}
               type={"radio"}
               placeholder="acad"
               label={"Part-time"}
@@ -143,10 +136,6 @@ const Partone = () => {
                 required: true,
               })}
             />
-
-            {errors.natureofjob && (
-              <p style={{ color: "red" }}>Please select your Nature of Job</p>
-            )}
           </Form.Group>
         </Row>
       </Accordion.Body>

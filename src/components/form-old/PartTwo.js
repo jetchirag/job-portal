@@ -29,6 +29,7 @@ const PartTwo = () => {
           <Form.Group as={Col} md="3" controlId="firstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control
+              isInvalid={errors.firstName}
               size="sm"
               placeholder="First Name"
               type="text"
@@ -37,40 +38,34 @@ const PartTwo = () => {
                 maxLength: 20,
               })}
             />
-            {errors.firstName && (
-              <p style={{ color: "red" }}>Please enter your first name</p>
-            )}
           </Form.Group>
           {/* Last Name Details  */}
           <Form.Group as={Col} md="3" controlId="lastName">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
+              isInvalid={errors.lastName}
               size="sm"
               placeholder="Last Name"
               type="text"
               {...register("lastName", { required: true, maxLength: 20 })}
             />
-            {errors.lastName && (
-              <p style={{ color: "red" }}>Please enter your last name</p>
-            )}
           </Form.Group>
           {/* Date of Birth Details  */}
           <Form.Group as={Col} md="3" controlId="dob">
             <Form.Label>Date of Birth</Form.Label>
             <Form.Control
+              isInvalid={errors.dob}
               size="sm"
               placeholder="DD/MM/YYYY"
               type="date"
               {...register("dob", { required: true })}
             />
-            {errors.dob && (
-              <p style={{ color: "red" }}>Please select your DOB</p>
-            )}
           </Form.Group>
           {/* Gender Details */}
           <Form.Group as={Col} md="3" controlId="gender">
             <Form.Label>Gender</Form.Label>
             <Form.Select
+              isInvalid={errors.gender}
               size="sm"
               {...register("gender", {
                 required: "Please select your gender",
@@ -82,9 +77,6 @@ const PartTwo = () => {
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </Form.Select>
-            {errors.gender && (
-              <p style={{ color: "red" }}> {errors.gender.message}</p>
-            )}
           </Form.Group>
           {/* Mobile Details */}
           <Form.Group as={Col} md="3" controlId="mobile">
@@ -92,6 +84,7 @@ const PartTwo = () => {
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">+91</InputGroup.Text>
               <Form.Control
+                isInvalid={errors.mobile}
                 size="sm"
                 placeholder="Mobile No."
                 type="tel"
@@ -103,9 +96,6 @@ const PartTwo = () => {
                 })}
               />
               <br />
-              {errors.mobile && (
-                <p style={{ color: "red" }}>Please enter your mobile no.</p>
-              )}
             </InputGroup>
           </Form.Group>
           {/* Email Details */}
@@ -114,6 +104,7 @@ const PartTwo = () => {
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
               <Form.Control
+                isInvalid={errors.email}
                 size="sm"
                 placeholder="Email ID"
                 type="email"
@@ -124,9 +115,6 @@ const PartTwo = () => {
                 })}
               />
               <br />
-              {errors.email && (
-                <p style={{ color: "red" }}>Please enter your email id</p>
-              )}
             </InputGroup>
           </Form.Group>
         </Row>
@@ -139,6 +127,7 @@ const PartTwo = () => {
           <Form.Group as={Col} md="3" controlId="cr_country">
             <Form.Label>Country</Form.Label>
             <CountryDropdown
+              isInvalid={errors.cr_country}
               value={cr_country}
               onChange={(val) => setcr_Country(val)}
               className={"form-control form-control-sm"}
@@ -146,9 +135,6 @@ const PartTwo = () => {
               //   required: true,
               // })}
             />
-            {errors.cr_country && (
-              <p style={{ color: "red" }}>Please select your country</p>
-            )}
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="3" controlId="cr_state">
@@ -170,6 +156,7 @@ const PartTwo = () => {
           <Form.Group as={Col} md="3" controlId="cr_city">
             <Form.Label>City</Form.Label>
             <Form.Control
+              isInvalid={errors.cr_city}
               placeholder="City"
               size="sm"
               type="text"
@@ -178,9 +165,6 @@ const PartTwo = () => {
                 maxLength: 25,
               })}
             />
-            {errors.cr_city && (
-              <p style={{ color: "red" }}>Please enter your city</p>
-            )}
           </Form.Group>
         </Row>
         <hr />
@@ -199,9 +183,6 @@ const PartTwo = () => {
               //   required: true,
               // })}
             />
-            {errors.native_country && (
-              <p style={{ color: "red" }}>Please select your country</p>
-            )}
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="3" controlId="native_state">
@@ -215,14 +196,12 @@ const PartTwo = () => {
               //   required: true,
               // })}
             />
-            {errors.native_state && (
-              <p style={{ color: "red" }}>Please select your state</p>
-            )}
           </Form.Group>
           {/* City Details  */}
           <Form.Group as={Col} md="3" controlId="native_city">
             <Form.Label>City</Form.Label>
             <Form.Control
+              isInvalid={errors.native_city}
               size="sm"
               placeholder="City"
               type="text"
@@ -231,9 +210,6 @@ const PartTwo = () => {
                 maxLength: 25,
               })}
             />
-            {errors.native_city && (
-              <p style={{ color: "red" }}>Please enter your city</p>
-            )}
           </Form.Group>
         </Row>
         <hr />
@@ -242,6 +218,7 @@ const PartTwo = () => {
           <Form.Group as={Col} md="3" controlId="religion">
             <Form.Label>Religion</Form.Label>
             <Form.Select
+              isInvalid={errors.religion}
               size="sm"
               aria-label="Default select example"
               {...register("religion", {
@@ -260,14 +237,12 @@ const PartTwo = () => {
               <option value="zoroastrian">Zoroastrian</option>
               <option value="other">Other</option>
             </Form.Select>
-            {errors.religion && (
-              <p style={{ color: "red" }}> {errors.religion.message}</p>
-            )}
           </Form.Group>
           {/* Marrital Status Details  */}
           <Form.Group as={Col} md="3" controlId="marital_status">
             <Form.Label>Marital Status</Form.Label>
             <Form.Select
+              isInvalid={errors.marital_status}
               size="sm"
               aria-label="Default select example"
               {...register("marital_status", {
@@ -282,14 +257,12 @@ const PartTwo = () => {
               <option value="married">Married</option>
               <option value="divorced">Divorced</option>
             </Form.Select>
-            {errors.marital_status && (
-              <p style={{ color: "red" }}> {errors.marital_status.message}</p>
-            )}
           </Form.Group>
           {/* Aadhaar Card Details  */}
           <Form.Group as={Col} md="3" controlId="aadhaar_card">
             <Form.Label>Aadhaar Card</Form.Label>
             <Form.Control
+              isInvalid={errors.aadhaar_card}
               size="sm"
               placeholder="Aadhaar Card"
               type="text"
@@ -299,16 +272,12 @@ const PartTwo = () => {
                 maxLength: 12,
               })}
             />
-            {errors.aadhaar_card && (
-              <p style={{ color: "red" }}>
-                Please enter your aadhaar card number
-              </p>
-            )}
           </Form.Group>
           {/* PAN Card Details  */}
           <Form.Group as={Col} md="3" controlId="pan_card">
             <Form.Label>PAN Card</Form.Label>
             <Form.Control
+              isInvalid={errors.pan_card}
               size="sm"
               placeholder="PAN Card"
               type="text"
@@ -318,9 +287,6 @@ const PartTwo = () => {
                 maxLength: 10,
               })}
             />
-            {errors.pan_card && (
-              <p style={{ color: "red" }}>Please enter your pan card number</p>
-            )}
           </Form.Group>
         </Row>
       </Accordion.Body>
