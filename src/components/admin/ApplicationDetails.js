@@ -37,7 +37,7 @@ const ApplicationsDetails = () => {
   const FetchingApplicant = useCallback(async () => {
     try {
       await fetch(
-        // `http://jobmuj.projects.chirag.sh:3000/applications/${id}`,
+       
         `http://65.109.166.43:3000/applications/${id}`,
         // NEW - add a Content-Type header
         {

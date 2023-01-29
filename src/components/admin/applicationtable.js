@@ -12,8 +12,9 @@ import {
   GridColDef,
   GridToolbar,
   GridToolbarContainer,
-  GridToolbarExport,
 } from "@mui/x-data-grid";
+// import { GridSelectionModel } from "@mui/x-data-grid";
+
 import {
   Button,
   Chip,
@@ -25,24 +26,24 @@ import {
   Avatar,
   LinearProgress,
 } from "@mui/material";
+
 import { SelectChangeEvent } from "@mui/material/Select";
 
 // project imports
 // import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 // import MainCard from 'ui-component/cards/MainCard';
 // import { gridSpacing } from 'store/constant';
-import {
-  jobTypeOptions,
-  statusOptions,
-  statusColor
-} from "./constants";
+import { jobTypeOptions, statusOptions, statusColor } from "./constants";
 import classes from "./ApplicationTable.module.css";
 
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const ApplicationsTable = ({ isLoading }) => {
-  const URL = "http://65.109.166.43:3000/applications";
-  const URLFaculties = "http://65.109.166.43:3000/applications/faculties";
+  // const URL = "http://65.109.166.43:3000/applications";
+  // const URLFaculties = "http://65.109.166.43:3000/applications/faculties";
+
+  const URL = "http://localhost:4000/applications";
+  const URLFaculties = "http://localhost:4000/applications/faculties";
 
   const [loading, setLoading] = useState(false);
   const [facultiesData, setFacultiesData] = useState({});
@@ -55,8 +56,21 @@ const ApplicationsTable = ({ isLoading }) => {
   const [applicantList, setApplicantList] = useState([]);
   const [, setStats] = useState([]);
   const [dateRange, setDateRange] = useState({ start: "", end: "" });
-  const [searchQuery, setSearchQuery] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
+
   const [searchName, setSearchName] = useState("");
+  const [pageState, setPageState] = useState(1);
+  const pageStateHandler = () => {
+    if (applicantList.length === pageState) setPageState(pageState + 10);
+  };
+  const pageStateHandlerNegative = () => {
+    if (applicantList.length === pageState) setPageState(pageState - 10);
+  };
+
+  //Getting values from Data Grid of Selected Items
+  const [selected, setSelected] = useState([]);
+  // console.log(select);
+
   const [filters, setFilters] = useState({
     jobType: "",
     faculty: "",
@@ -68,12 +82,14 @@ const ApplicationsTable = ({ isLoading }) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
   const FetchingData = useCallback(async () => {
-    console.log(encodeURIComponent(filters.department));
+    // console.log(encodeURIComponent(filters.department));
 
     setLoading(true);
     try {
       await fetch(
         URL +
+          "?limit=" +
+          encodeURIComponent(pageState) +
           "?jobType=" +
           encodeURIComponent(filters.jobType) +
           "&faculty=" +
@@ -132,7 +148,7 @@ const ApplicationsTable = ({ isLoading }) => {
       console.error(err.message);
     }
     setLoading(false);
-  }, [filters, dateRange, searchName]);
+  }, [filters, dateRange, searchName, pageState]);
 
   const FetchingFacultyData = useCallback(async () => {
     setLoading(true);
@@ -145,7 +161,7 @@ const ApplicationsTable = ({ isLoading }) => {
           return res.json();
         })
         .then((val) => {
-          console.log(val);
+          // console.log(val);
           setFacultiesData(val);
 
           const newFacultiesSelect = ["Any"];
@@ -169,6 +185,35 @@ const ApplicationsTable = ({ isLoading }) => {
   useEffect(() => {
     FetchingFacultyData();
   }, []);
+
+  const DownloadCSV = async () => {
+    let data = [];
+    selected.map((id) => {
+      data.push(
+        applicantList.filter((e) => {
+          return id === e.id;
+        })
+      );
+    });
+    // console.log(data);
+    let ids = [];
+    data.forEach((e) => {
+      return ids.push(e[0]._id);
+    });
+    console.log(ids);
+
+    try {
+      await fetch("http://localhost:4000/applications/downloadcsv", {
+        method: "POST",
+        body: JSON.stringify(ids),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleFilterChange = (
     propertyName,
@@ -213,8 +258,10 @@ const ApplicationsTable = ({ isLoading }) => {
   function CustomToolbar() {
     return (
       <GridToolbarContainer>
-        <GridToolbar excelOptions={{ allColumns: true }}
-          csvOptions={{ allColumns: true }}/>
+        <GridToolbar
+          excelOptions={{ allColumns: true }}
+          csvOptions={{ allColumns: true }}
+        />
         {/* <GridToolbarExport
           
         /> */}
@@ -222,7 +269,7 @@ const ApplicationsTable = ({ isLoading }) => {
     );
   }
 
-  const columns: GridColDef[] = [
+  const columns = [
     { field: "id", headerName: "ID", width: 70 },
     {
       field: "avatar",
@@ -334,8 +381,27 @@ const ApplicationsTable = ({ isLoading }) => {
       </div>
 
       <Grid container>
-        <Grid item xs={12} md={4}>
-          <FormControl sx={{ m: 1, minWidth: 350 }}>
+        <Grid item xs={12} md={2.4}>
+          <FormControl sx={{ m: 1, width: "90%" }}>
+            <InputLabel>Job Type</InputLabel>
+            <Select
+              value={filters.jobType}
+              label="Job Type"
+              onChange={(e) => handleFilterChange("jobType", e)}
+            >
+              {jobTypeOptions?.map((option) => {
+                return (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label ?? option.value}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+            {/* <FormHelperText>Read only</FormHelperText> */}
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} md={2.4}>
+          <FormControl sx={{ m: 1, width: "90%" }}>
             <InputLabel>Faculty</InputLabel>
             <Select
               default={""}
@@ -354,8 +420,8 @@ const ApplicationsTable = ({ isLoading }) => {
             {/* <FormHelperText>Read only</FormHelperText> */}
           </FormControl>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <FormControl sx={{ m: 1, minWidth: 350 }}>
+        <Grid item xs={12} md={2.4}>
+          <FormControl sx={{ m: 1, width: "90%" }}>
             <InputLabel>School</InputLabel>
             <Select
               default={""}
@@ -373,8 +439,8 @@ const ApplicationsTable = ({ isLoading }) => {
             </Select>
           </FormControl>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <FormControl sx={{ m: 1, minWidth: 350 }}>
+        <Grid item xs={12} md={2.4}>
+          <FormControl sx={{ m: 1, width: "90%" }}>
             <InputLabel>Department</InputLabel>
             <Select
               value={filters.department}
@@ -391,29 +457,9 @@ const ApplicationsTable = ({ isLoading }) => {
             </Select>
           </FormControl>
         </Grid>
-      </Grid>
-      <Grid container mb={4}>
-        <Grid item xs={12} md={4}>
-          <FormControl sx={{ m: 1, minWidth: 350 }}>
-            <InputLabel>Job Type</InputLabel>
-            <Select
-              value={filters.jobType}
-              label="Job Type"
-              onChange={(e) => handleFilterChange("jobType", e)}
-            >
-              {jobTypeOptions?.map((option) => {
-                return (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label ?? option.value}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-            {/* <FormHelperText>Read only</FormHelperText> */}
-          </FormControl>
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <FormControl sx={{ m: 1, minWidth: 350 }}>
+
+        <Grid item xs={12} md={2.4}>
+          <FormControl sx={{ m: 1, width: "90%" }}>
             <InputLabel>Status</InputLabel>
             <Select
               default={""}
@@ -432,46 +478,73 @@ const ApplicationsTable = ({ isLoading }) => {
             {/* <FormHelperText>Read only</FormHelperText> */}
           </FormControl>
         </Grid>
-        <Grid item xs={12} md={4}>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            style={{ marginLeft: "10px", width: "70%", marginTop: "15px" }}
-            onClick={() =>
-              openInNewTab(
-                "https://job-portal-olive.vercel.app/admin/joblisting"
-              )
-            }
-          >
-            Add New Job Listing
-          </Button>
-        </Grid>
+
+        <Button
+          variant="outlined"
+          color="primary"
+          size="large"
+          style={{
+            marginTop: "15px",
+            width: "48%",
+            marginBottom: "10px",
+            marginRight: "4%",
+          }}
+          onClick={() =>
+            openInNewTab("https://job-portal-olive.vercel.app/admin/joblisting")
+          }
+        >
+          Add New Job Listing
+        </Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          size="large"
+          style={{ marginTop: "15px", width: "48%", marginBottom: "10px" }}
+          onClick={DownloadCSV}
+        >
+          Download CSV (Selected items)
+        </Button>
       </Grid>
+
       <Grid container>
         <Grid item xs={12}>
           <div style={{ height: 600, width: "100%" }}>
             <DataGrid
               rows={applicantList}
               columns={columns}
-              pageSize={10}
-              rowsPerPageOptions={[10]}
-              checkboxSelection
               density="comfortable"
               loading={loading}
+              rowsPerPageOptions={[]}
               components={{
                 Toolbar: CustomToolbar,
                 LoadingOverlay: LinearProgress,
               }}
+              checkboxSelection
+              hideFooterPagination
+              onSelectionModelChange={(itm) => setSelected(itm)}
               componentsProps={{
                 toolbar: {
                   showQuickFilter: true,
-                  csvOptions: { fileName: "Applications" },
                 },
               }}
             />
           </div>
         </Grid>
+        <Button
+          variant="contained"
+          onClick={pageStateHandlerNegative}
+          style={{ marginTop: "10px", marginRight: "10px" }}
+        >
+          ⬅️ Prev 10
+        </Button>
+        <Button
+          variant="contained"
+          onClick={pageStateHandler}
+          style={{ marginTop: "10px" }}
+        >
+          Next 10 ➡️
+        </Button>
+        {/* {selectionModel.map(val =><h1>{val}</h1>)} */}
       </Grid>
     </div>
   );
