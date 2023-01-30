@@ -37,78 +37,81 @@ const PartNineTen = () => {
             label='if Yes?'
             onClick={handlePart9}
           ></Form.Check>
-          {patent.map(() => {
-            return (
-              <Row className='mb-3'>
-                <Form.Group
-                  as={Col}
-                  md='3'
-                  disabled={part9}
-                  controlId='patent_details'
-                >
-                  <Form.Label>Patent Details</Form.Label>
-                  <Form.Control
-                    size='sm'
-                    as='textarea'
-                    rows={1}
+          {!part9 &&
+            patent.map(() => {
+              return (
+                <Row className='mb-3'>
+                  <Form.Group
+                    as={Col}
+                    md='3'
                     disabled={part9}
-                    {...register('patent_details', {
-                      maxLength: 500,
-                    })}
-                  />
-                  {errors.patent_details && (
-                    <p style={{ color: 'red' }}>
-                      Please enter the patent details
-                    </p>
-                  )}
-                </Form.Group>
-                <Form.Group as={Col} md='3' controlId='patent_year'>
-                  <Form.Label>Year</Form.Label>
-                  <Form.Control
-                    size='sm'
-                    type='text'
-                    rows={3}
-                    disabled={part9}
-                    {...register('patent_year', {
-                      maxLength: 500,
-                    })}
-                  />
-                  {errors.patent_year && (
-                    <p style={{ color: 'red' }}>
-                      Please enter the patented year
-                    </p>
-                  )}
-                </Form.Group>
-                <Form.Group as={Col} md='3' controlId='patent_status'>
-                  <Form.Label>Patent Status</Form.Label>
-                  <Form.Select
-                    size='sm'
-                    type='text'
-                    rows={3}
-                    disabled={part9}
-                    {...register('patent_status', {
-                      required: 'Please select',
-                    })}
+                    controlId='patent_details'
                   >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    <option>Filled</option>
-                    <option>Granted</option>
-                  </Form.Select>
-                  {errors.patent_status && (
-                    <p style={{ color: 'red' }}>
-                      {' '}
-                      {errors.patent_status.message}
-                    </p>
-                  )}
-                </Form.Group>
-              </Row>
-            );
-          })}
-          <button type='button' onClick={addPatent} className='add-more-btn'>
-            Add
-          </button>
+                    <Form.Label>Patent Details</Form.Label>
+                    <Form.Control
+                      size='sm'
+                      as='textarea'
+                      rows={1}
+                      disabled={part9}
+                      {...register('patent_details', {
+                        maxLength: 500,
+                      })}
+                    />
+                    {errors.patent_details && (
+                      <p style={{ color: 'red' }}>
+                        Please enter the patent details
+                      </p>
+                    )}
+                  </Form.Group>
+                  <Form.Group as={Col} md='3' controlId='patent_year'>
+                    <Form.Label>Year</Form.Label>
+                    <Form.Control
+                      size='sm'
+                      type='text'
+                      rows={3}
+                      disabled={part9}
+                      {...register('patent_year', {
+                        maxLength: 500,
+                      })}
+                    />
+                    {errors.patent_year && (
+                      <p style={{ color: 'red' }}>
+                        Please enter the patented year
+                      </p>
+                    )}
+                  </Form.Group>
+                  <Form.Group as={Col} md='3' controlId='patent_status'>
+                    <Form.Label>Patent Status</Form.Label>
+                    <Form.Select
+                      size='sm'
+                      type='text'
+                      rows={3}
+                      disabled={part9}
+                      {...register('patent_status', {
+                        required: 'Please select',
+                      })}
+                    >
+                      <option selected='' disabled='' value=''>
+                        Choose...
+                      </option>
+                      <option>Filled</option>
+                      <option>Granted</option>
+                    </Form.Select>
+                    {errors.patent_status && (
+                      <p style={{ color: 'red' }}>
+                        {' '}
+                        {errors.patent_status.message}
+                      </p>
+                    )}
+                  </Form.Group>
+                </Row>
+              );
+            })}
+          {!part9 && (
+            <button type='button' onClick={addPatent} className='add-more-btn'>
+              Add
+            </button>
+          )}
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey='10'>
@@ -121,55 +124,57 @@ const PartNineTen = () => {
             label='if Yes?'
             onClick={handlePart10}
           ></Form.Check>
-          <Form.Group>
-            <Table responsive='sm'>
-              <thead>
-                <td>#</td>
-                <td>No. assignments</td>
-                <td>for Amount (in INR)</td>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Completed</td>
-                  <td>
-                    <Form.Control
-                      size='sm'
-                      type='text'
-                      rows={3}
-                      disabled={part10}
-                    />
-                  </td>
-                  <td>
-                    <Form.Control
-                      size='sm'
-                      type='text'
-                      rows={3}
-                      disabled={part10}
-                    />
-                  </td>
-                </tr>
-                <tr>
-                  <td>ongoing</td>
-                  <td>
-                    <Form.Control
-                      size='sm'
-                      type='text'
-                      rows={3}
-                      disabled={part10}
-                    />
-                  </td>
-                  <td>
-                    <Form.Control
-                      size='sm'
-                      type='text'
-                      rows={3}
-                      disabled={part10}
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Form.Group>
+          {!part10 && (
+            <Form.Group>
+              <Table responsive='sm'>
+                <thead>
+                  <td>#</td>
+                  <td>No. assignments</td>
+                  <td>for Amount (in INR)</td>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Completed</td>
+                    <td>
+                      <Form.Control
+                        size='sm'
+                        type='text'
+                        rows={3}
+                        disabled={part10}
+                      />
+                    </td>
+                    <td>
+                      <Form.Control
+                        size='sm'
+                        type='text'
+                        rows={3}
+                        disabled={part10}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>ongoing</td>
+                    <td>
+                      <Form.Control
+                        size='sm'
+                        type='text'
+                        rows={3}
+                        disabled={part10}
+                      />
+                    </td>
+                    <td>
+                      <Form.Control
+                        size='sm'
+                        type='text'
+                        rows={3}
+                        disabled={part10}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            </Form.Group>
+          )}
         </Accordion.Body>
       </Accordion.Item>
     </>
