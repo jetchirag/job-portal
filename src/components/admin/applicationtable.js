@@ -77,9 +77,12 @@ const ApplicationsTable = ({ isLoading }) => {
   const [pageState, setPageState] = useState(1);
   const pageStateHandler = () => {
     if (applicantList.length === pageState) setPageState(pageState + 10);
+    else setPageState(applicantList.length);
   };
   const pageStateHandlerNegative = () => {
-    if (applicantList.length === pageState) setPageState(pageState - 10);
+    if (applicantList.length === pageState && pageState > 10)
+      setPageState(pageState - 10);
+    else setPageState(1);
   };
 
   //Getting values from Data Grid of Selected Items
@@ -379,7 +382,7 @@ const ApplicationsTable = ({ isLoading }) => {
           justifyContent: "space-between",
           padding: "2rem",
           margin: "0.5rem",
-          border: "1px solid black"
+          border: "1px solid black",
         }}
       >
         <div className="row">
