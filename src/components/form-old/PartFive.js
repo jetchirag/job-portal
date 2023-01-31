@@ -97,7 +97,7 @@ const PartFive = () => {
                   placeholder='University'
                   type='text'
                   {...register('academicExperience_university', {
-                    required: true,
+                    // required: true,
                     maxLength: 100,
                   })}
                 />
@@ -114,7 +114,7 @@ const PartFive = () => {
                   placeholder='College Name'
                   type='text'
                   {...register('academicExperience_college', {
-                    required: true,
+                    // required: true,
                     maxLength: 100,
                   })}
                 />
@@ -129,7 +129,7 @@ const PartFive = () => {
                 <Form.Select
                   size='sm'
                   {...register('academicExperience_position', {
-                    required: 'Please select the position you worked in',
+                    // required: 'Please select the position you worked in',
                   })}
                 >
                   <option selected='' disabled='' value=''>
@@ -153,7 +153,7 @@ const PartFive = () => {
                   placeholder='Academic Domain'
                   type='text'
                   {...register('academicExperience_domain', {
-                    required: true,
+                    // required: true,
                     maxLength: 100,
                   })}
                 />
@@ -218,7 +218,7 @@ const PartFive = () => {
                 <Form.Select
                   size='sm'
                   {...register('nonAcademicExperience_mode', {
-                    required: 'Please select the nature of your job',
+                    // required: 'Please select the nature of your job',
                   })}
                 >
                   <option selected='' disabled='' value=''>
@@ -256,7 +256,7 @@ const PartFive = () => {
                   placeholder='Organization Name'
                   type='text'
                   {...register('nonAcademicExperience_organization', {
-                    required: true,
+                    // required: true,
                     maxLength: 100,
                   })}
                 />
@@ -273,7 +273,7 @@ const PartFive = () => {
                   placeholder='Designation Name'
                   type='text'
                   {...register('nonAcademicExperience_designation', {
-                    required: true,
+                    // required: true,
                     maxLength: 100,
                   })}
                 />
@@ -290,7 +290,7 @@ const PartFive = () => {
                   placeholder='Department Name'
                   type='text'
                   {...register('nonAcademicExperience_department', {
-                    required: true,
+                    // required: true,
                     maxLength: 100,
                   })}
                 />

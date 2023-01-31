@@ -15,6 +15,8 @@ import PartNineTen from "./form-old/PartNineTen";
 import PartEleven from "./form-old/PartEleven";
 import PartTwelve from "./form-old/PartTwelve";
 
+import Col from "react-bootstrap/Col";
+
 import "./css/Recognition.css";
 
 const FormComponent = () => {
@@ -34,6 +36,11 @@ const FormComponent = () => {
     useState("");
   const [nonAcademicExperience_country, setnonAcademicExperience_country] =
     useState("");
+
+  const [part9, setPart9] = useState(true);
+  const handlePart9 = () => {
+    setPart9(!part9);
+  };
 
   const onSubmit = async (data) => {
     let applicant = {
@@ -291,6 +298,21 @@ const FormComponent = () => {
             <PartEleven />
             {/* This is part 12  */}
             <PartTwelve />
+            <Form.Group as={Col} md="12" controlId="accept">
+              <Form.Label>
+                T&Cs<span style={{ color: "red" }}> *</span>
+              </Form.Label>
+              <Form.Check
+                type="checkbox"
+                isInvalid={errors.accept}
+                size="sm"
+                label="I confirm that I have not been convicted by a court in India for any criminal offense and/or sentenced to imprisonment. There are no criminal proceedings pending against me before any court in India. I have not been issued a warrant or summons for appearance or a warrant for arrest by any court in India. I certify that the above statements made by me are true, complete and correct. I agree that in case Manipal University Jaipur will finds at any time that the information given by me in this form is not correct or incomplete, Manipal University Jaipur will have the right to withdraw my letter of appointment or to terminate my appointment at any time without notice or compensation."
+                onClick={handlePart9}
+                {...register("board", {
+                  required: true,
+                })}
+              ></Form.Check>
+            </Form.Group>
             <Button type="submit" style={{ width: "98%" }}>
               Submit
             </Button>

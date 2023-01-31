@@ -107,7 +107,7 @@ const Partone = () => {
                 size="sm"
                 aria-label="Default Faculty Type"
                 {...register("dept", {
-                  // required: true,
+                  required: true,
                 })}
               >
                 <option selected="" disabled="" value="">
