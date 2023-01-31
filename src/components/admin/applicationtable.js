@@ -42,8 +42,8 @@ const ApplicationsTable = ({ isLoading }) => {
   // const URL = "http://65.109.166.43:3000/applications";
   // const URLFaculties = "http://65.109.166.43:3000/applications/faculties";
 
-  const URL = "http://localhost:4000/applications";
-  const URLFaculties = "http://localhost:4000/applications/faculties";
+  const URL = "http://localhost:3000/applications";
+  const URLFaculties = "http://localhost:3000/applications/faculties";
 
   const [loading, setLoading] = useState(false);
   const [facultiesData, setFacultiesData] = useState({});
@@ -203,7 +203,7 @@ const ApplicationsTable = ({ isLoading }) => {
     console.log(ids);
 
     try {
-      await fetch("http://localhost:4000/applications/downloadcsv", {
+      await fetch("http://localhost:3000/applications/downloadcsv", {
         method: "POST",
         body: JSON.stringify(ids),
         headers: {
