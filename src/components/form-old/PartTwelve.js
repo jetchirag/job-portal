@@ -1,10 +1,10 @@
-import React from 'react';
-import { useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import Form from 'react-bootstrap/Form';
-import Accordion from 'react-bootstrap/Accordion';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from "react";
+import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+import Form from "react-bootstrap/Form";
+import Accordion from "react-bootstrap/Accordion";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const PartTwelve = () => {
   const {
@@ -21,15 +21,15 @@ const PartTwelve = () => {
   const interviewedHandle = () => {
     setInterviewed(!interviewed);
   };
-  const [know, setKnow] = useState(['set']);
+  const [know, setKnow] = useState(["set"]);
   const addKnow = () => {
-    setKnow([...know, 'set']);
+    setKnow([...know, "set"]);
   };
   return (
-    <Accordion.Item eventKey='12'>
+    <Accordion.Item eventKey="12">
       <Accordion.Header>12. Other Information</Accordion.Header>
       <Accordion.Body>
-        <Row className='mb-3'>
+        <Row className="mb-3">
           {/* <Form.Group
             as={Col}
             md="12"
@@ -58,13 +58,13 @@ const PartTwelve = () => {
               <p style={{ color: "red" }}>Please enter</p>
             )}
           </Form.Group> */}
-          <Form.Group as={Col} md='12'>
+          <Form.Group as={Col} md="12">
             <Form.Label>Do You Know anyone in MUJ ?</Form.Label>
             <Form.Check
-              type='checkbox'
-              label='Yes'
-              value={'Yes'}
-              name={'knowanyone'}
+              type="checkbox"
+              label="Yes"
+              value={"Yes"}
+              name={"knowanyone"}
               // {...register("knowanyone", {
               //   required: true,
               // })}
@@ -79,7 +79,7 @@ const PartTwelve = () => {
                 required: true,
               })}
             ></Form.Check> */}
-            {errors.knowanyone && <p style={{ color: 'red' }}>Please enter</p>}
+            {errors.knowanyone && <p style={{ color: "red" }}>Please enter</p>}
           </Form.Group>
           <h3></h3>
           {knowanyone &&
@@ -87,24 +87,30 @@ const PartTwelve = () => {
               return (
                 <>
                   <br />
-                  <Form.Group as={Col} md='3'>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control size='sm' type='text' placeholder='Name' />
+                  <Form.Group as={Col} md="3">
+                    <Form.Label>
+                      Name<span style={{ color: "red" }}> *</span>
+                    </Form.Label>
+                    <Form.Control size="sm" type="text" placeholder="Name" />
                   </Form.Group>
-                  <Form.Group as={Col} md='3'>
-                    <Form.Label>Designation</Form.Label>
+                  <Form.Group as={Col} md="3">
+                    <Form.Label>
+                      Designation<span style={{ color: "red" }}> *</span>
+                    </Form.Label>
                     <Form.Control
-                      size='sm'
-                      type='text'
-                      placeholder='Designation'
+                      size="sm"
+                      type="text"
+                      placeholder="Designation"
                     />
                   </Form.Group>
-                  <Form.Group as={Col} md='3'>
-                    <Form.Label>Department</Form.Label>
+                  <Form.Group as={Col} md="3">
+                    <Form.Label>
+                      Department<span style={{ color: "red" }}> *</span>
+                    </Form.Label>
                     <Form.Control
-                      size='sm'
-                      type='text'
-                      placeholder='Department'
+                      size="sm"
+                      type="text"
+                      placeholder="Department"
                     />
                   </Form.Group>
                   <h3></h3>
@@ -113,19 +119,20 @@ const PartTwelve = () => {
               );
             })}
           {knowanyone && (
-            <button type='button' onClick={addKnow} className='add-more-btn'>
+            <button type="button" onClick={addKnow} className="add-more-btn">
               Add
             </button>
           )}
-          <Form.Group as={Col} md='12'>
+          <Form.Group as={Col} md="12">
             <Form.Label>
               Have you ever been interviewed in MUJ earlier?
+              <span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Check
-              type='checkbox'
-              label='Yes?'
-              value={'Yes'}
-              name={'knowanyone'}
+              type="checkbox"
+              label="Yes?"
+              value={"Yes"}
+              name={"knowanyone"}
               // {...register("knowanyone", {
               //   required: true,
               // })}
@@ -134,111 +141,118 @@ const PartTwelve = () => {
           </Form.Group>
           {interviewed && (
             <>
-              <Form.Group as={Col} md='12'>
-                <Form.Label>Given Offer to join?</Form.Label>
+              <Form.Group as={Col} md="12">
+                <Form.Label>
+                  Given Offer to join?<span style={{ color: "red" }}> *</span>
+                </Form.Label>
                 <Form.Check
-                  type='radio'
-                  label='Yes'
-                  value={'Yes'}
-                  name={'offerjoined'}
-                  {...register('offerjoined', {
+                  type="radio"
+                  label="Yes"
+                  value={"Yes"}
+                  name={"offerjoined"}
+                  {...register("offerjoined", {
                     required: true,
                   })}
                 ></Form.Check>
                 <Form.Check
-                  type='radio'
-                  label='No'
-                  value={'No'}
-                  name={'offerjoined'}
-                  {...register('offerjoined', {
+                  type="radio"
+                  label="No"
+                  value={"No"}
+                  name={"offerjoined"}
+                  {...register("offerjoined", {
                     required: true,
                   })}
                 ></Form.Check>
                 {errors.offerjoined && (
-                  <p style={{ color: 'red' }}>Please enter</p>
+                  <p style={{ color: "red" }}>Please enter</p>
                 )}
               </Form.Group>
-              <Form.Group as={Col} md='12'>
-                <Form.Label>Joined?</Form.Label>
+              <Form.Group as={Col} md="12">
+                <Form.Label>
+                  Joined?<span style={{ color: "red" }}> *</span>
+                </Form.Label>
                 <Form.Check
-                  type='radio'
-                  label='Yes'
-                  value={'Yes'}
-                  name={'joined'}
+                  type="radio"
+                  label="Yes"
+                  value={"Yes"}
+                  name={"joined"}
                 ></Form.Check>
                 <Form.Check
-                  type='radio'
-                  label='No'
-                  value={'No'}
-                  name={'joined'}
+                  type="radio"
+                  label="No"
+                  value={"No"}
+                  name={"joined"}
                 ></Form.Check>
               </Form.Group>
             </>
           )}
-          <Form.Group as={Col} md='12'>
+          <Form.Group as={Col} md="12">
             <Form.Label>
               Have you ever been punished during your service or convicted by a
-              court of law?
+              court of law?<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Check
-              type='radio'
-              label='Yes'
+              type="radio"
+              label="Yes"
               isInvalid={errors.convicted}
-              value={'Yes'}
-              name={'convicted'}
-              {...register('convicted', {
+              value={"Yes"}
+              name={"convicted"}
+              {...register("convicted", {
                 required: true,
               })}
             ></Form.Check>
             <Form.Check
-              type='radio'
-              label='No'
+              type="radio"
+              label="No"
               isInvalid={errors.convicted}
-              value={'No'}
-              name={'convicted'}
-              {...register('convicted', {
+              value={"No"}
+              name={"convicted"}
+              {...register("convicted", {
                 required: true,
               })}
             ></Form.Check>
           </Form.Group>
-          <Form.Group as={Col} md='12'>
+          <Form.Group as={Col} md="12">
             <Form.Label>
               <u>is Yes, Please Explain</u>
+              <span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Control size='sm' type='text' placeholder='Explain' />
+            <Form.Control size="sm" type="text" placeholder="Explain" />
           </Form.Group>
-          <Form.Group as={Col} md='12'>
+          <Form.Group as={Col} md="12">
             <Form.Label>
               Do you have any case pending against you in court of law?
+              <span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Check
-              type='radio'
-              label='Yes'
-              value={'Yes'}
-              name={'pendingcases'}
+              type="radio"
+              label="Yes"
+              value={"Yes"}
+              name={"pendingcases"}
               isInvalid={errors.pendingcases}
-              id={'pendingcases'}
-              {...register('pendingcases', {
+              id={"pendingcases"}
+              {...register("pendingcases", {
                 required: true,
               })}
             ></Form.Check>
             <Form.Check
               isInvalid={errors.pendingcases}
-              type='radio'
-              label='No'
-              value={'No'}
-              name={'pendingcases'}
-              id={'pendingcases'}
-              {...register('pendingcases', {
+              type="radio"
+              label="No"
+              value={"No"}
+              name={"pendingcases"}
+              id={"pendingcases"}
+              {...register("pendingcases", {
                 required: true,
               })}
             ></Form.Check>
           </Form.Group>
-          <Form.Group as={Col} md='12'>
+          <Form.Group as={Col} md="12">
             <Form.Label>
               <u>is Yes, Please Explain</u>
+              <span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Control size='sm' type='text' placeholder='Explain' />
+            <Form.Control size="sm" type="text" placeholder="Explain" />
           </Form.Group>
         </Row>
       </Accordion.Body>

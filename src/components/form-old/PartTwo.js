@@ -27,7 +27,9 @@ const PartTwo = () => {
         <Row className="mb-3">
           {/* First Name Details  */}
           <Form.Group as={Col} md="2" controlId="firstName">
-            <Form.Label>First Name</Form.Label>
+            <Form.Label>
+              First Name<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.firstName}
               size="sm"
@@ -41,7 +43,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Last Name Details  */}
           <Form.Group as={Col} md="2" controlId="lastName">
-            <Form.Label>Last Name</Form.Label>
+            <Form.Label>
+              Last Name<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.lastName}
               size="sm"
@@ -52,7 +56,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Date of Birth Details  */}
           <Form.Group as={Col} md="2" controlId="dob">
-            <Form.Label>Date of Birth</Form.Label>
+            <Form.Label>
+              Date of Birth<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.dob}
               size="sm"
@@ -63,7 +69,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Gender Details */}
           <Form.Group as={Col} md="2" controlId="gender">
-            <Form.Label>Gender</Form.Label>
+            <Form.Label>
+              Gender<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Select
               isInvalid={errors.gender}
               size="sm"
@@ -80,7 +88,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Mobile Details */}
           <Form.Group as={Col} md="2" controlId="mobile">
-            <Form.Label>Mobile</Form.Label>
+            <Form.Label>
+              Mobile<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">+91</InputGroup.Text>
               <Form.Control
@@ -100,7 +110,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Email Details */}
           <Form.Group as={Col} md="2" controlId="email">
-            <Form.Label>Email</Form.Label>
+            <Form.Label>
+              Email<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
               <Form.Control
@@ -125,7 +137,9 @@ const PartTwo = () => {
         <Row className="mb-3">
           {/* Country Details */}
           <Form.Group as={Col} md="2" controlId="cr_country">
-            <Form.Label>Country</Form.Label>
+            <Form.Label>
+              Country<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <CountryDropdown
               isInvalid={errors.cr_country}
               value={cr_country}
@@ -138,7 +152,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="2" controlId="cr_state">
-            <Form.Label>State</Form.Label>
+            <Form.Label>
+              State<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <RegionDropdown
               country={cr_country}
               value={cr_region}
@@ -154,7 +170,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* City Details  */}
           <Form.Group as={Col} md="2" controlId="cr_city">
-            <Form.Label>City</Form.Label>
+            <Form.Label>
+              City<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.cr_city}
               placeholder="City"
@@ -174,7 +192,9 @@ const PartTwo = () => {
         <Row className="mb-3">
           {/* Country Details */}
           <Form.Group as={Col} md="2" controlId="native_country">
-            <Form.Label>Country</Form.Label>
+            <Form.Label>
+              Country<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <CountryDropdown
               value={native_country}
               onChange={(val) => setnative_Country(val)}
@@ -186,7 +206,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="2" controlId="native_state">
-            <Form.Label>State</Form.Label>
+            <Form.Label>
+              State<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <RegionDropdown
               country={native_country}
               value={native_region}
@@ -199,7 +221,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* City Details  */}
           <Form.Group as={Col} md="2" controlId="native_city">
-            <Form.Label>City</Form.Label>
+            <Form.Label>
+              City<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.native_city}
               size="sm"
@@ -216,7 +240,9 @@ const PartTwo = () => {
         <Row className="mb-3">
           {/* Religon  */}
           <Form.Group as={Col} md="2" controlId="religion">
-            <Form.Label>Religion</Form.Label>
+            <Form.Label>
+              Religion<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Select
               isInvalid={errors.religion}
               size="sm"
@@ -240,7 +266,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Marrital Status Details  */}
           <Form.Group as={Col} md="2" controlId="marital_status">
-            <Form.Label>Marital Status</Form.Label>
+            <Form.Label>
+              Marital Status<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Select
               isInvalid={errors.marital_status}
               size="sm"
@@ -260,7 +288,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* Aadhaar Card Details  */}
           <Form.Group as={Col} md="2" controlId="aadhaar_card">
-            <Form.Label>Aadhaar Card</Form.Label>
+            <Form.Label>
+              Aadhaar Card<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.aadhaar_card}
               size="sm"
@@ -275,7 +305,9 @@ const PartTwo = () => {
           </Form.Group>
           {/* PAN Card Details  */}
           <Form.Group as={Col} md="2" controlId="pan_card">
-            <Form.Label>PAN Card</Form.Label>
+            <Form.Label>
+              PAN Card<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Control
               isInvalid={errors.pan_card}
               size="sm"

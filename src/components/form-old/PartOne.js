@@ -29,7 +29,9 @@ const Partone = () => {
       <Accordion.Body>
         <Row className="mb-3">
           <Form.Group as={Col} md="2" controlId="dob">
-            <Form.Label>Job Type</Form.Label>
+            <Form.Label>
+              Job Type<span style={{ color: "red" }}> *</span>
+            </Form.Label>
 
             <Form.Select
               isInvalid={errors.jobtype}
@@ -48,7 +50,9 @@ const Partone = () => {
             </Form.Select>
           </Form.Group>
           <Form.Group as={Col} md="2" controlId="faculty">
-            <Form.Label>Faculty</Form.Label>
+            <Form.Label>
+              Faculty<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Select
               isInvalid={errors.faculty}
               size="sm"
@@ -70,7 +74,9 @@ const Partone = () => {
           </Form.Group>
           {faculty && (
             <Form.Group as={Col} md="2" controlId="faculty">
-              <Form.Label>School</Form.Label>
+              <Form.Label>
+                School<span style={{ color: "red" }}> *</span>
+              </Form.Label>
               <Form.Select
                 isInvalid={errors.school}
                 size="sm"
@@ -93,7 +99,9 @@ const Partone = () => {
           )}
           {school && (
             <Form.Group as={Col} md="2" controlId="faculty">
-              <Form.Label>Department</Form.Label>
+              <Form.Label>
+                Department<span style={{ color: "red" }}> *</span>
+              </Form.Label>
               <Form.Select
                 isInvalid={errors.dept}
                 size="sm"
@@ -113,7 +121,9 @@ const Partone = () => {
             </Form.Group>
           )}
           <Form.Group as={Col} md="2" controlId="faculty">
-            <Form.Label>Nature of Job</Form.Label>
+            <Form.Label>
+              Nature of Job<span style={{ color: "red" }}> *</span>
+            </Form.Label>
             <Form.Check
               isInvalid={errors.natureofjob}
               type={"radio"}

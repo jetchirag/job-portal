@@ -88,7 +88,6 @@ const PartNineTen = () => {
                       rows={3}
                       disabled={part9}
                       {...register('patent_status', {
-                        required: 'Please select',
                       })}
                     >
                       <option selected='' disabled='' value=''>

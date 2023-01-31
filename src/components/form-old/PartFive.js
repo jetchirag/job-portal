@@ -95,7 +95,6 @@ const PartFive = () => {
                 <Form.Control
                   size='sm'
                   placeholder='University'
-                  isInvalid={errors.academicExperience_university}
                   type='text'
                   {...register('academicExperience_university', {
                     required: true,
@@ -113,7 +112,6 @@ const PartFive = () => {
                 <Form.Control
                   size='sm'
                   placeholder='College Name'
-                  isInvalid={errors.academicExperience_college}
                   type='text'
                   {...register('academicExperience_college', {
                     required: true,
@@ -130,7 +128,6 @@ const PartFive = () => {
                 <Form.Label>Position</Form.Label>
                 <Form.Select
                   size='sm'
-                  isInvalid={errors.academicExperience_position}
                   {...register('academicExperience_position', {
                     required: 'Please select the position you worked in',
                   })}
@@ -154,7 +151,6 @@ const PartFive = () => {
                 <Form.Control
                   size='sm'
                   placeholder='Academic Domain'
-                  isInvalid={errors.academicExperience_domain}
                   type='text'
                   {...register('academicExperience_domain', {
                     required: true,
@@ -221,7 +217,6 @@ const PartFive = () => {
                 <Form.Label>Nature of Job</Form.Label>
                 <Form.Select
                   size='sm'
-                  isInvalid={errors.nonAcademicExperience_mode}
                   {...register('nonAcademicExperience_mode', {
                     required: 'Please select the nature of your job',
                   })}
@@ -244,7 +239,6 @@ const PartFive = () => {
                   value={nonAcademicExperience_country}
                   onChange={(val) => setnonAcademicExperience_country(val)}
                   className='form-control-sm form-control'
-                  isInvalid={errors.nonAcademicExperience_country}
                   // {...register("native_country", {
                   //   required: true,
                   // })}
@@ -261,7 +255,6 @@ const PartFive = () => {
                   size='sm'
                   placeholder='Organization Name'
                   type='text'
-                  isInvalid={errors.nonAcademicExperience_organization}
                   {...register('nonAcademicExperience_organization', {
                     required: true,
                     maxLength: 100,
@@ -278,7 +271,6 @@ const PartFive = () => {
                 <Form.Control
                   size='sm'
                   placeholder='Designation Name'
-                  isInvalid={errors.nonAcademicExperience_designation}
                   type='text'
                   {...register('nonAcademicExperience_designation', {
                     required: true,
@@ -297,7 +289,6 @@ const PartFive = () => {
                   size='sm'
                   placeholder='Department Name'
                   type='text'
-                  isInvalid={errors.nonAcademicExperience_department}
                   {...register('nonAcademicExperience_department', {
                     required: true,
                     maxLength: 100,
@@ -315,7 +306,6 @@ const PartFive = () => {
                   size='sm'
                   placeholder='DD/MM/YYYY'
                   type='date'
-                  isInvalid={errors.nonAcademicExperience_datefrom}
                   {...register('nonAcademicExperience_datefrom')}
                 />
               </Form.Group>
