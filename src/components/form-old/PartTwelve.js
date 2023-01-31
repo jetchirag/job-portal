@@ -183,6 +183,7 @@ const PartTwelve = () => {
             <Form.Check
               type='radio'
               label='Yes'
+              isInvalid={errors.convicted}
               value={'Yes'}
               name={'convicted'}
               {...register('convicted', {
@@ -192,13 +193,13 @@ const PartTwelve = () => {
             <Form.Check
               type='radio'
               label='No'
+              isInvalid={errors.convicted}
               value={'No'}
               name={'convicted'}
               {...register('convicted', {
                 required: true,
               })}
             ></Form.Check>
-            {errors.convicted && <p style={{ color: 'red' }}>Please enter</p>}
           </Form.Group>
           <Form.Group as={Col} md='12'>
             <Form.Label>
@@ -215,12 +216,14 @@ const PartTwelve = () => {
               label='Yes'
               value={'Yes'}
               name={'pendingcases'}
+              isInvalid={errors.pendingcases}
               id={'pendingcases'}
               {...register('pendingcases', {
                 required: true,
               })}
             ></Form.Check>
             <Form.Check
+              isInvalid={errors.pendingcases}
               type='radio'
               label='No'
               value={'No'}
@@ -230,9 +233,6 @@ const PartTwelve = () => {
                 required: true,
               })}
             ></Form.Check>
-            {errors.pendingcases && (
-              <p style={{ color: 'red' }}>Please enter</p>
-            )}
           </Form.Group>
           <Form.Group as={Col} md='12'>
             <Form.Label>
