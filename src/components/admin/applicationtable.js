@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import { useState, useEffect, useCallback } from "react";
-import React from "react";
-import axios from "axios";
+import PropTypes from 'prop-types';
+import { useState, useEffect, useCallback } from 'react';
+import React from 'react';
+import axios from 'axios';
 import {
   AreaChart,
   XAxis,
@@ -12,10 +12,10 @@ import {
   BarChart,
   Legend,
   Bar,
-} from "recharts";
+} from 'recharts';
 
-import graph_data from "./graph_data.js";
-import barchart_data from "./barchar_data.js";
+import graph_data from './graph_data.js';
+import barchart_data from './barchar_data.js';
 
 // import { useSelector } from "react-redux";
 // import axios from 'axios';
@@ -27,7 +27,7 @@ import {
   GridColDef,
   GridToolbar,
   GridToolbarContainer,
-} from "@mui/x-data-grid";
+} from '@mui/x-data-grid';
 // import { GridSelectionModel } from "@mui/x-data-grid";
 
 import {
@@ -40,22 +40,22 @@ import {
   Select,
   Avatar,
   LinearProgress,
-} from "@mui/material";
+} from '@mui/material';
 
-import { SelectChangeEvent } from "@mui/material/Select";
+import { SelectChangeEvent } from '@mui/material/Select';
 
 // project imports
 // import SkeletonTotalGrowthBarChart from 'ui-component/cards/Skeleton/TotalGrowthBarChart';
 // import MainCard from 'ui-component/cards/MainCard';
 // import { gridSpacing } from 'store/constant';
-import { jobTypeOptions, statusOptions, statusColor } from "./constants";
-import classes from "./ApplicationTable.module.css";
+import { jobTypeOptions, statusOptions, statusColor } from './constants';
+import classes from './ApplicationTable.module.css';
 
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const ApplicationsTable = ({ isLoading }) => {
-  const URL = "http://localhost:3000/applications";
-  const URLFaculties = "http://localhost:3000/applications/faculties";
+  const URL = 'http://localhost:3000/applications';
+  const URLFaculties = 'http://localhost:3000/applications/faculties';
 
   // const URL = "http://localhost:3000/applications";
   // const URLFaculties = "http://localhost:3000/applications/faculties";
@@ -64,16 +64,16 @@ const ApplicationsTable = ({ isLoading }) => {
   const [facultiesData, setFacultiesData] = useState({});
   const [AdminStats, setAdminStats] = useState({});
 
-  const [facultiesSelect, setFacultiesSelect] = useState([""]);
-  const [schoolSelect, setSchoolSelect] = useState([""]);
-  const [departmentSelect, setDepartmentSelect] = useState([""]);
+  const [facultiesSelect, setFacultiesSelect] = useState(['']);
+  const [schoolSelect, setSchoolSelect] = useState(['']);
+  const [departmentSelect, setDepartmentSelect] = useState(['']);
 
   const [applicantList, setApplicantList] = useState([]);
   const [, setStats] = useState([]);
-  const [dateRange, setDateRange] = useState({ start: "", end: "" });
+  const [dateRange, setDateRange] = useState({ start: '', end: '' });
   // const [searchQuery, setSearchQuery] = useState("");
 
-  const [searchName, setSearchName] = useState("");
+  const [searchName, setSearchName] = useState('');
   const [pageState, setPageState] = useState(1);
   const pageStateHandler = () => {
     if (applicantList.length === pageState) setPageState(pageState + 10);
@@ -90,14 +90,14 @@ const ApplicationsTable = ({ isLoading }) => {
   // console.log(select);
 
   const [filters, setFilters] = useState({
-    jobType: "",
-    faculty: "",
-    school: "",
-    department: "",
-    status: "",
+    jobType: '',
+    faculty: '',
+    school: '',
+    department: '',
+    status: '',
   });
   const openInNewTab = (url) => {
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
   const FetchingData = useCallback(async () => {
     // console.log(encodeURIComponent(filters.department));
@@ -106,25 +106,25 @@ const ApplicationsTable = ({ isLoading }) => {
     try {
       await fetch(
         URL +
-          "?limit=" +
+          '?limit=' +
           encodeURIComponent(pageState) +
-          "?jobType=" +
+          '?jobType=' +
           encodeURIComponent(filters.jobType) +
-          "&faculty=" +
+          '&faculty=' +
           encodeURIComponent(filters.faculty) +
-          "&school=" +
+          '&school=' +
           encodeURIComponent(filters.school) +
-          "&department=" +
+          '&department=' +
           encodeURIComponent(filters.department) +
-          "&status=" +
+          '&status=' +
           encodeURIComponent(filters.status) +
-          "&startDate=" +
-          "&endDate=" +
-          "&searchName="
+          '&startDate=' +
+          '&endDate=' +
+          '&searchName='
       )
         .then((res) => {
           if (!res.ok) {
-            throw new Error("Error Connecting to the database");
+            throw new Error('Error Connecting to the database');
           }
           return res.json();
         })
@@ -142,7 +142,7 @@ const ApplicationsTable = ({ isLoading }) => {
               _id: item._id,
               status: item.status,
               avatar: item.photo,
-              name: item.applicant.firstName + " " + item.applicant.lastName,
+              name: item.applicant.firstName + ' ' + item.applicant.lastName,
               email: item.applicant.email,
               phone: item.applicant.mobile,
               dob: item.applicant.dob,
@@ -174,7 +174,7 @@ const ApplicationsTable = ({ isLoading }) => {
       await fetch(URLFaculties)
         .then((res) => {
           if (!res.ok) {
-            throw new Error("Error Connecting to the database");
+            throw new Error('Error Connecting to the database');
           }
           return res.json();
         })
@@ -182,7 +182,7 @@ const ApplicationsTable = ({ isLoading }) => {
           // console.log(val);
           setFacultiesData(val);
 
-          const newFacultiesSelect = ["Any"];
+          const newFacultiesSelect = ['Any'];
           for (var key of Object.keys(val)) {
             newFacultiesSelect.push(key);
           }
@@ -236,9 +236,9 @@ const ApplicationsTable = ({ isLoading }) => {
     };
 
     axios
-      .post("http://localhost:3000/applications/downloadcsv", payload, {
+      .post('http://localhost:3000/applications/downloadcsv', payload, {
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
         },
       })
       .then((response) => {
@@ -258,11 +258,11 @@ const ApplicationsTable = ({ isLoading }) => {
   };
 
   const handleFacultyChange = (event: SelectChangeEvent<typeof filters>) => {
-    if (event.target.value === "Any") {
-      setFilters({ ...filters, faculty: "", school: "", department: "" });
+    if (event.target.value === 'Any') {
+      setFilters({ ...filters, faculty: '', school: '', department: '' });
     } else {
       setFilters({ ...filters, faculty: event.target.value });
-      const newSchoolSelect = [""];
+      const newSchoolSelect = [''];
       for (var key of Object.keys(facultiesData[event.target.value])) {
         newSchoolSelect.push(key);
       }
@@ -273,7 +273,7 @@ const ApplicationsTable = ({ isLoading }) => {
   const handleSchoolChange = (event: SelectChangeEvent<typeof filters>) => {
     setFilters({ ...filters, school: event.target.value });
     // console.log(event.target.value);
-    const newDepartmentSelect = [""];
+    const newDepartmentSelect = [''];
     console.log(facultiesData[filters.faculty][event.target.value]);
     for (var key of Object.keys(
       facultiesData[filters.faculty][event.target.value]
@@ -304,10 +304,10 @@ const ApplicationsTable = ({ isLoading }) => {
   }
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: 'id', headerName: 'ID', width: 70 },
     {
-      field: "avatar",
-      headerName: "Applicant",
+      field: 'avatar',
+      headerName: 'Applicant',
       width: 90,
       renderCell: (params) => {
         return (
@@ -317,36 +317,36 @@ const ApplicationsTable = ({ isLoading }) => {
         );
       },
     },
-    { field: "name", headerName: "Name", width: 200 },
-    { field: "createdDate", headerName: "Date Applied", width: 200 },
-    { field: "faculty", headerName: "Faculty", width: 200, hide: true },
-    { field: "school", headerName: "School", width: 200, hide: true },
-    { field: "department", headerName: "Department", width: 200, hide: true },
+    { field: 'name', headerName: 'Name', width: 200 },
+    { field: 'createdDate', headerName: 'Date Applied', width: 200 },
+    { field: 'faculty', headerName: 'Faculty', width: 200, hide: true },
+    { field: 'school', headerName: 'School', width: 200, hide: true },
+    { field: 'department', headerName: 'Department', width: 200, hide: true },
     {
-      field: "status",
-      headerName: "Status",
+      field: 'status',
+      headerName: 'Status',
       width: 160,
       renderCell: (params) => {
         return (
           <Chip
             label={params.value}
-            sx={{ bgcolor: statusColor[params.value], color: "#fff" }}
+            sx={{ bgcolor: statusColor[params.value], color: '#fff' }}
           />
         );
       },
     },
     {
-      field: "resume",
-      headerName: "Resume",
+      field: 'resume',
+      headerName: 'Resume',
       width: 120,
       renderCell: (params) => {
         return (
           <Button
-            variant="contained"
-            color="primary"
-            size="small"
+            variant='contained'
+            color='primary'
+            size='small'
             href={params.value}
-            target="_blank"
+            target='_blank'
           >
             Download
           </Button>
@@ -354,17 +354,17 @@ const ApplicationsTable = ({ isLoading }) => {
       },
     },
     {
-      field: "_id",
-      headerName: "Actions",
+      field: '_id',
+      headerName: 'Actions',
       width: 120,
       renderCell: (params) => {
         return (
           <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            href={"/dashboard/application/" + params.value}
-            target="_blank"
+            variant='contained'
+            color='primary'
+            size='small'
+            href={'/dashboard/application/' + params.value}
+            target='_blank'
           >
             View Details
           </Button>
@@ -376,16 +376,16 @@ const ApplicationsTable = ({ isLoading }) => {
   return (
     <div className={classes.padding}>
       <div
-        className="graphs container"
+        className='graphs container'
         style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "2rem",
-          margin: "0.5rem",
-          border: "1px solid black",
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '2rem',
+          margin: '0.5rem',
+          border: '1px solid black',
         }}
       >
-        <div className="row">
+        <div className='row'>
           <AreaChart
             width={650}
             height={250}
@@ -393,79 +393,79 @@ const ApplicationsTable = ({ isLoading }) => {
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
             <defs>
-              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+              <linearGradient id='colorUv' x1='0' y1='0' x2='0' y2='1'>
+                <stop offset='5%' stopColor='#8884d8' stopOpacity={0.8} />
+                <stop offset='95%' stopColor='#8884d8' stopOpacity={0} />
               </linearGradient>
-              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+              <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>
+                <stop offset='5%' stopColor='#82ca9d' stopOpacity={0.8} />
+                <stop offset='95%' stopColor='#82ca9d' stopOpacity={0} />
               </linearGradient>
             </defs>
-            <XAxis dataKey="name" />
+            <XAxis dataKey='name' />
             <YAxis />
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid strokeDasharray='3 3' />
             <Tooltip />
             <Area
-              type="monotone"
-              dataKey="uv"
-              stroke="#8884d8"
+              type='monotone'
+              dataKey='uv'
+              stroke='#8884d8'
               fillOpacity={1}
-              fill="url(#colorUv)"
+              fill='url(#colorUv)'
             />
             <Area
-              type="monotone"
-              dataKey="pv"
-              stroke="#82ca9d"
+              type='monotone'
+              dataKey='pv'
+              stroke='#82ca9d'
               fillOpacity={1}
-              fill="url(#colorPv)"
+              fill='url(#colorPv)'
             />
           </AreaChart>
         </div>
-        <div className="row">
+        <div className='row'>
           <BarChart width={650} height={250} data={barchart_data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis dataKey='name' />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="pv" fill="#8884d8" />
-            <Bar dataKey="uv" fill="#82ca9d" />
+            <Bar dataKey='pv' fill='#8884d8' />
+            <Bar dataKey='uv' fill='#82ca9d' />
           </BarChart>
         </div>
       </div>
-      <div className="row">
+      <div className='row'>
         <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
+          className='alert alert-secondary col'
+          role='alert'
+          style={{ maxWidth: '20rem', marginLeft: '20px' }}
         >
           <h5>
             Total Submission: 14<span>{AdminStats.totalsubmitted}</span>
           </h5>
         </div>
         <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
+          className='alert alert-secondary col'
+          role='alert'
+          style={{ maxWidth: '20rem', marginLeft: '20px' }}
         >
           <h5>
             Total Academic Submissions: 14<span>{AdminStats.totalacad}</span>
           </h5>
         </div>
         <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
+          className='alert alert-secondary col'
+          role='alert'
+          style={{ maxWidth: '20rem', marginLeft: '20px' }}
         >
           <h5>
             Total Non Academic Submision: 0<span>{AdminStats.totalnacad}</span>
           </h5>
         </div>
         <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
+          className='alert alert-secondary col'
+          role='alert'
+          style={{ maxWidth: '20rem', marginLeft: '20px' }}
         >
           <h5>
             Total Admins: 1<span>{AdminStats.totalAdmin}</span>
@@ -475,12 +475,12 @@ const ApplicationsTable = ({ isLoading }) => {
 
       <Grid container>
         <Grid item xs={12} md={2.4}>
-          <FormControl sx={{ m: 1, width: "90%" }}>
+          <FormControl sx={{ m: 1, width: '90%' }}>
             <InputLabel>Job Type</InputLabel>
             <Select
               value={filters.jobType}
-              label="Job Type"
-              onChange={(e) => handleFilterChange("jobType", e)}
+              label='Job Type'
+              onChange={(e) => handleFilterChange('jobType', e)}
             >
               {jobTypeOptions?.map((option) => {
                 return (
@@ -494,12 +494,12 @@ const ApplicationsTable = ({ isLoading }) => {
           </FormControl>
         </Grid>
         <Grid item xs={12} md={2.4}>
-          <FormControl sx={{ m: 1, width: "90%" }}>
+          <FormControl sx={{ m: 1, width: '90%' }}>
             <InputLabel>Faculty</InputLabel>
             <Select
-              default={""}
+              default={''}
               value={filters.faculty}
-              label="Faculty"
+              label='Faculty'
               onChange={(e) => handleFacultyChange(e)}
             >
               {facultiesSelect?.map((option) => {
@@ -514,12 +514,12 @@ const ApplicationsTable = ({ isLoading }) => {
           </FormControl>
         </Grid>
         <Grid item xs={12} md={2.4}>
-          <FormControl sx={{ m: 1, width: "90%" }}>
+          <FormControl sx={{ m: 1, width: '90%' }}>
             <InputLabel>School</InputLabel>
             <Select
-              default={""}
+              default={''}
               value={filters.school}
-              label="School"
+              label='School'
               onChange={(e) => handleSchoolChange(e)}
             >
               {schoolSelect?.map((option) => {
@@ -533,11 +533,11 @@ const ApplicationsTable = ({ isLoading }) => {
           </FormControl>
         </Grid>
         <Grid item xs={12} md={2.4}>
-          <FormControl sx={{ m: 1, width: "90%" }}>
+          <FormControl sx={{ m: 1, width: '90%' }}>
             <InputLabel>Department</InputLabel>
             <Select
               value={filters.department}
-              label="Faculty"
+              label='Faculty'
               onChange={(e) => handleDepartmentChange(e)}
             >
               {departmentSelect?.map((option) => {
@@ -552,13 +552,13 @@ const ApplicationsTable = ({ isLoading }) => {
         </Grid>
 
         <Grid item xs={12} md={2.4}>
-          <FormControl sx={{ m: 1, width: "90%" }}>
+          <FormControl sx={{ m: 1, width: '90%' }}>
             <InputLabel>Status</InputLabel>
             <Select
-              default={""}
+              default={''}
               value={filters.status}
-              label="Status"
-              onChange={(e) => handleFilterChange("status", e)}
+              label='Status'
+              onChange={(e) => handleFilterChange('status', e)}
             >
               {statusOptions?.map((option) => {
                 return (
@@ -573,26 +573,26 @@ const ApplicationsTable = ({ isLoading }) => {
         </Grid>
 
         <Button
-          variant="outlined"
-          color="primary"
-          size="large"
+          variant='outlined'
+          color='primary'
+          size='large'
           style={{
-            marginTop: "15px",
-            width: "48%",
-            marginBottom: "10px",
-            marginRight: "4%",
+            marginTop: '15px',
+            width: '48%',
+            marginBottom: '10px',
+            marginRight: '4%',
           }}
           onClick={() =>
-            openInNewTab("https://job-portal-olive.vercel.app/admin/joblisting")
+            openInNewTab('https://job-portal-olive.vercel.app/admin/joblisting')
           }
         >
           Add New Job Listing
         </Button>
         <Button
-          variant="outlined"
-          color="primary"
-          size="large"
-          style={{ marginTop: "15px", width: "48%", marginBottom: "10px" }}
+          variant='outlined'
+          color='primary'
+          size='large'
+          style={{ marginTop: '15px', width: '48%', marginBottom: '10px' }}
           onClick={DownloadCSV}
         >
           Download CSV (Selected items)
@@ -601,11 +601,11 @@ const ApplicationsTable = ({ isLoading }) => {
 
       <Grid container>
         <Grid item xs={12}>
-          <div style={{ height: 600, width: "100%" }}>
+          <div style={{ height: 600, width: '100%' }}>
             <DataGrid
               rows={applicantList}
               columns={columns}
-              density="comfortable"
+              density='comfortable'
               loading={loading}
               rowsPerPageOptions={[]}
               components={{
@@ -624,16 +624,16 @@ const ApplicationsTable = ({ isLoading }) => {
           </div>
         </Grid>
         <Button
-          variant="contained"
+          variant='contained'
           onClick={pageStateHandlerNegative}
-          style={{ marginTop: "10px", marginRight: "10px" }}
+          style={{ marginTop: '10px', marginRight: '10px' }}
         >
           ⬅️ Prev 10
         </Button>
         <Button
-          variant="contained"
+          variant='contained'
           onClick={pageStateHandler}
-          style={{ marginTop: "10px" }}
+          style={{ marginTop: '10px' }}
         >
           Next 10 ➡️
         </Button>

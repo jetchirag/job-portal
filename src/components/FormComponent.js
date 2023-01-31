@@ -1,46 +1,50 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Accordion from "react-bootstrap/Accordion";
-import { FormProvider, useForm } from "react-hook-form";
-import Partone from "./form-old/PartOne";
-import PartTwo from "./form-old/PartTwo";
-import PartThree from "./form-old/PartThree";
-import PartFour from "./form-old/PartFour";
-import PartFive from "./form-old/PartFive";
-import PartSix from "./form-old/PartSix";
-import PartSeven from "./form-old/PartSeven";
-import PartEight from "./form-old/PartEight";
-import PartNineTen from "./form-old/PartNineTen";
-import PartEleven from "./form-old/PartEleven";
-import PartTwelve from "./form-old/PartTwelve";
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Accordion from 'react-bootstrap/Accordion';
+import { FormProvider, useForm } from 'react-hook-form';
+import Partone from './form-old/PartOne';
+import PartTwo from './form-old/PartTwo';
+import PartThree from './form-old/PartThree';
+import PartFour from './form-old/PartFour';
+import PartFive from './form-old/PartFive';
+import PartSix from './form-old/PartSix';
+import PartSeven from './form-old/PartSeven';
+import PartEight from './form-old/PartEight';
+import PartNineTen from './form-old/PartNineTen';
+import PartEleven from './form-old/PartEleven';
+import PartTwelve from './form-old/PartTwelve';
 
-import Col from "react-bootstrap/Col";
+import Col from 'react-bootstrap/Col';
 
-import "./css/Recognition.css";
+import './css/Recognition.css';
 
 const FormComponent = () => {
-  const [cr_country, setcr_Country] = useState("");
-  const [cr_region, setcr_Region] = useState("");
-  const [native_country, setnative_Country] = useState("");
-  const [native_region, setnative_Region] = useState("");
+  const [cr_country, setcr_Country] = useState('');
+  const [cr_region, setcr_Region] = useState('');
+  const [native_country, setnative_Country] = useState('');
+  const [native_region, setnative_Region] = useState('');
   const [aq_higher_secondary_country, setaq_higher_secondary_country] =
-    useState("");
-  const [aq_graduation_country, setaq_graduation_country] = useState("");
+    useState('');
+  const [aq_graduation_country, setaq_graduation_country] = useState('');
   const [aq_post_graduation_country, setaq_post_graduation_country] =
-    useState("");
-  const [aq_mphil_country, setaq_mphil_country] = useState("");
-  const [aq_phd_country, setaq_phd_country] = useState("");
-  const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState("");
+    useState('');
+  const [aq_mphil_country, setaq_mphil_country] = useState('');
+  const [aq_phd_country, setaq_phd_country] = useState('');
+  const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState('');
   const [academicExperience_country, setacademicExperience_country] =
-    useState("");
+    useState('');
   const [nonAcademicExperience_country, setnonAcademicExperience_country] =
-    useState("");
+    useState('');
 
   const [part9, setPart9] = useState(true);
   const handlePart9 = () => {
     setPart9(!part9);
   };
+  const hand = () => {
+    setCheck(!check);
+  };
+  const [check, setCheck] = useState(false);
 
   const onSubmit = async (data) => {
     let applicant = {
@@ -221,33 +225,33 @@ const FormComponent = () => {
     data.school_main = data.school;
     data.department = data.department;
     data.nature_of_job = data.natureofjob;
-    data["cr_country"] = cr_country;
-    data["cr_state"] = cr_region;
-    data["native_country"] = native_country;
-    data["native_state"] = native_region;
-    data["applicant"] = applicant;
-    data["aq_higher_secondary"] = aq_higher_secondary;
-    data["aq_graduation"] = aq_graduation;
-    data["aq_post_graduation"] = aq_post_graduation;
-    data["aq_mphil"] = aq_mphil;
-    data["aq_phd"] = aq_phd;
-    data["aq_post_doctoral"] = aq_post_doctoral;
-    data["academicQualification"] = academicQualification;
-    data["academicExperience"] = academicExperience;
-    data["nonAcademicExperience"] = nonAcademicExperience;
-    data["fellowships"] = fellowships;
-    data["research"] = research;
-    data["books"] = books;
-    data["patent"] = patent;
-    data["peerRecognition"] = peerRecognition;
+    data['cr_country'] = cr_country;
+    data['cr_state'] = cr_region;
+    data['native_country'] = native_country;
+    data['native_state'] = native_region;
+    data['applicant'] = applicant;
+    data['aq_higher_secondary'] = aq_higher_secondary;
+    data['aq_graduation'] = aq_graduation;
+    data['aq_post_graduation'] = aq_post_graduation;
+    data['aq_mphil'] = aq_mphil;
+    data['aq_phd'] = aq_phd;
+    data['aq_post_doctoral'] = aq_post_doctoral;
+    data['academicQualification'] = academicQualification;
+    data['academicExperience'] = academicExperience;
+    data['nonAcademicExperience'] = nonAcademicExperience;
+    data['fellowships'] = fellowships;
+    data['research'] = research;
+    data['books'] = books;
+    data['patent'] = patent;
+    data['peerRecognition'] = peerRecognition;
     console.log(data);
 
     try {
-      const response = await fetch("http://localhost:3000/applications", {
+      const response = await fetch('http://localhost:3000/applications', {
         body: JSON.stringify(data),
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
       console.log(response);
@@ -264,18 +268,18 @@ const FormComponent = () => {
 
   return (
     <FormProvider {...methods}>
-      <div className="my-4">
-        <div className="container">
-          <div className="heading">
+      <div className='my-4'>
+        <div className='container'>
+          <div className='heading'>
             <p>Job Application Form</p>
           </div>
         </div>
         <Form onSubmit={methods.handleSubmit(onSubmit)}>
           {/* This is part 1 */}
           <Accordion
-            defalultActiveKey={["0"]}
+            defalultActiveKey={['0']}
             alwaysOpen
-            style={{ padding: "0 5%" }}
+            style={{ padding: '0 5%' }}
           >
             <Partone />
             {/* This is part 2 */}
@@ -298,24 +302,40 @@ const FormComponent = () => {
             <PartEleven />
             {/* This is part 12  */}
             <PartTwelve />
-            <Form.Group as={Col} md="12" controlId="accept">
+            <Form.Group as={Col} md='12' controlId='accept'>
               <Form.Label>
-                T&Cs<span style={{ color: "red" }}> *</span>
+                T&Cs<span style={{ color: 'red' }}> *</span>
               </Form.Label>
-              <Form.Check
-                type="checkbox"
+              {/* <Form.Check
+                type='checkbox'
                 isInvalid={errors.accept}
-                size="sm"
-                label="I confirm that I have not been convicted by a court in India for any criminal offense and/or sentenced to imprisonment. There are no criminal proceedings pending against me before any court in India. I have not been issued a warrant or summons for appearance or a warrant for arrest by any court in India. I certify that the above statements made by me are true, complete and correct. I agree that in case Manipal University Jaipur will finds at any time that the information given by me in this form is not correct or incomplete, Manipal University Jaipur will have the right to withdraw my letter of appointment or to terminate my appointment at any time without notice or compensation."
-                onClick={handlePart9}
-                {...register("board", {
+                size='sm'
+                label='I confirm that I have not been convicted by a court in India for any criminal offense and/or sentenced to imprisonment. There are no criminal proceedings pending against me before any court in India. I have not been issued a warrant or summons for appearance or a warrant for arrest by any court in India. I certify that the above statements made by me are true, complete and correct. I agree that in case Manipal University Jaipur will finds at any time that the information given by me in this form is not correct or incomplete, Manipal University Jaipur will have the right to withdraw my letter of appointment or to terminate my appointment at any time without notice or compensation.'
+                onClick={() => setCheck(!check)}
+                {...register('board', {
                   required: true,
                 })}
+              ></Form.Check> */}
+              <Form.Check
+                type='checkbox'
+                isInvalid={errors.accept}
+                label='I confirm that I have not been convicted by a court in India for any criminal offense and/or sentenced to imprisonment. There are no criminal proceedings pending against me before any court in India. I have not been issued a warrant or summons for appearance or a warrant for arrest by any court in India. I certify that the above statements made by me are true, complete and correct. I agree that in case Manipal University Jaipur will finds at any time that the information given by me in this form is not correct or incomplete, Manipal University Jaipur will have the right to withdraw my letter of appointment or to terminate my appointment at any time without notice or compensation.'
+                onClick={() => setCheck(!check)}
               ></Form.Check>
             </Form.Group>
-            <Button type="submit" style={{ width: "98%" }}>
-              Submit
-            </Button>
+            {console.log(check)}
+            {check ? (
+              <Button type='submit' style={{ width: '10%' }}>
+                Submit
+              </Button>
+            ) : (
+              <Button
+                type='submit'
+                style={{ width: '10%', background: 'grey' }}
+              >
+                Submit
+              </Button>
+            )}
           </Accordion>
         </Form>
       </div>
