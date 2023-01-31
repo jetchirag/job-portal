@@ -15,6 +15,8 @@ import PartNineTen from "./form-old/PartNineTen";
 import PartEleven from "./form-old/PartEleven";
 import PartTwelve from "./form-old/PartTwelve";
 
+import "./css/Recognition.css";
+
 const FormComponent = () => {
   const [cr_country, setcr_Country] = useState("");
   const [cr_region, setcr_Region] = useState("");
@@ -234,16 +236,14 @@ const FormComponent = () => {
     console.log(data);
 
     try {
-      const response = await fetch("http://65.109.166.43:3000/applications", {
+      const response = await fetch("http://localhost:3000/applications", {
         body: JSON.stringify(data),
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-      }
-          
+        },
       });
       console.log(response);
-      
     } catch (err) {
       console.error(`Error: ${err}`);
     }
@@ -259,7 +259,9 @@ const FormComponent = () => {
     <FormProvider {...methods}>
       <div className="my-4">
         <div className="container">
-          <h2 className="center">Job Application Form</h2>
+          <div className="heading">
+            <p>Job Application Form</p>
+          </div>
         </div>
         <Form onSubmit={methods.handleSubmit(onSubmit)}>
           {/* This is part 1 */}
@@ -268,8 +270,7 @@ const FormComponent = () => {
             alwaysOpen
             style={{ padding: "0 5%" }}
           >
-          
-            <Partone/>
+            <Partone />
             {/* This is part 2 */}
             <PartTwo />
             {/*This is part 3  */}
@@ -290,10 +291,10 @@ const FormComponent = () => {
             <PartEleven />
             {/* This is part 12  */}
             <PartTwelve />
-            <Button type="submit" style={{width:'98%'}}>Submit</Button>
-            
+            <Button type="submit" style={{ width: "98%" }}>
+              Submit
+            </Button>
           </Accordion>
-         
         </Form>
       </div>
     </FormProvider>

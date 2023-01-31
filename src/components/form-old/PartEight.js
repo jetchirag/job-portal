@@ -36,7 +36,7 @@ const PartEight = () => {
             <Row className='mb-3'>
               <Form.Group
                 as={Col}
-                md='3'
+                md="2"
                 controlId='book_details'
                 disabled={part8}
               >
@@ -54,7 +54,7 @@ const PartEight = () => {
                   <p style={{ color: 'red' }}>Please enter the book details</p>
                 )}
               </Form.Group>
-              <Form.Group as={Col} md='3' controlId='book_isbn'>
+              <Form.Group as={Col} md="2" controlId='book_isbn'>
                 <Form.Label>ISBN Number</Form.Label>
                 <Form.Control
                   size='sm'
@@ -71,7 +71,7 @@ const PartEight = () => {
                   </p>
                 )}
               </Form.Group>
-              <Form.Group as={Col} md='3' controlId='book_written'>
+              <Form.Group as={Col} md="2" controlId='book_written'>
                 <Form.Label>Written As</Form.Label>
                 <Form.Select
                   size='sm'

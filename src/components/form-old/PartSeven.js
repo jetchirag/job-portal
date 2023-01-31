@@ -96,7 +96,7 @@ const PartSeven = () => {
         <hr />
         <p>Research Paper Published (Total)</p>
         <Row className="mb-3">
-          <Form.Group as={Col} md="3" controlId="research_nop_total">
+          <Form.Group as={Col} md="2" controlId="research_nop_total">
             <Form.Label>Total</Form.Label>
             <Form.Control
               size="sm"
@@ -113,7 +113,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* As per UGC Care List */}
-          <Form.Group as={Col} md="3" controlId="research_nop_ugc_care_list">
+          <Form.Group as={Col} md="2" controlId="research_nop_ugc_care_list">
             <Form.Label>As per UGC Care List</Form.Label>
             <Form.Control
               size="sm"
@@ -131,7 +131,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* SCI */}
-          <Form.Group as={Col} md="3" controlId="research_nop_sci">
+          <Form.Group as={Col} md="2" controlId="research_nop_sci">
             <Form.Label>SCI</Form.Label>
             <Form.Control
               size="sm"
@@ -148,7 +148,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* Web of Science */}
-          <Form.Group as={Col} md="3" controlId="research_nop_web_science">
+          <Form.Group as={Col} md="2" controlId="research_nop_web_science">
             <Form.Label>Web of Science</Form.Label>
             <Form.Control
               size="sm"
@@ -166,7 +166,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* Google Scholar */}
-          <Form.Group as={Col} md="3" controlId="research_nop_google_scholar">
+          <Form.Group as={Col} md="2" controlId="research_nop_google_scholar">
             <Form.Label>Google Scholar</Form.Label>
             <Form.Control
               size="sm"
@@ -184,7 +184,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* Scopus */}
-          <Form.Group as={Col} md="3" controlId="research_nop_scopus">
+          <Form.Group as={Col} md="2" controlId="research_nop_scopus">
             <Form.Label>Scopus</Form.Label>
             <Form.Control
               size="sm"
@@ -205,7 +205,7 @@ const PartSeven = () => {
         <hr />
         <p>Research Paper Published in the last three years</p>
         <Row className="mb-3">
-          <Form.Group as={Col} md="3" controlId="research_nop_three_total">
+          <Form.Group as={Col} md="2" controlId="research_nop_three_total">
             <Form.Label>Total</Form.Label>
             <Form.Control
               size="sm"
@@ -225,7 +225,7 @@ const PartSeven = () => {
           {/* As per UGC Care List */}
           <Form.Group
             as={Col}
-            md="3"
+            md="2"
             controlId="research_nop_three_ugc_care_list"
           >
             <Form.Label>As per UGC Care List</Form.Label>
@@ -245,7 +245,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* SCI */}
-          <Form.Group as={Col} md="3" controlId="research_nop_three_sci">
+          <Form.Group as={Col} md="2" controlId="research_nop_three_sci">
             <Form.Label>SCI</Form.Label>
             <Form.Control
               size="sm"
@@ -264,7 +264,7 @@ const PartSeven = () => {
           {/* Web of Science */}
           <Form.Group
             as={Col}
-            md="3"
+            md="2"
             controlId="research_nop_three_web_science"
           >
             <Form.Label>Web of Science</Form.Label>
@@ -286,7 +286,7 @@ const PartSeven = () => {
           {/* Google Scholar */}
           <Form.Group
             as={Col}
-            md="3"
+            md="2"
             controlId="research_nop_three_google_scholar"
           >
             <Form.Label>Google Scholar</Form.Label>
@@ -306,7 +306,7 @@ const PartSeven = () => {
             )}
           </Form.Group>
           {/* Scopus */}
-          <Form.Group as={Col} md="3" controlId="research_nop_three_scopus">
+          <Form.Group as={Col} md="2" controlId="research_nop_three_scopus">
             <Form.Label>Scopus</Form.Label>
             <Form.Control
               size="sm"

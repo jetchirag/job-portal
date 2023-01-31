@@ -16,7 +16,7 @@ const PartFour = () =>{
         <Accordion.Body>
           <Row className="mb-3">
             {/* Gate Details  */}
-            <Form.Group as={Col} md="3" controlId="gate">
+            <Form.Group as={Col} md="2" controlId="gate">
               <Form.Label>Gate Year</Form.Label>
               <Form.Control
                 size="sm"
@@ -34,7 +34,7 @@ const PartFour = () =>{
               )}
             </Form.Group>
             {/* UGC Net Details  */}
-            <Form.Group as={Col} md="3" controlId="ugcNet">
+            <Form.Group as={Col} md="2" controlId="ugcNet">
               <Form.Label>UGC Net Year</Form.Label>
               <Form.Control
                 size="sm"
@@ -52,7 +52,7 @@ const PartFour = () =>{
               )}
             </Form.Group>
             {/* UGC JRF Details  */}
-            <Form.Group as={Col} md="3" controlId="ugcJrf">
+            <Form.Group as={Col} md="2" controlId="ugcJrf">
               <Form.Label>UGC JRF Year</Form.Label>
               <Form.Control
                 size="sm"
@@ -70,7 +70,7 @@ const PartFour = () =>{
               )}
             </Form.Group>
             {/* URC CSIR Details  */}
-            <Form.Group as={Col} md="3" controlId="urcCsir">
+            <Form.Group as={Col} md="2" controlId="urcCsir">
               <Form.Label>URC CSIR Year</Form.Label>
               <Form.Control
                 size="sm"
@@ -88,7 +88,7 @@ const PartFour = () =>{
               )}
             </Form.Group>
             {/* ICMR Details  */}
-            <Form.Group as={Col} md="3" controlId="icmr">
+            <Form.Group as={Col} md="2" controlId="icmr">
               <Form.Label>ICMR Year</Form.Label>
               <Form.Control
                 size="sm"
@@ -106,7 +106,7 @@ const PartFour = () =>{
               )}
             </Form.Group>
             {/* ICAR Details  */}
-            <Form.Group as={Col} md="3" controlId="icar">
+            <Form.Group as={Col} md="2" controlId="icar">
               <Form.Label>ICAR Year</Form.Label>
               <Form.Control
                 size="sm"

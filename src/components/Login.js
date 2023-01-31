@@ -10,7 +10,7 @@ const Login = () => {
         </div>
         <div className="line"></div>
         <div className="log-form">
-          <form action="http://65.109.166.43:3000/login" method="post">
+          <form action="http://localhost:3000/login" method="post">
             <h3>Admin Portal</h3>
             <input
               type="text"

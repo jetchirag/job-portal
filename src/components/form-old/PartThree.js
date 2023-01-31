@@ -65,7 +65,7 @@ const PartThree = () => {
         <Row className='mb-3'>
           <Form.Group
             as={Col}
-            md='3'
+            md="2"
             controlId='aq_higher_secondary_country'
             size='sm'
           >
@@ -85,7 +85,7 @@ const PartThree = () => {
           </Form.Group>
           {/* Academic Qulalification Higher Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
-          <Form.Group as={Col} md='3' controlId='higher_secondary_mode'>
+          <Form.Group as={Col} md="2" controlId='higher_secondary_mode'>
             <Form.Label>Education Mode</Form.Label>
             <Form.Select
               isInvalid={errors.higher_secondary_mode}
@@ -106,7 +106,7 @@ const PartThree = () => {
             </Form.Select>
           </Form.Group>
           {/* School  */}
-          <Form.Group as={Col} md='3' controlId='school'>
+          <Form.Group as={Col} md="2" controlId='school'>
             <Form.Label>School</Form.Label>
             <Form.Control
               isInvalid={errors.school}
@@ -120,7 +120,7 @@ const PartThree = () => {
             />
           </Form.Group>
           {/* Board  */}
-          <Form.Group as={Col} md='3' controlId='board'>
+          <Form.Group as={Col} md="2" controlId='board'>
             <Form.Label>Board</Form.Label>
             <Form.Control
               isInvalid={errors.board}
@@ -134,7 +134,7 @@ const PartThree = () => {
             />
           </Form.Group>
           {/* Passing Year  */}
-          <Form.Group as={Col} md='3' controlId='passingYear'>
+          <Form.Group as={Col} md="2" controlId='passingYear'>
             <Form.Label>Passing Year</Form.Label>
             <Form.Control
               isInvalid={errors.passingYear}
@@ -149,7 +149,7 @@ const PartThree = () => {
             />
           </Form.Group>
           {/* Division Details  */}
-          <Form.Group as={Col} md='3' controlId='division'>
+          <Form.Group as={Col} md="2" controlId='division'>
             <Form.Label>Division</Form.Label>
             <Form.Select
               isInvalid={errors.division}
@@ -167,7 +167,7 @@ const PartThree = () => {
             </Form.Select>
           </Form.Group>
           {/* Aggregate Percentage  */}
-          <Form.Group as={Col} md='3' controlId='percentage'>
+          <Form.Group as={Col} md="2" controlId='percentage'>
             <Form.Label>Aggregate Percentage</Form.Label>
             <Form.Control
               isInvalid={errors.percentage}
@@ -190,7 +190,7 @@ const PartThree = () => {
           return (
             <>
               <Row className='mb-3'>
-                <Form.Group as={Col} md='3' controlId='aq_graduation_country'>
+                <Form.Group as={Col} md="2" controlId='aq_graduation_country'>
                   {/* Academic Qualification Graduate Country  */}
                   <Form.Label>Country</Form.Label>
                   <CountryDropdown
@@ -204,7 +204,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
-                <Form.Group as={Col} md='3' controlId='graduation_mode'>
+                <Form.Group as={Col} md="2" controlId='graduation_mode'>
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_mode}
@@ -224,7 +224,7 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* University / Institute  */}
-                <Form.Group as={Col} md='3' controlId='graduation_institute'>
+                <Form.Group as={Col} md="2" controlId='graduation_institute'>
                   <Form.Label>University / Institute</Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_institute}
@@ -238,7 +238,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* College Name  */}
-                <Form.Group as={Col} md='3' controlId='graduation_college'>
+                <Form.Group as={Col} md="2" controlId='graduation_college'>
                   <Form.Label>College</Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_college}
@@ -252,7 +252,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Graduation Year  */}
-                <Form.Group as={Col} md='3' controlId='graduation_year'>
+                <Form.Group as={Col} md="2" controlId='graduation_year'>
                   <Form.Label>Graduation Year</Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_year}
@@ -267,7 +267,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Area Details  */}
-                <Form.Group as={Col} md='3' controlId='graduation_area'>
+                <Form.Group as={Col} md="2" controlId='graduation_area'>
                   <Form.Label>Area</Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_area}
@@ -281,7 +281,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Course Details  */}
-                <Form.Group as={Col} md='3' controlId='graduation_course'>
+                <Form.Group as={Col} md="2" controlId='graduation_course'>
                   <Form.Label>Course Name</Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_course}
@@ -295,7 +295,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Graduation Division Details  */}
-                <Form.Group as={Col} md='3' controlId='graduation_division'>
+                <Form.Group as={Col} md="2" controlId='graduation_division'>
                   <Form.Label>Division</Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_division}
@@ -313,7 +313,7 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* Graduation Aggregate Percentage  */}
-                <Form.Group as={Col} md='3' controlId='graduation_percentage'>
+                <Form.Group as={Col} md="2" controlId='graduation_percentage'>
                   <Form.Label>Aggregate Percentage</Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_percentage}
@@ -344,7 +344,7 @@ const PartThree = () => {
               <Row className='mb-3'>
                 <Form.Group
                   as={Col}
-                  md='3'
+                  md="2"
                   controlId='aq_post_graduate_country'
                 >
                   {/* Academic Qualification Post Graduate Country  */}
@@ -362,7 +362,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
-                <Form.Group as={Col} md='3' controlId='graduation_mode'>
+                <Form.Group as={Col} md="2" controlId='graduation_mode'>
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_mode}
@@ -384,7 +384,7 @@ const PartThree = () => {
                 {/* University / Institute  */}
                 <Form.Group
                   as={Col}
-                  md='3'
+                  md="2"
                   controlId='post_graduation_institute'
                 >
                   <Form.Label>University / Institute</Form.Label>
@@ -399,7 +399,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* College Name  */}
-                <Form.Group as={Col} md='3' controlId='post_graduation_college'>
+                <Form.Group as={Col} md="2" controlId='post_graduation_college'>
                   <Form.Label>College</Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_college}
@@ -413,7 +413,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Graduation Year  */}
-                <Form.Group as={Col} md='3' controlId='post_graduation_year'>
+                <Form.Group as={Col} md="2" controlId='post_graduation_year'>
                   <Form.Label>Graduation Year</Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_year}
@@ -428,7 +428,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Area Details  */}
-                <Form.Group as={Col} md='3' controlId='post_graduation_area'>
+                <Form.Group as={Col} md="2" controlId='post_graduation_area'>
                   <Form.Label>Area</Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_area}
@@ -442,7 +442,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Course Details  */}
-                <Form.Group as={Col} md='3' controlId='post_graduation_course'>
+                <Form.Group as={Col} md="2" controlId='post_graduation_course'>
                   <Form.Label>Course Name</Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_course}
@@ -458,7 +458,7 @@ const PartThree = () => {
                 {/* Graduation Division Details  */}
                 <Form.Group
                   as={Col}
-                  md='3'
+                  md="2"
                   controlId='post_graduation_division'
                 >
                   <Form.Label>Division</Form.Label>
@@ -480,7 +480,7 @@ const PartThree = () => {
                 {/* Post Graduation Aggregate Percentage  */}
                 <Form.Group
                   as={Col}
-                  md='3'
+                  md="2"
                   controlId='post_graduation_percentage'
                 >
                   <Form.Label>Aggregate Percentage</Form.Label>
@@ -511,7 +511,7 @@ const PartThree = () => {
           return (
             <Row className='mb-3'>
               {/* PHD Status Details  */}
-              <Form.Group as={Col} md='3' controlId='phd_status'>
+              <Form.Group as={Col} md="2" controlId='phd_status'>
                 <Form.Label>Status</Form.Label>
                 <Form.Select
                   size='sm'
@@ -526,7 +526,7 @@ const PartThree = () => {
                   <option value='thesis-submitted'>Thesis Submitted</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group as={Col} md='3' controlId='aq_phd_country'>
+              <Form.Group as={Col} md="2" controlId='aq_phd_country'>
                 {/* Academic Qualification PhD Country  */}
                 <Form.Label>Country</Form.Label>
                 <CountryDropdown
@@ -539,7 +539,7 @@ const PartThree = () => {
                 />
               </Form.Group>
               {/* Academic Qualification Education Mode Details  */}
-              <Form.Group as={Col} md='3' controlId='phd_mode'>
+              <Form.Group as={Col} md="2" controlId='phd_mode'>
                 <Form.Label>Education Mode</Form.Label>
                 <Form.Select
                   title='Choose..'
@@ -558,7 +558,7 @@ const PartThree = () => {
                 </Form.Select>
               </Form.Group>
               {/* University / Institute  */}
-              <Form.Group as={Col} md='3' controlId='phd_institute'>
+              <Form.Group as={Col} md="2" controlId='phd_institute'>
                 <Form.Label>University / Institute</Form.Label>
                 <Form.Control
                   size='sm'
@@ -572,7 +572,7 @@ const PartThree = () => {
                 />
               </Form.Group>
               {/* College Name  */}
-              <Form.Group as={Col} md='3' controlId='phd_college'>
+              <Form.Group as={Col} md="2" controlId='phd_college'>
                 <Form.Label>College</Form.Label>
                 <Form.Control
                   size='sm'
@@ -586,7 +586,7 @@ const PartThree = () => {
                 />
               </Form.Group>
               {/* Completion Year  */}
-              <Form.Group as={Col} md='3' controlId='phd_year'>
+              <Form.Group as={Col} md="2" controlId='phd_year'>
                 <Form.Label>Completion Year</Form.Label>
                 <Form.Control
                   isInvalid={errors.phd_year}
@@ -601,7 +601,7 @@ const PartThree = () => {
                 />
               </Form.Group>
               {/* Area Details  */}
-              <Form.Group as={Col} md='3' controlId='phd_area'>
+              <Form.Group as={Col} md="2" controlId='phd_area'>
                 <Form.Label>Area</Form.Label>
                 <Form.Control
                   isInvalid={errors.phd_area}
@@ -615,7 +615,7 @@ const PartThree = () => {
                 />
               </Form.Group>
               {/* If pursuilng teaching experiance during phd  */}
-              <Form.Group as={Col} md='3' controlId='phd_teaching_experience'>
+              <Form.Group as={Col} md="2" controlId='phd_teaching_experience'>
                 <Form.Label>
                   If pursuing, teaching experience during PhD
                 </Form.Label>
@@ -632,7 +632,7 @@ const PartThree = () => {
                 </Form.Select>
               </Form.Group>
               {/* Anticipated Completion Year  */}
-              <Form.Group as={Col} md='3' controlId='phd_anti_completion_year'>
+              <Form.Group as={Col} md="2" controlId='phd_anti_completion_year'>
                 <Form.Label>Anticipated Completion Year</Form.Label>
                 <Form.Control
                   isInvalid={errors.phd_anti_completion_year}
@@ -665,7 +665,7 @@ const PartThree = () => {
           mPhill.map(() => {
             return (
               <Row className='mb-3'>
-                <Form.Group as={Col} md='3' controlId='aq_mphil_country'>
+                <Form.Group as={Col} md="2" controlId='aq_mphil_country'>
                   {/* Academic Qualification M Phil Country  */}
                   <Form.Label>Country</Form.Label>
                   <CountryDropdown
@@ -682,7 +682,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
-                <Form.Group as={Col} md='3' controlId='mphil_mode'>
+                <Form.Group as={Col} md="2" controlId='mphil_mode'>
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
                     isInvalid={errors.mphil_mode}
@@ -700,7 +700,7 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* University / Institute  */}
-                <Form.Group as={Col} md='3' controlId='mphil_institute'>
+                <Form.Group as={Col} md="2" controlId='mphil_institute'>
                   <Form.Label>University / Institute</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_institute}
@@ -714,7 +714,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* College Name  */}
-                <Form.Group as={Col} md='3' controlId='mphil_college'>
+                <Form.Group as={Col} md="2" controlId='mphil_college'>
                   <Form.Label>College</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_college}
@@ -728,7 +728,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Graduation Year  */}
-                <Form.Group as={Col} md='3' controlId='mphil_year'>
+                <Form.Group as={Col} md="2" controlId='mphil_year'>
                   <Form.Label>Graduation Year</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_year}
@@ -743,7 +743,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Area Details  */}
-                <Form.Group as={Col} md='3' controlId='mphil_area'>
+                <Form.Group as={Col} md="2" controlId='mphil_area'>
                   <Form.Label>Area</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_area}
@@ -757,7 +757,7 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* M Phil Division Details  */}
-                <Form.Group as={Col} md='3' controlId='mphil_division'>
+                <Form.Group as={Col} md="2" controlId='mphil_division'>
                   <Form.Label>Division</Form.Label>
                   <Form.Select
                     isInvalid={errors.mphil_division}
@@ -773,7 +773,7 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* M Phil Aggregate Percentage  */}
-                <Form.Group as={Col} md='3' controlId='mphil_percentage'>
+                <Form.Group as={Col} md="2" controlId='mphil_percentage'>
                   <Form.Label>Aggregate Percentage</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_percentage}
@@ -812,7 +812,7 @@ const PartThree = () => {
               <Row className='mb-3'>
                 <Form.Group
                   as={Col}
-                  md='3'
+                  md="2"
                   controlId='aq_post_doctoral_country'
                 >
                   {/* Academic Qualification Post Doctoral Country  */}
@@ -831,7 +831,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_mode'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_mode'>
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
                     disabled={pdocVal}
@@ -854,7 +854,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* University / Institute  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_institute'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_institute'>
                   <Form.Label>University / Institute</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
@@ -872,7 +872,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* College Name  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_college'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_college'>
                   <Form.Label>College</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
@@ -890,7 +890,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Graduation Year  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_year'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_year'>
                   <Form.Label>Year</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
@@ -909,7 +909,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Area Details  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_area'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_area'>
                   <Form.Label>Area</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
@@ -925,7 +925,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Course Details  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_course'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_course'>
                   <Form.Label>Course Name</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
@@ -943,7 +943,7 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Graduation Division Details  */}
-                <Form.Group as={Col} md='3' controlId='post_doctoral_division'>
+                <Form.Group as={Col} md="2" controlId='post_doctoral_division'>
                   <Form.Label>Division</Form.Label>
                   <Form.Select
                     disabled={pdocVal}
@@ -966,7 +966,7 @@ const PartThree = () => {
                 {/* Graduation Aggregate Percentage  */}
                 <Form.Group
                   as={Col}
-                  md='3'
+                  md="2"
                   controlId='post_doctoral_percentage'
                 >
                   <Form.Label>Aggregate Percentage</Form.Label>

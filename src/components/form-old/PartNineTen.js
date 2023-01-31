@@ -43,7 +43,7 @@ const PartNineTen = () => {
                 <Row className='mb-3'>
                   <Form.Group
                     as={Col}
-                    md='3'
+                    md="2"
                     disabled={part9}
                     controlId='patent_details'
                   >
@@ -63,7 +63,7 @@ const PartNineTen = () => {
                       </p>
                     )}
                   </Form.Group>
-                  <Form.Group as={Col} md='3' controlId='patent_year'>
+                  <Form.Group as={Col} md="2" controlId='patent_year'>
                     <Form.Label>Year</Form.Label>
                     <Form.Control
                       size='sm'
@@ -80,7 +80,7 @@ const PartNineTen = () => {
                       </p>
                     )}
                   </Form.Group>
-                  <Form.Group as={Col} md='3' controlId='patent_status'>
+                  <Form.Group as={Col} md="2" controlId='patent_status'>
                     <Form.Label>Patent Status</Form.Label>
                     <Form.Select
                       size='sm'

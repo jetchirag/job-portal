@@ -28,7 +28,7 @@ const Partone = () => {
       <Accordion.Header>1. Application Information</Accordion.Header>
       <Accordion.Body>
         <Row className="mb-3">
-          <Form.Group as={Col} md="3" controlId="dob">
+          <Form.Group as={Col} md="2" controlId="dob">
             <Form.Label>Job Type</Form.Label>
 
             <Form.Select
@@ -47,7 +47,7 @@ const Partone = () => {
               <option value="administration">Administrative</option>
             </Form.Select>
           </Form.Group>
-          <Form.Group as={Col} md="3" controlId="faculty">
+          <Form.Group as={Col} md="2" controlId="faculty">
             <Form.Label>Faculty</Form.Label>
             <Form.Select
               isInvalid={errors.faculty}
@@ -69,7 +69,7 @@ const Partone = () => {
             </Form.Select>
           </Form.Group>
           {faculty && (
-            <Form.Group as={Col} md="3" controlId="faculty">
+            <Form.Group as={Col} md="2" controlId="faculty">
               <Form.Label>School</Form.Label>
               <Form.Select
                 isInvalid={errors.school}
@@ -92,7 +92,7 @@ const Partone = () => {
             </Form.Group>
           )}
           {school && (
-            <Form.Group as={Col} md="3" controlId="faculty">
+            <Form.Group as={Col} md="2" controlId="faculty">
               <Form.Label>Department</Form.Label>
               <Form.Select
                 isInvalid={errors.dept}
@@ -112,7 +112,7 @@ const Partone = () => {
               </Form.Select>
             </Form.Group>
           )}
-          <Form.Group as={Col} md="3" controlId="faculty">
+          <Form.Group as={Col} md="2" controlId="faculty">
             <Form.Label>Nature of Job</Form.Label>
             <Form.Check
               isInvalid={errors.natureofjob}

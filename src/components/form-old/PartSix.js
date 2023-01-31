@@ -41,7 +41,7 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Year Detail  */}
-              <Form.Group as={Col} md='3' controlId='fellowship_year'>
+              <Form.Group as={Col} md="2" controlId='fellowship_year'>
                 <Form.Label>Year</Form.Label>
                 <Form.Control
                   size='sm'
@@ -59,7 +59,7 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Amount Detail  */}
-              <Form.Group as={Col} md='3' controlId='fellowship_amount'>
+              <Form.Group as={Col} md="2" controlId='fellowship_amount'>
                 <Form.Label>Amount per annum</Form.Label>
                 <Form.Control
                   size='sm'
@@ -77,7 +77,7 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Status Details  */}
-              <Form.Group as={Col} md='3' controlId='fellowship_status'>
+              <Form.Group as={Col} md="2" controlId='fellowship_status'>
                 <Form.Label>Fellowship Status</Form.Label>
                 <Form.Select {...register('fellowship_status', {})}>
                   <option value='' />

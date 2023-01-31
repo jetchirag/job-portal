@@ -6,7 +6,7 @@ const Navbar = () => {
       <div className='container-fluid'>
         <a className='navbar-brand' href='/'>
           <img
-            src='http://65.109.166.43:3000/image/navbarlogo.jpeg'
+            src='http://localhost:3000/image/navbarlogo.jpeg'
             alt=''
             className='d-inline-block align-text-top'
           />

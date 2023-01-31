@@ -15,7 +15,7 @@ const ApplicationsDetails = () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `http://65.109.166.43:3000/applications/${id}/reject`,
+        `http://localhost:3000/applications/${id}/reject`,
         {
           method: "POST",
 
@@ -38,7 +38,7 @@ const ApplicationsDetails = () => {
     try {
       await fetch(
        
-        `http://65.109.166.43:3000/applications/${id}`,
+        `http://localhost:3000/applications/${id}`,
         // NEW - add a Content-Type header
         {
           method: "GET",

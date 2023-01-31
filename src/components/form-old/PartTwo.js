@@ -26,7 +26,7 @@ const PartTwo = () => {
       <Accordion.Body>
         <Row className="mb-3">
           {/* First Name Details  */}
-          <Form.Group as={Col} md="3" controlId="firstName">
+          <Form.Group as={Col} md="2" controlId="firstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control
               isInvalid={errors.firstName}
@@ -40,7 +40,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* Last Name Details  */}
-          <Form.Group as={Col} md="3" controlId="lastName">
+          <Form.Group as={Col} md="2" controlId="lastName">
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               isInvalid={errors.lastName}
@@ -51,7 +51,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* Date of Birth Details  */}
-          <Form.Group as={Col} md="3" controlId="dob">
+          <Form.Group as={Col} md="2" controlId="dob">
             <Form.Label>Date of Birth</Form.Label>
             <Form.Control
               isInvalid={errors.dob}
@@ -62,7 +62,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* Gender Details */}
-          <Form.Group as={Col} md="3" controlId="gender">
+          <Form.Group as={Col} md="2" controlId="gender">
             <Form.Label>Gender</Form.Label>
             <Form.Select
               isInvalid={errors.gender}
@@ -79,7 +79,7 @@ const PartTwo = () => {
             </Form.Select>
           </Form.Group>
           {/* Mobile Details */}
-          <Form.Group as={Col} md="3" controlId="mobile">
+          <Form.Group as={Col} md="2" controlId="mobile">
             <Form.Label>Mobile</Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">+91</InputGroup.Text>
@@ -99,7 +99,7 @@ const PartTwo = () => {
             </InputGroup>
           </Form.Group>
           {/* Email Details */}
-          <Form.Group as={Col} md="3" controlId="email">
+          <Form.Group as={Col} md="2" controlId="email">
             <Form.Label>Email</Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
@@ -124,7 +124,7 @@ const PartTwo = () => {
         </p>
         <Row className="mb-3">
           {/* Country Details */}
-          <Form.Group as={Col} md="3" controlId="cr_country">
+          <Form.Group as={Col} md="2" controlId="cr_country">
             <Form.Label>Country</Form.Label>
             <CountryDropdown
               isInvalid={errors.cr_country}
@@ -137,7 +137,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* State Details  */}
-          <Form.Group as={Col} md="3" controlId="cr_state">
+          <Form.Group as={Col} md="2" controlId="cr_state">
             <Form.Label>State</Form.Label>
             <RegionDropdown
               country={cr_country}
@@ -153,7 +153,7 @@ const PartTwo = () => {
             )}
           </Form.Group>
           {/* City Details  */}
-          <Form.Group as={Col} md="3" controlId="cr_city">
+          <Form.Group as={Col} md="2" controlId="cr_city">
             <Form.Label>City</Form.Label>
             <Form.Control
               isInvalid={errors.cr_city}
@@ -173,7 +173,7 @@ const PartTwo = () => {
         </p>
         <Row className="mb-3">
           {/* Country Details */}
-          <Form.Group as={Col} md="3" controlId="native_country">
+          <Form.Group as={Col} md="2" controlId="native_country">
             <Form.Label>Country</Form.Label>
             <CountryDropdown
               value={native_country}
@@ -185,7 +185,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* State Details  */}
-          <Form.Group as={Col} md="3" controlId="native_state">
+          <Form.Group as={Col} md="2" controlId="native_state">
             <Form.Label>State</Form.Label>
             <RegionDropdown
               country={native_country}
@@ -198,7 +198,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* City Details  */}
-          <Form.Group as={Col} md="3" controlId="native_city">
+          <Form.Group as={Col} md="2" controlId="native_city">
             <Form.Label>City</Form.Label>
             <Form.Control
               isInvalid={errors.native_city}
@@ -215,7 +215,7 @@ const PartTwo = () => {
         <hr />
         <Row className="mb-3">
           {/* Religon  */}
-          <Form.Group as={Col} md="3" controlId="religion">
+          <Form.Group as={Col} md="2" controlId="religion">
             <Form.Label>Religion</Form.Label>
             <Form.Select
               isInvalid={errors.religion}
@@ -239,7 +239,7 @@ const PartTwo = () => {
             </Form.Select>
           </Form.Group>
           {/* Marrital Status Details  */}
-          <Form.Group as={Col} md="3" controlId="marital_status">
+          <Form.Group as={Col} md="2" controlId="marital_status">
             <Form.Label>Marital Status</Form.Label>
             <Form.Select
               isInvalid={errors.marital_status}
@@ -259,7 +259,7 @@ const PartTwo = () => {
             </Form.Select>
           </Form.Group>
           {/* Aadhaar Card Details  */}
-          <Form.Group as={Col} md="3" controlId="aadhaar_card">
+          <Form.Group as={Col} md="2" controlId="aadhaar_card">
             <Form.Label>Aadhaar Card</Form.Label>
             <Form.Control
               isInvalid={errors.aadhaar_card}
@@ -274,7 +274,7 @@ const PartTwo = () => {
             />
           </Form.Group>
           {/* PAN Card Details  */}
-          <Form.Group as={Col} md="3" controlId="pan_card">
+          <Form.Group as={Col} md="2" controlId="pan_card">
             <Form.Label>PAN Card</Form.Label>
             <Form.Control
               isInvalid={errors.pan_card}
