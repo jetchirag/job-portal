@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState, useEffect, useCallback } from "react";
 import React from "react";
+import axios from "axios";
 
 // import { useSelector } from "react-redux";
 // import axios from 'axios';
@@ -39,11 +40,11 @@ import classes from "./ApplicationTable.module.css";
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const ApplicationsTable = ({ isLoading }) => {
-  // const URL = "http://65.109.166.43:3000/applications";
-  // const URLFaculties = "http://65.109.166.43:3000/applications/faculties";
+  const URL = "http://65.109.166.43:3000/applications";
+  const URLFaculties = "http://65.109.166.43:3000/applications/faculties";
 
-  const URL = "http://localhost:4000/applications";
-  const URLFaculties = "http://localhost:4000/applications/faculties";
+  // const URL = "http://localhost:3000/applications";
+  // const URLFaculties = "http://localhost:3000/applications/faculties";
 
   const [loading, setLoading] = useState(false);
   const [facultiesData, setFacultiesData] = useState({});
@@ -202,17 +203,33 @@ const ApplicationsTable = ({ isLoading }) => {
     });
     console.log(ids);
 
-    try {
-      await fetch("http://localhost:4000/applications/downloadcsv", {
-        method: "POST",
-        body: JSON.stringify(ids),
+    // try {
+    //   await fetch("http://localhost:4000/applications/downloadcsv", {
+    //     method: "POST",
+    //     body: JSON.stringify(ids),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    const payload = {
+      ids,
+    };
+
+    axios
+      .post("http://65.109.166.43:3000/applications/downloadcsv", payload, {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
+      })
+      .then((response) => {
+        // console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const handleFilterChange = (
