@@ -29,6 +29,7 @@ const ApplicationsDetails = () => {
       if (!response.ok) {
         throw new Error(`Error! status: ${response.status}`);
       }
+      
     } catch (err) {
       console.error(`${err.message}`);
     }
