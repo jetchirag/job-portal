@@ -15,6 +15,12 @@ const PartSix = () => {
   const addFellowship = () => {
     setFellowship([...fellowship, 'set']);
   };
+  const removeFellowship = () => {
+    const copyArr = [...fellowship];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setFellowship(copyArr);
+  };
   return (
     <Accordion.Item eventKey='5'>
       <Accordion.Header>6. Fellowships Achieved</Accordion.Header>
@@ -41,7 +47,7 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Year Detail  */}
-              <Form.Group as={Col} md="2" controlId='fellowship_year'>
+              <Form.Group as={Col} md='2' controlId='fellowship_year'>
                 <Form.Label>Year</Form.Label>
                 <Form.Control
                   size='sm'
@@ -59,7 +65,7 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Amount Detail  */}
-              <Form.Group as={Col} md="2" controlId='fellowship_amount'>
+              <Form.Group as={Col} md='2' controlId='fellowship_amount'>
                 <Form.Label>Amount per annum</Form.Label>
                 <Form.Control
                   size='sm'
@@ -77,7 +83,7 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Status Details  */}
-              <Form.Group as={Col} md="2" controlId='fellowship_status'>
+              <Form.Group as={Col} md='2' controlId='fellowship_status'>
                 <Form.Label>Fellowship Status</Form.Label>
                 <Form.Select {...register('fellowship_status', {})}>
                   <option value='' />
@@ -95,7 +101,14 @@ const PartSix = () => {
           );
         })}
         <button type='button' onClick={addFellowship} className='add-more-btn'>
-          Add
+          Add New
+        </button>{' '}
+        <button
+          type='button'
+          onClick={removeFellowship}
+          className='add-more-btn'
+        >
+          Remove Last
         </button>
       </Accordion.Body>
     </Accordion.Item>

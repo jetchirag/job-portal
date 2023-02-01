@@ -25,6 +25,13 @@ const PartNineTen = () => {
   const addPatent = () => {
     setPatent([...patent, 'set']);
   };
+  const removePatent = () => {
+    const copyArr = [...patent];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setPatent(copyArr);
+  };
+
   return (
     <>
       <Accordion.Item eventKey='9'>
@@ -43,7 +50,7 @@ const PartNineTen = () => {
                 <Row className='mb-3'>
                   <Form.Group
                     as={Col}
-                    md="2"
+                    md='2'
                     disabled={part9}
                     controlId='patent_details'
                   >
@@ -63,7 +70,7 @@ const PartNineTen = () => {
                       </p>
                     )}
                   </Form.Group>
-                  <Form.Group as={Col} md="2" controlId='patent_year'>
+                  <Form.Group as={Col} md='2' controlId='patent_year'>
                     <Form.Label>Year</Form.Label>
                     <Form.Control
                       size='sm'
@@ -80,15 +87,14 @@ const PartNineTen = () => {
                       </p>
                     )}
                   </Form.Group>
-                  <Form.Group as={Col} md="2" controlId='patent_status'>
+                  <Form.Group as={Col} md='2' controlId='patent_status'>
                     <Form.Label>Patent Status</Form.Label>
                     <Form.Select
                       size='sm'
                       type='text'
                       rows={3}
                       disabled={part9}
-                      {...register('patent_status', {
-                      })}
+                      {...register('patent_status', {})}
                     >
                       <option selected='' disabled='' value=''>
                         Choose...
@@ -107,9 +113,22 @@ const PartNineTen = () => {
               );
             })}
           {!part9 && (
-            <button type='button' onClick={addPatent} className='add-more-btn'>
-              Add
-            </button>
+            <>
+              <button
+                type='button'
+                onClick={addPatent}
+                className='add-more-btn'
+              >
+                Add New
+              </button>{' '}
+              <button
+                type='button'
+                onClick={removePatent}
+                className='add-more-btn'
+              >
+                Remove Last
+              </button>
+            </>
           )}
         </Accordion.Body>
       </Accordion.Item>

@@ -40,3 +40,7 @@
 .red {
   border-color: red;
 }
+.sm {
+  width: 130px;
+  margin-right: 1rem;
+}
