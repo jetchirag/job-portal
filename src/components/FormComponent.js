@@ -330,6 +330,7 @@ const FormComponent = () => {
               </Button>
             ) : (
               <Button
+                disabled
                 type='submit'
                 style={{ width: '10%', background: 'grey' }}
               >
