@@ -41,17 +41,47 @@ const PartThree = () => {
   const addGrad = () => {
     setGraduate([...graduate, 'set']);
   };
+  const removeGrad = () => {
+    const copyArr = [...graduate];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setGraduate(copyArr);
+  };
   const addPostGrad = () => {
     setPostGraduate([...postGraduate, 'set']);
+  };
+  const removePostGrad = () => {
+    const copyArr = [...postGraduate];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setPostGraduate(copyArr);
   };
   const addMPhill = () => {
     setMPhill([...mPhill, 'set']);
   };
+  const removeMPHill = () => {
+    const copyArr = [...mPhill];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setMPhill(copyArr);
+  };
   const addPhD = () => {
     setPhD([...phD, 'set']);
   };
+  const removePhD = () => {
+    const copyArr = [...phD];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setPhD(phD);
+  };
   const addPDoctoral = () => {
     setpDoctoral([...pDoctoral, 'set']);
+  };
+  const removePostDoc = () => {
+    const copyArr = [...pDoctoral];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setpDoctoral(copyArr);
   };
   return (
     <Accordion.Item eventKey='2'>
@@ -365,7 +395,10 @@ const PartThree = () => {
           );
         })}
         <button type='button' onClick={addGrad} className='add-more-btn'>
-          Add
+          Add New
+        </button>{' '}
+        <button type='button' onClick={removeGrad} className='add-more-btn'>
+          Remove Last
         </button>
         <hr />
         <p>
@@ -553,7 +586,10 @@ const PartThree = () => {
           );
         })}
         <button type='button' onClick={addPostGrad} className='add-more-btn'>
-          Add
+          Add New
+        </button>{' '}
+        <button type='button' onClick={removePostGrad} className='add-more-btn'>
+          Remove Last
         </button>
         <hr />
         <p>
@@ -720,7 +756,10 @@ const PartThree = () => {
           );
         })}
         <button type='button' onClick={addPhD} className='add-more-btn'>
-          Add
+          Add New
+        </button>{' '}
+        <button type='button' onClick={removePhD} className='add-more-btn'>
+          Remove Last
         </button>
         <hr />
         <p>
@@ -860,14 +899,21 @@ const PartThree = () => {
               </Row>
             );
           })}
-
         {!mphilVal && (
-          <button type='button' onClick={addMPhill} className='add-more-btn'>
-            Add
-          </button>
+          <>
+            <button type='button' onClick={addMPhill} className='add-more-btn'>
+              Add New
+            </button>{' '}
+            <button
+              type='button'
+              onClick={removeMPHill}
+              className='add-more-btn'
+            >
+              Remove Last
+            </button>
+          </>
         )}
         <hr />
-
         <p>
           <b>Post Doctoral</b>
           <Form.Check
@@ -1042,9 +1088,22 @@ const PartThree = () => {
             );
           })}
         {!pdocVal && (
-          <button type='button' onClick={addPDoctoral} className='add-more-btn'>
-            Add
-          </button>
+          <>
+            <button
+              type='button'
+              onClick={addPDoctoral}
+              className='add-more-btn'
+            >
+              Add New
+            </button>{' '}
+            <button
+              type='button'
+              onClick={removePostDoc}
+              className='add-more-btn'
+            >
+              Remove Last
+            </button>
+          </>
         )}
       </Accordion.Body>
     </Accordion.Item>

@@ -33,6 +33,12 @@ const PartFive = () => {
     else return;
     setAcad(copyArr);
   };
+  const removeNonAcad = () => {
+    const copyArr = [...nonAcad];
+    if (copyArr.length > 1) copyArr.splice(-1);
+    else return;
+    setNonAcad(copyArr);
+  };
 
   return (
     <Accordion.Item eventKey='4'>
@@ -45,7 +51,7 @@ const PartFive = () => {
           return (
             <Row className='mb-3'>
               {/* Nature of job  */}
-              <Form.Group as={Col} md="2" controlId='academicExperience_mode'>
+              <Form.Group as={Col} md='2' controlId='academicExperience_mode'>
                 <Form.Label>Nature of Job</Form.Label>
                 <Form.Select
                   size='sm'
@@ -69,7 +75,7 @@ const PartFive = () => {
               {/* Country of job  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='academicExperience_country'
               >
                 <Form.Label>Country</Form.Label>
@@ -88,7 +94,7 @@ const PartFive = () => {
               {/* University  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='academicExperience_university'
               >
                 <Form.Label>University</Form.Label>
@@ -105,7 +111,7 @@ const PartFive = () => {
               {/* College Name  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='academicExperience_college'
               >
                 <Form.Label>College</Form.Label>
@@ -122,7 +128,7 @@ const PartFive = () => {
               {/* Postion of work  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='academicExperience_position'
               >
                 <Form.Label>Position</Form.Label>
@@ -146,7 +152,7 @@ const PartFive = () => {
                 </Form.Select>
               </Form.Group>
               {/* Academic Domain Details  */}
-              <Form.Group as={Col} md="2" controlId='academicExperience_domain'>
+              <Form.Group as={Col} md='2' controlId='academicExperience_domain'>
                 <Form.Label>Academic Domain</Form.Label>
                 <Form.Control
                   size='sm'
@@ -161,7 +167,7 @@ const PartFive = () => {
               {/* Working From Date Details  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='academicExperience_datefrom'
               >
                 <Form.Label>Date From</Form.Label>
@@ -178,7 +184,7 @@ const PartFive = () => {
                 )}
               </Form.Group>
               {/* Working To Date Details  */}
-              <Form.Group as={Col} md="2" controlId='academicExperience_dateto'>
+              <Form.Group as={Col} md='2' controlId='academicExperience_dateto'>
                 <Form.Label>Date To</Form.Label>
                 <Form.Control
                   size='sm'
@@ -211,7 +217,7 @@ const PartFive = () => {
               {/* Nature of job  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_mode'
               >
                 <Form.Label>Nature of Job</Form.Label>
@@ -231,7 +237,7 @@ const PartFive = () => {
               {/* Country of job  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_country'
               >
                 <Form.Label>Country</Form.Label>
@@ -247,7 +253,7 @@ const PartFive = () => {
               {/* Organization Name  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_organization'
               >
                 <Form.Label>Organization</Form.Label>
@@ -264,7 +270,7 @@ const PartFive = () => {
               {/* Designation Name  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_designation'
               >
                 <Form.Label>Designation</Form.Label>
@@ -281,7 +287,7 @@ const PartFive = () => {
               {/* Department Name  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_department'
               >
                 <Form.Label>Department</Form.Label>
@@ -298,7 +304,7 @@ const PartFive = () => {
               {/* Working From Date Details  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_datefrom'
               >
                 <Form.Label>Date From</Form.Label>
@@ -312,7 +318,7 @@ const PartFive = () => {
               {/* Working To Date Details  */}
               <Form.Group
                 as={Col}
-                md="2"
+                md='2'
                 controlId='nonAcademicExperience_dateto'
               >
                 <Form.Label>Date To</Form.Label>
@@ -332,7 +338,10 @@ const PartFive = () => {
           );
         })}
         <button type='button' onClick={addNonAcad} className='add-more-btn'>
-          Add
+          Add New
+        </button>{' '}
+        <button type='button' onClick={removeNonAcad} className='add-more-btn'>
+          Remove Last
         </button>
       </Accordion.Body>
     </Accordion.Item>

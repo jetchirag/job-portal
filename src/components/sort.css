@@ -1,39 +1,42 @@
 .sortmain {
-    width: 100%;
-  }
-  
-  .suggestions {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding-top: 1.5rem;
-  }
-  
-  .suggestions > .sugg {
-    border: 1px solid black;
-    border-radius: 2rem;
-    margin: 0.5rem 1rem;
-    padding: 0.5rem 1rem;
-    transition: all 0.25s ease-out;
-  }
-  
-  .suggestions > .sugg:hover {
-    color: white;
-    background-color: black;
-  }
-  
-  .realsort {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-  
-  .realsort > .col-md-2 {
-    margin: 0.5rem 1rem;
-  }
-  
-  .realsort > .col-md-2 .form-select {
-    border-radius: 2rem;
-  }
+  width: 100%;
+}
+
+.suggestions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+}
+
+.suggestions > .sugg {
+  border: 1px solid black;
+  border-radius: 2rem;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.25s ease-out;
+}
+
+.suggestions > .sugg:hover {
+  color: white;
+  background-color: black;
+}
+
+.realsort {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.realsort > .col-md-2 {
+  margin: 0.5rem 1rem;
+}
+
+.realsort > .col-md-2 .form-select {
+  border-radius: 2rem;
+}
+.red {
+  border-color: red;
+}
