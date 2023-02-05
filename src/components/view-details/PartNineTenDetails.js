@@ -45,7 +45,7 @@ const PartNineTenDetails = (props) => {
             onClick={handlePart9}
           ></Form.Check> */}
           {!part9 &&
-            patent.map(() => {
+            props?.data?.patent?.map((item) => {
               return (
                 <Row className="mb-3">
                   <Form.Group
@@ -60,7 +60,7 @@ const PartNineTenDetails = (props) => {
                       as="textarea"
                       rows={1}
                       disabled={part9}
-                      value={props?.data?.patent_details}
+                      value={item.patentDetail}
                       {...register("patent_details", {
                         maxLength: 500,
                       })}
@@ -77,7 +77,7 @@ const PartNineTenDetails = (props) => {
                       size="sm"
                       type="text"
                       rows={3}
-                      value={props?.data?.patent_year}
+                      value={item.year}
                       disabled={part9}
                       {...register("patent_year", {
                         maxLength: 500,
@@ -96,7 +96,7 @@ const PartNineTenDetails = (props) => {
                       type="text"
                       rows={3}
                       disabled={part9}
-                      value={props?.data?.patent_status}
+                      value={item.status}
                       {...register("patent_status", {})}
                     >
                       <option selected="" disabled="" value="">

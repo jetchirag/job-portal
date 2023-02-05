@@ -56,7 +56,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="Last Name"
               type="text"
-              value={props?.data?.lastName}
+              value={props?.data?.applicant?.lastName}
             />
           </Form.Group>
           {/* Date of Birth Details  */}
@@ -68,7 +68,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               // placeholder={props.data.applicant.dob}
               type="date"
-              // value={props.data.dob}
+              // value={new Date(props?.data?.applicant?.dob)}
             />
           </Form.Group>
           {/* Gender Details */}
@@ -76,12 +76,12 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Gender<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm">
+            <Form.Select size="sm" value={props.data?.applicant?.gender}>
               <option disabled="" value="">
-                {props.data?.applicant?.gender}
+                Choose...
               </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </Form.Select>
           </Form.Group>
           {/* Mobile Details */}
@@ -157,8 +157,8 @@ const PartTwoDetail = (props) => {
               placeholder="City"
               size="sm"
               type="text"
-              defaultValue={"singapore"}
-              // defaultValue={props?.data}
+ 
+              defaultValue={props?.data?.cr_city}
             />
           </Form.Group>
         </Row>
@@ -217,7 +217,7 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Religion<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm" aria-label="Default select example">
+            <Form.Select size="sm" aria-label="Default select example" value={props?.data?.applicant?.religion}>
               <option selected="" disabled="" value="">
                 Choose...
               </option>
@@ -236,7 +236,7 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Marital Status<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm" aria-label="Default select example">
+            <Form.Select size="sm" aria-label="Default select example" value={props?.data?.applicant?.marital_status}>
               <option selected="" disabled="" value="">
                 Choose...
               </option>
@@ -255,7 +255,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="Aadhaar Card"
               type="text"
-              value={props?.data}
+              value={props?.data?.aadhaar_card}
             />
           </Form.Group>
           {/* PAN Card Details  */}
@@ -267,7 +267,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="PAN Card"
               type="text"
-              value={props?.data}
+              value={props?.data?.pan_card}
             />
           </Form.Group>
         </Row>

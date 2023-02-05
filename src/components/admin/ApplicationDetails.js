@@ -58,6 +58,7 @@ const ApplicationsDetails = () => {
           })
           .then((val) => {
             setData(val);
+            console.log(val);
           });
       } catch (err) {
         console.error(err.message);

@@ -47,13 +47,14 @@ const PartFiveDetails = (props) => {
         <p>
           <b>Academic</b>
         </p>
-        {acad.map(() => {
+        {props?.data?.academicExperience?.map((item) => {
           return (
             <Row className="mb-3">
               {/* Nature of job  */}
               <Form.Group as={Col} md="2" controlId="academicExperience_mode">
                 <Form.Label>Nature of Job</Form.Label>
                 <Form.Select
+                value={item.natureOfJob}
                   size="sm"
                   {...register("academicExperience_mode", {
                     // required: "Please select the nature of your job",
@@ -62,9 +63,9 @@ const PartFiveDetails = (props) => {
                   <option
                     selected=""
                     disabled=""
-                    value={props?.data?.academicExperience_mode}
+                    value=""
                   >
-                    {props?.data?.academicExperience_mode}
+                    Choose...
                   </option>
                   <option value="regular">Regular</option>
                   <option value="part-time">Part-Time</option>
@@ -106,7 +107,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="University"
                   type="text"
-                  value={props?.data?.academicExperience_university}
+                  value={item.university}
                   {...register("academicExperience_university", {
                     // required: true,
                     maxLength: 100,
@@ -123,7 +124,7 @@ const PartFiveDetails = (props) => {
                 <Form.Control
                   size="sm"
                   placeholder="College Name"
-                  value={props?.data?.academicExperience_college}
+                  value={item.college}
                   type="text"
                   {...register("academicExperience_college", {
                     // required: true,
@@ -140,6 +141,7 @@ const PartFiveDetails = (props) => {
                 <Form.Label>Position</Form.Label>
                 <Form.Select
                   size="sm"
+                  value={item.position}
                   {...register("academicExperience_position", {
                     // required: 'Please select the position you worked in',
                   })}
@@ -147,9 +149,9 @@ const PartFiveDetails = (props) => {
                   <option
                     selected=""
                     disabled=""
-                    value={props?.data?.academicExperience_position}
+                    value=""
                   >
-                    {props?.data?.academicExperience_position}
+                  Choose...
                   </option>
                   <option value="professor">Professor</option>
                   <option value="associate-professor">
@@ -168,7 +170,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="Academic Domain"
                   type="text"
-                  value={props?.data?.academicExperience_domain}
+                  value={item.academicDomain}
                   {...register("academicExperience_domain", {
                     // required: true,
                     maxLength: 100,
@@ -186,7 +188,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="DD/MM/YYYY"
                   type="date"
-                  value={props?.data?.academicExperience_datefrom}
+                  value={item.dataFrom}
                   {...register("academicExperience_datefrom")}
                 />
                 {errors.academicExperience_datefrom && (
@@ -224,7 +226,7 @@ const PartFiveDetails = (props) => {
         <p>
           <b>Non Academic</b>
         </p>
-        {nonAcad.map(() => {
+        {props?.data?.nonAcademicExperience?.map((item) => {
           return (
             <Row className="mb-3">
               {/* Nature of job  */}
@@ -236,6 +238,7 @@ const PartFiveDetails = (props) => {
                 <Form.Label>Nature of Job</Form.Label>
                 <Form.Select
                   size="sm"
+                  value={item.natureOfJob}
                   {...register("nonAcademicExperience_mode", {
                     // required: 'Please select the nature of your job',
                   })}
@@ -243,9 +246,9 @@ const PartFiveDetails = (props) => {
                   <option
                     selected=""
                     disabled=""
-                    value={props?.data?.nonAcademicExperience_mode}
+                    value=""
                   >
-                    {props?.data?.nonAcademicExperience_mode}
+                    Choose...
                   </option>
                   <option value="regular">Regular</option>
                   <option value="part-time">Part-Time</option>
@@ -278,7 +281,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="Organization Name"
                   type="text"
-                  value={props?.data?.nonAcademicExperience_organization}
+                  value={item.organization}
                   {...register("nonAcademicExperience_organization", {
                     // required: true,
                     maxLength: 100,
@@ -296,7 +299,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="Designation Name"
                   type="text"
-                  value={props?.data?.nonAcademicExperience_designation}
+                  value={item.designation}
                   {...register("nonAcademicExperience_designation", {
                     // required: true,
                     maxLength: 100,
@@ -314,7 +317,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="Department Name"
                   type="text"
-                  value={props?.data?.nonAcademicExperience_department}
+                  value={item.department}
                   {...register("nonAcademicExperience_department", {
                     // required: true,
                     maxLength: 100,
