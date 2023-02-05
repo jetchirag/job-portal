@@ -12,6 +12,7 @@ import Openings from "./components/Openings";
 import JobDesc from "./components/JobDesc";
 import Faq from "./components/FAQ";
 import "./components/css/styles.css";
+import WhyUs from "./components/WhyUs";
 
 import Recognition from "./components/Recognition";
 import ApplicationDetails from "./components/admin/ApplicationDetails";
@@ -36,8 +37,8 @@ function App() {
                 <Stats />
                 <Recognition />
                 <JobCardMain />
-                {/* <WhyUs />
-                <Testimonial /> */}
+                <WhyUs />
+                <Testimonial />
               </div>
             }
           />

@@ -92,8 +92,8 @@ const PartTwo = () => {
               <option selected="" disabled="" value="">
                 Choose...
               </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </Form.Select>
           </Form.Group>
           {/* Mobile Details */}
@@ -155,9 +155,9 @@ const PartTwo = () => {
               isInvalid={errors.cr_country}
               value={cr_country}
               onChange={(val) => setcr_Country(val)}
-              {...register("cr_country", {
-                required: true,
-              })}
+              // {...register("cr_country", {
+              //   required: true,
+              // })}
             />
           </Form.Group>
           {/* State Details  */}
