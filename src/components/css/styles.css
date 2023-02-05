@@ -250,9 +250,10 @@ img {
 
 .btn {
   margin: 1rem;
+  margin-left: 0;
   border-radius: 5px;
   cursor: pointer;
-  padding: 0.5rem 0.75rem;
+  padding: 0.3rem 0.75rem;
 }
 
 @media screen and (max-width: 876px) {
@@ -391,6 +392,7 @@ img {
 }
 .add-more-btn {
   background-color: #fff;
+  font-size: 0rem;
   border-radius: 7px;
   padding: 0.5rem 0.75rem;
 }
@@ -409,4 +411,10 @@ img {
 .add-2 :hover {
   background-color: #dc3444;
   color: #fff;
+}
+.btn-outline-success {
+  font-size: 0.75rem;
+}
+.btn-outline-danger {
+  font-size: 0.75rem;
 }
