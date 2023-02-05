@@ -19,6 +19,7 @@ const PartThree = () => {
   const handlePdoc = () => {
     setPdoc(!pdocVal);
   };
+  const [aq_secondary_country, setaq_secondary_country] = useState("");
   const [aq_higher_secondary_country, setaq_higher_secondary_country] =
     useState('');
   const [aq_graduation_country, setaq_graduation_country] = useState('');
@@ -90,6 +91,144 @@ const PartThree = () => {
       </Accordion.Header>
       <Accordion.Body>
         <p>
+          <b>Seconday / Class 10th</b>
+        </p>
+        <Row className="mb-3">
+          <Form.Group
+            as={Col}
+            md="2"
+            controlId="aq_secondary_country"
+            size="sm"
+          >
+            {/* Academic Qualification Seconday Country  */}
+            <Form.Label>
+              Country<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <CountryDropdown
+              value={aq_secondary_country}
+              onChange={(val) => setaq_secondary_country(val)}
+              className={"form-control form-control-sm"}
+              // {...register("cr_country", {
+              //   required: true,
+              // })}
+            />
+            {errors.aq_secondary_country && (
+              <p style={{ color: "red" }}>Please select your country</p>
+            )}
+          </Form.Group>
+          {/* Academic Qulalification Secondary Country  */}
+          {/* Academic Qualification Education Mode Details  */}
+          <Form.Group as={Col} md="2" controlId="secondary_mode">
+            <Form.Label>
+              Education Mode<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              isInvalid={errors.secondary_mode}
+              size="sm"
+              {...register("secondary_mode", {
+                required: "Please select your mode of educatoin",
+              })}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              secondary_mode
+              <option value="regular">Regular</option>
+              <option value="part-time">Part-Time</option>
+              <option value="distance-learning-online">
+                Distance Learning / Online
+              </option>
+            </Form.Select>
+          </Form.Group>
+          {/* School  */}
+          <Form.Group as={Col} md="2" controlId="secondary_school">
+            <Form.Label>
+              School<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+              isInvalid={errors.secondary_school}
+              size="sm"
+              placeholder="School Name"
+              type="text"
+              {...register("secondary_school", {
+                required: true,
+                maxLength: 50,
+              })}
+            />
+          </Form.Group>
+          {/* Board  */}
+          <Form.Group as={Col} md="2" controlId="secondary_board">
+            <Form.Label>
+              Board<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+              isInvalid={errors.secondary_board}
+              size="sm"
+              placeholder="Board Name"
+              type="text"
+              {...register("secondary_board", {
+                required: true,
+                maxLength: 50,
+              })}
+            />
+          </Form.Group>
+          {/* Passing Year  */}
+          <Form.Group as={Col} md="2" controlId="secondary_passingYear">
+            <Form.Label>
+              Passing Year<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+              isInvalid={errors.secondary_passingYear}
+              size="sm"
+              placeholder="Passing Year"
+              type="number"
+              {...register("secondary_passingYear", {
+                required: true,
+                maxLength: 4,
+                minLength: 4,
+              })}
+            />
+          </Form.Group>
+          {/* Division Details  */}
+          <Form.Group as={Col} md="2" controlId="secondary_division">
+            <Form.Label>
+              Division<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              isInvalid={errors.secondary_division}
+              size="sm"
+              {...register("secondary_division", {
+                required: "Please select your division",
+              })}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              <option value="first">First</option>
+              <option value="second">Second</option>
+              <option value="third">Third</option>
+            </Form.Select>
+          </Form.Group>
+          {/* Aggregate Percentage  */}
+          <Form.Group as={Col} md="2" controlId="secondary_percentage">
+            <Form.Label>
+              Aggregate Percentage<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+              isInvalid={errors.secondary_percentage}
+              size="sm"
+              placeholder="Aggregate Percentage"
+              type="number"
+              {...register("secondary_percentage", {
+                required: true,
+                minValue: 0,
+                maxValue: 100,
+              })}
+            />
+          </Form.Group>
+        </Row>
+        <hr />
+        <p>
           <b>Higher Seconday / Class 12th</b>
         </p>
         <Row className='mb-3'>
@@ -140,48 +279,82 @@ const PartThree = () => {
             </Form.Select>
           </Form.Group>
           {/* School  */}
-          <Form.Group as={Col} md='2' controlId='school'>
+
+          <Form.Group as={Col} md="2" controlId="higher_secondary_school">
+
+    
+
             <Form.Label>
               School<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Control
+
               isInvalid={errors.school}
               size='sm'
               placeholder='School Name'
               type='text'
               {...register('school', {
+
                 required: true,
                 maxLength: 50,
               })}
             />
           </Form.Group>
           {/* Board  */}
-          <Form.Group as={Col} md='2' controlId='board'>
+
+          <Form.Group as={Col} md="2" controlId="higher_secondary_board">
+
             <Form.Label>
               Board<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.board}
-              size='sm'
-              placeholder='Board Name'
-              type='text'
-              {...register('board', {
+
+              isInvalid={errors.higher_secondary_board}
+              size="sm"
+              placeholder="Board Name"
+              type="text"
+              {...register("higher_secondary_board", {
+
                 required: true,
                 maxLength: 50,
               })}
             />
           </Form.Group>
+          {/* Stream Details (Newly Added)  */}
+          <Form.Group as={Col} md="2" controlId="higher_secondary_stream">
+            <Form.Label>
+              Stream<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              isInvalid={errors.higher_secondary_stream}
+              size="sm"
+              {...register("higher_secondary_stream", {
+                required: "Please select your stream",
+              })}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              <option value="science">Science</option>
+              <option value="commerce">Commerce</option>
+              <option value="humanities-arts">Humanities / Arts</option>
+            </Form.Select>
+          </Form.Group>
           {/* Passing Year  */}
-          <Form.Group as={Col} md='2' controlId='passingYear'>
+
+          <Form.Group as={Col} md="2" controlId="higher_secondary_passingYear">
+
             <Form.Label>
               Passing Year<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.passingYear}
-              size='sm'
-              placeholder='Passing Year'
-              type='number'
-              {...register('passingYear', {
+
+              isInvalid={errors.higher_secondary_passingYear}
+              size="sm"
+              placeholder="Passing Year"
+              type="number"
+              {...register("higher_secondary_passingYear", {
+
                 required: true,
                 maxLength: 4,
                 minLength: 4,
@@ -189,15 +362,19 @@ const PartThree = () => {
             />
           </Form.Group>
           {/* Division Details  */}
-          <Form.Group as={Col} md='2' controlId='division'>
+
+          <Form.Group as={Col} md="2" controlId="higher_secondary_division">
+
             <Form.Label>
               Division<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Select
-              isInvalid={errors.division}
-              size='sm'
-              {...register('division', {
-                required: 'Please select your division',
+
+              isInvalid={errors.higher_secondary_division}
+              size="sm"
+              {...register("higher_secondary_division", {
+                required: "Please select your division",
+
               })}
             >
               <option selected='' disabled='' value=''>
@@ -209,16 +386,20 @@ const PartThree = () => {
             </Form.Select>
           </Form.Group>
           {/* Aggregate Percentage  */}
-          <Form.Group as={Col} md='2' controlId='percentage'>
+
+          <Form.Group as={Col} md="2" controlId="higher_secondary_percentage">
+
             <Form.Label>
               Aggregate Percentage<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.percentage}
-              size='sm'
-              placeholder='Aggregate Percentage'
-              type='number'
-              {...register('percentage', {
+
+              isInvalid={errors.higher_secondary_percentage}
+              size="sm"
+              placeholder="Aggregate Percentage"
+              type="number"
+              {...register("higher_secondary_percentage", {
+
                 required: true,
                 minValue: 0,
                 maxValue: 100,
@@ -321,17 +502,69 @@ const PartThree = () => {
                     })}
                   />
                 </Form.Group>
-                {/* Area Details  */}
-                <Form.Group as={Col} md='2' controlId='graduation_area'>
+
+                {/* Course Details  */}
+                <Form.Group as={Col} md='2' controlId='graduation_course'>
                   <Form.Label>
-                    Area<span style={{ color: 'red' }}> *</span>
+                    Course Name<span style={{ color: 'red' }}> *</span>
+                  </Form.Label>
+                  <Form.Select
+                    isInvalid={errors.graduation_course}
+                    size='sm'
+                    {...register('graduation_course', {
+                      required: 'Please select your course name',
+                    })}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+
+                    <option value="btech">B.Tech</option>
+                    <option value="be">B.E</option>
+                    <option value="bsc">B.Sc</option>
+                    <option value="ba">B.A</option>
+                    <option value="barch">B.Arch</option>
+                    <option value="bba">
+                      BBA- Bachelor of Business Administration
+                    </option>
+                    <option value="bbs">
+                      BBS- Bachelor of Business Studies
+                    </option>
+                    <option value="bcom">BCom- Bachelor of Commerce</option>
+                    <option value="bem">
+                      BEM- Bachelor of Event Management
+                    </option>
+                    <option value="bfa">BFA- Bachelor of Fine Arts</option>
+                    <option value="bfd">
+                      BFD- Bachelor of Fashion Designing
+                    </option>
+                    <option value="bjmc">
+                      BJMC- Bachelor of Journalism and Mass Communication
+                    </option>
+                    <option value="bms">
+                      BMS- Bachelor of Management Science
+                    </option>
+                    <option value="bsw">BSW- Bachelor of Social Work</option>
+                    <option value="bttm">
+                      BTTM- Bachelor of Travel and Tourism Management
+                    </option>
+                    <option value="llb">LLB</option>
+                    <option value="bod">Bachelor of Design</option>
+                    <option value="other">Others</option>
+
+                  </Form.Select>
+                </Form.Group>
+                {/* Area Details  */}
+                <Form.Group as={Col} md="2" controlId="graduation_area">
+                  <Form.Label>
+                    Specialization<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_area}
-                    size='sm'
-                    placeholder='Area'
-                    type='text'
-                    {...register('graduation_area', {
+                    size="sm"
+                    placeholder="Specialization"
+                    type="text"
+                    {...register("graduation_area", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -353,57 +586,6 @@ const PartThree = () => {
                     })}
                   />
                 </Form.Group> */}
-
-                {/* Course Details  */}
-                <Form.Group as={Col} md='2' controlId='graduation_course'>
-                  <Form.Label>
-                    Course Name<span style={{ color: 'red' }}> *</span>
-                  </Form.Label>
-                  <Form.Select
-                    isInvalid={errors.graduation_course}
-                    size='sm'
-                    {...register('graduation_course', {
-                      required: 'Please select your course name',
-                    })}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    <option value='regular'>B.Tech</option>
-                    <option value='regular'>B.E</option>
-                    <option value='regular'>B.Sc</option>
-                    <option value='regular'>B.A</option>
-                    <option value='regular'>B.Arch</option>
-                    <option value='regular'>
-                      BBA- Bachelor of Business Administration
-                    </option>
-                    <option value='regular'>
-                      BBS- Bachelor of Business Studies
-                    </option>
-                    <option value='regular'>BCom- Bachelor of Commerce</option>
-                    <option value='regular'>
-                      BEM- Bachelor of Event Management
-                    </option>
-                    <option value='regular'>BFA- Bachelor of Fine Arts</option>
-                    <option value='regular'>
-                      BFD- Bachelor of Fashion Designing
-                    </option>
-                    <option value='regular'>
-                      BJMC- Bachelor of Journalism and Mass Communication
-                    </option>
-                    <option value='regular'>
-                      BMS- Bachelor of Management Science
-                    </option>
-                    <option value='regular'>
-                      BSW- Bachelor of Social Work
-                    </option>
-                    <option value='regular'>
-                      BTTM- Bachelor of Travel and Tourism Management
-                    </option>
-                    <option value='regular'>LLB</option>
-                    <option value='regular'>Bachelor of Design</option>
-                  </Form.Select>
-                </Form.Group>
                 {/* Graduation Division Details  */}
                 <Form.Group as={Col} md='2' controlId='graduation_division'>
                   <Form.Label>
@@ -491,15 +673,19 @@ const PartThree = () => {
                   )}
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
-                <Form.Group as={Col} md='2' controlId='graduation_mode'>
+
+                <Form.Group as={Col} md="2" controlId="post_graduation_mode">
+
                   <Form.Label>
                     Education Mode<span style={{ color: 'red' }}> *</span>
                   </Form.Label>
                   <Form.Select
-                    isInvalid={errors.graduation_mode}
-                    size='sm'
-                    {...register('graduation_mode', {
-                      required: 'Please select your mode of educatoin',
+
+                    isInvalid={errors.post_graduation_mode}
+                    size="sm"
+                    {...register("post_graduation_mode", {
+                      required: "Please select your mode of educatoin",
+
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -565,17 +751,58 @@ const PartThree = () => {
                     })}
                   />
                 </Form.Group>
+                {/* Course Details  */}
+                <Form.Group as={Col} md="2" controlId="post_graduation_course">
+                  <Form.Label>
+                    Course<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+                  <Form.Select
+                    isInvalid={errors.post_graduation_course}
+                    size="sm"
+                    {...register("post_graduation_course", {
+                      required: "Please select your course",
+                    })}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    <option value="ma">MA</option>
+                    <option value="msc">MSc</option>
+                    <option value="mres">MRes</option>
+                    <option value="mphil">MPhil</option>
+                    <option value="mfa">MFA</option>
+                    <option value="march">M.Arch</option>
+                    <option value="mlitt">MLitt</option>
+                    <option value="ms">M.S (by research)</option>
+                    <option value="llm">LLM</option>
+                    <option value="lpc">LPC</option>
+                    <option value="gdl">GDL</option>
+                    <option value="mba">MBA</option>
+                    <option value="mcom">MCom</option>
+                    <option value="mim">MIM</option>
+                    <option value="me">ME</option>
+                    <option value="mtech">MTech</option>
+                    <option value="msw">MSW</option>
+                    <option value="pgcert">PGCert</option>
+                    <option value="pgdip">PGDip</option>
+                    <option value="pgce">PGCE</option>
+                    <option value="pgde">PGDE</option>
+                    <option value="other">Others</option>
+                  </Form.Select>
+                </Form.Group>
                 {/* Area Details  */}
                 <Form.Group as={Col} md='2' controlId='post_graduation_area'>
                   <Form.Label>
-                    Area<span style={{ color: 'red' }}> *</span>
+
+                    Specialization<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_area}
-                    size='sm'
-                    placeholder='Area'
-                    type='text'
-                    {...register('post_graduation_area', {
+                    size="sm"
+                    placeholder="Specialization"
+                    type="text"
+                    {...register("post_graduation_area", {
+
                       required: true,
                       maxLength: 100,
                     })}
@@ -597,44 +824,8 @@ const PartThree = () => {
                     })}
                   />
                 </Form.Group> */}
-                {/* Course Details  */}
-                <Form.Group as={Col} md='2' controlId='post_graduation_course'>
-                  <Form.Label>
-                    Course<span style={{ color: 'red' }}> *</span>
-                  </Form.Label>
-                  <Form.Select
-                    isInvalid={errors.post_graduation_course}
-                    size='sm'
-                    {...register('post_graduation_course', {
-                      required: 'Please select your course',
-                    })}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    <option value='first'>MA</option>
-                    <option value='first'>MSc</option>
-                    <option value='first'>MRes</option>
-                    <option value='first'>MPhil</option>
-                    <option value='first'>MFA</option>
-                    <option value='first'>M.Arch</option>
-                    <option value='first'>MLitt</option>
-                    <option value='first'>M.S (by research)</option>
-                    <option value='first'>LLM</option>
-                    <option value='first'>LPC</option>
-                    <option value='first'>GDL</option>
-                    <option value='first'>MBA</option>
-                    <option value='first'>MCom</option>
-                    <option value='first'>MIM</option>
-                    <option value='first'>ME</option>
-                    <option value='first'>MTech</option>
-                    <option value='first'>MSW</option>
-                    <option value='first'>PGCert</option>
-                    <option value='first'>PGDip</option>
-                    <option value='first'>PGCE</option>
-                    <option value='first'>PGDE</option>
-                  </Form.Select>
-                </Form.Group>
+
+
                 {/* Graduation Division Details  */}
                 <Form.Group
                   as={Col}
@@ -812,14 +1003,16 @@ const PartThree = () => {
               {/* Area Details  */}
               <Form.Group as={Col} md='2' controlId='phd_area'>
                 <Form.Label>
-                  Area<span style={{ color: 'red' }}> *</span>
+
+                  Specialization<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Control
                   isInvalid={errors.phd_area}
-                  size='sm'
-                  placeholder='Area'
-                  type='text'
-                  {...register('phd_area', {
+                  size="sm"
+                  placeholder="Specialization"
+                  type="text"
+                  {...register("phd_area", {
+
                     required: true,
                     maxLength: 100,
                   })}
@@ -971,14 +1164,16 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Area Details  */}
-                <Form.Group as={Col} md='2' controlId='mphil_area'>
-                  <Form.Label>Area</Form.Label>
+
+                <Form.Group as={Col} md="2" controlId="mphil_area">
+                  <Form.Label>Specialization</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_area}
                     disabled={mphilVal}
-                    placeholder='Area'
-                    type='text'
-                    {...register('mphil_area', {
+                    placeholder="Specialization"
+                    type="text"
+                    {...register("mphil_area", {
+
                       required: true,
                       maxLength: 100,
                     })}
@@ -1147,12 +1342,14 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Area Details  */}
-                <Form.Group as={Col} md='2' controlId='post_doctoral_area'>
-                  <Form.Label>Area</Form.Label>
+
+                <Form.Group as={Col} md="2" controlId="post_doctoral_area">
+                  <Form.Label>Specialization</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
-                    placeholder='Area'
-                    type='text'
+                    placeholder="Specialization"
+                    type="text"
+
                     isInvalid={errors.post_doctoral_area}
                     {...register('post_doctoral_area', {
                       required: true,

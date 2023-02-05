@@ -4,22 +4,22 @@ import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
-import { useFormContext } from "react-hook-form";
+// import { useFormContext } from "react-hook-form";
 import {
   CountryDropdown,
   RegionDropdown,
   CountryRegionData,
 } from "react-country-region-selector";
 
-const PartTwo = () => {
+const PartTwoDetail = (props) => {
   const [cr_country, setcr_Country] = useState("");
   const [cr_region, setcr_Region] = useState("");
   const [native_country, setnative_Country] = useState("");
   const [native_region, setnative_Region] = useState("");
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
+  // const {
+  //   register,
+  //   formState: { errors },
+  // } = useFormContext();
   return (
     <Accordion.Item eventKey="1">
       <Accordion.Header>2. Personal Information</Accordion.Header>
@@ -29,67 +29,55 @@ const PartTwo = () => {
           <Form.Group as={Col} md="2" controlId="firstName">
             <Form.Label>
               First Name
-              <span style={{ color: "red", fontSize: "10px" }}>
+              <span style={{ color: "grey", fontSize: "10px" }}>
                 {" "}
                 as per Aadhaar
               </span>
-              <span style={{ color: "red" }}> *</span>
+              <span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.firstName}
               size="sm"
               placeholder="First Name"
               type="text"
-              {...register("firstName", {
-                required: true,
-                maxLength: 20,
-              })}
+              value={props?.data?.applicant?.firstName}
             />
           </Form.Group>
           {/* Last Name Details  */}
           <Form.Group as={Col} md="2" controlId="lastName">
             <Form.Label>
               Last Name
-              <span style={{ color: "red", fontSize: "10px" }}>
+              <span style={{ color: "grey", fontSize: "10px" }}>
                 {" "}
                 as per Aadhaar
               </span>
-              <span style={{ color: "red" }}> *</span>
+              <span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.lastName}
               size="sm"
               placeholder="Last Name"
               type="text"
-              {...register("lastName", { required: true, maxLength: 20 })}
+              value={props?.data?.applicant?.lastName}
             />
           </Form.Group>
           {/* Date of Birth Details  */}
           <Form.Group as={Col} md="2" controlId="dob">
             <Form.Label>
-              Date of Birth<span style={{ color: "red" }}> *</span>
+              Date of Birth<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.dob}
               size="sm"
-              placeholder="DD/MM/YYYY"
+              // placeholder={props.data.applicant.dob}
               type="date"
-              {...register("dob", { required: true })}
+              // value={new Date(props?.data?.applicant?.dob)}
             />
           </Form.Group>
           {/* Gender Details */}
           <Form.Group as={Col} md="2" controlId="gender">
             <Form.Label>
-              Gender<span style={{ color: "red" }}> *</span>
+              Gender<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select
-              isInvalid={errors.gender}
-              size="sm"
-              {...register("gender", {
-                required: "Please select your gender",
-              })}
-            >
-              <option selected="" disabled="" value="">
+            <Form.Select size="sm" value={props.data?.applicant?.gender}>
+              <option disabled="" value="">
                 Choose...
               </option>
               <option value="male">Male</option>
@@ -99,21 +87,15 @@ const PartTwo = () => {
           {/* Mobile Details */}
           <Form.Group as={Col} md="2" controlId="mobile">
             <Form.Label>
-              Mobile<span style={{ color: "red" }}> *</span>
+              Mobile<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">+91</InputGroup.Text>
               <Form.Control
-                isInvalid={errors.mobile}
                 size="sm"
                 placeholder="Mobile No."
                 type="tel"
-                {...register("mobile", {
-                  required: true,
-                  minLength: 10,
-                  maxLength: 10,
-                  // pattern: ((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}
-                })}
+                value={props?.data?.applicant?.mobile}
               />
               <br />
             </InputGroup>
@@ -121,20 +103,15 @@ const PartTwo = () => {
           {/* Email Details */}
           <Form.Group as={Col} md="2" controlId="email">
             <Form.Label>
-              Email<span style={{ color: "red" }}> *</span>
+              Email<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <InputGroup hasValidation>
               <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
               <Form.Control
-                isInvalid={errors.email}
                 size="sm"
                 placeholder="Email ID"
                 type="email"
-                {...register("email", {
-                  required: true,
-                  pattern:
-                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                })}
+                value={props.data?.applicant?.email}
               />
               <br />
             </InputGroup>
@@ -148,22 +125,18 @@ const PartTwo = () => {
           {/* Country Details */}
           <Form.Group as={Col} md="2" controlId="cr_country">
             <Form.Label>
-              Country<span style={{ color: "red" }}> *</span>
+              Country<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <CountryDropdown
               className="hi form-control form-control-sm"
-              isInvalid={errors.cr_country}
               value={cr_country}
               onChange={(val) => setcr_Country(val)}
-              // {...register("cr_country", {
-              //   required: true,
-              // })}
             />
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="2" controlId="cr_state">
             <Form.Label>
-              State<span style={{ color: "red" }}> *</span>
+              State<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <RegionDropdown
               country={cr_country}
@@ -171,27 +144,21 @@ const PartTwo = () => {
               onChange={(val) => setcr_Region(val)}
               className={"form-control  form-control-sm"}
               // {...register("cr_state", {
-              //   required: true,
+              //   requigrey: true,
               // })}
             />
-            {errors.cr_state && (
-              <p style={{ color: "red" }}>Please select your state</p>
-            )}
           </Form.Group>
           {/* City Details  */}
           <Form.Group as={Col} md="2" controlId="cr_city">
             <Form.Label>
-              City<span style={{ color: "red" }}> *</span>
+              City<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.cr_city}
               placeholder="City"
               size="sm"
               type="text"
-              {...register("cr_city", {
-                required: true,
-                maxLength: 25,
-              })}
+ 
+              defaultValue={props?.data?.cr_city}
             />
           </Form.Group>
         </Row>
@@ -203,7 +170,7 @@ const PartTwo = () => {
           {/* Country Details */}
           <Form.Group as={Col} md="2" controlId="native_country">
             <Form.Label>
-              Country<span style={{ color: "red" }}> *</span>
+              Country<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <CountryDropdown
               value={native_country}
@@ -217,7 +184,7 @@ const PartTwo = () => {
           {/* State Details  */}
           <Form.Group as={Col} md="2" controlId="native_state">
             <Form.Label>
-              State<span style={{ color: "red" }}> *</span>
+              State<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <RegionDropdown
               country={native_country}
@@ -232,17 +199,14 @@ const PartTwo = () => {
           {/* City Details  */}
           <Form.Group as={Col} md="2" controlId="native_city">
             <Form.Label>
-              City<span style={{ color: "red" }}> *</span>
+              City<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.native_city}
               size="sm"
               placeholder="City"
               type="text"
-              {...register("native_city", {
-                required: true,
-                maxLength: 25,
-              })}
+              defaultValue={"singapore"}
+              // defaultValue={props?.data}
             />
           </Form.Group>
         </Row>
@@ -251,16 +215,9 @@ const PartTwo = () => {
           {/* Religon  */}
           <Form.Group as={Col} md="2" controlId="religion">
             <Form.Label>
-              Religion<span style={{ color: "red" }}> *</span>
+              Religion<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select
-              isInvalid={errors.religion}
-              size="sm"
-              aria-label="Default select example"
-              {...register("religion", {
-                required: "Please select your religion",
-              })}
-            >
+            <Form.Select size="sm" aria-label="Default select example" value={props?.data?.applicant?.religion}>
               <option selected="" disabled="" value="">
                 Choose...
               </option>
@@ -277,16 +234,9 @@ const PartTwo = () => {
           {/* Marrital Status Details  */}
           <Form.Group as={Col} md="2" controlId="marital_status">
             <Form.Label>
-              Marital Status<span style={{ color: "red" }}> *</span>
+              Marital Status<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select
-              isInvalid={errors.marital_status}
-              size="sm"
-              aria-label="Default select example"
-              {...register("marital_status", {
-                required: "Please select your marital status",
-              })}
-            >
+            <Form.Select size="sm" aria-label="Default select example" value={props?.data?.applicant?.marital_status}>
               <option selected="" disabled="" value="">
                 Choose...
               </option>
@@ -299,35 +249,25 @@ const PartTwo = () => {
           {/* Aadhaar Card Details  */}
           <Form.Group as={Col} md="2" controlId="aadhaar_card">
             <Form.Label>
-              Aadhaar Card<span style={{ color: "red" }}> *</span>
+              Aadhaar Card<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.aadhaar_card}
               size="sm"
               placeholder="Aadhaar Card"
               type="text"
-              {...register("aadhaar_card", {
-                required: true,
-                minLength: 12,
-                maxLength: 12,
-              })}
+              value={props?.data?.aadhaar_card}
             />
           </Form.Group>
           {/* PAN Card Details  */}
           <Form.Group as={Col} md="2" controlId="pan_card">
             <Form.Label>
-              PAN Card<span style={{ color: "red" }}> *</span>
+              PAN Card<span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.pan_card}
               size="sm"
               placeholder="PAN Card"
               type="text"
-              {...register("pan_card", {
-                required: true,
-                minLength: 10,
-                maxLength: 10,
-              })}
+              value={props?.data?.pan_card}
             />
           </Form.Group>
         </Row>
@@ -336,4 +276,4 @@ const PartTwo = () => {
   );
 };
 
-export default PartTwo;
+export default PartTwoDetail;

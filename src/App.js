@@ -6,13 +6,15 @@ import JobCardMain from './components/JobCardMain';
 import Footer from './components/Footer';
 import Testimonial from './components/Testimonial';
 // import Form from "./components/Form";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Login from './components/Login';
-import Openings from './components/Openings';
-import JobDesc from './components/JobDesc';
-import Faq from './components/FAQ';
-import './components/css/styles.css';
-import WhyUs from './components/WhyUs';
+
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Login from "./components/Login";
+import Openings from "./components/Openings";
+import JobDesc from "./components/JobDesc";
+import Faq from "./components/FAQ";
+import "./components/css/styles.css";
+import WhyUs from "./components/WhyUs";
+
 
 import Recognition from './components/Recognition';
 import ApplicationDetails from './components/admin/ApplicationDetails';

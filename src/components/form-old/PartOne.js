@@ -28,7 +28,7 @@ const Partone = () => {
       <Accordion.Header>1. Application Information</Accordion.Header>
       <Accordion.Body>
         <Row className="mb-3">
-          <Form.Group as={Col} md="2" controlId="dob">
+          <Form.Group as={Col} md="2" controlId="jobtype">
             <Form.Label>
               Job Type<span style={{ color: "red" }}> *</span>
             </Form.Label>
@@ -73,7 +73,7 @@ const Partone = () => {
             </Form.Select>
           </Form.Group>
           {faculty && (
-            <Form.Group as={Col} md="2" controlId="faculty">
+            <Form.Group as={Col} md="2" controlId="school">
               <Form.Label>
                 School<span style={{ color: "red" }}> *</span>
               </Form.Label>
@@ -98,7 +98,7 @@ const Partone = () => {
             </Form.Group>
           )}
           {school && (
-            <Form.Group as={Col} md="2" controlId="faculty">
+            <Form.Group as={Col} md="2" controlId="department">
               <Form.Label>
                 Department<span style={{ color: "red" }}> *</span>
               </Form.Label>
@@ -106,7 +106,7 @@ const Partone = () => {
                 isInvalid={errors.dept}
                 size="sm"
                 aria-label="Default Faculty Type"
-                {...register("dept", {
+                {...register("department", {
                   required: true,
                 })}
               >

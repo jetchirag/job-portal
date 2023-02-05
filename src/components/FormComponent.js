@@ -21,11 +21,12 @@ import './css/Recognition.css';
 import { useNavigate } from 'react-router-dom';
 
 const FormComponent = () => {
-  const navigate = useNavigate();
-  const [cr_country, setcr_Country] = useState('');
-  const [cr_region, setcr_Region] = useState('');
-  const [native_country, setnative_Country] = useState('');
-  const [native_region, setnative_Region] = useState('');
+  const [cr_country, setcr_Country] = useState("");
+  const [cr_region, setcr_Region] = useState("");
+  const [native_country, setnative_Country] = useState("");
+  const [native_region, setnative_Region] = useState("");
+  const [aq_secondary_country, setaq_secondary_country] = useState("");
+  
   const [aq_higher_secondary_country, setaq_higher_secondary_country] =
     useState('');
   const [aq_graduation_country, setaq_graduation_country] = useState('');
@@ -59,14 +60,24 @@ const FormComponent = () => {
       mobile: data.mobile,
       email: data.email,
     };
+    let aq_secondary = {
+      country: aq_secondary_country,
+      mode: data.secondary_mode,
+      school: data.secondary_school,
+      board: data.secondary_board,
+      passingYear: data.secondary_passingYear,
+      division: data.secondary_division,
+      percentage: data.secondary_percentage,
+    };
     let aq_higher_secondary = {
       country: aq_higher_secondary_country,
       mode: data.higher_secondary_mode,
-      school: data.school,
-      board: data.board,
-      passingYear: data.passingYear,
-      division: data.division,
-      percentage: data.percentage,
+      school: data.higher_secondary_school,
+      board: data.higher_secondary_board,
+      stream: data.higher_secondary_stream,
+      passingYear: data.higher_secondary_passingYear,
+      division: data.higher_secondary_division,
+      percentage: data.higher_secondary_percentage,
     };
     let aq_graduation = {
       country: aq_graduation_country,
@@ -102,6 +113,7 @@ const FormComponent = () => {
     };
     let aq_phd = {
       country: aq_phd_country,
+      status: data.phd_status,
       mode: data.phd_mode,
       institute: data.phd_institute,
       college: data.phd_college,
@@ -227,25 +239,27 @@ const FormComponent = () => {
     data.school_main = data.school;
     data.department = data.department;
     data.nature_of_job = data.natureofjob;
-    data['cr_country'] = cr_country;
-    data['cr_state'] = cr_region;
-    data['native_country'] = native_country;
-    data['native_state'] = native_region;
-    data['applicant'] = applicant;
-    data['aq_higher_secondary'] = aq_higher_secondary;
-    data['aq_graduation'] = aq_graduation;
-    data['aq_post_graduation'] = aq_post_graduation;
-    data['aq_mphil'] = aq_mphil;
-    data['aq_phd'] = aq_phd;
-    data['aq_post_doctoral'] = aq_post_doctoral;
-    data['academicQualification'] = academicQualification;
-    data['academicExperience'] = academicExperience;
-    data['nonAcademicExperience'] = nonAcademicExperience;
-    data['fellowships'] = fellowships;
-    data['research'] = research;
-    data['books'] = books;
-    data['patent'] = patent;
-    data['peerRecognition'] = peerRecognition;
+
+    data["cr_country"] = cr_country;
+    data["cr_state"] = cr_region;
+    data["native_country"] = native_country;
+    data["native_state"] = native_region;
+    data["applicant"] = applicant;
+    data["aq_secondary"] = aq_secondary;
+    data["aq_higher_secondary"] = aq_higher_secondary;
+    data["aq_graduation"] = aq_graduation;
+    data["aq_post_graduation"] = aq_post_graduation;
+    data["aq_mphil"] = aq_mphil;
+    data["aq_phd"] = aq_phd;
+    data["aq_post_doctoral"] = aq_post_doctoral;
+    data["academicQualification"] = academicQualification;
+    data["academicExperience"] = academicExperience;
+    data["nonAcademicExperience"] = nonAcademicExperience;
+    data["fellowships"] = fellowships;
+    data["research"] = research;
+    data["books"] = books;
+    data["patent"] = patent;
+    data["peerRecognition"] = peerRecognition;
     console.log(data);
 
     try {
@@ -305,19 +319,6 @@ const FormComponent = () => {
             <PartEleven />
             {/* This is part 12  */}
             <PartTwelve />
-
-            <div className='input-group mb-3'>
-              <input type='file' class='form-control' id='inputGroupFile02' />
-              <label class='input-group-text' for='inputGroupFile02'>
-                Upload Passport Size Image
-              </label>
-            </div>
-            <div className='input-group mb-3'>
-              <input type='file' class='form-control' id='inputGroupFile02' />
-              <label class='input-group-text' for='inputGroupFile02'>
-                Upload Resume
-              </label>
-            </div>
             <hr />
             <Form.Group as={Col} md='12' controlId='accept'>
               <Form.Label>
