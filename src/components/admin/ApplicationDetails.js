@@ -71,21 +71,26 @@ const ApplicationsDetails = () => {
   };
   return (
     <>
+      <div className="heading">
+        <p>Job Application Details</p>
+      </div>
       <div
         className="card mb-3"
-        style={{ maxWidth: "540px", marginTop: "3%", marginLeft: "13%" }}
+        style={{ maxWidth: "540px", marginTop: "3%", marginLeft: "6%" }}
       >
         <div className="row g-0">
           <div className="col-md-4">
             <img
               src={data.photo}
-              className="img-fluid rounded-start" 
+              className="img-fluid rounded-start"
               alt="..."
             />
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">{data.name}</h5>
+              <h5 className="card-title">
+                {data?.applicant?.firstName} {data?.applicant?.lastName}
+              </h5>
               <p className="card-text">
                 <Button
                   variant="contained"
@@ -104,14 +109,16 @@ const ApplicationsDetails = () => {
                 </Button>
               </p>
               <p className="card-text">
-                <small className="text-muted">Last updated 3 mins ago</small>
+                <small className="text-muted">
+                  Applied in Faculty of Engineering{" "}
+                </small>
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <FormDetails data={data} />
+      <FormDetails data={data} reject={rejectApplication} />
     </>
   );
 };

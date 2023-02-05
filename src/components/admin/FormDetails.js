@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Accordion } from "react-bootstrap";
+import { Accordion, Button } from "react-bootstrap";
 import PartOneDetails from "../view-details/PartOneDetails";
 import PartThreeDetails from "../view-details/PartThreeDetails";
 import PartTwoDetail from "../view-details/PartTwoDetail";
@@ -9,6 +9,10 @@ import PartFiveDetails from "../view-details/PartFiveDetails";
 import PartSixDetails from "../view-details/PartSixDetails";
 import { FormProvider, useForm } from "react-hook-form";
 import PartSevenDetails from "../view-details/PartSevenDetails";
+import PartEightDetails from "../view-details/PartEightDetails";
+import PartNineTenDetails from "../view-details/PartNineTenDetails";
+import PartElevenDetails from "../view-details/PartEleven";
+import PartTwelveDetails from "../view-details/PartTwelveDetails";
 
 const FormDetails = (props) => {
   const methods = useForm();
@@ -22,7 +26,7 @@ const FormDetails = (props) => {
       <FormProvider {...methods}>
         <Accordion
           defalultActiveKey={["0"]}
-          alwaysOpen
+          alwaysClose
           style={{ padding: "0 5%" }}
         >
           <PartOneDetails data={props.data} />
@@ -32,6 +36,12 @@ const FormDetails = (props) => {
           <PartFiveDetails data={props.data} />
           <PartSixDetails data={props.data} />
           <PartSevenDetails data={props.data} />
+          <PartEightDetails data={props.data} />
+          <PartNineTenDetails data={props.data} />
+          <PartElevenDetails data={props.data} />
+          <PartTwelveDetails data={props.data} />
+          <Button onClick={props.reject}>Reject</Button>
+          <Button onClick={props.accept}>Accept</Button>
         </Accordion>
       </FormProvider>
     </>
