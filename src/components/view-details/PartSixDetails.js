@@ -6,7 +6,7 @@ import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const PartSix = () => {
+const PartSixDetails = (props) => {
   const {
     register,
     formState: { errors },
@@ -25,7 +25,7 @@ const PartSix = () => {
     <Accordion.Item eventKey="5">
       <Accordion.Header>6. Fellowships Achieved</Accordion.Header>
       <Accordion.Body>
-        {fellowship.map(() => {
+        {props?.data?.fellowships?.map((item) => {
           return (
             <Row className="mb-3">
               {/* Fellowship Details  */}
@@ -33,6 +33,7 @@ const PartSix = () => {
                 <Form.Label>Fellowship Detail</Form.Label>
                 <Form.Control
                   size="sm"
+                  value={item.fellowshipDetail}
                   placeholder="Fellowship Detail"
                   type="text"
                   {...register("fellowship_details", {
@@ -52,6 +53,7 @@ const PartSix = () => {
                 <Form.Control
                   size="sm"
                   placeholder="Year"
+                  value={item.year}
                   type="number"
                   {...register("fellowship_year", {
                     maxLength: 4,
@@ -70,6 +72,7 @@ const PartSix = () => {
                 <Form.Control
                   size="sm"
                   placeholder="Amount per annum"
+                  value={item.amount}
                   type="number"
                   {...register("fellowship_amount", {
                     maxLength: 15,
@@ -85,8 +88,10 @@ const PartSix = () => {
               {/* Fellowship Status Details  */}
               <Form.Group as={Col} md="2" controlId="fellowship_status">
                 <Form.Label>Fellowship Status</Form.Label>
-                <Form.Select {...register("fellowship_status", {})}>
-                  <option value="" />
+                <Form.Select {...register("fellowship_status", {})} value={item.fellowshipStatus}>
+                  <option value="">
+                    Choose...
+                  </option>
                   <option value="ongoing">Ongoing</option>
                   <option value="completed">Completed</option>
                 </Form.Select>
@@ -100,23 +105,13 @@ const PartSix = () => {
             </Row>
           );
         })}
-
-        <button
-          type='button'
-          onClick={addFellowship}
-          disabled
-          className='btn btn-outline-success'
-        >
-
+        <button type="button" onClick={addFellowship} className="add-more-btn">
           Add New
         </button>{" "}
         <button
-
-          type='button'
-          disabled
+          type="button"
           onClick={removeFellowship}
-          className='btn btn-outline-danger'
-
+          className="add-more-btn"
         >
           Remove Last
         </button>
@@ -125,4 +120,4 @@ const PartSix = () => {
   );
 };
 
-export default PartSix;
+export default PartSixDetails;
