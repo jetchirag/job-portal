@@ -37,72 +37,91 @@ const PartEight = () => {
           label='if Yes?'
           onClick={handlePart8}
         ></Form.Check>
-        {author.map(() => {
-          return (
-            <Row className='mb-3'>
-              <Form.Group
-                as={Col}
-                md='2'
-                controlId='book_details'
-                disabled={part8}
-              >
-                <Form.Label>Details</Form.Label>
-                <Form.Control
-                  size='sm'
-                  as='textarea'
-                  rows={1}
-                  disabled={part8}
-                  {...register('book_details', {
-                    maxLength: 500,
-                  })}
-                />
-                {errors.book_details && (
-                  <p style={{ color: 'red' }}>Please enter the book details</p>
-                )}
-              </Form.Group>
-              <Form.Group as={Col} md='2' controlId='book_isbn'>
-                <Form.Label>ISBN Number</Form.Label>
-                <Form.Control
-                  size='sm'
-                  type='text'
-                  rows={3}
-                  disabled={part8}
-                  {...register('book_isbn', {
-                    maxLength: 500,
-                  })}
-                />
-                {errors.book_isbn && (
-                  <p style={{ color: 'red' }}>
-                    Please enter the book isbn number
-                  </p>
-                )}
-              </Form.Group>
-              <Form.Group as={Col} md='2' controlId='book_written'>
-                <Form.Label>Written As</Form.Label>
-                <Form.Select
-                  size='sm'
-                  type='text'
-                  rows={3}
-                  disabled={part8}
-                  {...register('book_written', {})}
-                >
-                  <option value='' />
-                  <option value='principal-writer'>Principal Writer</option>
-                  <option value='co-writer'>Co Writer</option>
-                </Form.Select>
-                {errors.book_written && (
-                  <p style={{ color: 'red' }}> {errors.book_written.message}</p>
-                )}
-              </Form.Group>
-            </Row>
-          );
-        })}
-        <button type='button' onClick={addAuthor} className='add-more-btn'>
-          Add New
-        </button>{' '}
-        <button type='button' onClick={removeAuthor} className='add-more-btn'>
-          Remove Last
-        </button>
+        {!part8 && (
+          <>
+            {author.map(() => {
+              return (
+                <Row className='mb-3'>
+                  <Form.Group
+                    as={Col}
+                    md='2'
+                    controlId='book_details'
+                    disabled={part8}
+                  >
+                    <Form.Label>Details</Form.Label>
+                    <Form.Control
+                      size='sm'
+                      as='textarea'
+                      rows={1}
+                      disabled={part8}
+                      {...register('book_details', {
+                        maxLength: 500,
+                      })}
+                    />
+                    {errors.book_details && (
+                      <p style={{ color: 'red' }}>
+                        Please enter the book details
+                      </p>
+                    )}
+                  </Form.Group>
+                  <Form.Group as={Col} md='2' controlId='book_isbn'>
+                    <Form.Label>ISBN Number</Form.Label>
+                    <Form.Control
+                      size='sm'
+                      type='text'
+                      rows={3}
+                      disabled={part8}
+                      {...register('book_isbn', {
+                        maxLength: 500,
+                      })}
+                    />
+                    {errors.book_isbn && (
+                      <p style={{ color: 'red' }}>
+                        Please enter the book isbn number
+                      </p>
+                    )}
+                  </Form.Group>
+                  <Form.Group as={Col} md='2' controlId='book_written'>
+                    <Form.Label>Written As</Form.Label>
+                    <Form.Select
+                      size='sm'
+                      type='text'
+                      rows={3}
+                      disabled={part8}
+                      {...register('book_written', {})}
+                    >
+                      <option value='' />
+                      <option value='principal-writer'>Principal Writer</option>
+                      <option value='co-writer'>Co Writer</option>
+                    </Form.Select>
+                    {errors.book_written && (
+                      <p style={{ color: 'red' }}>
+                        {' '}
+                        {errors.book_written.message}
+                      </p>
+                    )}
+                  </Form.Group>
+                </Row>
+              );
+            })}
+            <button
+              type='button'
+              disabled
+              onClick={addAuthor}
+              className='btn btn-outline-success'
+            >
+              Add New
+            </button>{' '}
+            <button
+              type='button'
+              disabled
+              onClick={removeAuthor}
+              className='btn btn-outline-danger'
+            >
+              Remove Last
+            </button>
+          </>
+        )}
       </Accordion.Body>
     </Accordion.Item>
   );

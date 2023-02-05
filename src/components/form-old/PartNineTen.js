@@ -117,14 +117,16 @@ const PartNineTen = () => {
               <button
                 type='button'
                 onClick={addPatent}
-                className='add-more-btn'
+                disabled
+                className='btn btn-outline-success'
               >
                 Add New
               </button>{' '}
               <button
                 type='button'
                 onClick={removePatent}
-                className='add-more-btn'
+                disabled
+                className='btn btn-outline-danger'
               >
                 Remove Last
               </button>

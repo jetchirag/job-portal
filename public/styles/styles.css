@@ -220,7 +220,6 @@ img {
 }
 
 .btn {
-  border: none;
   margin: 1rem;
   border-radius: 5px;
   cursor: pointer;
@@ -308,10 +307,11 @@ img {
 }
 @keyframes scroll {
   from {
-    transform: translateX(300%);
+    transform: translateX(-7000px);
   }
+
   to {
-    transform: translateX(-2000px);
+    transform: translateX(-700000px);
   }
 }
 .testimonialcard {
