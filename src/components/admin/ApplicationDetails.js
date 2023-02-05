@@ -79,7 +79,7 @@ const ApplicationsDetails = () => {
           <div className="col-md-4">
             <img
               src={data.photo}
-              className="img-fluid rounded-start"
+              className="img-fluid rounded-start" 
               alt="..."
             />
           </div>

@@ -6,7 +6,7 @@ import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const PartSix = () => {
+const PartSixDetails = (props) => {
   const {
     register,
     formState: { errors },
@@ -33,6 +33,7 @@ const PartSix = () => {
                 <Form.Label>Fellowship Detail</Form.Label>
                 <Form.Control
                   size="sm"
+                  value={props?.data?.fellowship_details}
                   placeholder="Fellowship Detail"
                   type="text"
                   {...register("fellowship_details", {
@@ -52,6 +53,7 @@ const PartSix = () => {
                 <Form.Control
                   size="sm"
                   placeholder="Year"
+                  value={props?.data?.fellowship_details}
                   type="number"
                   {...register("fellowship_year", {
                     maxLength: 4,
@@ -70,6 +72,7 @@ const PartSix = () => {
                 <Form.Control
                   size="sm"
                   placeholder="Amount per annum"
+                  value={props?.data?.fellowship_amount}
                   type="number"
                   {...register("fellowship_amount", {
                     maxLength: 15,
@@ -86,7 +89,9 @@ const PartSix = () => {
               <Form.Group as={Col} md="2" controlId="fellowship_status">
                 <Form.Label>Fellowship Status</Form.Label>
                 <Form.Select {...register("fellowship_status", {})}>
-                  <option value="" />
+                  <option value={props?.data?.fellowship_status}>
+                    {props?.data?.fellowship_status}
+                  </option>
                   <option value="ongoing">Ongoing</option>
                   <option value="completed">Completed</option>
                 </Form.Select>
@@ -115,4 +120,4 @@ const PartSix = () => {
   );
 };
 
-export default PartSix;
+export default PartSixDetails;

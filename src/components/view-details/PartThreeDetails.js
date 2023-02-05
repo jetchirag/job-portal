@@ -10,7 +10,7 @@ import {
   CountryRegionData,
 } from "react-country-region-selector";
 
-const PartThreeDetails = () => {
+const PartThreeDetails = (props) => {
   const [mphilVal, setMphil] = useState(true);
   const handleMphil = () => {
     setMphil(!mphilVal);
@@ -129,7 +129,7 @@ const PartThreeDetails = () => {
               })}
             >
               <option selected="" disabled="" value="">
-                Choose...
+                {props?.data?.higher_secondary_mode}
               </option>
               higher_secondary_mode
               <option value="regular">Regular</option>
@@ -145,6 +145,7 @@ const PartThreeDetails = () => {
               School<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
+              value={props?.data?.school}
               isInvalid={errors.school}
               size="sm"
               placeholder="School Name"
@@ -162,6 +163,7 @@ const PartThreeDetails = () => {
             </Form.Label>
             <Form.Control
               isInvalid={errors.board}
+              value={props?.data?.board}
               size="sm"
               placeholder="Board Name"
               type="text"
@@ -177,6 +179,7 @@ const PartThreeDetails = () => {
               Passing Year<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
+              value={props?.data?.passingYear}
               isInvalid={errors.passingYear}
               size="sm"
               placeholder="Passing Year"
@@ -201,7 +204,7 @@ const PartThreeDetails = () => {
               })}
             >
               <option selected="" disabled="" value="">
-                Choose...
+                {props?.data?.divison}
               </option>
               <option value="first">First</option>
               <option value="second">Second</option>
@@ -215,6 +218,7 @@ const PartThreeDetails = () => {
             </Form.Label>
             <Form.Control
               isInvalid={errors.percentage}
+              value={props?.data?.percentage}
               size="sm"
               placeholder="Aggregate Percentage"
               type="number"
@@ -262,7 +266,7 @@ const PartThreeDetails = () => {
                     })}
                   >
                     <option selected="" disabled="" value="">
-                      Choose...
+                      {props?.data?.graduation_mode}
                     </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
@@ -279,6 +283,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_institute}
+                    value={props?.data?.graduation_institute}
                     size="sm"
                     placeholder="University/Institute Name"
                     type="text"
@@ -295,6 +300,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_college}
+                    value={props?.data?.graduation_college}
                     size="sm"
                     placeholder="College Name"
                     type="text"
@@ -311,6 +317,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_year}
+                    value={props?.data?.graduation_year}
                     size="sm"
                     placeholder="Graduation Year"
                     type="number"
@@ -328,6 +335,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_area}
+                    value={props?.data?.graduation_area}
                     size="sm"
                     placeholder="Area"
                     type="text"
@@ -366,8 +374,12 @@ const PartThreeDetails = () => {
                       required: "Please select your course name",
                     })}
                   >
-                    <option selected="" disabled="" value="">
-                      Choose...
+                    <option
+                      selected=""
+                      disabled=""
+                      value={props.data.graduatation_course}
+                    >
+                      {props.data.graduation_course}
                     </option>
                     <option value="regular">B.Tech</option>
                     <option value="regular">B.E</option>
@@ -416,8 +428,12 @@ const PartThreeDetails = () => {
                       required: "Please select your division",
                     })}
                   >
-                    <option selected="" disabled="" value="">
-                      Choose...
+                    <option
+                      selected=""
+                      disabled=""
+                      value={props?.data?.graduation_division}
+                    >
+                      {props?.data?.graduation_division}
                     </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
@@ -431,6 +447,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_percentage}
+                    value={props?.data?.graduation_percentage}
                     size="sm"
                     placeholder="Aggregate Percentage"
                     type="number"
@@ -492,8 +509,12 @@ const PartThreeDetails = () => {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option selected="" disabled="" value="">
-                      Choose...
+                    <option
+                      selected=""
+                      disabled=""
+                      value={props.data.graduation_mode}
+                    >
+                      {props?.data?.graduation_mode}
                     </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
@@ -515,6 +536,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     isInvalid={errors.post_graduation_institute}
                     placeholder="University/Institute Name"
+                    value={props?.data?.post_graduation_institute}
                     type="text"
                     {...register("post_graduation_institute", {
                       required: true,
@@ -529,6 +551,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_college}
+                    value={props?.data?.post_graduation_college}
                     size="sm"
                     placeholder="College Name"
                     type="text"
@@ -545,6 +568,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_year}
+                    value={props?.data?.post_graduation_year}
                     size="sm"
                     placeholder="Graduation Year"
                     type="number"
@@ -562,6 +586,7 @@ const PartThreeDetails = () => {
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_area}
+                    value={props?.data?.post_graduation_area}
                     size="sm"
                     placeholder="Area"
                     type="text"
@@ -599,8 +624,12 @@ const PartThreeDetails = () => {
                       required: "Please select your course",
                     })}
                   >
-                    <option selected="" disabled="" value="">
-                      Choose...
+                    <option
+                      selected=""
+                      disabled=""
+                      value={props?.data?.post_graduation_course}
+                    >
+                      {props?.data?.post_graduation_course}
                     </option>
                     <option value="first">MA</option>
                     <option value="first">MSc</option>
@@ -641,8 +670,12 @@ const PartThreeDetails = () => {
                       required: "Please select your division",
                     })}
                   >
-                    <option selected="" disabled="" value="">
-                      Choose...
+                    <option
+                      selected=""
+                      disabled=""
+                      value={props?.data?.post_graduation_division}
+                    >
+                      {props?.data?.post_graduation_division}
                     </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
@@ -661,6 +694,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     isInvalid={errors.post_graduation_percentage}
                     size="sm"
+                    value={props?.data?.post_graduation_percentage}
                     placeholder="Aggregate Percentage"
                     type="number"
                     {...register("post_graduation_percentage", {
@@ -699,7 +733,9 @@ const PartThreeDetails = () => {
                     required: "Please select your status",
                   })}
                 >
-                  <option value="" />
+                  <option value={props?.data?.phd_status}>
+                    {props?.data?.phd_status}
+                  </option>
                   <option value="pursuing">Pursuing</option>
                   <option value="awarded">awarded</option>
                   <option value="thesis-submitted">Thesis Submitted</option>
@@ -732,7 +768,9 @@ const PartThreeDetails = () => {
                     required: "Please select your mode of educatoin",
                   })}
                 >
-                  <option value="" selected=""></option>
+                  <option value={props?.data?.phd_mode} selected="">
+                    {props?.data?.phd_mode}
+                  </option>
                   <option value="regular">Regular</option>
                   <option value="part-time">Part-Time</option>
                   <option value="distance-learning-online">
@@ -748,6 +786,7 @@ const PartThreeDetails = () => {
                 <Form.Control
                   size="sm"
                   isInvalid={errors.phd_institute}
+                  value={props?.data?.phd_institute}
                   placeholder="University/Institute Name"
                   type="text"
                   {...register("phd_institute", {
@@ -763,6 +802,7 @@ const PartThreeDetails = () => {
                 </Form.Label>
                 <Form.Control
                   size="sm"
+                  value={props?.data?.phd_college}
                   isInvalid={errors.phd_college}
                   placeholder="College Name"
                   type="text"
@@ -780,6 +820,7 @@ const PartThreeDetails = () => {
                 <Form.Control
                   isInvalid={errors.phd_year}
                   size="sm"
+                  value={props?.data?.phd_year}
                   placeholder="Completion Year"
                   type="number"
                   {...register("phd_year", {
@@ -797,6 +838,7 @@ const PartThreeDetails = () => {
                 <Form.Control
                   isInvalid={errors.phd_area}
                   size="sm"
+                  value={props?.data?.phd_area}
                   placeholder="Area"
                   type="text"
                   {...register("phd_area", {
@@ -818,7 +860,10 @@ const PartThreeDetails = () => {
                     required: "Please select your mode of educatoin",
                   })}
                 >
-                  <option value="" />
+                  <option value={props?.data?.phd_teaching_experience}>
+                    {" "}
+                    {props?.data?.phd_teaching_experience}
+                  </option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </Form.Select>
@@ -832,6 +877,7 @@ const PartThreeDetails = () => {
                 <Form.Control
                   isInvalid={errors.phd_anti_completion_year}
                   size="sm"
+                  value={props?.data?.phd_anti_completion_year}
                   placeholder="Anticipated Completion Year"
                   type="number"
                   {...register("phd_anti_completion_year", {
@@ -889,7 +935,9 @@ const PartThreeDetails = () => {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option value="" />
+                    <option value={props?.data?.mphil_mode}>
+                      {props?.data?.mphil_mode}
+                    </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -903,6 +951,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     isInvalid={errors.mphil_institute}
                     disabled={mphilVal}
+                    value={props?.data?.mphil_institute}
                     placeholder="University/Institute Name"
                     type="text"
                     {...register("mphil_institute", {
@@ -916,6 +965,7 @@ const PartThreeDetails = () => {
                   <Form.Label>College</Form.Label>
                   <Form.Control
                     isInvalid={errors.mphil_college}
+                    value={props?.data?.mphil_college}
                     disabled={mphilVal}
                     placeholder="College Name"
                     type="text"
@@ -931,6 +981,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     isInvalid={errors.mphil_year}
                     disabled={mphilVal}
+                    value={props?.data?.mphil_year}
                     placeholder="Graduation Year"
                     type="number"
                     {...register("mphil_year", {
@@ -946,6 +997,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     isInvalid={errors.mphil_area}
                     disabled={mphilVal}
+                    value={props?.data?.mphil_area}
                     placeholder="Area"
                     type="text"
                     {...register("mphil_area", {
@@ -964,7 +1016,9 @@ const PartThreeDetails = () => {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="" />
+                    <option value={props?.data?.mphil_division}>
+                      {props?.data?.mphil_division}
+                    </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -976,6 +1030,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     isInvalid={errors.mphil_percentage}
                     disabled={mphilVal}
+                    value={props?.data?.mphil_percentage}
                     placeholder="Aggregate Percentage"
                     type="number"
                     {...register("mphil_percentage", {
@@ -1045,7 +1100,9 @@ const PartThreeDetails = () => {
                       required: "Please select your mode of education",
                     })}
                   >
-                    <option value="" />
+                    <option value={props.post_doctoral_mode}>
+                      {props?.data?.post_doctoral_mode}
+                    </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -1074,6 +1131,7 @@ const PartThreeDetails = () => {
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_institute}
                     placeholder="University/Institute Name"
+                    value={props?.data?.post_doctoral_institute}
                     type="text"
                     {...register("post_doctoral_institute", {
                       required: true,
@@ -1088,6 +1146,7 @@ const PartThreeDetails = () => {
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_college}
                     placeholder="College Name"
+                    value={props?.data?.post_doctoral_college}
                     type="text"
                     {...register("post_doctoral_college", {
                       required: true,
@@ -1102,6 +1161,7 @@ const PartThreeDetails = () => {
                     disabled={pdocVal}
                     placeholder="Graduation Year"
                     type="number"
+                    value={props?.data?.post_doctoral_year}
                     isInvalid={errors.post_doctoral_year}
                     {...register("post_doctoral_year", {
                       required: true,
@@ -1116,6 +1176,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     disabled={pdocVal}
                     placeholder="Area"
+                    value={props?.data?.post_doctoral_area}
                     type="text"
                     isInvalid={errors.post_doctoral_area}
                     {...register("post_doctoral_area", {
@@ -1130,6 +1191,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_course}
+                    value={props?.data?.post_doctoral_course}
                     placeholder="Course Name"
                     type="text"
                     {...register("post_doctoral_course", {
@@ -1148,7 +1210,9 @@ const PartThreeDetails = () => {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="" />
+                    <option value={props?.data?.post_doctoral_divison}>
+                      {props?.data?.post_doctoral_divison}{" "}
+                    </option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -1164,6 +1228,7 @@ const PartThreeDetails = () => {
                   <Form.Control
                     disabled={pdocVal}
                     placeholder="Aggregate Percentage"
+                    value={props?.data?.post_doctoral_percentage}
                     type="number"
                     isInvalid={errors.post_doctoral_percentage}
                     {...register("post_doctoral_percentage", {
