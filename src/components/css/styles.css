@@ -249,7 +249,6 @@ img {
 }
 
 .btn {
-  border: none;
   margin: 1rem;
   border-radius: 5px;
   cursor: pointer;
@@ -358,11 +357,11 @@ img {
 
 @keyframes scroll {
   from {
-    transform: translateX(300%);
+    transform: translateX(-7000px);
   }
 
   to {
-    transform: translateX(-2000px);
+    transform: translateX(-700000px);
   }
 }
 
@@ -391,9 +390,23 @@ img {
   }
 }
 .add-more-btn {
-  background-color: #0c6efd;
-  color: #fff;
+  background-color: #fff;
   border-radius: 7px;
-  border: none;
   padding: 0.5rem 0.75rem;
+}
+.add-1 {
+  color: #198753;
+}
+
+.add-2 {
+  color: #dc3444;
+}
+
+.add-more-btn :hover {
+  background-color: #198753;
+  color: #fff;
+}
+.add-2 :hover {
+  background-color: #dc3444;
+  color: #fff;
 }

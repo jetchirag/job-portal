@@ -100,13 +100,23 @@ const PartSix = () => {
             </Row>
           );
         })}
-        <button type="button" onClick={addFellowship} className="add-more-btn">
+
+        <button
+          type='button'
+          onClick={addFellowship}
+          disabled
+          className='btn btn-outline-success'
+        >
+
           Add New
         </button>{" "}
         <button
-          type="button"
+
+          type='button'
+          disabled
           onClick={removeFellowship}
-          className="add-more-btn"
+          className='btn btn-outline-danger'
+
         >
           Remove Last
         </button>

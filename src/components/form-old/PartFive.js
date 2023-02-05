@@ -201,10 +201,20 @@ const PartFive = () => {
             </Row>
           );
         })}
-        <button type='button' onClick={addAcad} className='add-more-btn'>
+        <button
+          type='button'
+          disabled
+          onClick={addAcad}
+          className='btn btn-outline-success'
+        >
           Add New
         </button>{' '}
-        <button type='button' onClick={removeAcad} className='add-more-btn'>
+        <button
+          type='button'
+          disabled
+          onClick={removeAcad}
+          className='btn btn-outline-danger'
+        >
           Remove Last
         </button>
         <hr />
@@ -337,10 +347,20 @@ const PartFive = () => {
             </Row>
           );
         })}
-        <button type='button' onClick={addNonAcad} className='add-more-btn'>
+        <button
+          type='button'
+          onClick={addNonAcad}
+          disabled
+          className='btn btn-outline-success'
+        >
           Add New
         </button>{' '}
-        <button type='button' onClick={removeNonAcad} className='add-more-btn'>
+        <button
+          type='button'
+          onClick={removeNonAcad}
+          disabled
+          className='btn btn-outline-danger'
+        >
           Remove Last
         </button>
       </Accordion.Body>
