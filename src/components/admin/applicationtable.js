@@ -12,6 +12,7 @@ import {
   BarChart,
   Legend,
   Bar,
+  ResponsiveContainer
 } from "recharts";
 
 import graph_data from "./graph_data.js";
@@ -376,19 +377,17 @@ const ApplicationsTable = ({ isLoading }) => {
   return (
     <div className={classes.padding}>
       <div
-        className="graphs container"
+        className="graphs container border rounded"
         style={{
           display: "flex",
           justifyContent: "space-between",
           padding: "2rem",
           margin: "0.5rem",
-          border: "1px solid black",
         }}
       >
         <div className="row">
+        <ResponsiveContainer width="98.1%" height={350}>
           <AreaChart
-            width={650}
-            height={250}
             data={graph_data}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
@@ -421,8 +420,9 @@ const ApplicationsTable = ({ isLoading }) => {
               fill="url(#colorPv)"
             />
           </AreaChart>
+          </ResponsiveContainer>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <BarChart width={650} height={250} data={barchart_data}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
@@ -432,7 +432,8 @@ const ApplicationsTable = ({ isLoading }) => {
             <Bar dataKey="pv" fill="#8884d8" />
             <Bar dataKey="uv" fill="#82ca9d" />
           </BarChart>
-        </div>
+        </div> */}
+        
       </div>
       <div className="row">
         <div
