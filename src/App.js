@@ -23,6 +23,8 @@ import JobListing from "./components/JobListing";
 
 import FormComponent from "./components/FormComponent";
 import FormUpload from "./components/FormUpload";
+import Submitted from "./components/Submitted";
+
 
 function App() {
   return (
@@ -66,6 +68,7 @@ function App() {
           <Route exact path="/admin/joblisting" element={<JobListing />} />
           <Route exact path="/apply" element={<FormComponent />} />
           <Route exact path="/apply/upload/:id" element={<FormUpload />} />
+          <Route exact path="/apply/upload/:id/submitted" element={<Submitted />} />
         </Routes>
         <Footer />
       </div>
