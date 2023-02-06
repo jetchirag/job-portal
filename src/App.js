@@ -1,10 +1,10 @@
-import Carousel from './components/Carousel';
-import Navbar from './components/Navbar';
-import Stats from './components/Stats';
-import JobCardMain from './components/JobCardMain';
+import Carousel from "./components/Carousel";
+import Navbar from "./components/Navbar";
+import Stats from "./components/Stats";
+import JobCardMain from "./components/JobCardMain";
 // import WhyUs from "./components/WhyUs";
-import Footer from './components/Footer';
-import Testimonial from './components/Testimonial';
+import Footer from "./components/Footer";
+import Testimonial from "./components/Testimonial";
 // import Form from "./components/Form";
 
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
@@ -15,14 +15,16 @@ import Faq from "./components/FAQ";
 import "./components/css/styles.css";
 import WhyUs from "./components/WhyUs";
 
-
-import Recognition from './components/Recognition';
-import ApplicationDetails from './components/admin/ApplicationDetails';
+import Recognition from "./components/Recognition";
+import ApplicationDetails from "./components/admin/ApplicationDetails";
 // import Dashboard from "./components/dashboard/Dashboard";
-import ApplicationsTable from './components/admin/applicationtable';
-import JobListing from './components/JobListing';
+import ApplicationsTable from "./components/admin/applicationtable";
+import JobListing from "./components/JobListing";
 
-import FormComponent from './components/FormComponent';
+import FormComponent from "./components/FormComponent";
+import FormUpload from "./components/FormUpload";
+import Submitted from "./components/Submitted";
+
 
 function App() {
   return (
@@ -32,7 +34,7 @@ function App() {
         <Routes>
           <Route
             exact
-            path='/'
+            path="/"
             element={
               <div>
                 <Carousel />
@@ -50,21 +52,23 @@ function App() {
             path="/apply"
             element={<Form disabled={false} data={null} />}
           /> */}
-          <Route exact path='/admin' element={<Login />} />
-          <Route exact path='/openings' element={<Openings />} />
+          <Route exact path="/admin" element={<Login />} />
+          <Route exact path="/openings" element={<Openings />} />
           <Route
             exact
-            path='/admin/dashboard'
+            path="/admin/dashboard"
             element={<ApplicationsTable />}
           />
           <Route
-            path='/dashboard/application/:id'
+            path="/dashboard/application/:id"
             element={<ApplicationDetails />}
           />
-          <Route exact path='/opening' element={<JobDesc />} />
-          <Route exact path='/faq' element={<Faq />} />
-          <Route exact path='/admin/joblisting' element={<JobListing />} />
-          <Route exact path='/apply' element={<FormComponent />} />
+          <Route exact path="/opening" element={<JobDesc />} />
+          <Route exact path="/faq" element={<Faq />} />
+          <Route exact path="/admin/joblisting" element={<JobListing />} />
+          <Route exact path="/apply" element={<FormComponent />} />
+          <Route exact path="/apply/upload/:id" element={<FormUpload />} />
+          <Route exact path="/apply/upload/:id/submitted" element={<Submitted />} />
         </Routes>
         <Footer />
       </div>
