@@ -1,31 +1,75 @@
 import React from "react";
-import Button from "./Button";
+import { useRef, useState, useContext } from "react";
+import AuthContext from "../store/auth-context";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const userRef = useRef();
+  const passRef = useRef();
+  const [error, setError] = useState();
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  async function submitHandler(e) {
+    // setLoading(true);
+    e.preventDefault();
+    const username = userRef.current.value;
+    const password = passRef.current.value;
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (data.error) {
+        let msg = "Check Registration ID and Password!";
+        setError(msg);
+
+        return;
+      }
+      console.log(data);
+      navigate("/admin/dashboard");
+      const expTime = data.expiresIn;
+      authCtx.login(data.token, expTime);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className="main-form-div">
+      {error && <p>`${error.msg}`</p>}
       <div className="form-bg">
         <div className="img-muj">
           <img src="images/manipal-logo.png" alt="" />
         </div>
         <div className="line"></div>
         <div className="log-form">
-          <form action="http://localhost:3000/login" method="post">
+          <form onSubmit={submitHandler}>
             <h3>Admin Portal</h3>
             <input
               type="text"
               placeholder="Enter Username"
               className="log-input"
               name="username"
+              ref={userRef}
             />
             <input
               type="password"
               placeholder="Enter Password"
               className="log-input"
               name="password"
+              ref={passRef}
             />
             <div className="btn-container">
-              <button type="submit" className="btn">Login
+              <button
+                type="submit"
+                className="btn btn-primary btn-block btn-lg"
+              >
+                Login
                 {/* <a href="/admin/dashboard">Log In</a> */}
               </button>
               {/* <button type="button" className="btn">

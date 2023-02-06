@@ -1,3 +1,4 @@
+import React from "react";
 import Carousel from "./components/Carousel";
 import Navbar from "./components/Navbar";
 import Stats from "./components/Stats";
@@ -7,7 +8,7 @@ import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 // import Form from "./components/Form";
 
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Openings from "./components/Openings";
 import JobDesc from "./components/JobDesc";
@@ -24,11 +25,15 @@ import JobListing from "./components/JobListing";
 import FormComponent from "./components/FormComponent";
 import FormUpload from "./components/FormUpload";
 import Submitted from "./components/Submitted";
+import AuthContext from "./store/auth-context";
+import Logout from "./Logout";
+
 
 
 function App() {
+  const authCtx = React.useContext(AuthContext);
   return (
-    <Router>
+    <BrowserRouter>
       <div>
         <Navbar />
         <Routes>
@@ -52,27 +57,44 @@ function App() {
             path="/apply"
             element={<Form disabled={false} data={null} />}
           /> */}
-          <Route exact path="/admin" element={<Login />} />
+          <Route exact path="/admin" element={authCtx.isLoggedIn ?<ApplicationsTable />:<Login />} />
+          <Route exact path="/logout" element={authCtx.isLoggedIn ?<Logout/>:<Navigate to="/" replace/>}/>
           <Route exact path="/openings" element={<Openings />} />
           <Route
             exact
             path="/admin/dashboard"
-            element={<ApplicationsTable />}
+            element={
+              authCtx.isLoggedIn ? (
+                <ApplicationsTable />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
           />
           <Route
             path="/dashboard/application/:id"
-            element={<ApplicationDetails />}
+            element={
+              authCtx.isLoggedIn ? (
+                <ApplicationDetails />
+              ) : (
+                <Navigate to="/" replace />
+              )
+            }
           />
           <Route exact path="/opening" element={<JobDesc />} />
           <Route exact path="/faq" element={<Faq />} />
           <Route exact path="/admin/joblisting" element={<JobListing />} />
           <Route exact path="/apply" element={<FormComponent />} />
           <Route exact path="/apply/upload/:id" element={<FormUpload />} />
-          <Route exact path="/apply/upload/:id/submitted" element={<Submitted />} />
+          <Route
+            exact
+            path="/apply/upload/:id/submitted"
+            element={<Submitted />}
+          />
         </Routes>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
