@@ -343,6 +343,8 @@ const FormComponent = () => {
                 onClick={() => setCheck(!check)}
               ></Form.Check>
             </Form.Group>
+            <hr />
+            <p style={{"color": "red"}}>You'll need to upload all the necessary documents on the next page.</p>
             {console.log(check)}
             {check ? (
               <Button
@@ -358,7 +360,7 @@ const FormComponent = () => {
                 type='submit'
                 style={{ width: '10%', background: 'grey' }}
               >
-                Submit
+                Next
               </Button>
             )}
           </Accordion>
