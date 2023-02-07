@@ -25,12 +25,6 @@ const WhyUs = () => {
                 className='d-block w-100'
                 alt='...'
               />
-              <div className='carousel-caption d-none d-md-block'>
-                <h5>First slide label</h5>
-                <p>
-                  Some representative placeholder content for the first slide.
-                </p>
-              </div>
             </div>
             <div className='carousel-item'>
               <img
@@ -56,7 +50,7 @@ const WhyUs = () => {
           data-bs-ride='carousel'
         >
           <div className='carousel-inner'>
-            <div className='upperlayer'>
+            <div className='upperlayer new-upper'>
               <h1>Jaipur.</h1>
               <h3>
                 Jaipur is the capital of India’s Rajasthan state. It evokes the
