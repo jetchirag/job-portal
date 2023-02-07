@@ -1,9 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-/apply/.upload / id / success;
+import { useNavigate } from 'react-router-dom';
+
 const FormUpload = ({ id, setId }) => {
   const { register, handleSubmit } = useForm();
-
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append('picture', data.picture[0]);

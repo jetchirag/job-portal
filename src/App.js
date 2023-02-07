@@ -28,9 +28,8 @@ import Submitted from './components/Submitted';
 import AuthContext from './store/auth-context';
 import Logout from './Logout';
 
-const [id, setId] = useState();
-
 function App() {
+  const [id, setId] = useState();
   const authCtx = React.useContext(AuthContext);
   return (
     <BrowserRouter>
