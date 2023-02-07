@@ -19,8 +19,9 @@ import Col from 'react-bootstrap/Col';
 
 import './css/Recognition.css';
 import { Navigate, useNavigate } from 'react-router-dom';
+import FormUpload from './FormUpload';
 
-const FormComponent = () => {
+const FormComponent = ({ id, setId }) => {
   const [cr_country, setcr_Country] = useState('');
   const [cr_region, setcr_Region] = useState('');
   const [native_country, setnative_Country] = useState('');
@@ -271,6 +272,12 @@ const FormComponent = () => {
         },
       });
       console.log(response);
+      setId(
+        esponse.url.substring(
+          response.url.lastIndexOf('/') + 1,
+          response.url.length
+        )
+      );
       navigate(
         `/apply/upload/${response.url.substring(
           response.url.lastIndexOf('/') + 1,
@@ -360,19 +367,14 @@ const FormComponent = () => {
             </p>
             {console.log(check)}
             {check ? (
-              <Button
-                type='submit'
-                style={{ width: '10%' }}
-                onClick={handleSub}
-              >
-                Submit
+              <Button type='submit' style={{ width: '10%' }}>
+                Next
               </Button>
             ) : (
               <Button
                 disabled
                 type='submit'
                 style={{ width: '10%', background: 'grey' }}
-                onClick={handleSub}
               >
                 Next
               </Button>
