@@ -262,7 +262,6 @@ const FormComponent = () => {
     data['patent'] = patent;
     data['peerRecognition'] = peerRecognition;
     console.log(data);
-
     try {
       const response = await fetch('http://localhost:3000/applications', {
         body: JSON.stringify(data),
@@ -272,12 +271,23 @@ const FormComponent = () => {
         },
       });
       console.log(response);
-      navigate(`/apply/upload/${response.applyId}`);
-      navigate();
+      navigate(
+        `/apply/upload/${response.url.substring(
+          response.url.lastIndexOf('/') + 1,
+          response.url.length
+        )}`
+      );
+      console.log(
+        response.url.substring(
+          response.url.lastIndexOf('/') + 1,
+          response.url.length
+        )
+      );
     } catch (err) {
       console.error(`Error: ${err}`);
     }
   };
+
   const methods = useForm();
   const {
     register,
@@ -344,7 +354,10 @@ const FormComponent = () => {
               ></Form.Check>
             </Form.Group>
             <hr />
-            <p style={{"color": "red"}}>You'll need to upload all the necessary documents on the next page.</p>
+            <p style={{ color: 'red' }}>
+              You'll need to upload all the necessary documents on the next
+              page.
+            </p>
             {console.log(check)}
             {check ? (
               <Button
@@ -359,6 +372,7 @@ const FormComponent = () => {
                 disabled
                 type='submit'
                 style={{ width: '10%', background: 'grey' }}
+                onClick={handleSub}
               >
                 Next
               </Button>
