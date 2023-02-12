@@ -46,7 +46,7 @@ function App() {
                 <Recognition />
                 <JobCardMain />
                 <WhyUs />
-                <Testimonial />
+                {/* <Testimonial /> */}
               </div>
             }
           />
@@ -61,6 +61,7 @@ function App() {
             path='/admin'
             element={authCtx.isLoggedIn ? <ApplicationsTable /> : <Login />}
           />
+          <Route exact path='/contact' element={<Carousel />} />
           <Route
             exact
             path='/logout'

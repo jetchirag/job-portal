@@ -59,7 +59,7 @@ body {
   font-weight: 600;
   margin-left: 1rem;
   letter-spacing: 0.5rem;
-  margin-top: 1.5rem;
+  margin-top: rem;
   color: white;
 }
 
@@ -417,4 +417,20 @@ img {
 .new-upper {
   right: 0;
   color: #fff;
+}
+.acc-btn {
+  text-decoration: none;
+  color: white;
+}
+.new-cl {
+  background-color: #fceebe;
+}
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: white !important;
+}
+.upperlayer h3 {
+  margin-bottom: 1rem;
+  font-size: 1.68rem;
+  margin-left: 1rem;
 }

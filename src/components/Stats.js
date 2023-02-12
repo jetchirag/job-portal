@@ -14,27 +14,28 @@ const Stats = () => {
     <div className='stats'>
       <div className='stat'>
         <h2>
-          <Number n={13000} />+
+          <Number n={65} />+ <span className='special-count'>years</span>
         </h2>
-        <p>Student Members</p>
+        <p>Educational excellence</p>
       </div>
       <div className='stat'>
         <h2>
-          <Number n={150} />+
+          <Number n={3000} />+
+          <br />
         </h2>
-        <p>Onboarded Companies</p>
+        <p>Expert faculty</p>
       </div>
       <div className='stat'>
         <h2>
           <Number n={100000} />+
         </h2>
-        <p>Connections Made</p>
+        <p>Applicant footprint </p>
       </div>
       <div className='stat'>
         <h2>
-          <Number n={130} />+
+          <Number n={100} />+
         </h2>
-        <p>Community Events</p>
+        <p>Recruiters</p>
       </div>
       {/* <div className='stat'>
         <h2>
