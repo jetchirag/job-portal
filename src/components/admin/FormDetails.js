@@ -42,6 +42,7 @@ const FormDetails = (props) => {
           <PartTwelveDetails data={props.data} />
           <Button onClick={props.reject}>Reject</Button>
           <Button onClick={props.accept}>Accept</Button>
+          <Button>Update Form</Button>
         </Accordion>
       </FormProvider>
     </>

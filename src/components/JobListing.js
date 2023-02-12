@@ -2,9 +2,15 @@ import React from "react";
 import { Button } from "@mui/material";
 import { Container } from "react-bootstrap";
 import data from "./JobListing.json";
-
+import { useForm } from "react-hook-form";
 
 const JobListing = () => {
+  const methods = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
   return (
     <Container>
       <h3>Admin - Create new Job Listing</h3>
@@ -35,16 +41,15 @@ const JobListing = () => {
             autocomplete="off"
           ></textarea>
         </div>
-        <div className="mb-3">
-          <label for="formGroupExampleInput" className="form-label">
-            Last Date
+        <div class="mb-3">
+          <label for="formFile2" class="form-label">
+            Job Details
           </label>
           <input
-            type="date"
-            className="form-control"
-            id="time"
-            name="time"
-            placeholder="Enter date and time in exact format "
+            class="form-control"
+            type="file"
+            id="formFile2"
+            {...register("jobdetails")}
           />
         </div>
 
@@ -67,11 +72,13 @@ const JobListing = () => {
         <tbody>
           {data.map((item, index) => (
             <tr>
-              <th scope="row">{index}</th>
+              <th scope="row">{index+1}</th>
               <td>{item.jobid}</td>
               <td>{item.duedate}</td>
               <td>
-                <Button variant="contained" color="primary">Delete</Button>
+                <Button variant="contained" color="primary">
+                  Delete
+                </Button>
               </td>
             </tr>
           ))}

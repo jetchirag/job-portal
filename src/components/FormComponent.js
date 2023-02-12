@@ -3,17 +3,17 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Accordion from 'react-bootstrap/Accordion';
 import { FormProvider, useForm } from 'react-hook-form';
-import Partone from './form-old/PartOne';
-import PartTwo from './form-old/PartTwo';
-import PartThree from './form-old/PartThree';
-import PartFour from './form-old/PartFour';
-import PartFive from './form-old/PartFive';
-import PartSix from './form-old/PartSix';
-import PartSeven from './form-old/PartSeven';
-import PartEight from './form-old/PartEight';
-import PartNineTen from './form-old/PartNineTen';
-import PartEleven from './form-old/PartEleven';
-import PartTwelve from './form-old/PartTwelve';
+import Partone from './Form-Current/PartOne';
+import PartTwo from './Form-Current/PartTwo';
+import PartThree from './Form-Current/PartThree';
+import PartFour from './Form-Current/PartFour';
+import PartFive from './Form-Current/PartFive';
+import PartSix from './Form-Current/PartSix';
+import PartSeven from './Form-Current/PartSeven';
+import PartEight from './Form-Current/PartEight';
+import PartNineTen from './Form-Current/PartNineTen';
+import PartEleven from './Form-Current/PartEleven';
+import PartTwelve from './Form-Current/PartTwelve';
 
 import Col from 'react-bootstrap/Col';
 

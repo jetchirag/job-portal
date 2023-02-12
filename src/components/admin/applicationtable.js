@@ -12,7 +12,7 @@ import {
   BarChart,
   Legend,
   Bar,
-  ResponsiveContainer
+  ResponsiveContainer,
 } from "recharts";
 
 import graph_data from "./graph_data.js";
@@ -57,6 +57,7 @@ import classes from "./ApplicationTable.module.css";
 const ApplicationsTable = ({ isLoading }) => {
   const URL = "http://localhost:3000/applications";
   const URLFaculties = "http://localhost:3000/applications/faculties";
+  const URLStats = "http://localhost:3000/applications/stats";
 
   // const URL = "http://localhost:3000/applications";
   // const URLFaculties = "http://localhost:3000/applications/faculties";
@@ -131,12 +132,7 @@ const ApplicationsTable = ({ isLoading }) => {
         })
         .then((val) => {
           // Loop over the results and create a new array of objects
-          setAdminStats({
-            // totalsubmitted: val.stats.totalSubmitted,
-            // totalacad: val.stats.totalAcademic,
-            // totalnacad: val.stats.totalNonAcademic,
-            // totalAdmin: val.stats.totalAdmin,
-          });
+
           const newApplicantList = val.results.map((item) => {
             return {
               id: item.id,
@@ -195,6 +191,25 @@ const ApplicationsTable = ({ isLoading }) => {
     setLoading(false);
   }, []);
 
+  const FetchingAdminStats = useCallback(async () => {
+    setLoading(true);
+    try {
+      fetch(URLStats)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Error Connecting to the database");
+          }
+          return res.json();
+        })
+        .then((val) => {
+          setAdminStats(val);
+          setLoading(false);
+        });
+    } catch (err) {
+      console.error(err.message);
+    }
+  });
+
   useEffect(() => {
     // console.log(dateRange);
 
@@ -203,6 +218,7 @@ const ApplicationsTable = ({ isLoading }) => {
 
   useEffect(() => {
     FetchingFacultyData();
+    FetchingAdminStats();
   }, []);
 
   const DownloadCSV = async () => {
@@ -386,40 +402,40 @@ const ApplicationsTable = ({ isLoading }) => {
         }}
       >
         <div className="row">
-        <ResponsiveContainer width="98.1%" height={350}>
-          <AreaChart
-            data={graph_data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-          >
-            <defs>
-              <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
-              </linearGradient>
-              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
-                <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <XAxis dataKey="name" />
-            <YAxis />
-            <CartesianGrid strokeDasharray="3 3" />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="uv"
-              stroke="#8884d8"
-              fillOpacity={1}
-              fill="url(#colorUv)"
-            />
-            <Area
-              type="monotone"
-              dataKey="pv"
-              stroke="#82ca9d"
-              fillOpacity={1}
-              fill="url(#colorPv)"
-            />
-          </AreaChart>
+          <ResponsiveContainer width="98.1%" height={350}>
+            <AreaChart
+              data={graph_data}
+              margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+                </linearGradient>
+                <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8} />
+                  <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <XAxis dataKey="name" />
+              <YAxis />
+              <CartesianGrid strokeDasharray="3 3" />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey="uv"
+                stroke="#8884d8"
+                fillOpacity={1}
+                fill="url(#colorUv)"
+              />
+              <Area
+                type="monotone"
+                dataKey="pv"
+                stroke="#82ca9d"
+                fillOpacity={1}
+                fill="url(#colorPv)"
+              />
+            </AreaChart>
           </ResponsiveContainer>
         </div>
         {/* <div className="row">
@@ -433,44 +449,37 @@ const ApplicationsTable = ({ isLoading }) => {
             <Bar dataKey="uv" fill="#82ca9d" />
           </BarChart>
         </div> */}
-        
       </div>
       <div className="row">
-        <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
-        >
-          <h5>
-            Total Submission: 14<span>{AdminStats.totalsubmitted}</span>
-          </h5>
+        <div className="col">
+          <div className={`${"card"} ${classes.cardStyle}`}>
+            <h5>
+              Total Submission:<span>{AdminStats?.stats?.totalSubmitted}</span>
+            </h5>
+          </div>
         </div>
-        <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
-        >
-          <h5>
-            Total Academic Submissions: 14<span>{AdminStats.totalacad}</span>
-          </h5>
+        <div className="col">
+          <div className={`${"card"} ${classes.cardStyle}`}>
+            <h5>
+              Total Academic Submissions:{" "}
+              <span>{AdminStats?.stats?.totalAcademic}</span>
+            </h5>
+          </div>
         </div>
-        <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
-        >
-          <h5>
-            Total Non Academic Submision: 0<span>{AdminStats.totalnacad}</span>
-          </h5>
+        <div className="col">
+          <div className={`${"card"} ${classes.cardStyle}`}>
+            <h5>
+              Total Non Academic Submision:{" "}
+              <span>{AdminStats?.stats?.totalNonAcademic}</span>
+            </h5>
+          </div>
         </div>
-        <div
-          className="alert alert-secondary col"
-          role="alert"
-          style={{ maxWidth: "20rem", marginLeft: "20px" }}
-        >
-          <h5>
-            Total Admins: 1<span>{AdminStats.totalAdmin}</span>
-          </h5>
+        <div className="col">
+          <div className={`${"card"} ${classes.cardStyle}`}>
+            <h5>
+              Total Admins: <span>{AdminStats?.stats?.totalAdmin}</span>
+            </h5>
+          </div>
         </div>
       </div>
 
@@ -583,9 +592,7 @@ const ApplicationsTable = ({ isLoading }) => {
             marginBottom: "10px",
             marginRight: "4%",
           }}
-          onClick={() =>
-            openInNewTab("https://job-portal-olive.vercel.app/admin/joblisting")
-          }
+          onClick={() => openInNewTab("http://localhost:3001/admin/joblisting")}
         >
           Add New Job Listing
         </Button>
