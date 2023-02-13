@@ -1,69 +1,69 @@
-import React from "react";
-import { useState } from "react";
-import { useFormContext } from "react-hook-form";
-import Form from "react-bootstrap/Form";
-import Accordion from "react-bootstrap/Accordion";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React from 'react';
+import { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
+import Form from 'react-bootstrap/Form';
+import Accordion from 'react-bootstrap/Accordion';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-import { facultiesList } from "./faculties";
+import { facultiesList } from './faculties';
 
 const Partone = () => {
-  const [faculty, setFaculty] = useState("");
-  const [school, setSchool] = useState("");
+  const [faculty, setFaculty] = useState('');
+  const [school, setSchool] = useState('');
   const {
     register,
     formState: { errors },
   } = useFormContext();
   const facultyHandler = (e) => {
     setFaculty(e.target.value);
-    setSchool("");
+    setSchool('');
   };
   const schoolHandler = (e) => {
     setSchool(e.target.value);
   };
 
   return (
-    <Accordion.Item eventKey="0" styles={{ height: "1rem !important" }}>
+    <Accordion.Item eventKey='0' styles={{ height: '1rem !important' }}>
       <Accordion.Header>1. Application Information</Accordion.Header>
       <Accordion.Body>
-        <Row className="mb-3">
-          <Form.Group as={Col} md="2" controlId="jobtype">
+        <Row className='mb-3'>
+          <Form.Group as={Col} md='2' controlId='jobtype'>
             <Form.Label>
-              Job Type<span style={{ color: "red" }}> *</span>
+              Job Type<span style={{ color: 'red' }}> *</span>
             </Form.Label>
 
             <Form.Select
               isInvalid={errors.jobtype}
-              size="sm"
-              aria-label="Default Job Type"
-              {...register("jobtype", {
+              size='sm'
+              aria-label='Default Job Type'
+              {...register('jobtype', {
                 required: true,
               })}
             >
-              <option selected="" disabled="" value="">
+              <option selected='' disabled='' value=''>
                 Choose...
               </option>
-              <option value="academic">Academic</option>
-              <option value="non_academic">Non Academic</option>
+              <option value='academic'>Academic</option>
+              <option value='non_academic'>Non Academic</option>
               {/* <option value="administration">Administrative</option> */}
             </Form.Select>
           </Form.Group>
-          <Form.Group as={Col} md="2" controlId="faculty">
+          <Form.Group as={Col} md='2' controlId='faculty'>
             <Form.Label>
-              Faculty<span style={{ color: "red" }}> *</span>
+              Faculty<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.faculty}
-              size="sm"
-              aria-label="Default Faculty Type"
-              {...register("faculty", {
+              size='sm'
+              aria-label='Default Faculty Type'
+              {...register('faculty', {
                 required: true,
               })}
-              placeholder="acad"
+              placeholder='acad'
               onChange={facultyHandler}
             >
-              <option selected="" disabled="" value="">
+              <option selected='' disabled='' value=''>
                 Choose...
               </option>
 
@@ -73,20 +73,20 @@ const Partone = () => {
             </Form.Select>
           </Form.Group>
           {faculty && (
-            <Form.Group as={Col} md="2" controlId="school">
+            <Form.Group as={Col} md='2' controlId='school'>
               <Form.Label>
-                School<span style={{ color: "red" }}> *</span>
+                School<span style={{ color: 'red' }}> *</span>
               </Form.Label>
               <Form.Select
                 isInvalid={errors.school}
-                size="sm"
-                aria-label="Default Faculty Type"
-                {...register("school", {
+                size='sm'
+                aria-label='Default Faculty Type'
+                {...register('school', {
                   required: true,
                 })}
                 onChange={schoolHandler}
               >
-                <option selected="" disabled="" value="">
+                <option selected='' disabled='' value=''>
                   Choose...
                 </option>
 
@@ -98,19 +98,19 @@ const Partone = () => {
             </Form.Group>
           )}
           {school && (
-            <Form.Group as={Col} md="2" controlId="department">
+            <Form.Group as={Col} md='2' controlId='department'>
               <Form.Label>
-                Department<span style={{ color: "red" }}> *</span>
+                Department<span style={{ color: 'red' }}> *</span>
               </Form.Label>
               <Form.Select
                 isInvalid={errors.dept}
-                size="sm"
-                aria-label="Default Faculty Type"
-                {...register("department", {
+                size='sm'
+                aria-label='Default Faculty Type'
+                {...register('department', {
                   required: true,
                 })}
               >
-                <option selected="" disabled="" value="">
+                <option selected='' disabled='' value=''>
                   Choose...
                 </option>
                 {school &&

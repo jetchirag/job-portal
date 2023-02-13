@@ -48,7 +48,7 @@ function App() {
                 <Recognition />
                 <JobCardMain />
                 <WhyUs />
-                <Testimonial />
+                {/* <Testimonial /> */}
               </div>
             }
           />
@@ -60,7 +60,21 @@ function App() {
           /> */}
           <Route
             exact
-            path="/admin"
+            path='/admin'
+            element={authCtx.isLoggedIn ? <ApplicationsTable /> : <Login />}
+          />
+          <Route exact path='/contact' element={<Carousel />} />
+          <Route
+            exact
+            path='/logout'
+            element={
+              authCtx.isLoggedIn ? <Logout /> : <Navigate to='/' replace />
+            }
+          />
+          <Route exact path='/openings' element={<Openings />} />
+          <Route
+            exact
+            path='/admin/dashboard'
             element={
               authCtx.isLoggedIn ? (
                 <>
