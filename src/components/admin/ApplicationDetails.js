@@ -11,23 +11,25 @@ import FormDetails from "./FormDetails";
 const ApplicationsDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
+  const [rejected, setReject] = useState(false);
 
   const rejectApplication = async () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `http://localhost:3000/applications/${id}/reject`,
+        `http://localhost:3000/applications/reject/${id}`,
         {
-          method: "POST",
+          method: "GET",
 
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
           },
         }
       );
 
-      if (!response.ok) {
+      if (response.ok) {
+        setReject(true);
+      } else {
         throw new Error(`Error! status: ${response.status}`);
       }
     } catch (err) {
@@ -72,9 +74,11 @@ const ApplicationsDetails = () => {
   };
   return (
     <>
+     
       <div className="heading">
         <p>Job Application Details</p>
       </div>
+      {rejected && <p>Candidate Rejected</p>}
       <div
         className="card mb-3"
         style={{ maxWidth: "540px", marginTop: "3%", marginLeft: "6%" }}

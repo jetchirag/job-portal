@@ -4,7 +4,11 @@ import AuthContext from "../store/auth-context";
 const Navbar = () => {
   const authCtx = React.useContext(AuthContext);
   return (
-    <nav className="navbar navbar-expand-lg sticky-top navbar-light">
+    <nav
+      className={`navbar navbar-expand-lg ${
+        authCtx.isLoggedIn ? `` : `sticky-top`
+      } navbar-light`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img
@@ -54,11 +58,11 @@ const Navbar = () => {
             </a>
           </li>
 
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="/admin">
               Admin
             </a>
-          </li>
+          </li> */}
           <li className="nav-item">
             {authCtx.isLoggedIn && (
               <a className="nav-link" href="/logout">

@@ -69,6 +69,11 @@ const Footer = () => {
                     About Us
                   </a>
                 </li>
+                <li className="mb-2">
+                  <a href="http://localhost:3001/admin" className="text-dark">
+                    Admin
+                  </a>
+                </li>
                 {/* <li className="mb-2">
                   <a href="#!" className="text-dark">
                     Something
@@ -129,7 +134,7 @@ const Footer = () => {
         </div>
         <div
           className="text-center p-3"
-          style={{ "borderTop": "2px solid black" }}
+          style={{ borderTop: "2px solid black" }}
         >
           © 2022 Manipal University,{" "}
           <a href="https://jaipur.manipal.edu">jaipur.manipal.edu</a>, Jaipur,
