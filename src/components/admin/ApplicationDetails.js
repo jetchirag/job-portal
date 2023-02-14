@@ -1,17 +1,20 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
-
-// import Card from "react-bootstrap/Card";
 import "./ApplicationDetails.css";
-// import Form from "../Form";
 import { Button } from "@mui/material";
-import FormComponent from "../FormComponent";
 import FormDetails from "./FormDetails";
+import Modal from "../modal/Modal";
 
 const ApplicationsDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState({});
-  const [rejected, setReject] = useState(false);
+  const [Reject, setReject] = useState(false);
+  const [Accept, setAccept] = useState(false);
+
+  const handleClose = () => {
+    setReject(false);
+    setAccept(false);
+  };
 
   const rejectApplication = async () => {
     try {
@@ -29,6 +32,30 @@ const ApplicationsDetails = () => {
 
       if (response.ok) {
         setReject(true);
+      } else {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+    } catch (err) {
+      console.error(`${err.message}`);
+    }
+  };
+
+  const acceptApplication = async () => {
+    try {
+      const response = await fetch(
+        // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
+        `http://localhost:3000/applications/accept/${id}`,
+        {
+          method: "GET",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        setAccept(true);
       } else {
         throw new Error(`Error! status: ${response.status}`);
       }
@@ -74,11 +101,21 @@ const ApplicationsDetails = () => {
   };
   return (
     <>
-     
       <div className="heading">
         <p>Job Application Details</p>
       </div>
-      {rejected && <p>Candidate Rejected</p>}
+      <Modal
+        handleClose={handleClose}
+        show={Reject}
+        title="Application Rejected ❌"
+        body="This application status is marked rejectex"
+      />
+      <Modal
+        handleClose={handleClose}
+        show={Accept}
+        title="Application Accepted ✅"
+        body="This application status is marked accepted"
+      />
       <div
         className="card mb-3"
         style={{ maxWidth: "540px", marginTop: "3%", marginLeft: "6%" }}
@@ -123,7 +160,11 @@ const ApplicationsDetails = () => {
         </div>
       </div>
 
-      <FormDetails data={data} reject={rejectApplication} />
+      <FormDetails
+        data={data}
+        reject={rejectApplication}
+        accept={acceptApplication}
+      />
     </>
   );
 };

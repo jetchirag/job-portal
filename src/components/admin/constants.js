@@ -42,8 +42,9 @@ module.exports = global.config = {
   // ],
   statusColor: {
     draft: "#ced4da",
-    submitted: "#20c997",
-    approved: "#20c997",
+    submitted: "#FFA500",
+    Accepted: "#20c997",
+    rejected: "#FF0000",
   },
 
   // SelectMenuProps: {
