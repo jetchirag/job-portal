@@ -58,27 +58,23 @@ function App() {
             path="/apply"
             element={<Form disabled={false} data={null} />}
           /> */}
+          <Route exact path="/admin" element={<Login />} />
+          <Route exact path="/contact" element={<Carousel />} />
           <Route
             exact
-            path='/admin'
-            element={authCtx.isLoggedIn ? <ApplicationsTable /> : <Login />}
-          />
-          <Route exact path='/contact' element={<Carousel />} />
-          <Route
-            exact
-            path='/logout'
+            path="/logout"
             element={
-              authCtx.isLoggedIn ? <Logout /> : <Navigate to='/' replace />
+              authCtx.isLoggedIn ? <Logout /> : <Navigate to="/" replace />
             }
           />
-          <Route exact path='/openings' element={<Openings />} />
+          <Route exact path="/openings" element={<Openings />} />
           <Route
             exact
-            path='/admin/dashboard'
+            path="/admin/dashboard"
             element={
               authCtx.isLoggedIn ? (
                 <>
-                  <Navigate to="/admin/dashboard" replace />
+                  <ApplicationsTable />
                 </>
               ) : (
                 <Login />
@@ -89,7 +85,7 @@ function App() {
             exact
             path="/logout"
             element={
-              authCtx.isLoggedIn ? <Logout /> : <Navigate to="/" replace />
+              authCtx.isLoggedIn ? <Logout /> : <Navigate to="/admin" replace />
             }
           />
           <Route exact path="/openings" element={<Openings />} />
