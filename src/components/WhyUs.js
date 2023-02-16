@@ -21,21 +21,21 @@ const WhyUs = () => {
             </div>
             <div className='carousel-item active'>
               <img
-                src='http://localhost:3000/image/whyus.jpg'
+                src='http://172.17.101.106:3000/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://localhost:3000/image/whyus.jpg'
+                src='http://172.17.101.106:3000/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://localhost:3000/image/whyus.jpg'
+                src='http://172.17.101.106:3000/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
@@ -61,21 +61,21 @@ const WhyUs = () => {
             </div>
             <div className='carousel-item active'>
               <img
-                src='http://localhost:3000/image/jaipur.jpg'
+                src='http://172.17.101.106:3000/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://localhost:3000/image/jaipur.jpg'
+                src='http://172.17.101.106:3000/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://localhost:3000/image/jaipur.jpg'
+                src='http://172.17.101.106:3000/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />

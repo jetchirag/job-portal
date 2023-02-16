@@ -12,7 +12,7 @@ const Navbar = () => {
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img
-            src="http://localhost:3000/image/navbarlogo.jpeg"
+            src="http://172.17.101.106:3000/image/navbarlogo.jpeg"
             alt=""
             className="d-inline-block align-text-top"
           />

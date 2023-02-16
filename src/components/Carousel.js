@@ -54,7 +54,7 @@ const Carousel = () => {
         </div>
         <div className="carousel-item active">
           <img
-            src="http://localhost:3000/image/carousel8.jpg"
+            src="http://172.17.101.106:3000/image/carousel8.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
@@ -65,7 +65,7 @@ const Carousel = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="http://localhost:3000/image/carousel111.jpg"
+            src="http://172.17.101.106:3000/image/carousel111.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
@@ -76,21 +76,21 @@ const Carousel = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="http://localhost:3000/image/carousel7.jpg"
+            src="http://172.17.101.106:3000/image/carousel7.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
         </div>
         <div className="carousel-item">
           <img
-            src="http://localhost:3000/image/carousel112.jpeg"
+            src="http://172.17.101.106:3000/image/carousel112.jpeg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
         </div>
         <div className="carousel-item">
           <img
-            src="http://localhost:3000/image/carousel113.jpg"
+            src="http://172.17.101.106:3000/image/carousel113.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />

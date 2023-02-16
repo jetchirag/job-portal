@@ -55,12 +55,12 @@ import classes from "./ApplicationTable.module.css";
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const ApplicationsTable = ({ isLoading }) => {
-  const URL = "http://localhost:3000/applications";
-  const URLFaculties = "http://localhost:3000/applications/faculties";
-  const URLStats = "http://localhost:3000/applications/stats";
+  const URL = "http://172.17.101.106:3000/applications";
+  const URLFaculties = "http://172.17.101.106:3000/applications/faculties";
+  const URLStats = "http://172.17.101.106:3000/applications/stats";
 
-  // const URL = "http://localhost:3000/applications";
-  // const URLFaculties = "http://localhost:3000/applications/faculties";
+  // const URL = "http://172.17.101.106:3000/applications";
+  // const URLFaculties = "http://172.17.101.106:3000/applications/faculties";
 
   const [loading, setLoading] = useState(false);
   const [facultiesData, setFacultiesData] = useState({});
@@ -253,7 +253,7 @@ const ApplicationsTable = ({ isLoading }) => {
     };
 
     axios
-      .post("http://localhost:3000/applications/downloadcsv", payload, {
+      .post("http://172.17.101.106:3000/applications/downloadcsv", payload, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
