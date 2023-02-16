@@ -4,7 +4,7 @@ const Recognition = () => {
   return (
     <div className='slider'>
       <div className='heading'>
-        <p> Recognision and Accredition</p>
+        <p> Recognition and Accredition</p>
       </div>
       <div className='slide-track'>
         <div className='slide'>
