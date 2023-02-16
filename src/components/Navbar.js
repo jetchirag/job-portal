@@ -3,6 +3,12 @@ import AuthContext from "../store/auth-context";
 
 const Navbar = () => {
   const authCtx = React.useContext(AuthContext);
+  function handleOnClick() {
+    const element = document.getElementById('openings');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   return (
     <nav
       className={`navbar navbar-expand-lg ${
@@ -42,7 +48,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/openings">
+            <a className="nav-link" href="#openings" onClick={handleOnClick}>
               Openings
             </a>
           </li>
@@ -52,11 +58,11 @@ const Navbar = () => {
             </a>
           </li>
 
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link" href="/faq">
               FAQs
             </a>
-          </li>
+          </li> */}
 
           {/* <li className="nav-item">
             <a className="nav-link" href="/admin">

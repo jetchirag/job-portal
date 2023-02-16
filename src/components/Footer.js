@@ -70,7 +70,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="mb-2">
-                  <a href="http://localhost:3001/admin" className="text-dark">
+                  <a href="http://172.17.101.106:3001/admin" className="text-dark">
                     Admin
                   </a>
                 </li>
