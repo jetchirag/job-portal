@@ -5,7 +5,7 @@ const Submitted = () => {
     <>
       <div className="heading">
         <img
-          src="http://172.17.101.106:3000/image/success.gif"
+          src="http://172.17.101.106:4000/image/success.gif"
           alt=""
           srcset=""
           style={{ width: "250px" }}

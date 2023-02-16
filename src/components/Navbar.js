@@ -3,12 +3,12 @@ import AuthContext from "../store/auth-context";
 
 const Navbar = () => {
   const authCtx = React.useContext(AuthContext);
-  function handleOnClick() {
-    const element = document.getElementById('openings');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
+  // function handleOnClick() {
+  //   const element = document.getElementById('openings');
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // }
   return (
     <nav
       className={`navbar navbar-expand-lg ${
@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img
-            src="http://172.17.101.106:3000/image/navbarlogo.jpeg"
+            src="http://172.17.101.106:4000/image/navbarlogo.jpeg"
             alt=""
             className="d-inline-block align-text-top"
           />
@@ -48,7 +48,7 @@ const Navbar = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#openings" onClick={handleOnClick}>
+            <a className="nav-link" href="/openings">
               Openings
             </a>
           </li>

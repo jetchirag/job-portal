@@ -20,7 +20,7 @@ const ApplicationsDetails = () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `http://172.17.101.106:3000/applications/reject/${id}`,
+        `http://172.17.101.106:4000/applications/reject/${id}`,
         {
           method: "GET",
 
@@ -44,7 +44,7 @@ const ApplicationsDetails = () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `http://172.17.101.106:3000/applications/accept/${id}`,
+        `http://172.17.101.106:4000/applications/accept/${id}`,
         {
           method: "GET",
 
@@ -68,7 +68,7 @@ const ApplicationsDetails = () => {
     const FetchingApplicant = async () => {
       try {
         await fetch(
-          `http://172.17.101.106:3000/applications/${id}`,
+          `http://172.17.101.106:4000/applications/${id}`,
           // NEW - add a Content-Type header
           {
             method: "GET",
