@@ -367,7 +367,7 @@ const FormComponent = ({ id, setId }) => {
             </p>
             {console.log(check)}
             {check ? (
-              <Button type='submit' style={{ width: '10%' }}>
+              <Button type='submit' style={{ width: '10%' }} onClick={onSubmit}>
                 Next
               </Button>
             ) : (
