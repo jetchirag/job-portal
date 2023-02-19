@@ -9,15 +9,13 @@ const FormUpload = ({ id, setId }) => {
     const formData = new FormData();
     formData.append('picture', data.picture[0]);
     formData.append('resume', data.resume[0]);
+    console.log(id);
     console.log(formData);
 
-    const res = await fetch(
-      `http://172.17.101.106:4000/applications/${'thiswillbetheid'}`,
-      {
-        method: 'PUT',
-        body: formData,
-      }
-    ).then((res) =>
+    const res = await fetch(`http://localhost:3000//${id}`, {
+      method: 'PUT',
+      body: formData,
+    }).then((res) =>
       navigate(
         `/apply/upload/${id}/success
         )}`

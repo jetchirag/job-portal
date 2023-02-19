@@ -264,7 +264,7 @@ const FormComponent = ({ id, setId }) => {
     data['peerRecognition'] = peerRecognition;
     console.log(data);
     try {
-      const response = await fetch('http://172.17.101.106:4000/applications', {
+      const response = await fetch('http://localhost:3000/applications', {
         body: JSON.stringify(data),
         method: 'POST',
         headers: {
@@ -367,7 +367,7 @@ const FormComponent = ({ id, setId }) => {
             </p>
             {console.log(check)}
             {check ? (
-              <Button type='submit' style={{ width: '10%' }} onClick={onSubmit}>
+              <Button type='submit' style={{ width: '10%' }}>
                 Next
               </Button>
             ) : (
