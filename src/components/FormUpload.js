@@ -12,12 +12,15 @@ const FormUpload = ({ id, setId }) => {
     console.log(id);
     console.log(formData);
 
-    const res = await fetch(`http://localhost:3000//${id}`, {
-      method: 'PUT',
-      body: formData,
-    }).then((res) =>
+    const res = await fetch(
+      `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
+      {
+        method: 'PUT',
+        body: formData,
+      }
+    ).then((res) =>
       navigate(
-        `/apply/upload/${id}/success
+        `/apply/upload/${id.applyId}/success
         )}`
       )
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import WhyUS from './WhyUS2';
 const WhyUs = () => {
   return (
     <div>
@@ -83,6 +83,10 @@ const WhyUs = () => {
           </div>
         </div>
       </div>
+      <br />
+      <br />
+      <br />
+      <WhyUS />
     </div>
   );
 };
