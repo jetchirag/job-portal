@@ -14,7 +14,7 @@ const Footer = () => {
                 style={{ width: "150px", height: "150px" }}
               >
                 <img
-                  src="http://172.17.101.106:4000/image/cardimage.png"
+                  src="https://hammerhead-app-qmja6.ondigitalocean.app/image/cardimage.png"
                   height="120"
                   alt=""
                   loading="lazy"
@@ -70,7 +70,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="mb-2">
-                  <a href="http://172.17.101.106:3001/admin" className="text-dark">
+                  <a href="http://localhost:3000/admin" className="text-dark">
                     Admin
                   </a>
                 </li>

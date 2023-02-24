@@ -20,7 +20,7 @@ const ApplicationsDetails = () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `http://172.17.101.106:4000/applications/reject/${id}`,
+        `https://hammerhead-app-qmja6.ondigitalocean.app/applications/reject/${id}`,
         {
           method: "GET",
 
@@ -44,7 +44,7 @@ const ApplicationsDetails = () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `http://172.17.101.106:4000/applications/accept/${id}`,
+        `https://hammerhead-app-qmja6.ondigitalocean.app/applications/accept/${id}`,
         {
           method: "GET",
 
@@ -68,7 +68,7 @@ const ApplicationsDetails = () => {
     const FetchingApplicant = async () => {
       try {
         await fetch(
-          `http://172.17.101.106:4000/applications/${id}`,
+          `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
           // NEW - add a Content-Type header
           {
             method: "GET",

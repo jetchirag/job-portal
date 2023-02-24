@@ -21,21 +21,21 @@ const WhyUs = () => {
             </div>
             <div className='carousel-item active'>
               <img
-                src='http://172.17.101.106:4000/image/whyus.jpg'
+                src='https://hammerhead-app-qmja6.ondigitalocean.app/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://172.17.101.106:4000/image/whyus.jpg'
+                src='https://hammerhead-app-qmja6.ondigitalocean.app/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://172.17.101.106:4000/image/whyus.jpg'
+                src='https://hammerhead-app-qmja6.ondigitalocean.app/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
@@ -61,21 +61,21 @@ const WhyUs = () => {
             </div>
             <div className='carousel-item active'>
               <img
-                src='http://172.17.101.106:4000/image/jaipur.jpg'
+                src='https://hammerhead-app-qmja6.ondigitalocean.app/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://172.17.101.106:4000/image/jaipur.jpg'
+                src='https://hammerhead-app-qmja6.ondigitalocean.app/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
             <div className='carousel-item'>
               <img
-                src='http://172.17.101.106:4000/image/jaipur.jpg'
+                src='https://hammerhead-app-qmja6.ondigitalocean.app/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />

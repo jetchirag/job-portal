@@ -55,12 +55,12 @@ import classes from "./ApplicationTable.module.css";
 // ==============================|| DASHBOARD DEFAULT - TOTAL GROWTH BAR CHART ||============================== //
 
 const ApplicationsTable = ({ isLoading }) => {
-  const URL = "http://172.17.101.106:4000/applications";
-  const URLFaculties = "http://172.17.101.106:4000/applications/faculties";
-  const URLStats = "http://172.17.101.106:4000/applications/stats";
+  const URL = "https://hammerhead-app-qmja6.ondigitalocean.app/applications";
+  const URLFaculties = "https://hammerhead-app-qmja6.ondigitalocean.app/applications/faculties";
+  const URLStats = "https://hammerhead-app-qmja6.ondigitalocean.app/applications/stats";
 
-  // const URL = "http://172.17.101.106:4000/applications";
-  // const URLFaculties = "http://172.17.101.106:4000/applications/faculties";
+  // const URL = "https://hammerhead-app-qmja6.ondigitalocean.app/applications";
+  // const URLFaculties = "https://hammerhead-app-qmja6.ondigitalocean.app/applications/faculties";
 
   const [loading, setLoading] = useState(false);
   const [facultiesData, setFacultiesData] = useState({});
@@ -253,7 +253,7 @@ const ApplicationsTable = ({ isLoading }) => {
     };
 
     axios
-      .post("http://172.17.101.106:4000/applications/downloadcsv", payload, {
+      .post("https://hammerhead-app-qmja6.ondigitalocean.app/applications/downloadcsv", payload, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
@@ -601,7 +601,7 @@ const ApplicationsTable = ({ isLoading }) => {
             marginBottom: "10px",
             marginRight: "4%",
           }}
-          onClick={() => openInNewTab("http://localhost:3001/admin/joblisting")}
+          onClick={() => openInNewTab("http://localhost:3000/admin/joblisting")}
         >
           Add New Job Listing
         </Button>

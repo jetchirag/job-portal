@@ -264,7 +264,7 @@ const FormComponent = ({ id, setId }) => {
     data['peerRecognition'] = peerRecognition;
     console.log(data);
     try {
-      const response = await fetch('http://localhost:3000/applications', {
+      const response = await fetch('https://hammerhead-app-qmja6.ondigitalocean.app/applications', {
         body: JSON.stringify(data),
         method: 'POST',
         headers: {

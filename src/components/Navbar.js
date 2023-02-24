@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           <img
-            src="http://172.17.101.106:4000/image/navbarlogo.jpeg"
+            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/navbarlogo.jpeg"
             alt=""
             className="d-inline-block align-text-top"
           />

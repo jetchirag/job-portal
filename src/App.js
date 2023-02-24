@@ -28,6 +28,7 @@ import Submitted from "./components/Submitted";
 import AuthContext from "./store/auth-context";
 import Logout from "./Logout";
 import SideBarAdmin from "./components/SideBarAdmin";
+import Contact from "./components/Contact";
 
 function App() {
   const [id, setId] = useState();
@@ -59,7 +60,7 @@ function App() {
             element={<Form disabled={false} data={null} />}
           /> */}
           <Route exact path="/admin" element={<Login />} />
-          <Route exact path="/contact" element={<Carousel />} />
+          <Route exact path="/contact" element={<Contact />} />
           <Route
             exact
             path="/logout"

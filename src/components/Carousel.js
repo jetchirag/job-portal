@@ -54,7 +54,7 @@ const Carousel = () => {
         </div>
         <div className="carousel-item active">
           <img
-            src="http://172.17.101.106:4000/image/carousel8.jpg"
+            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel8.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
@@ -65,7 +65,7 @@ const Carousel = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="http://172.17.101.106:4000/image/carousel111.jpg"
+            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel111.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
@@ -76,21 +76,21 @@ const Carousel = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="http://172.17.101.106:4000/image/carousel7.jpg"
+            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel7.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
         </div>
         <div className="carousel-item">
           <img
-            src="http://172.17.101.106:4000/image/carousel112.jpeg"
+            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel112.jpeg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />
         </div>
         <div className="carousel-item">
           <img
-            src="http://172.17.101.106:4000/image/carousel113.jpg"
+            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel113.jpg"
             className="d-block w-100 muj-main-img"
             alt="..."
           />

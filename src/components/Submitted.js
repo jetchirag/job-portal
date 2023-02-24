@@ -5,7 +5,7 @@ const Submitted = () => {
     <>
       <div className="heading">
         <img
-          src="http://172.17.101.106:4000/image/success.gif"
+          src="https://hammerhead-app-qmja6.ondigitalocean.app/image/success.gif"
           alt=""
           srcset=""
           style={{ width: "250px" }}
@@ -13,7 +13,7 @@ const Submitted = () => {
         <p style={{ color: "green" }}>Application Successfully Submitted</p>
         <p>Your application ID: dummyidrn</p>
         <p style={{ fontSize: "20px" }}>
-          Go back to <a href="https://localhost:3001/">homepage</a> or explore{" "}
+          Go back to <a href="https://localhost:3000/">homepage</a> or explore{" "}
           <a href="https://jaipur.mainpal.edu">Manipal</a>
         </p>
       </div>
