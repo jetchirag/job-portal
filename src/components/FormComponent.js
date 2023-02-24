@@ -284,6 +284,11 @@ const FormComponent = ({ id, setId }) => {
           response.url.length
         )}`
       );
+      const data1 = await response.json();
+      if (data1) {
+        setId(data1);
+        navigate(`/apply/upload/${data1.applyId}`);
+      }
       console.log(
         response.url.substring(
           response.url.lastIndexOf('/') + 1,

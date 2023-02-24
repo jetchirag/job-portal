@@ -11,16 +11,14 @@ const FormUpload = ({ id, setId }) => {
     formData.append('resume', data.resume[0]);
     console.log(id);
     console.log(formData);
-
-    const res = await fetch(`https://hammerhead-app-qmja6.ondigitalocean.app//${id}`, {
-      method: 'PUT',
-      body: formData,
-    }).then((res) =>
-      navigate(
-        `/apply/upload/${id}/success
-        )}`
-      )
-    );
+    console.log(id.applyId);
+    const res = await fetch(
+      `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id.applyId}`,
+      {
+        method: 'PUT',
+        body: formData,
+      }
+    ).then((res) => navigate(`/apply/upload/${id.applyId}/success`));
     alert(JSON.stringify(`${res.message}, status: ${res.status}`));
   };
   return (
