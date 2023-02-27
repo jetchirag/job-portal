@@ -54,15 +54,9 @@ const Carousel = () => {
         </div>
         <div className='carousel-item active'>
           <img
-<<<<<<< HEAD
-            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel8.jpg"
-            className="d-block w-100 muj-main-img"
-            alt="..."
-=======
             src='http://172.17.101.106:4000/image/carousel8.jpg'
             className='d-block w-100 muj-main-img'
             alt='...'
->>>>>>> 841dc1a (new)
           />
           {/* <div className='carousel-caption d-none d-md-block'>
             <h5>First slide label</h5>
@@ -71,15 +65,9 @@ const Carousel = () => {
         </div>
         <div className='carousel-item'>
           <img
-<<<<<<< HEAD
-            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel111.jpg"
-            className="d-block w-100 muj-main-img"
-            alt="..."
-=======
             src='http://172.17.101.106:4000/image/carousel111.jpg'
             className='d-block w-100 muj-main-img'
             alt='...'
->>>>>>> 841dc1a (new)
           />
           {/* <div className='carousel-caption d-none d-md-block'>
             <h5>Second slide label</h5>
@@ -88,41 +76,23 @@ const Carousel = () => {
         </div>
         <div className='carousel-item'>
           <img
-<<<<<<< HEAD
-            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel7.jpg"
-            className="d-block w-100 muj-main-img"
-            alt="..."
-=======
             src='http://172.17.101.106:4000/image/carousel7.jpg'
             className='d-block w-100 muj-main-img'
             alt='...'
->>>>>>> 841dc1a (new)
           />
         </div>
         <div className='carousel-item'>
           <img
-<<<<<<< HEAD
-            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel112.jpeg"
-            className="d-block w-100 muj-main-img"
-            alt="..."
-=======
             src='http://172.17.101.106:4000/image/carousel112.jpeg'
             className='d-block w-100 muj-main-img'
             alt='...'
->>>>>>> 841dc1a (new)
           />
         </div>
         <div className='carousel-item'>
           <img
-<<<<<<< HEAD
-            src="https://hammerhead-app-qmja6.ondigitalocean.app/image/carousel113.jpg"
-            className="d-block w-100 muj-main-img"
-            alt="..."
-=======
             src='http://172.17.101.106:4000/image/carousel113.jpg'
             className='d-block w-100 muj-main-img'
             alt='...'
->>>>>>> 841dc1a (new)
           />
         </div>
       </div>

@@ -434,3 +434,44 @@ img {
   font-size: 1.68rem;
   margin-left: 1rem;
 }
+.events-carasel {
+  /* margin: 2rem; */
+  width: 100%;
+  height: 500px;
+}
+
+.carousel-item,
+.slide,
+.carousel-inner {
+  height: 100%;
+}
+.events-carasel img {
+  width: 100%;
+  object-position: top;
+  height: 100%;
+  object-fit: cover;
+}
+.img-cont {
+  width: 155px;
+  height: 155px;
+}
+.img-cont img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.muj-events {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1.25rem;
+  grid-gap: 0 1.5rem;
+}
+.event-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 0 1rem;
+}
+.side-events {
+  display: grid;
+  align-content: space-between;
+}
