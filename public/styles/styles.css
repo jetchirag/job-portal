@@ -338,3 +338,8 @@ img {
     display: block;
   }
 }
+@media screen and (max-width: 900px) {
+  .heading p {
+    font-size: 1.5rem;
+  }
+}

@@ -462,7 +462,7 @@ img {
 }
 .muj-events {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 2fr 1fr;
   padding: 1.25rem;
   grid-gap: 0 1.5rem;
 }
@@ -474,4 +474,16 @@ img {
 .side-events {
   display: grid;
   align-content: space-between;
+}
+@media screen and (max-width: 900px) {
+  .heading p {
+    font-size: 1.5rem;
+  }
+}
+.card-body h3 {
+  font-size: 1.4rem;
+}
+.card-body p {
+  width: 80%;
+  font-size: 0.8rem;
 }

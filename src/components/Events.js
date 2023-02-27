@@ -38,10 +38,10 @@ const Events = () => {
               <img src='https://mujbioscope.in/assets/collage/22.jpg' alt='' />
             </div>
             <div className='card-body'>
-              <h3>Lorem ipsum dolor sit amet.</h3>
+              <h3>Free health check up camp</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
-                dolorum blanditiis ea. Animi, perferendis est?
+                To create awareness about Preventive Health check-up, we
+                organize medical camps anywhere across our Campuses.
               </p>
             </div>
           </div>
@@ -50,10 +50,11 @@ const Events = () => {
               <img src='https://mujbioscope.in/assets/collage/22.jpg' alt='' />
             </div>
             <div className='card-body'>
-              <h3>Lorem ipsum dolor sit amet.</h3>
+              <h3>National Science Day celebrations 2023</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
-                dolorum blanditiis ea. Animi, perferendis est?
+                Celebrated every year in India on February 28 to mark the
+                discovery of the Raman effect by the Indian physicist Sir C.V.
+                Raman on this day.
               </p>
             </div>
           </div>
