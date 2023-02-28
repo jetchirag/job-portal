@@ -150,8 +150,17 @@ body {
 }
 
 .whyus > h2 {
-  margin: 2% 0;
-  font-size: 3rem;
+  margin-top: 0%;
+  margin-bottom: 2.5%;
+  font-size: 2.5em;
+  font-weight: 400;
+  text-align: center;
+}
+
+.events > h2 {
+  margin-top: 0%;
+  margin-bottom: 2.5%;
+  font-size: 2.5em;
   font-weight: 400;
   text-align: center;
 }

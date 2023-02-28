@@ -18,7 +18,7 @@ const FormUpload = ({ id, setId }) => {
         method: 'PUT',
         body: formData,
       }
-    ).then((res) => navigate(`/apply/upload/${id.applyId}/success`));
+    ).then((res) => navigate(`/apply/upload/${id.applyId}/submitted`));
     alert(JSON.stringify(`${res.message}, status: ${res.status}`));
   };
   return (

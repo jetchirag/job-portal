@@ -127,8 +127,12 @@ body {
   text-align: center;
 }
 
+.whyus {
+  padding: 2% 2% 0% 2%;
+}
+
 .whyus > h2 {
-  margin: 2% 0;
+  margin-top: 1%;
   font-size: 3rem;
   font-weight: 400;
   text-align: center;

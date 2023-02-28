@@ -3,8 +3,8 @@ import Carousel from 'react-bootstrap/Carousel';
 const Events = () => {
   return (
     <div>
-      <div className='heading'>
-        <h1>News & Events @Manipal</h1>
+      <div className='heading events'>
+        <h2>News & Events @ Manipal</h2>
       </div>
       <div className='muj-events'>
         <div className='events-carasel'>
