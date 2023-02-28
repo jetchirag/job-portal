@@ -496,3 +496,20 @@ img {
   width: 85%;
   font-size: 0.7rem;
 }
+@media screen and (max-width: 760px) {
+  .muj-events {
+    display: block;
+  }
+  .events-carasel {
+    margin-bottom: 1rem;
+  }
+  .event-card {
+    margin-bottom: 1rem;
+  }
+}
+.card-body p {
+  margin-bottom: 0;
+}
+.stats {
+  padding-bottom: 1rem;
+}

@@ -11,40 +11,41 @@ const Stats = () => {
     return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>;
   }
   return (
-    <div className='stats'>
-      <div className='stat'>
-        <h2>
-          <Number n={65} />+ <span className='special-count'>years</span>
-        </h2>
-        <p>Educational excellence</p>
-      </div>
-      <div className='stat'>
-        <h2>
-          <Number n={3000} />+
-          <br />
-        </h2>
-        <p>Expert faculty</p>
-      </div>
-      <div className='stat'>
-        <h2>
-          <Number n={100000} />+
-        </h2>
-        <p>Applicant footprint </p>
-      </div>
-      <div className='stat'>
-        <h2>
-          <Number n={100} />+
-        </h2>
-        <p>Recruiters</p>
-      </div>
-      {/* <div className='stat'>
+    <>
+      <div className='stats'>
+        <div className='stat'>
+          <h2>
+            <Number n={65} />+ <span className='special-count'>years</span>
+          </h2>
+          <p>Educational excellence</p>
+        </div>
+        <div className='stat'>
+          <h2>
+            <Number n={3000} />+
+            <br />
+          </h2>
+          <p>Expert faculty</p>
+        </div>
+        <div className='stat'>
+          <h2>
+            <Number n={100000} />+
+          </h2>
+          <p>Applicant footprint </p>
+        </div>
+        <div className='stat'>
+          <h2>
+            <Number n={100} />+
+          </h2>
+          <p>Recruiters</p>
+        </div>
+        {/* <div className='stat'>
         <h2>
           <Number n={10} />+
         </h2>
         <p>Student Members</p>
       </div> */}
-      <br />
-    </div>
+      </div>
+    </>
   );
 };
 
