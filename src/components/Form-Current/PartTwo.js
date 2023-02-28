@@ -1,25 +1,92 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useFormContext } from "react-hook-form";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
 
 const PartTwo = () => {
-  const [cr_country, setcr_Country] = useState("");
-  const [cr_region, setcr_Region] = useState("");
-  const [native_country, setnative_Country] = useState("");
-  const [native_region, setnative_Region] = useState("");
+  const [countries, setCountries] = useState([""]);
+  const [selectcrcountry, setSelectcrcountry] = useState();
+  const [new_cr_states, setCRStates] = useState([""]);
+  const [new_cr_city, setCRCity] = useState([""]);
+
+  const [selectnativecountry, setSelectntcountry] = useState();
+  const [new_nt_states, setNTStates] = useState([""]);
+  const [new_nt_city, setNTCity] = useState([""]);
+
   const {
     register,
     formState: { errors },
   } = useFormContext();
+
+  const crcountryhandler = async (e) => {
+    setSelectcrcountry(e.target.value);
+    await fetch(
+      `https://api.countrystatecity.in/v1/countries/${e.target.value}/states`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setCRStates(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  const ntcountryhandler = async (e) => {
+    setSelectntcountry(e.target.value);
+    await fetch(
+      `https://api.countrystatecity.in/v1/countries/${e.target.value}/states`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setNTStates(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  const crcityhandler = async (e) => {
+    await fetch(
+      `https://api.countrystatecity.in/v1/countries/${selectcrcountry}/states/${e.target.value}/cities`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setCRCity(result))
+      .catch((error) => console.log("error", error));
+  };
+
+  const ntcityhandler = async (e) => {
+    await fetch(
+      `https://api.countrystatecity.in/v1/countries/${selectnativecountry}/states/${e.target.value}/cities`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setNTCity(result))
+      .catch((error) => console.log("error", error));
+  };
+  var headers = new Headers();
+  headers.append(
+    "X-CSCAPI-KEY",
+    "ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=="
+  );
+  var requestOptions = {
+    method: "GET",
+    headers: headers,
+    redirect: "follow",
+  };
+
+  useEffect(() => {
+    const getCountries = async () => {
+      await fetch(
+        "https://api.countrystatecity.in/v1/countries",
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          setCountries(result);
+        })
+        .catch((error) => console.log("error", error));
+    };
+    getCountries();
+  }, []);
   return (
     <Accordion.Item eventKey="1">
       <Accordion.Header>2. Personal Information</Accordion.Header>
@@ -150,49 +217,63 @@ const PartTwo = () => {
             <Form.Label>
               Country<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <CountryDropdown
-              className="hi form-control form-control-sm"
+            <Form.Select
               isInvalid={errors.cr_country}
-              value={cr_country}
-              onChange={(val) => setcr_Country(val)}
-              // {...register("cr_country", {
-              //   required: true,
-              // })}
-            />
+              size="sm"
+              {...register("cr_country", {
+                required: true,
+              })}
+              onChange={crcountryhandler}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              {countries?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="2" controlId="cr_state">
             <Form.Label>
               State<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <RegionDropdown
-              country={cr_country}
-              value={cr_region}
-              onChange={(val) => setcr_Region(val)}
-              className={"form-control  form-control-sm"}
-              // {...register("cr_state", {
-              //   required: true,
-              // })}
-            />
-            {errors.cr_state && (
-              <p style={{ color: "red" }}>Please select your state</p>
-            )}
+
+            <Form.Select
+              isInvalid={errors.cr_state}
+              size="sm"
+              {...register("cr_states", {
+                required: true,
+              })}
+              onChange={crcityhandler}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
           {/* City Details  */}
           <Form.Group as={Col} md="2" controlId="cr_city">
             <Form.Label>
               City<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Control
+            <Form.Select
               isInvalid={errors.cr_city}
-              placeholder="City"
               size="sm"
-              type="text"
               {...register("cr_city", {
                 required: true,
-                maxLength: 25,
               })}
-            />
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
         </Row>
         <hr />
@@ -205,45 +286,63 @@ const PartTwo = () => {
             <Form.Label>
               Country<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <CountryDropdown
-              value={native_country}
-              onChange={(val) => setnative_Country(val)}
-              className={"form-control form-control-sm"}
-              // {...register("native_country", {
-              //   required: true,
-              // })}
-            />
+            <Form.Select
+              isInvalid={errors.native_country}
+              size="sm"
+              {...register("native_country", {
+                required: true,
+              })}
+              onChange={ntcountryhandler}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              {countries?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
           {/* State Details  */}
           <Form.Group as={Col} md="2" controlId="native_state">
             <Form.Label>
               State<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <RegionDropdown
-              country={native_country}
-              value={native_region}
-              onChange={(val) => setnative_Region(val)}
-              className={"form-control form-control-sm"}
-              // {...register("native_state", {
-              //   required: true,
-              // })}
-            />
+            <Form.Select
+              isInvalid={errors.native_state}
+              size="sm"
+              {...register("native_states", {
+                required: true,
+              })}
+              onChange={ntcityhandler}
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              {new_nt_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
           {/* City Details  */}
           <Form.Group as={Col} md="2" controlId="native_city">
             <Form.Label>
               City<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Control
+
+            <Form.Select
               isInvalid={errors.native_city}
               size="sm"
-              placeholder="City"
-              type="text"
               {...register("native_city", {
                 required: true,
-                maxLength: 25,
               })}
-            />
+            >
+              <option selected="" disabled="" value="">
+                Choose...
+              </option>
+              {new_nt_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
         </Row>
         <hr />

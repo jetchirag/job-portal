@@ -262,7 +262,7 @@ const FormComponent = ({ id, setId }) => {
     data['books'] = books;
     data['patent'] = patent;
     data['peerRecognition'] = peerRecognition;
-    console.log(data);
+    // console.log(data);
     try {
       const response = await fetch('https://hammerhead-app-qmja6.ondigitalocean.app/applications', {
         body: JSON.stringify(data),
@@ -271,7 +271,7 @@ const FormComponent = ({ id, setId }) => {
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
+      // console.log(response);
       setId(
         response.url.substring(
           response.url.lastIndexOf('/') + 1,
@@ -289,12 +289,12 @@ const FormComponent = ({ id, setId }) => {
         setId(data1);
         navigate(`/apply/upload/${data1.applyId}`);
       }
-      console.log(
-        response.url.substring(
-          response.url.lastIndexOf('/') + 1,
-          response.url.length
-        )
-      );
+      // console.log(
+      //   response.url.substring(
+      //     response.url.lastIndexOf('/') + 1,
+      //     response.url.length
+      //   )
+      // );
     } catch (err) {
       console.error(`Error: ${err}`);
     }
@@ -370,7 +370,7 @@ const FormComponent = ({ id, setId }) => {
               You'll need to upload all the necessary documents on the next
               page.
             </p>
-            {console.log(check)}
+            {/*console.log(check)*/}
             {check ? (
               <Button type='submit' style={{ width: '10%' }}>
                 Next

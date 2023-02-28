@@ -44,7 +44,7 @@ const PartThree = () => {
     for (let i = 1990; i < 2010; i++) {
       c = [...c, i];
     }
-    console.log(c);
+
     setYears(c);
   }, []);
   const addGrad = () => {
@@ -146,6 +146,7 @@ const PartThree = () => {
               <option value='distance-learning-online'>
                 Distance Learning / Online
               </option>
+              
             </Form.Select>
           </Form.Group>
           {/* School  */}
@@ -441,6 +442,9 @@ const PartThree = () => {
                     <option value='distance-learning-online'>
                       Distance Learning / Online
                     </option>
+                    <option value='manipal-online'>
+                      Manipal Online
+                    </option>
                   </Form.Select>
                 </Form.Group>
                 {/* University / Institute  */}
@@ -682,6 +686,9 @@ const PartThree = () => {
                     <option value='part-time'>Part-Time</option>
                     <option value='distance-learning-online'>
                       Distance Learning / Online
+                    </option>
+                    <option value='online-manipal'>
+                      Online Manipal
                     </option>
                   </Form.Select>
                 </Form.Group>
@@ -933,6 +940,9 @@ const PartThree = () => {
                   <option value='distance-learning-online'>
                     Distance Learning / Online
                   </option>
+                  <option value='online-manipal'>
+                      Online Manipal
+                    </option>
                 </Form.Select>
               </Form.Group>
               {/* University / Institute  */}

@@ -54,7 +54,7 @@ const Partone = () => {
               Faculty<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Select
-              isInvalid={errors.faculty}
+              isInvalid={errors.faculty && faculty===''}
               size='sm'
               aria-label='Default Faculty Type'
               {...register('faculty', {
@@ -78,7 +78,7 @@ const Partone = () => {
                 School<span style={{ color: 'red' }}> *</span>
               </Form.Label>
               <Form.Select
-                isInvalid={errors.school}
+                isInvalid={errors.school && school===''}
                 size='sm'
                 aria-label='Default Faculty Type'
                 {...register('school', {
