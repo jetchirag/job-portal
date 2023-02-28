@@ -63,10 +63,11 @@ const Events = () => {
               <img src='https://mujbioscope.in/assets/collage/22.jpg' alt='' />
             </div>
             <div className='card-body'>
-              <h3>Lorem ipsum dolor sit amet.</h3>
+              <h3>Comming Up 4kn Marathon In Jaipur.</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi
-                dolorum blanditiis ea. Animi, perferendis est?
+                Athletes of all levels are encouraged to participate, therby
+                leading healthy lifestyles and further their personal fitness
+                through running.
               </p>
             </div>
           </div>
