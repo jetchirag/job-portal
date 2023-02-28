@@ -76,7 +76,7 @@ const ApplicationsTable = ({ isLoading }) => {
   // const [searchQuery, setSearchQuery] = useState("");
 
   const [searchName, setSearchName] = useState("");
-  const [pageState, setPageState] = useState(1);
+  const [pageState, setPageState] = useState(10);
   const pageStateHandler = () => {
     if (applicantList.length === pageState) setPageState(pageState + 10);
     else setPageState(applicantList.length);

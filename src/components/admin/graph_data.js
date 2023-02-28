@@ -1,44 +1,59 @@
+function AddOrSubtractDays(startingDate, number, add) {
+  if (add) {
+    return new Date(new Date().setDate(startingDate.getDate() + number)).toLocaleDateString();
+  } else {
+    return new Date(new Date().setDate(startingDate.getDate() - number)).toLocaleDateString();
+  }
+}
+
+console.log('Today : ' + new Date());
+console.log('Future : ' + AddOrSubtractDays(new Date(), 5, true));
+console.log('Past : ' + AddOrSubtractDays(new Date(), 5, false));
+
+const currentDate = new Date();
+const dateOne = AddOrSubtractDays(new Date(), 1, false);
+
 const data = [
   {
-    name: "Page A",
-    uv: 4000,
-    pv: 2400,
+    name: AddOrSubtractDays(new Date(), 6, false),
+    uv: 3,
+    pv: 4,
     amt: 2400,
   },
   {
-    name: "Page B",
-    uv: 3000,
-    pv: 1398,
+    name: AddOrSubtractDays(new Date(), 5, false),
+    uv: 5,
+    pv: 10,
     amt: 2210,
   },
   {
-    name: "Page C",
-    uv: 2000,
-    pv: 9800,
+    name: AddOrSubtractDays(new Date(), 4, false),
+    uv: 2,
+    pv: 5,
     amt: 2290,
   },
   {
-    name: "Page D",
-    uv: 2780,
-    pv: 3908,
+    name: AddOrSubtractDays(new Date(), 3, false),
+    uv: 11,
+    pv: 23,
     amt: 2000,
   },
   {
-    name: "Page E",
-    uv: 1890,
-    pv: 4800,
+    name: AddOrSubtractDays(new Date(), 2, false),
+    uv: 10,
+    pv: 28,
     amt: 2181,
   },
   {
-    name: "Page F",
-    uv: 2390,
-    pv: 3800,
+    name: AddOrSubtractDays(new Date(), 1, false),
+    uv: 9,
+    pv: 10,
     amt: 2500,
   },
   {
-    name: "Page G",
-    uv: 3490,
-    pv: 4300,
+    name: currentDate.toLocaleDateString(),
+    uv: 34,
+    pv: 44,
     amt: 2100,
   },
 ];
