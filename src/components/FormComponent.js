@@ -22,8 +22,8 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import FormUpload from './FormUpload';
 
 const FormComponent = ({ id, setId }) => {
-  const [cr_country, setcr_Country] = useState('');
-  const [cr_region, setcr_Region] = useState('');
+  // const [cr_country, setcr_Country] = useState('');
+  // const [cr_region, setcr_Region] = useState('');
   const [native_country, setnative_Country] = useState('');
   const [native_region, setnative_Region] = useState('');
   const [aq_secondary_country, setaq_secondary_country] = useState('');
@@ -242,8 +242,8 @@ const FormComponent = ({ id, setId }) => {
     data.department = data.department;
     data.nature_of_job = data.natureofjob;
 
-    data['cr_country'] = cr_country;
-    data['cr_state'] = cr_region;
+    data['cr_country'] = data.cr_country;
+    data['cr_state'] = data.cr_states;
     data['native_country'] = native_country;
     data['native_state'] = native_region;
     data['applicant'] = applicant;

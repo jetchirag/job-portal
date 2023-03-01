@@ -10,6 +10,7 @@ const ApplicationsDetails = () => {
   const [data, setData] = useState({});
   const [Reject, setReject] = useState(false);
   const [Accept, setAccept] = useState(false);
+  const [Delete, setDelete] = useState(false);
 
   const handleClose = () => {
     setReject(false);
@@ -64,6 +65,30 @@ const ApplicationsDetails = () => {
     }
   };
 
+  const deleteApplication = async () => {
+    try {
+      const response = await fetch(
+        // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
+        `https://localhost:3000/applications/delete/${id}`,
+        {
+          method: "DELETE",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.ok) {
+        setDelete(true);
+      } else {
+        throw new Error(`Error! status: ${response.status}`);
+      }
+    } catch (err) {
+      console.error(`${err.message}`);
+    }
+  };
+
   useEffect(() => {
     const FetchingApplicant = async () => {
       try {
@@ -96,6 +121,8 @@ const ApplicationsDetails = () => {
     FetchingApplicant();
   }, [id]);
 
+  console.log(data);
+
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -115,6 +142,13 @@ const ApplicationsDetails = () => {
         show={Accept}
         title="Application Accepted ✅"
         body="This application status is marked accepted"
+      />
+
+      <Modal
+        handleClose={handleClose}
+        show={Delete}
+        title="Application Deleted 🗑️"
+        body="This application status is deleted"
       />
       <div
         className="card mb-3"
@@ -164,6 +198,7 @@ const ApplicationsDetails = () => {
         data={data}
         reject={rejectApplication}
         accept={acceptApplication}
+        delete={deleteApplication}
       />
     </>
   );

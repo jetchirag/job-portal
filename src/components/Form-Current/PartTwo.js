@@ -240,7 +240,7 @@ const PartTwo = () => {
             </Form.Label>
 
             <Form.Select
-              isInvalid={errors.cr_state}
+              isInvalid={errors.cr_states}
               size="sm"
               {...register("cr_states", {
                 required: true,
