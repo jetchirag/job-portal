@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
-const Submitted = () => {
+const Submitted = ({ id, setID }) => {
   return (
     <>
-      <div className="heading">
+      <div className='heading'>
         <img
-          src="https://hammerhead-app-qmja6.ondigitalocean.app/image/success.gif"
-          alt=""
-          srcset=""
-          style={{ width: "250px" }}
+          src='https://hammerhead-app-qmja6.ondigitalocean.app/image/success.gif'
+          alt=''
+          srcSet=''
+          style={{ width: '250px' }}
         />
-        <p style={{ color: "green" }}>Application Successfully Submitted</p>
-        <p>Your application ID: dummyidrn</p>
-        <p style={{ fontSize: "20px" }}>
-          Go back to <a href="https://localhost:3000/">homepage</a> or explore{" "}
-          <a href="https://jaipur.mainpal.edu">Manipal</a>
+        <p style={{ color: 'green' }}>Application Successfully Submitted</p>
+        <p>Your application ID: {id.applyId}</p>
+        <p style={{ fontSize: '20px' }}>
+          Go back to <a href='https://localhost:3000/'>homepage</a> or explore{' '}
+          <a href='https://jaipur.mainpal.edu'>Manipal</a>
         </p>
       </div>
     </>

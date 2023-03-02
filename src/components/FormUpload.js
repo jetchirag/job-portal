@@ -12,14 +12,17 @@ const FormUpload = ({ id, setId }) => {
     console.log(id);
     console.log(formData);
     console.log(id.applyId);
-    const res = await fetch(
+    await fetch(
       `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id.applyId}`,
       {
         method: 'PUT',
         body: formData,
       }
-    ).then((res) => navigate(`/apply/upload/${id.applyId}/submitted`));
-    alert(JSON.stringify(`${res.message}, status: ${res.status}`));
+    ).then((res) => {
+      console.log(res);
+      navigate(`/apply/upload/${id.applyId}/submitted`);
+      alert(JSON.stringify(`${res.message}, status: ${res.status}`));
+    });
   };
   return (
     <div className='container'>
