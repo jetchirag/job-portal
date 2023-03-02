@@ -69,13 +69,13 @@ const Navbar = () => {
               Admin
             </a>
           </li> */}
-          <li className="nav-item">
+          {/* <li className="nav-item">
             {authCtx.isLoggedIn && (
               <a className="nav-link" href="/logout">
                 Logout
               </a>
             )}
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

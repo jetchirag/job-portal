@@ -390,7 +390,7 @@ const ApplicationsTable = ({ isLoading }) => {
             color="primary"
             size="small"
             href={"/dashboard/application/" + params.value}
-            target="_blank"
+            
           >
             View Details
           </Button>
@@ -601,7 +601,7 @@ const ApplicationsTable = ({ isLoading }) => {
             marginBottom: "10px",
             marginRight: "4%",
           }}
-          onClick={() => openInNewTab("http://localhost:3000/admin/joblisting")}
+          onClick={() => window.open("http://localhost:3000/admin/joblisting", "_self")}
         >
           Add New Job Listing
         </Button>
