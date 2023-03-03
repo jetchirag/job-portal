@@ -24,22 +24,13 @@ import FormUpload from './FormUpload';
 const FormComponent = ({ id, setId }) => {
   // const [cr_country, setcr_Country] = useState('');
   // const [cr_region, setcr_Region] = useState('');
-  const [native_country, setnative_Country] = useState('');
-  const [native_region, setnative_Region] = useState('');
-  const [aq_secondary_country, setaq_secondary_country] = useState('');
+  // const [native_country, setnative_Country] = useState('');
+  // const [native_region, setnative_Region] = useState('');
 
-  const [aq_higher_secondary_country, setaq_higher_secondary_country] =
-    useState('');
-  const [aq_graduation_country, setaq_graduation_country] = useState('');
-  const [aq_post_graduation_country, setaq_post_graduation_country] =
-    useState('');
-  const [aq_mphil_country, setaq_mphil_country] = useState('');
-  const [aq_phd_country, setaq_phd_country] = useState('');
-  const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState('');
-  const [academicExperience_country, setacademicExperience_country] =
-    useState('');
-  const [nonAcademicExperience_country, setnonAcademicExperience_country] =
-    useState('');
+  // const [academicExperience_country, setacademicExperience_country] =
+  //   useState('');
+  // const [nonAcademicExperience_country, setnonAcademicExperience_country] =
+  //   useState('');
 
   const [part9, setPart9] = useState(true);
   const handlePart9 = () => {
@@ -63,7 +54,7 @@ const FormComponent = ({ id, setId }) => {
       email: data.email,
     };
     let aq_secondary = {
-      country: aq_secondary_country,
+      country: data.aq_secondary_country,
       mode: data.secondary_mode,
       school: data.secondary_school,
       board: data.secondary_board,
@@ -72,7 +63,7 @@ const FormComponent = ({ id, setId }) => {
       percentage: data.secondary_percentage,
     };
     let aq_higher_secondary = {
-      country: aq_higher_secondary_country,
+      country: data.aq_higher_secondary_country,
       mode: data.higher_secondary_mode,
       school: data.higher_secondary_school,
       board: data.higher_secondary_board,
@@ -82,7 +73,7 @@ const FormComponent = ({ id, setId }) => {
       percentage: data.higher_secondary_percentage,
     };
     let aq_graduation = {
-      country: aq_graduation_country,
+      country: data.aq_graduation_country,
       mode: data.graduation_mode,
       institute: data.graduation_institute,
       college: data.graduation_college,
@@ -93,7 +84,7 @@ const FormComponent = ({ id, setId }) => {
       percentage: data.graduation_percentage,
     };
     let aq_post_graduation = {
-      country: aq_post_graduation_country,
+      country: data.aq_post_graduation_country,
       mode: data.post_graduation_mode,
       institute: data.post_graduation_institute,
       college: data.post_graduation_college,
@@ -104,7 +95,7 @@ const FormComponent = ({ id, setId }) => {
       percentage: data.post_graduation_percentage,
     };
     let aq_mphil = {
-      country: aq_mphil_country,
+      country: data.aq_mphil_country,
       mode: data.mphil_mode,
       institute: data.mphil_institute,
       college: data.mphil_college,
@@ -114,7 +105,7 @@ const FormComponent = ({ id, setId }) => {
       percentage: data.mphil_percentage,
     };
     let aq_phd = {
-      country: aq_phd_country,
+      country: data.aq_phd_country,
       status: data.phd_status,
       mode: data.phd_mode,
       institute: data.phd_institute,
@@ -125,7 +116,7 @@ const FormComponent = ({ id, setId }) => {
       year2: data.phd_anti_completion_year,
     };
     let aq_post_doctoral = {
-      country: aq_post_doctoral_country,
+      country: data.aq_post_doctoral_country,
       mode: data.post_doctoral_mode,
       institute: data.post_doctoral_institute,
       college: data.post_doctoral_college,
@@ -145,7 +136,7 @@ const FormComponent = ({ id, setId }) => {
     };
     let academicExperience = {
       natureOfJob: data.academicExperience_mode,
-      country: academicExperience_country,
+      country: data.academicExperience_country,
       university: data.academicExperience_university,
       college: data.academicExperience_college,
       position: data.academicExperience_position,
@@ -155,7 +146,7 @@ const FormComponent = ({ id, setId }) => {
     };
     let nonAcademicExperience = {
       natureOfJob: data.nonAcademicExperience_mode,
-      country: nonAcademicExperience_country,
+      country: data.nonAcademicExperience_country,
       organization: data.nonAcademicExperience_organization,
       designation: data.nonAcademicExperience_designation,
       department: data.nonAcademicExperience_department,
@@ -244,8 +235,9 @@ const FormComponent = ({ id, setId }) => {
 
     data['cr_country'] = data.cr_country;
     data['cr_state'] = data.cr_states;
-    data['native_country'] = native_country;
-    data['native_state'] = native_region;
+    data['native_country'] = data.native_country;
+    data['native_state'] = data.native_state;
+    data['native_city'] = data.native_city;
     data['applicant'] = applicant;
     data['aq_secondary'] = aq_secondary;
     data['aq_higher_secondary'] = aq_higher_secondary;

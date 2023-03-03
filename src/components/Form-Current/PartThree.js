@@ -39,15 +39,7 @@ const PartThree = () => {
   const handlePdoc = () => {
     setPdoc(!pdocVal);
   };
-  const [aq_secondary_country, setaq_secondary_country] = useState('');
-  const [aq_higher_secondary_country, setaq_higher_secondary_country] =
-    useState('');
-  const [aq_graduation_country, setaq_graduation_country] = useState('');
-  const [aq_post_graduation_country, setaq_post_graduation_country] =
-    useState('');
-  const [aq_mphil_country, setaq_mphil_country] = useState('');
-  const [aq_phd_country, setaq_phd_country] = useState('');
-  const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState('');
+
   const {
     register,
     formState: { errors },
@@ -235,7 +227,7 @@ const PartThree = () => {
               <option selected='' disabled='' value=''>
                 Choose...
               </option>
-              {console.log(years)}
+          
               {years.map((year) => {
                 return <option value={year}>{year}</option>;
               })}
@@ -404,7 +396,7 @@ const PartThree = () => {
               <option selected='' disabled='' value=''>
                 Choose...
               </option>
-              {console.log(years)}
+    
               {years.map((year) => {
                 return <option value={year}>{year}</option>;
               })}

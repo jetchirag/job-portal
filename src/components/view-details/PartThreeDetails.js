@@ -1,16 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { set, useFormContext } from "react-hook-form";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
+
 
 const PartThreeDetails = (props) => {
+    var headers = new Headers();
+  headers.append(
+    'X-CSCAPI-KEY',
+    'ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=='
+  );
+  var requestOptions = {
+    method: 'GET',
+    headers: headers,
+    redirect: 'follow',
+  };
+  const [countries, setCountries] = useState(['']);
+  useEffect(() => {
+    const getCountries = async () => {
+      await fetch(
+        'https://api.countrystatecity.in/v1/countries',
+        requestOptions
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          setCountries(result);
+        })
+        .catch((error) => console.log('error', error));
+    };
+    getCountries();
+  }, []);
   const [mphilVal, setMphil] = useState(true);
   const handleMphil = () => {
     setMphil(!mphilVal);
@@ -19,14 +40,6 @@ const PartThreeDetails = (props) => {
   const handlePdoc = () => {
     setPdoc(!pdocVal);
   };
-  const [aq_higher_secondary_country, setaq_higher_secondary_country] =
-    useState("");
-  const [aq_graduation_country, setaq_graduation_country] = useState("");
-  const [aq_post_graduation_country, setaq_post_graduation_country] =
-    useState("");
-  const [aq_mphil_country, setaq_mphil_country] = useState("");
-  const [aq_phd_country, setaq_phd_country] = useState("");
-  const [aq_post_doctoral_country, setaq_post_doctoral_country] = useState("");
   const {
     register,
     formState: { errors },
@@ -103,17 +116,20 @@ const PartThreeDetails = (props) => {
             <Form.Label>
               Country<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <CountryDropdown
-              value={aq_higher_secondary_country}
-              onChange={(val) => setaq_higher_secondary_country(val)}
-              className={"form-control form-control-sm"}
-              // {...register("cr_country", {
-              //   required: true,
-              // })}
-            />
-            {errors.aq_higher_secondary_country && (
-              <p style={{ color: "red" }}>Please select your country</p>
-            )}
+           <Form.Select
+              isInvalid={errors.aq_secondary_country}
+              size='sm'
+              {...register('aq_secondary_country', {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                Choose...
+              </option>
+              {countries?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
           </Form.Group>
           {/* Academic Qulalification Higher Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
@@ -164,7 +180,7 @@ const PartThreeDetails = (props) => {
             </Form.Label>
             <Form.Control
               isInvalid={errors.board}
-              value={props?.data?.aq_higher_secondary?.board}
+              defaultValue={props?.data?.aq_higher_secondary?.board}
               size="sm"
               placeholder="Board Name"
               type="text"
@@ -180,7 +196,7 @@ const PartThreeDetails = (props) => {
               Passing Year<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
-              value={props?.data?.aq_higher_secondary?.passingYear}
+              defaultValue={props?.data?.aq_higher_secondary?.passingYear}
               isInvalid={errors.passingYear}
               size="sm"
               placeholder="Passing Year"
@@ -220,7 +236,7 @@ const PartThreeDetails = (props) => {
             </Form.Label>
             <Form.Control
               isInvalid={errors.percentage}
-              value={props?.data?.aq_higher_secondary?.percentage}
+              defaultValue={props?.data?.aq_higher_secondary?.percentage}
               size="sm"
               placeholder="Aggregate Percentage"
               type="number"
@@ -246,15 +262,21 @@ const PartThreeDetails = (props) => {
                   <Form.Label>
                     Country<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                  <CountryDropdown
-                    isInvalid={errors.aq_graduation_country}
-                    value={aq_graduation_country}
-                    onChange={(val) => setaq_graduation_country(val)}
-                    className="form-control-sm form-control"
-                    // {...register("cr_country", {
-                    //   required: true,
-                    // })}
-                  />
+                 <Form.Select
+              isInvalid={errors.aq_higher_secondary_country}
+              size='sm'
+              {...register('aq_higher_secondary_country', {
+                required: true,
+              })}
+              defaultValue={props?.data?.aq_higher_secondary_country}
+            >
+              <option selected='' disabled='' value=''>
+                Choose...
+              </option>
+              {countries?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })}
+            </Form.Select>
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="graduation_mode">
@@ -492,17 +514,23 @@ const PartThreeDetails = (props) => {
                   <Form.Label>
                     Country<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                  <CountryDropdown
-                    value={aq_post_graduation_country}
-                    onChange={(val) => setaq_post_graduation_country(val)}
-                    className="form-control-sm form-control"
-                    // {...register("cr_country", {
-                    //   required: true,
-                    // })}
-                  />
-                  {errors.aq_post_graduation_country && (
-                    <p style={{ color: "red" }}>Please select your country</p>
-                  )}
+                       <Form.Select
+                    isInvalid={errors.aq_graduation_country}
+                    size='sm'
+                    {...register('aq_graduation_country', {
+                      required: true,
+                    })}
+                    defaultValue={props?.data?.aq_graduation_country}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {countries?.map((element) => {
+                      return (
+                        <option value={element.iso2}>{element.name}</option>
+                      );
+                    })}
+                  </Form.Select>
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="graduation_mode">
@@ -758,14 +786,21 @@ const PartThreeDetails = (props) => {
                 <Form.Label>
                   Country<span style={{ color: "red" }}> *</span>
                 </Form.Label>
-                <CountryDropdown
-                  value={aq_phd_country}
-                  onChange={(val) => setaq_phd_country(val)}
-                  className="form-control-sm form-control"
-                  // {...register("cr_country", {
-                  //   required: true,
-                  // })}
-                />
+                   <Form.Select
+                  isInvalid={errors.aq_phd_country}
+                  size='sm'
+                  {...register('aq_phd_country', {
+                    required: true,
+                  })}
+                  defaultValue={props?.data?.aq_phd_country}
+                >
+                  <option selected='' disabled='' value=''>
+                    Choose...
+                  </option>
+                  {countries?.map((element) => {
+                    return <option value={element.iso2}>{element.name}</option>;
+                  })}
+                </Form.Select>
               </Form.Group>
               {/* Academic Qualification Education Mode Details  */}
               <Form.Group as={Col} md="2" controlId="phd_mode">
@@ -921,18 +956,23 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="aq_mphil_country">
                   {/* Academic Qualification M Phil Country  */}
                   <Form.Label>Country</Form.Label>
-                  <CountryDropdown
-                    value={aq_mphil_country}
-                    onChange={(val) => setaq_mphil_country(val)}
-                    className="form-control-sm form-control"
-                    // {...register("cr_country", {
-                    //   required: true,
-                    // })}
-                 
-                  />
-                  {errors.aq_mphil_country && (
-                    <p style={{ color: "red" }}>Please select your country</p>
-                  )}
+                    <Form.Select
+                    isInvalid={errors.aq_mphil_country}
+                    size='sm'
+                    {...register('aq_mphil_country', {
+                      required: true,
+                    })}
+                    defaultValue={props?.data?.aq_mphil_country}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {countries?.map((element) => {
+                      return (
+                        <option value={element.iso2}>{element.name}</option>
+                      );
+                    })}
+                  </Form.Select>
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="mphil_mode">
@@ -1085,18 +1125,23 @@ const PartThreeDetails = (props) => {
                 >
                   {/* Academic Qualification Post Doctoral Country  */}
                   <Form.Label>Country</Form.Label>
-                  <CountryDropdown
-                    // disabled={pdocVal}
-                    value={aq_post_doctoral_country}
-                    onChange={(val) => setaq_post_doctoral_country(val)}
-                    className="form-control-sm form-control"
-                    // {...register("cr_country", {
-                    //   required: true,
-                    // })}
-                  />
-                  {errors.post_doctoral_country && (
-                    <p style={{ color: "red" }}>Please select your country</p>
-                  )}
+                   <Form.Select
+                    isInvalid={errors.aq_post_doctoral_country}
+                    size='sm'
+                    {...register('aq_post_doctoral_country', {
+                      required: true,
+                    })}
+                    defaultValue={props?.data?.aq_post_doctoral_country}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {countries?.map((element) => {
+                      return (
+                        <option value={element.iso2}>{element.name}</option>
+                      );
+                    })}
+                  </Form.Select>
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="post_doctoral_mode">

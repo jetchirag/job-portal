@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
@@ -6,8 +6,17 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useFormContext } from "react-hook-form";
 
-
 const PartTwoDetail = (props) => {
+  var headers = new Headers();
+  headers.append(
+    "X-CSCAPI-KEY",
+    "ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=="
+  );
+  var requestOptions = {
+    method: "GET",
+    headers: headers,
+    redirect: "follow",
+  };
   const [countries, setCountries] = useState([""]);
   const [selectcrcountry, setSelectcrcountry] = useState();
   const [new_cr_states, setCRStates] = useState([""]);
@@ -63,16 +72,7 @@ const PartTwoDetail = (props) => {
       .then((result) => setNTCity(result))
       .catch((error) => console.log("error", error));
   };
-  var headers = new Headers();
-  headers.append(
-    "X-CSCAPI-KEY",
-    "ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=="
-  );
-  var requestOptions = {
-    method: "GET",
-    headers: headers,
-    redirect: "follow",
-  };
+
 
   useEffect(() => {
     const getCountries = async () => {
@@ -87,7 +87,7 @@ const PartTwoDetail = (props) => {
         .catch((error) => console.log("error", error));
     };
     getCountries();
-  }, []);
+  }, [requestOptions]);
   // const {
   //   register,
   //   formState: { errors },
@@ -253,12 +253,29 @@ const PartTwoDetail = (props) => {
               value={props?.data?.cr_city}
             >
               <option selected="" disabled="" value="">
-               {props?.data?.cr_city}
+                {props?.data?.cr_city}
               </option>
               {new_cr_city?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
               })}
             </Form.Select>
+          </Form.Group>
+          <Form.Group as={Col} md="2" controlId="address">
+            <Form.Label>
+              Address<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+            as={"textarea"}
+              isInvalid={errors.cr_address}
+              size="sm"
+              placeholder="Full Address"
+              type="text"
+              {...register("cr_address", {
+                required: true,
+              
+              })}
+              defaultValue={props?.data?.cr_address}
+            />
           </Form.Group>
         </Row>
         <hr />
@@ -278,9 +295,10 @@ const PartTwoDetail = (props) => {
                 required: true,
               })}
               onChange={ntcountryhandler}
+              
             >
               <option selected="" disabled="" value="">
-                Choose...
+              {props?.data?.native_country}
               </option>
               {countries?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -301,7 +319,7 @@ const PartTwoDetail = (props) => {
               onChange={ntcityhandler}
             >
               <option selected="" disabled="" value="">
-                Choose...
+              {props?.data?.native_state}
               </option>
               {new_nt_states?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -322,12 +340,29 @@ const PartTwoDetail = (props) => {
               })}
             >
               <option selected="" disabled="" value="">
-                Choose...
+              {props?.data?.native_city}
               </option>
               {new_nt_city?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
               })}
             </Form.Select>
+          </Form.Group>
+          <Form.Group as={Col} md="2" controlId="address">
+            <Form.Label>
+              Address<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+            as={"textarea"}
+              isInvalid={errors.native_address}
+              size="sm"
+              placeholder="Full Address"
+              type="text"
+              {...register("native_address", {
+                required: true,
+              
+              })}
+              defaultValue={props?.data?.native_address}
+            />
           </Form.Group>
         </Row>
         <hr />
@@ -337,7 +372,11 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Religion<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm" aria-label="Default select example" value={props?.data?.applicant?.religion}>
+            <Form.Select
+              size="sm"
+              aria-label="Default select example"
+              value={props?.data?.applicant?.religion}
+            >
               <option selected="" disabled="" value="">
                 Choose...
               </option>
@@ -356,7 +395,11 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Marital Status<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm" aria-label="Default select example" value={props?.data?.applicant?.marital_status}>
+            <Form.Select
+              size="sm"
+              aria-label="Default select example"
+              value={props?.data?.applicant?.marital_status}
+            >
               <option selected="" disabled="" value="">
                 Choose...
               </option>

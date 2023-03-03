@@ -33,7 +33,7 @@ const PartSixDetails = (props) => {
                 <Form.Label>Fellowship Detail</Form.Label>
                 <Form.Control
                   size="sm"
-                  value={item.fellowshipDetail}
+                  defaultValue={item.fellowshipDetail}
                   placeholder="Fellowship Detail"
                   type="text"
                   {...register("fellowship_details", {
@@ -53,7 +53,7 @@ const PartSixDetails = (props) => {
                 <Form.Control
                   size="sm"
                   placeholder="Year"
-                  value={item.year}
+                  defaultValue={item.year}
                   type="number"
                   {...register("fellowship_year", {
                     maxLength: 4,
@@ -72,7 +72,7 @@ const PartSixDetails = (props) => {
                 <Form.Control
                   size="sm"
                   placeholder="Amount per annum"
-                  value={item.amount}
+                  defaultValue={item.amount}
                   type="number"
                   {...register("fellowship_amount", {
                     maxLength: 15,

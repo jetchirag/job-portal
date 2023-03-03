@@ -43,14 +43,14 @@ const PartOneDetails = (props) => {
             <Form.Label>
               Faculty<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Control value={props?.data?.faculty}></Form.Control>
+            <Form.Control defaultValue={props?.data?.faculty}></Form.Control>
           </Form.Group>
           {
             <Form.Group as={Col} md="2" controlId="faculty">
               <Form.Label>
                 School<span style={{ color: "red" }}> *</span>
               </Form.Label>
-              <Form.Control value={props?.data?.school_main}></Form.Control>
+              <Form.Control defaultValue={props?.data?.school_main}></Form.Control>
             </Form.Group>
           }
           {
@@ -58,7 +58,7 @@ const PartOneDetails = (props) => {
               <Form.Label>
                 Department<span style={{ color: "red" }}> *</span>
               </Form.Label>
-              <Form.Control value={props?.data?.department}></Form.Control>
+              <Form.Control defaultValue={props?.data?.department}></Form.Control>
             </Form.Group>
           }
           {/* <Form.Group as={Col} md="2" controlId="faculty">

@@ -23,7 +23,7 @@ const PartFourDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Gate Year"
-              value={props?.data?.academicQualification?.gate}
+              defaultValue={props?.data?.academicQualification?.gate}
               type="number"
               {...register("gate", {
                 maxLength: 4,
@@ -39,7 +39,7 @@ const PartFourDetails = (props) => {
             <Form.Label>UGC Net Year</Form.Label>
             <Form.Control
               size="sm"
-              value={props?.data?.academicQualification?.ugcNet}
+              defaultValue={props?.data?.academicQualification?.ugcNet}
               placeholder="UGC Net Year"
               type="number"
               {...register("ugcNet", {
@@ -57,7 +57,7 @@ const PartFourDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="UGC JRF Year"
-              value={props?.data?.academicQualification?.ugcJrf}
+              defaultValue ={props?.data?.academicQualification?.ugcJrf}
               type="number"
               {...register("ugcJrf", {
                 maxLength: 4,
@@ -74,7 +74,7 @@ const PartFourDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="URC CSIR Year"
-              value={props?.data?.academicQualification?.urcCsir}
+              defaultValue ={props?.data?.academicQualification?.urcCsir}
               type="number"
               {...register("urcCsir", {
                 maxLength: 4,
@@ -91,7 +91,7 @@ const PartFourDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="ICMR Year"
-              value={props?.data?.academicQualification?.icmr}
+              defaultValue  ={props?.data?.academicQualification?.icmr}
               type="number"
               {...register("icmr", {
                 maxLength: 4,
@@ -108,7 +108,7 @@ const PartFourDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="ICAR Year"
-              value={props?.data?.academicQualification?.icar}
+              defaultValue ={props?.data?.academicQualification?.icar}
               type="number"
               {...register("icar", {
                 maxLength: 4,

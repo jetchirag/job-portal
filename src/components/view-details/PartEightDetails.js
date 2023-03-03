@@ -52,7 +52,7 @@ const PartEightDetails = (props) => {
                   as="textarea"
                   rows={1}
                   disabled={part8}
-                  value={item.detail}
+                  defaultValue={item.detail}
                   {...register("book_details", {
                     maxLength: 500,
                   })}
@@ -68,7 +68,7 @@ const PartEightDetails = (props) => {
                   type="text"
                   rows={3}
                   disabled={part8}
-                  value={item.ISBNNumber}
+                  defaultValue={item.ISBNNumber}
                   {...register("book_isbn", {
                     maxLength: 500,
                   })}

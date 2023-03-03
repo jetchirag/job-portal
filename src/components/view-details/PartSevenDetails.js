@@ -21,7 +21,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="orcid ID"
-              value={props?.data?.research_orcid}
+              defaultValue={props?.data?.research_orcid}
               type="text"
               {...register("research_orcid", {
                 required: false,
@@ -37,7 +37,7 @@ const PartSevenDetails = (props) => {
             <Form.Label>h-Index as per SCOPUS</Form.Label>
             <Form.Control
               size="sm"
-              value={props?.data?.research_scopus}
+              defaultValue={props?.data?.research_scopus}
               placeholder="h-Index - SCOPUS"
               type="text"
               {...register("research_scopus", {
@@ -59,7 +59,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="h-Index"
-              value={props?.data?.research_webofscience}
+              defaultValue={props?.data?.research_webofscience}
               type="text"
               {...register("research_webofscience", {
                 required: false,
@@ -78,7 +78,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Cumulative Impact Factor"
-              value={props?.data?.research_cif}
+              defaultValue={props?.data?.research_cif}
               type="text"
               {...register("research_cif", {
                 required: false,
@@ -105,7 +105,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Total"
-              value={props?.data?.research_nop_total}
+              defaultValue={props?.data?.research_nop_total}
               type="number"
               {...register("research_nop_total", {
                 maxLength: 15,
@@ -123,7 +123,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="As per UGC Care List"
-              value={props?.data?.research_nop_ugc_care_list}
+              defaultValue={props?.data?.research_nop_ugc_care_list}
               type="number"
               {...register("research_nop_ugc_care_list", {
                 maxLength: 15,
@@ -142,7 +142,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="SCI"
-              value={props?.data?.research_nop_sci}
+              defaultValue={props?.data?.research_nop_sci}
               type="number"
               {...register("research_nop_sci", {
                 maxLength: 15,
@@ -160,7 +160,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Web of Science"
-              value={props?.data?.research_nop_web_science}
+              defaultValue={props?.data?.research_nop_web_science}
               type="number"
               {...register("research_nop_web_science", {
                 maxLength: 15,
@@ -179,7 +179,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Google Scholar"
-              value={props?.data?.research_nop_google_scholar}
+              defaultValue={props?.data?.research_nop_google_scholar}
               type="number"
               {...register("research_nop_google_scholar", {
                 maxLength: 15,
@@ -198,7 +198,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Scopus"
-              value={props?.data?.research_nop_scopus}
+              defaultValue={props?.data?.research_nop_scopus}
               type="number"
               {...register("research_nop_scopus", {
                 maxLength: 15,
@@ -220,7 +220,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Total"
-              value={props?.data?.research_nop_three_total}
+              defaultValue={props?.data?.research_nop_three_total}
               type="number"
               {...register("research_nop_three_total", {
                 maxLength: 15,
@@ -243,7 +243,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="As per UGC Care List"
-              value={props?.data?.research_nop_three_ugc_care_list}
+              defaultValue={props?.data?.research_nop_three_ugc_care_list}
               type="number"
               {...register("research_nop_three_ugc_care_list", {
                 maxLength: 15,
@@ -262,7 +262,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="SCI"
-              value={props?.data?.research_nop_three_sci}
+              defaultValue={props?.data?.research_nop_three_sci}
               type="number"
               {...register("research_nop_three_sci", {
                 maxLength: 15,
@@ -284,7 +284,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Web of Science"
-              value={props?.data?.research_nop_three_web_science}
+              defaultValue={props?.data?.research_nop_three_web_science}
               type="number"
               {...register("research_nop_three_web_science", {
                 maxLength: 15,
@@ -308,7 +308,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="Google Scholar"
               type="number"
-              value={props?.data?.research_nop_three_google_scholar}
+              defaultValue={props?.data?.research_nop_three_google_scholar}
               {...register("research_nop_three_google_scholar", {
                 maxLength: 15,
               })}
@@ -326,7 +326,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Scopus"
-              value={props?.data?.research_nop_three_scopus}
+              defaultValue={props?.data?.research_nop_three_scopus}
               type="number"
               {...register("research_nop_three_scopus", {
                 maxLength: 15,
@@ -349,7 +349,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Number of citations (in last three years)"
-              value={props?.data?.research_number_citations}
+              defaultValue={props?.data?.research_number_citations}
               type="number"
               {...register("research_number_citations", {
                 maxLength: 15,
@@ -380,7 +380,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="Number of citations (in last three years)"
               type="number"
-              value={props?.data?.research_completed_funded_projects}
+              defaultValue={props?.data?.research_completed_funded_projects}
               {...register("research_completed_funded_projects", {
                 maxLength: 15,
               })}
@@ -402,7 +402,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="Number of citations (in last three years)"
               type="number"
-              value={props?.data?.research_amount_completed_funded_projects}
+              defaultValue={props?.data?.research_amount_completed_funded_projects}
               {...register("research_amount_completed_funded_projects", {
                 maxLength: 15,
               })}
@@ -427,7 +427,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="Number of citations (in last three years)"
               type="number"
-              value={props?.data?.research_ongoing_funded_projects}
+              defaultValue={props?.data?.research_ongoing_funded_projects}
               {...register("research_ongoing_funded_projects", {
                 maxLength: 15,
               })}
@@ -449,7 +449,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="Number of citations (in last three years)"
               type="number"
-              value={props?.data?.research_ongoing_funded_projects}
+              defaultValue={props?.data?.research_ongoing_funded_projects}
               {...register("research_amount_ongoing_funded_projects", {
                 maxLength: 15,
               })}
@@ -477,7 +477,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Total"
-              value={props?.data?.research_presented_total}
+              defaultValue={props?.data?.research_presented_total}
               type="number"
               {...register("research_presented_total", {
                 maxLength: 15,
@@ -496,7 +496,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="National"
-              value={props?.data?.research_presented_national}
+              defaultValue={props?.data?.research_presented_national}
               type="number"
               {...register("research_presented_national", {
                 maxLength: 15,
@@ -519,7 +519,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="International"
-              value={props?.data?.research_presented_international}
+              defaultValue={props?.data?.research_presented_international}
               type="number"
               {...register("research_presented_international", {
                 maxLength: 15,
@@ -542,7 +542,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="Total"
-              value={props?.data?.research_attended_total}
+              defaultValue={props?.data?.research_attended_total}
               type="number"
               {...register("research_attended_total", {
                 maxLength: 15,
@@ -562,7 +562,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="National"
               type="number"
-              value={props?.data?.research_attended_national}
+              defaultValue={props?.data?.research_attended_national}
               {...register("research_attended_national", {
                 maxLength: 15,
               })}
@@ -584,7 +584,7 @@ const PartSevenDetails = (props) => {
             <Form.Control
               size="sm"
               placeholder="International"
-              value={props?.data?.research_attended_international}
+              defaultValue={props?.data?.research_attended_international}
               type="number"
               {...register("research_attended_international", {
                 maxLength: 15,
@@ -608,7 +608,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="Total"
               type="number"
-              value={props?.data?.research_organized_total}
+              defaultValue={props?.data?.research_organized_total}
               {...register("research_organized_total", {
                 maxLength: 15,
               })}
@@ -627,7 +627,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="National"
               type="number"
-              value={props?.data?.research_organized_national}
+              defaultValue={props?.data?.research_organized_national}
               {...register("research_organized_national", {
                 maxLength: 15,
               })}
@@ -651,7 +651,7 @@ const PartSevenDetails = (props) => {
               size="sm"
               placeholder="International"
               type="number"
-              value={props?.data?.research_organized_international}
+              defaultValue={props?.data?.research_organized_international}
               {...register("research_organized_international", {
                 maxLength: 15,
               })}
@@ -686,7 +686,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="M Phil. Equivalent (No.)"
                 type="number"
-                value={
+                defaultValue={
                   props?.data?.research_guidance_completed_independent_mphil
                 }
                 {...register("research_guidance_completed_independent_mphil", {
@@ -711,7 +711,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="PhD Equivalent (No.)"
                 type="number"
-                value={props?.data?.research_guidance_completed_independent_phd}
+                defaultValue={props?.data?.research_guidance_completed_independent_phd}
                 {...register("research_guidance_completed_independent_phd", {
                   maxLength: 15,
                 })}
@@ -736,7 +736,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="M Phil. Equivalent (No.)"
                 type="number"
-                value={
+                defaultValue={
                   props?.data?.research_guidance_completed_supervisor_mphil
                 }
                 {...register("research_guidance_completed_supervisor_mphil", {
@@ -761,7 +761,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="PhD Equivalent (No.)"
                 type="number"
-                value={props?.data?.research_guidance_completed_supervisor_phd}
+                defaultValue={props?.data?.research_guidance_completed_supervisor_phd}
                 {...register("research_guidance_completed_supervisor_phd", {
                   maxLength: 15,
                 })}
@@ -790,7 +790,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="M Phil. Equivalent (No.)"
                 type="number"
-                value={
+                defaultValue={
                   props?.data?.research_guidance_supervision_independent_mphil
                 }
                 {...register(
@@ -818,7 +818,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="PhD Equivalent (No.)"
                 type="number"
-                value={
+                defaultValue={
                   props?.data?.research_guidance_supervision_independent_phd
                 }
                 {...register("research_guidance_supervision_independent_phd", {
@@ -845,7 +845,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="M Phil. Equivalent (No.)"
                 type="number"
-                value={
+                defaultValue={
                   props?.data?.research_guidance_supervision_supervisor_mphil
                 }
                 {...register("research_guidance_supervision_supervisor_mphil", {
@@ -870,7 +870,7 @@ const PartSevenDetails = (props) => {
                 size="sm"
                 placeholder="PhD Equivalent (No.)"
                 type="number"
-                value={
+                defaultValue={
                   props?.data?.research_guidance_supervision_supervisor_phd
                 }
                 {...register("research_guidance_supervision_supervisor_phd", {

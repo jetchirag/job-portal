@@ -275,6 +275,22 @@ const PartTwo = () => {
               })}
             </Form.Select>
           </Form.Group>
+          <Form.Group as={Col} md="2" controlId="address">
+            <Form.Label>
+              Address<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+            as={"textarea"}
+              isInvalid={errors.cr_address}
+              size="sm"
+              placeholder="Full Address"
+              type="text"
+              {...register("cr_address", {
+                required: true,
+              
+              })}
+            />
+          </Form.Group>
         </Row>
         <hr />
         <p>
@@ -310,7 +326,7 @@ const PartTwo = () => {
             <Form.Select
               isInvalid={errors.native_state}
               size="sm"
-              {...register("native_states", {
+              {...register("native_state", {
                 required: true,
               })}
               onChange={ntcityhandler}
@@ -343,6 +359,22 @@ const PartTwo = () => {
                 return <option value={element.iso2}>{element.name}</option>;
               })}
             </Form.Select>
+          </Form.Group>
+          <Form.Group as={Col} md="2" controlId="address">
+            <Form.Label>
+              Address<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Control
+            as={"textarea"}
+              isInvalid={errors.native_address}
+              size="sm"
+              placeholder="Full Address"
+              type="text"
+              {...register("native_address", {
+                required: true,
+              
+              })}
+            />
           </Form.Group>
         </Row>
         <hr />

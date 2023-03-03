@@ -60,7 +60,7 @@ const PartNineTenDetails = (props) => {
                       as="textarea"
                       rows={1}
                       disabled={part9}
-                      value={item.patentDetail}
+                      defaultValue={item.patentDetail}
                       {...register("patent_details", {
                         maxLength: 500,
                       })}
@@ -77,7 +77,7 @@ const PartNineTenDetails = (props) => {
                       size="sm"
                       type="text"
                       rows={3}
-                      value={item.year}
+                      defaultValue={item.year}
                       disabled={part9}
                       {...register("patent_year", {
                         maxLength: 500,

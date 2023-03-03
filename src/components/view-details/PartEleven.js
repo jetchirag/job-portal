@@ -43,7 +43,7 @@ const PartElevenDetails = (props) => {
                           type="text"
                           rows={3}
                           disabled={part11}
-                          value={item.awards}
+                          defaultValue={item.awards}
                           {...register("peerRecognition_awards", {
                             maxLength: 500,
                           })}
@@ -60,7 +60,7 @@ const PartElevenDetails = (props) => {
                           type="text"
                           rows={3}
                           disabled={part11}
-                          value={item.agency}
+                          defaultValue={item.agency}
                           {...register("peerRecognition_agency", {
                             maxLength: 500,
                           })}
@@ -77,7 +77,7 @@ const PartElevenDetails = (props) => {
                           type="text"
                           rows={3}
                           disabled={part11}
-                          value={item.year}
+                          defaultValue={item.year}
                           {...register("peerRecognition_year", {
                             maxLength: 500,
                           })}
