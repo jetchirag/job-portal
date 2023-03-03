@@ -271,6 +271,7 @@ const PartThree = () => {
               size='sm'
               placeholder='Aggregate Percentage'
               type='number'
+              step=".01"
               {...register('secondary_percentage', {
                 required: true,
                 minValue: 0,
@@ -344,7 +345,7 @@ const PartThree = () => {
               size='sm'
               placeholder='School Name'
               type='text'
-              {...register('school', {
+              {...register('higher_secondary_school', {
                 required: true,
                 maxLength: 50,
               })}
@@ -441,6 +442,7 @@ const PartThree = () => {
               size='sm'
               placeholder='Aggregate Percentage'
               type='number'
+              step=".01"
               {...register('higher_secondary_percentage', {
                 required: true,
                 minValue: 0,
@@ -669,6 +671,7 @@ const PartThree = () => {
                     size='sm'
                     placeholder='Aggregate Percentage'
                     type='number'
+                    step=".01"
                     {...register('graduation_percentage', {
                       required: true,
                       minValue: 0,
@@ -682,7 +685,7 @@ const PartThree = () => {
         })}
         <button
           type='button'
-          disabled
+          
           onClick={addGrad}
           className='btn btn-outline-success'
         >
@@ -690,7 +693,7 @@ const PartThree = () => {
         </button>{' '}
         <button
           type='button'
-          disabled
+          
           onClick={removeGrad}
           className='btn btn-outline-danger'
         >
@@ -922,6 +925,7 @@ const PartThree = () => {
                     size='sm'
                     placeholder='Aggregate Percentage'
                     type='number'
+                    step=".01"
                     {...register('post_graduation_percentage', {
                       required: true,
                       minValue: 0,
@@ -935,7 +939,7 @@ const PartThree = () => {
         })}
         <button
           type='button'
-          disabled
+          
           onClick={addPostGrad}
           className='btn btn-outline-success'
         >
@@ -943,7 +947,7 @@ const PartThree = () => {
         </button>{' '}
         <button
           type='button'
-          disabled
+          
           onClick={removePostGrad}
           className='btn btn-outline-danger'
         >
@@ -1126,7 +1130,7 @@ const PartThree = () => {
         })}
         <button
           type='button'
-          disabled
+          
           onClick={addPhD}
           className='btn btn-outline-success'
         >
@@ -1134,7 +1138,7 @@ const PartThree = () => {
         </button>{' '}
         <button
           type='button'
-          disabled
+          
           onClick={removePhD}
           className='btn btn-outline-danger'
         >
@@ -1280,6 +1284,7 @@ const PartThree = () => {
                     disabled={mphilVal}
                     placeholder='Aggregate Percentage'
                     type='number'
+                    step=".01"
                     {...register('mphil_percentage', {
                       required: true,
                       minValue: 0,
@@ -1294,7 +1299,7 @@ const PartThree = () => {
           <>
             <button
               type='button'
-              disabled
+              
               onClick={addMPhill}
               className='btn btn-outline-success'
             >
@@ -1302,7 +1307,7 @@ const PartThree = () => {
             </button>{' '}
             <button
               type='button'
-              disabled
+              
               onClick={removeMPHill}
               className='btn btn-outline-danger'
             >
@@ -1479,6 +1484,7 @@ const PartThree = () => {
                     disabled={pdocVal}
                     placeholder='Aggregate Percentage'
                     type='number'
+                    step=".01"
                     isInvalid={errors.post_doctoral_percentage}
                     {...register('post_doctoral_percentage', {
                       required: true,
@@ -1493,7 +1499,7 @@ const PartThree = () => {
         {!pdocVal && (
           <>
             <button
-              disabled
+              
               type='button'
               onClick={addPDoctoral}
               className='btn btn-outline-success'
@@ -1501,7 +1507,7 @@ const PartThree = () => {
               Add New
             </button>{' '}
             <button
-              disabled
+              
               type='button'
               onClick={removePostDoc}
               className='btn btn-outline-danger'

@@ -104,7 +104,7 @@ const PartSix = () => {
         <button
           type='button'
           onClick={addFellowship}
-          disabled
+          
           className='btn btn-outline-success'
         >
 
@@ -113,7 +113,7 @@ const PartSix = () => {
         <button
 
           type='button'
-          disabled
+          
           onClick={removeFellowship}
           className='btn btn-outline-danger'
 

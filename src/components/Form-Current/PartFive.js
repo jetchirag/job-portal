@@ -203,7 +203,7 @@ const PartFive = () => {
         })}
         <button
           type='button'
-          disabled
+          
           onClick={addAcad}
           className='btn btn-outline-success'
         >
@@ -211,7 +211,7 @@ const PartFive = () => {
         </button>{' '}
         <button
           type='button'
-          disabled
+          
           onClick={removeAcad}
           className='btn btn-outline-danger'
         >
@@ -350,7 +350,7 @@ const PartFive = () => {
         <button
           type='button'
           onClick={addNonAcad}
-          disabled
+          
           className='btn btn-outline-success'
         >
           Add New
@@ -358,7 +358,7 @@ const PartFive = () => {
         <button
           type='button'
           onClick={removeNonAcad}
-          disabled
+          
           className='btn btn-outline-danger'
         >
           Remove Last

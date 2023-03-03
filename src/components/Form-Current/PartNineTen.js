@@ -117,7 +117,7 @@ const PartNineTen = () => {
               <button
                 type='button'
                 onClick={addPatent}
-                disabled
+                
                 className='btn btn-outline-success'
               >
                 Add New
@@ -125,7 +125,7 @@ const PartNineTen = () => {
               <button
                 type='button'
                 onClick={removePatent}
-                disabled
+                
                 className='btn btn-outline-danger'
               >
                 Remove Last

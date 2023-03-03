@@ -224,6 +224,7 @@ const PartThreeDetails = (props) => {
               size="sm"
               placeholder="Aggregate Percentage"
               type="number"
+              step=".01"
               {...register("percentage", {
                 required: true,
                 minValue: 0,
@@ -456,6 +457,7 @@ const PartThreeDetails = (props) => {
                     size="sm"
                     placeholder="Aggregate Percentage"
                     type="number"
+                    step=".01"
                     {...register("graduation_percentage", {
                       required: true,
                       minValue: 0,
@@ -705,6 +707,7 @@ const PartThreeDetails = (props) => {
                     value={item.percentage}
                     placeholder="Aggregate Percentage"
                     type="number"
+                    step=".01"
                     {...register("post_graduation_percentage", {
                       required: true,
                       minValue: 0,
@@ -1037,6 +1040,7 @@ const PartThreeDetails = (props) => {
                     value={item.percentage}
                     placeholder="Aggregate Percentage"
                     type="number"
+                    step=".01"
                     {...register("mphil_percentage", {
                       required: true,
                       minValue: 0,
@@ -1235,6 +1239,7 @@ const PartThreeDetails = (props) => {
                     placeholder="Aggregate Percentage"
                     value={item.percentage}
                     type="number"
+                    step=".01"
                     isInvalid={errors.post_doctoral_percentage}
                     {...register("post_doctoral_percentage", {
                       required: true,

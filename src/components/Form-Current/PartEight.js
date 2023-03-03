@@ -106,7 +106,7 @@ const PartEight = () => {
             })}
             <button
               type='button'
-              disabled
+              
               onClick={addAuthor}
               className='btn btn-outline-success'
             >
@@ -114,7 +114,7 @@ const PartEight = () => {
             </button>{' '}
             <button
               type='button'
-              disabled
+              
               onClick={removeAuthor}
               className='btn btn-outline-danger'
             >
