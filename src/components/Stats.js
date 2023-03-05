@@ -15,7 +15,7 @@ const Stats = () => {
       <div className='stats'>
         <div className='stat'>
           <h2>
-            <Number n={65} />+ <span className='special-count'>years</span>
+            <Number n={68} />+ <span className='special-count'>years</span>
           </h2>
           <p>Educational excellence</p>
         </div>

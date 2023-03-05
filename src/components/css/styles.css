@@ -557,3 +557,7 @@ img {
     width: 95vw;
   }
 }
+.input-group-text,
+.small {
+  height: 31px;
+}

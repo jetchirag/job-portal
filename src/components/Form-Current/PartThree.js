@@ -53,7 +53,7 @@ const PartThree = () => {
   const [years, setYears] = useState([]);
   useEffect(() => {
     let c = [];
-    for (let i = 1990; i < 2010; i++) {
+    for (let i = 1975; i <= 2023; i++) {
       c = [...c, i];
     }
 
@@ -93,7 +93,7 @@ const PartThree = () => {
     const copyArr = [...phD];
     if (copyArr.length > 1) copyArr.splice(-1);
     else return;
-    setPhD(phD);
+    setPhD(copyArr);
   };
   const addPDoctoral = () => {
     setpDoctoral([...pDoctoral, 'set']);
@@ -114,17 +114,12 @@ const PartThree = () => {
           <b>Seconday / Class 10th</b>
         </p>
         <Row className='mb-3'>
-          <Form.Group
-            as={Col}
-            md='2'
-            controlId='aq_secondary_country'
-            size='sm'
-          >
-            {/* Academic Qualification Seconday Country  */}
+          {/* Country Details */}
+
+          <Form.Group as={Col} md='2' controlId='aq_secondary_country'>
             <Form.Label>
               Country<span style={{ color: 'red' }}> *</span>
             </Form.Label>
-
             <Form.Select
               isInvalid={errors.aq_secondary_country}
               size='sm'
@@ -140,6 +135,7 @@ const PartThree = () => {
               })}
             </Form.Select>
           </Form.Group>
+
           {/* Academic Qulalification Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
           <Form.Group as={Col} md='2' controlId='secondary_mode'>
@@ -227,7 +223,7 @@ const PartThree = () => {
               <option selected='' disabled='' value=''>
                 Choose...
               </option>
-          
+
               {years.map((year) => {
                 return <option value={year}>{year}</option>;
               })}
@@ -263,7 +259,7 @@ const PartThree = () => {
               size='sm'
               placeholder='Aggregate Percentage'
               type='number'
-              step=".01"
+              step='.01'
               {...register('secondary_percentage', {
                 required: true,
                 minValue: 0,
@@ -396,7 +392,7 @@ const PartThree = () => {
               <option selected='' disabled='' value=''>
                 Choose...
               </option>
-    
+
               {years.map((year) => {
                 return <option value={year}>{year}</option>;
               })}
@@ -434,7 +430,7 @@ const PartThree = () => {
               size='sm'
               placeholder='Aggregate Percentage'
               type='number'
-              step=".01"
+              step='.01'
               {...register('higher_secondary_percentage', {
                 required: true,
                 minValue: 0,
@@ -663,7 +659,7 @@ const PartThree = () => {
                     size='sm'
                     placeholder='Aggregate Percentage'
                     type='number'
-                    step=".01"
+                    step='.01'
                     {...register('graduation_percentage', {
                       required: true,
                       minValue: 0,
@@ -677,7 +673,6 @@ const PartThree = () => {
         })}
         <button
           type='button'
-          
           onClick={addGrad}
           className='btn btn-outline-success'
         >
@@ -685,7 +680,6 @@ const PartThree = () => {
         </button>{' '}
         <button
           type='button'
-          
           onClick={removeGrad}
           className='btn btn-outline-danger'
         >
@@ -763,6 +757,7 @@ const PartThree = () => {
                   <Form.Control
                     isInvalid={errors.post_graduation_institute}
                     placeholder='University/Institute Name'
+                    className='small'
                     type='text'
                     {...register('post_graduation_institute', {
                       required: true,
@@ -917,7 +912,7 @@ const PartThree = () => {
                     size='sm'
                     placeholder='Aggregate Percentage'
                     type='number'
-                    step=".01"
+                    step='.01'
                     {...register('post_graduation_percentage', {
                       required: true,
                       minValue: 0,
@@ -931,7 +926,6 @@ const PartThree = () => {
         })}
         <button
           type='button'
-          
           onClick={addPostGrad}
           className='btn btn-outline-success'
         >
@@ -939,7 +933,6 @@ const PartThree = () => {
         </button>{' '}
         <button
           type='button'
-          
           onClick={removePostGrad}
           className='btn btn-outline-danger'
         >
@@ -1122,7 +1115,6 @@ const PartThree = () => {
         })}
         <button
           type='button'
-          
           onClick={addPhD}
           className='btn btn-outline-success'
         >
@@ -1130,7 +1122,6 @@ const PartThree = () => {
         </button>{' '}
         <button
           type='button'
-          
           onClick={removePhD}
           className='btn btn-outline-danger'
         >
@@ -1276,7 +1267,7 @@ const PartThree = () => {
                     disabled={mphilVal}
                     placeholder='Aggregate Percentage'
                     type='number'
-                    step=".01"
+                    step='.01'
                     {...register('mphil_percentage', {
                       required: true,
                       minValue: 0,
@@ -1291,7 +1282,6 @@ const PartThree = () => {
           <>
             <button
               type='button'
-              
               onClick={addMPhill}
               className='btn btn-outline-success'
             >
@@ -1299,7 +1289,6 @@ const PartThree = () => {
             </button>{' '}
             <button
               type='button'
-              
               onClick={removeMPHill}
               className='btn btn-outline-danger'
             >
@@ -1406,19 +1395,25 @@ const PartThree = () => {
                   />
                 </Form.Group>
                 {/* Graduation Year  */}
+
                 <Form.Group as={Col} md='2' controlId='post_doctoral_year'>
-                  <Form.Label>Year</Form.Label>
-                  <Form.Control
-                    disabled={pdocVal}
-                    placeholder='Graduation Year'
-                    type='number'
+                  <Form.Label>
+                    Graduation Year<span style={{ color: 'red' }}> *</span>
+                  </Form.Label>
+                  <Form.Select
                     isInvalid={errors.post_doctoral_year}
+                    size='sm'
                     {...register('post_doctoral_year', {
-                      required: true,
-                      maxLength: 4,
-                      minLength: 4,
+                      required: 'Please select graduation year',
                     })}
-                  />
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {years.map((year) => {
+                      return <option value={year}>{year}</option>;
+                    })}
+                  </Form.Select>
                 </Form.Group>
                 {/* Area Details  */}
 
@@ -1476,7 +1471,7 @@ const PartThree = () => {
                     disabled={pdocVal}
                     placeholder='Aggregate Percentage'
                     type='number'
-                    step=".01"
+                    step='.01'
                     isInvalid={errors.post_doctoral_percentage}
                     {...register('post_doctoral_percentage', {
                       required: true,
@@ -1491,7 +1486,6 @@ const PartThree = () => {
         {!pdocVal && (
           <>
             <button
-              
               type='button'
               onClick={addPDoctoral}
               className='btn btn-outline-success'
@@ -1499,7 +1493,6 @@ const PartThree = () => {
               Add New
             </button>{' '}
             <button
-              
               type='button'
               onClick={removePostDoc}
               className='btn btn-outline-danger'
