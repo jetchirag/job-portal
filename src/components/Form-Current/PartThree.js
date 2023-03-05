@@ -117,9 +117,7 @@ const PartThree = () => {
           {/* Country Details */}
 
           <Form.Group as={Col} md='2' controlId='aq_secondary_country'>
-            <Form.Label>
-              Country<span style={{ color: 'red' }}> *</span>
-            </Form.Label>
+            <Form.Label>Country</Form.Label>
             <Form.Select
               isInvalid={errors.aq_secondary_country}
               size='sm'
@@ -135,7 +133,6 @@ const PartThree = () => {
               })}
             </Form.Select>
           </Form.Group>
-
           {/* Academic Qulalification Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
           <Form.Group as={Col} md='2' controlId='secondary_mode'>
@@ -273,16 +270,8 @@ const PartThree = () => {
           <b>Higher Seconday / Class 12th</b>
         </p>
         <Row className='mb-3'>
-          <Form.Group
-            as={Col}
-            md='2'
-            controlId='aq_higher_secondary_country'
-            size='sm'
-          >
-            {/* Academic Qualification Higher Seconday Country  */}
-            <Form.Label>
-              Country<span style={{ color: 'red' }}> *</span>
-            </Form.Label>
+          <Form.Group as={Col} md='2' controlId='aq_higher_secondary_country'>
+            <Form.Label>Country</Form.Label>
             <Form.Select
               isInvalid={errors.aq_higher_secondary_country}
               size='sm'
@@ -448,11 +437,7 @@ const PartThree = () => {
             <>
               <Row className='mb-3'>
                 <Form.Group as={Col} md='2' controlId='aq_graduation_country'>
-                  {/* Academic Qualification Graduate Country  */}
-                  <Form.Label>
-                    Country<span style={{ color: 'red' }}> *</span>
-                  </Form.Label>
-
+                  <Form.Label>Country</Form.Label>
                   <Form.Select
                     isInvalid={errors.aq_graduation_country}
                     size='sm'
@@ -696,17 +681,13 @@ const PartThree = () => {
                 <Form.Group
                   as={Col}
                   md='2'
-                  controlId='aq_post_graduate_country'
+                  controlId='aq_post_graduation_country'
                 >
-                  {/* Academic Qualification Post Graduate Country  */}
-                  <Form.Label>
-                    Country<span style={{ color: 'red' }}> *</span>
-                  </Form.Label>
-
+                  <Form.Label>Country</Form.Label>
                   <Form.Select
                     isInvalid={errors.aq_post_graduation_country}
                     size='sm'
-                    {...register('aq_post_graduation_country}', {
+                    {...register('aq_post_graduation_country', {
                       required: true,
                     })}
                   >
@@ -957,18 +938,15 @@ const PartThree = () => {
                     required: 'Please select your status',
                   })}
                 >
-                  <option value='' />
+                  <option value=''>Choose</option>
                   <option value='pursuing'>Pursuing</option>
-                  <option value='awarded'>awarded</option>
+                  <option value='awarded'>Awarded</option>
                   <option value='thesis-submitted'>Thesis Submitted</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group as={Col} md='2' controlId='aq_phd_country'>
-                {/* Academic Qualification PhD Country  */}
-                <Form.Label>
-                  Country<span style={{ color: 'red' }}> *</span>
-                </Form.Label>
 
+              <Form.Group as={Col} md='2' controlId='aq_phd_country'>
+                <Form.Label>Country</Form.Label>
                 <Form.Select
                   isInvalid={errors.aq_phd_country}
                   size='sm'
@@ -1141,9 +1119,7 @@ const PartThree = () => {
             return (
               <Row className='mb-3'>
                 <Form.Group as={Col} md='2' controlId='aq_mphil_country'>
-                  {/* Academic Qualification M Phil Country  */}
                   <Form.Label>Country</Form.Label>
-
                   <Form.Select
                     isInvalid={errors.aq_mphil_country}
                     size='sm'
@@ -1161,12 +1137,14 @@ const PartThree = () => {
                     })}
                   </Form.Select>
                 </Form.Group>
+
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md='2' controlId='mphil_mode'>
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
                     isInvalid={errors.mphil_mode}
                     disabled={mphilVal}
+                    className='small'
                     {...register('mphil_mode', {
                       required: 'Please select your mode of educatoin',
                     })}
@@ -1187,6 +1165,7 @@ const PartThree = () => {
                     disabled={mphilVal}
                     placeholder='University/Institute Name'
                     type='text'
+                    className='small'
                     {...register('mphil_institute', {
                       required: true,
                       maxLength: 100,
@@ -1200,6 +1179,7 @@ const PartThree = () => {
                     isInvalid={errors.mphil_college}
                     disabled={mphilVal}
                     placeholder='College Name'
+                    className='small'
                     type='text'
                     {...register('mphil_college', {
                       required: true,
@@ -1236,6 +1216,7 @@ const PartThree = () => {
                     isInvalid={errors.mphil_area}
                     disabled={mphilVal}
                     placeholder='Specialization'
+                    className='small'
                     type='text'
                     {...register('mphil_area', {
                       required: true,
@@ -1248,6 +1229,7 @@ const PartThree = () => {
                   <Form.Label>Division</Form.Label>
                   <Form.Select
                     isInvalid={errors.mphil_division}
+                    className='small'
                     disabled={mphilVal}
                     {...register('mphil_division', {
                       required: 'Please select your division',
@@ -1267,6 +1249,7 @@ const PartThree = () => {
                     disabled={mphilVal}
                     placeholder='Aggregate Percentage'
                     type='number'
+                    className='small'
                     step='.01'
                     {...register('mphil_percentage', {
                       required: true,
@@ -1314,9 +1297,7 @@ const PartThree = () => {
                   md='2'
                   controlId='aq_post_doctoral_country'
                 >
-                  {/* Academic Qualification Post Doctoral Country  */}
                   <Form.Label>Country</Form.Label>
-
                   <Form.Select
                     isInvalid={errors.aq_post_doctoral_country}
                     size='sm'
