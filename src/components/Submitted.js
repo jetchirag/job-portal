@@ -13,7 +13,7 @@ const Submitted = ({ id, setID }) => {
         <p style={{ color: 'green' }}>Application Successfully Submitted</p>
         <p>Your application ID: {id.applyId}</p>
         <p style={{ fontSize: '20px' }}>
-          Go back to <a href='https://localhost:3000/'>homepage</a> or explore{' '}
+          Go back to <a href='https://manipaljaipurcareers.tech/'>homepage</a> or explore{' '}
           <a href='https://jaipur.mainpal.edu'>Manipal</a>
         </p>
       </div>

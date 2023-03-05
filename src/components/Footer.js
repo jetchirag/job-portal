@@ -70,7 +70,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="mb-2">
-                  <a href="http://ieeebreached.live/admin" className="text-dark">
+                  <a href="https://manipaljaipurcareers.tech/admin" className="text-dark">
                     Admin
                   </a>
                 </li>
