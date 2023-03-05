@@ -28,7 +28,7 @@ const Stats = () => {
         </div>
         <div className='stat'>
           <h2>
-            <Number n={100000} />+
+            <Number n={1000} />+
           </h2>
           <p>Applicant footprint </p>
         </div>
