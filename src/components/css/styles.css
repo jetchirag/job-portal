@@ -432,7 +432,7 @@ img {
   color: white;
 }
 .new-cl {
-  background-color: #fceebe;
+  background-color: white !important;
 }
 .accordion-button:not(.collapsed) {
   color: black;
@@ -512,4 +512,42 @@ img {
 }
 .stats {
   padding-bottom: 1rem;
+}
+@media screen and (max-width: 1200px) {
+  .stats {
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 1090px) {
+  .acc-div {
+    display: block;
+  }
+  .acc-div-div {
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+  .acc-div img {
+    width: 100%;
+  }
+}
+.sliding {
+  height: 24rem !important;
+}
+
+@media screen and (max-width: 1010px) {
+  .upperlayer h1 {
+    font-size: 3rem;
+    letter-spacing: 0;
+  }
+}
+.new-change img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top right;
+}
+@media screen and (max-width: 650px) {
+  .upperlayer {
+    width: 100%;
+  }
 }

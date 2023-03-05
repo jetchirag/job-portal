@@ -4,7 +4,7 @@
   background-color: antiquewhite;
 }
 .why-cards img {
-  height: 500px;
+  height: 400px;
   width: 100%;
   object-fit: cover;
   object-position: top;
@@ -15,4 +15,8 @@
 .card-container p {
   padding: 0.5rem;
   text-align: justify;
+}
+
+.why-cards {
+  margin: 0 auto;
 }

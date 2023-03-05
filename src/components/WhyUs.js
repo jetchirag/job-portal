@@ -7,7 +7,7 @@ const WhyUs = () => {
         <h2>Why work @ Manipal</h2>
         <div
           id='carouselExampleCaptions'
-          className='carousel slide'
+          className='carousel slide sliding'
           data-bs-ride='carousel'
         >
           <div className='carousel-inner'>
@@ -19,21 +19,21 @@ const WhyUs = () => {
                 Jaipur in 2011.
               </h3>
             </div>
-            <div className='carousel-item active'>
+            <div className='carousel-item active new-change'>
               <img
                 src='https://hammerhead-app-qmja6.ondigitalocean.app/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
-            <div className='carousel-item'>
+            <div className='carousel-item new-change'>
               <img
                 src='https://hammerhead-app-qmja6.ondigitalocean.app/image/whyus.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
-            <div className='carousel-item'>
+            <div className='carousel-item new-change'>
               <img
                 src='https://hammerhead-app-qmja6.ondigitalocean.app/image/whyus.jpg'
                 className='d-block w-100'
@@ -46,11 +46,11 @@ const WhyUs = () => {
       <div className='whyus'>
         <div
           id='carouselExampleCaptions'
-          className='carousel slide'
+          className='carousel slide sliding'
           data-bs-ride='carousel'
         >
           <div className='carousel-inner'>
-            <div className='upperlayer new-upper'>
+            <div className='upperlayer new-upper '>
               <h1>Jaipur.</h1>
               <h3>
                 Jaipur is the capital of India’s Rajasthan state. It evokes the
@@ -59,21 +59,21 @@ const WhyUs = () => {
                 trademark building color.
               </h3>
             </div>
-            <div className='carousel-item active'>
+            <div className='carousel-item active new-change'>
               <img
                 src='https://hammerhead-app-qmja6.ondigitalocean.app/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
-            <div className='carousel-item'>
+            <div className='carousel-item new-change'>
               <img
                 src='https://hammerhead-app-qmja6.ondigitalocean.app/image/jaipur.jpg'
                 className='d-block w-100'
                 alt='...'
               />
             </div>
-            <div className='carousel-item'>
+            <div className='carousel-item new-change'>
               <img
                 src='https://hammerhead-app-qmja6.ondigitalocean.app/image/jaipur.jpg'
                 className='d-block w-100'

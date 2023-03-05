@@ -45,8 +45,8 @@ const JobCard = () => {
                 <p>
                   <b>Positions Available: 2</b>
                 </p>
-                <a href='/testing' className='acc-btn'>
-                  <button className='btn btn-primary'>Apply Now</button>
+                <a href='/apply' className='acc-btn'>
+                  <button className='btn btn-outline-primary'>Apply Now</button>
                 </a>
               </div>
             </div>

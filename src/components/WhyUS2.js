@@ -4,28 +4,28 @@ import './css/carousel.css';
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
+    breakpoint: { max: 4000, min: 1200 },
     items: 4,
   },
+  desktop: {
+    breakpoint: { max: 1200, min: 1000 },
+    items: 3,
+  },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 1000, min: 600 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 600, min: 0 },
     items: 1,
   },
 };
 const WhyUS2 = () => {
   const cardStyle = {
-    width: "18rem",
-    height: "auto",
-    marginBottom: "3rem"
-  }
+    width: '18rem',
+    height: 'auto',
+    marginBottom: '3rem',
+  };
   return (
     <Carousel
       swipeable={true}
@@ -34,9 +34,12 @@ const WhyUS2 = () => {
       responsive={responsive}
       infinite={true}
     >
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/19.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/1.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -45,9 +48,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/12.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/2.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -56,9 +62,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/14.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/3.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -67,9 +76,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/15.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/4.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -78,9 +90,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/17.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/6.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -89,9 +104,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/18.png' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/7.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -100,9 +118,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/20.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/8.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -111,9 +132,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/21.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/9.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -122,9 +146,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/22.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/10.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -133,9 +160,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/23.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/12.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -144,9 +174,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/7.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/14.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -154,31 +187,12 @@ const WhyUS2 = () => {
           </p>
         </div> */}
       </div>
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/8.jpg' alt='' />
-        </div>
-        {/* <div className='card-container'>
-          <p>
-            
-          </p>
-        </div> */}
-      </div>
-
-      <div className='card why-cards' style={cardStyle} >
-        <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/9.jpg' alt='' />
-        </div>
-        {/* <div className='card-container'>
-          <p>
-            
-          </p>
-        </div> */}
-      </div>
-
-      <div className='card why-cards' style={cardStyle} >
-        <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/10.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/15.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -187,9 +201,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/1.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/16.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -198,9 +215,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/2.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/17.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -209,9 +229,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/3.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/18.png'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -220,9 +243,12 @@ const WhyUS2 = () => {
         </div> */}
       </div>
 
-      <div className='card why-cards' style={cardStyle} >
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/4.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/19.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
@@ -230,9 +256,53 @@ const WhyUS2 = () => {
           </p>
         </div> */}
       </div>
-      <div className='card why-cards' style={cardStyle} >
+
+      <div className='card why-cards' style={cardStyle}>
         <div className='card-img'>
-          <img src='https://mujbioscope.in/assets/collage/6.jpg' alt='' />
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/20.jpg'
+            alt=''
+          />
+        </div>
+        {/* <div className='card-container'>
+          <p>
+            
+          </p>
+        </div> */}
+      </div>
+
+      <div className='card why-cards' style={cardStyle}>
+        <div className='card-img'>
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/21.jpg'
+            alt=''
+          />
+        </div>
+        {/* <div className='card-container'>
+          <p>
+            
+          </p>
+        </div> */}
+      </div>
+      <div className='card why-cards' style={cardStyle}>
+        <div className='card-img'>
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/22.jpg'
+            alt=''
+          />
+        </div>
+        {/* <div className='card-container'>
+          <p>
+            
+          </p>
+        </div> */}
+      </div>
+      <div className='card why-cards' style={cardStyle}>
+        <div className='card-img'>
+          <img
+            src='https://hammerhead-app-qmja6.ondigitalocean.app/image/23.jpg'
+            alt=''
+          />
         </div>
         {/* <div className='card-container'>
           <p>
