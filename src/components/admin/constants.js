@@ -10,7 +10,7 @@ module.exports = global.config = {
     { value: "", label: "Any" },
     { value: "draft", label: "Draft" },
     { value: "submitted", label: "Submitted" },
-    { value: "approved", label: "Approved" },
+    { value: "accepted", label: "Accepted" },
     { value: "rejected", label: "Rejected" },
   ],
   // departmentOptions: [
@@ -43,7 +43,7 @@ module.exports = global.config = {
   statusColor: {
     draft: "#ced4da",
     submitted: "#FFA500",
-    Accepted: "#20c997",
+    accepted: "#20c997",
     rejected: "#FF0000",
   },
 
