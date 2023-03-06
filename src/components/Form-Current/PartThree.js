@@ -1071,22 +1071,25 @@ const PartThree = () => {
                 </Form.Select>
               </Form.Group>
               {/* Anticipated Completion Year  */}
-              <Form.Group as={Col} md='2' controlId='phd_anti_completion_year'>
+
+              <Form.Group as={Col} md='2' controlId='phd_anti_completion_yearr'>
                 <Form.Label>
-                  Anticipated Completion Year
-                  <span style={{ color: 'red' }}> *</span>
+                  Completion Year<span style={{ color: 'red' }}> *</span>
                 </Form.Label>
-                <Form.Control
+                <Form.Select
                   isInvalid={errors.phd_anti_completion_year}
                   size='sm'
-                  placeholder='Anticipated Completion Year'
-                  type='number'
                   {...register('phd_anti_completion_year', {
-                    required: true,
-                    maxLength: 4,
-                    minLength: 4,
+                    required: 'Please select anticipated completion year',
                   })}
-                />
+                >
+                  <option selected='' disabled='' value=''>
+                    Choose...
+                  </option>
+                  {years.map((year) => {
+                    return <option value={year}>{year}</option>;
+                  })}
+                </Form.Select>
               </Form.Group>
             </Row>
           );
@@ -1301,6 +1304,7 @@ const PartThree = () => {
                   <Form.Select
                     isInvalid={errors.aq_post_doctoral_country}
                     size='sm'
+                    className='small'
                     {...register('aq_post_doctoral_country', {
                       required: true,
                     })}
@@ -1319,6 +1323,7 @@ const PartThree = () => {
                 <Form.Group as={Col} md='2' controlId='post_doctoral_mode'>
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
+                    className='small'
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_mode}
                     {...register('post_doctoral_mode', {
@@ -1352,6 +1357,7 @@ const PartThree = () => {
                   <Form.Label>University / Institute</Form.Label>
                   <Form.Control
                     disabled={pdocVal}
+                    className='small'
                     isInvalid={errors.post_doctoral_institute}
                     placeholder='University/Institute Name'
                     type='text'
@@ -1368,6 +1374,7 @@ const PartThree = () => {
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_college}
                     placeholder='College Name'
+                    className='small'
                     type='text'
                     {...register('post_doctoral_college', {
                       required: true,
@@ -1403,6 +1410,7 @@ const PartThree = () => {
                   <Form.Control
                     disabled={pdocVal}
                     placeholder='Specialization'
+                    className='small'
                     type='text'
                     isInvalid={errors.post_doctoral_area}
                     {...register('post_doctoral_area', {
@@ -1418,6 +1426,7 @@ const PartThree = () => {
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_course}
                     placeholder='Course Name'
+                    className='small'
                     type='text'
                     {...register('post_doctoral_course', {
                       required: true,
@@ -1430,6 +1439,7 @@ const PartThree = () => {
                   <Form.Label>Division</Form.Label>
                   <Form.Select
                     disabled={pdocVal}
+                    className='small'
                     isInvalid={errors.post_doctoral_division}
                     {...register('post_doctoral_division', {
                       required: 'Please select your division',
@@ -1452,6 +1462,7 @@ const PartThree = () => {
                     disabled={pdocVal}
                     placeholder='Aggregate Percentage'
                     type='number'
+                    className='small'
                     step='.01'
                     isInvalid={errors.post_doctoral_percentage}
                     {...register('post_doctoral_percentage', {
