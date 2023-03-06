@@ -561,3 +561,11 @@ img {
 .small {
   height: 31px;
 }
+.tableDiv {
+  overflow-x: scroll;
+}
+@media screen and (max-width: 860px) {
+  .tableDiv {
+    justify-content: flex-start !important;
+  }
+}
