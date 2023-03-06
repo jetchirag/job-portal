@@ -33,6 +33,7 @@ const FormComponent = ({ id, setId }) => {
   //   useState('');
 
   const [part9, setPart9] = useState(true);
+  const [loading, setLoading] = useState(true);
   const handlePart9 = () => {
     setPart9(!part9);
   };
@@ -256,13 +257,17 @@ const FormComponent = ({ id, setId }) => {
     data['peerRecognition'] = peerRecognition;
     // console.log(data);
     try {
-      const response = await fetch('https://hammerhead-app-qmja6.ondigitalocean.app/applications', {
-        body: JSON.stringify(data),
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      alert('Uploading');
+      const response = await fetch(
+        'https://hammerhead-app-qmja6.ondigitalocean.app/applications',
+        {
+          body: JSON.stringify(data),
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
       // console.log(response);
       setId(
         response.url.substring(
