@@ -49,7 +49,7 @@ const Carousel = () => {
         </div> */}
         <div className="upperlayer-car">
           <h3 className="text-center">
-            {/* <b>Careers @ MU-Jaipur</b> */}
+            <b>Careers @ MUJ</b>
           </h3>
         </div>
         <div className='carousel-item active'>

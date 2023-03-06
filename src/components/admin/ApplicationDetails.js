@@ -135,7 +135,7 @@ const ApplicationsDetails = () => {
         handleClose={handleClose}
         show={Reject}
         title="Application Rejected ❌"
-        body="This application status is marked rejectex"
+        body="This application status is marked rejected"
       />
       <Modal
         handleClose={handleClose}

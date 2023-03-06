@@ -21,14 +21,14 @@ const Stats = () => {
         </div>
         <div className='stat'>
           <h2>
-            <Number n={3000} />+
+            <Number n={550} />+
             <br />
           </h2>
           <p>Expert faculty</p>
         </div>
         <div className='stat'>
           <h2>
-            <Number n={1000} />+
+            <Number n={10000} />+
           </h2>
           <p>Applicant footprint </p>
         </div>
