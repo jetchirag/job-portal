@@ -88,9 +88,9 @@ const PartSixDetails = (props) => {
               {/* Fellowship Status Details  */}
               <Form.Group as={Col} md="2" controlId="fellowship_status">
                 <Form.Label>Fellowship Status</Form.Label>
-                <Form.Select {...register("fellowship_status", {})} value={item.fellowshipStatus}>
+                <Form.Select {...register("fellowship_status", {})}>
                   <option value="">
-                    Choose...
+                    Selected: {item.fellowshipStatus}
                   </option>
                   <option value="ongoing">Ongoing</option>
                   <option value="completed">Completed</option>

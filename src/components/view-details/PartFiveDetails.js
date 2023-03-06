@@ -73,14 +73,14 @@ const PartFiveDetails = (props) => {
               <Form.Group as={Col} md="2" controlId="academicExperience_mode">
                 <Form.Label>Nature of Job</Form.Label>
                 <Form.Select
-                  value={item.natureOfJob}
+     
                   size="sm"
                   {...register("academicExperience_mode", {
                     // required: "Please select the nature of your job",
                   })}
                 >
                   <option selected="" disabled="" value="">
-                    Choose...
+                    Selected: {item.natureOfJob}
                   </option>
                   <option value="regular">Regular</option>
                   <option value="part-time">Part-Time</option>
@@ -105,10 +105,10 @@ const PartFiveDetails = (props) => {
                   {...register("academicExperience_country", {
                     required: true,
                   })}
-                  value={item.country}
+
                 >
                   <option selected="" disabled="" value="">
-                    Choose..
+                  Selected: {item.country}
                   </option>
                   {countries?.map((element) => {
                     return <option value={element.iso2}>{element.name}</option>;
@@ -143,7 +143,7 @@ const PartFiveDetails = (props) => {
                 <Form.Control
                   size="sm"
                   placeholder="College Name"
-                  value={item.college}
+                  defaultValue={item.college}
                   type="text"
                   {...register("academicExperience_college", {
                     // required: true,
@@ -160,13 +160,13 @@ const PartFiveDetails = (props) => {
                 <Form.Label>Position</Form.Label>
                 <Form.Select
                   size="sm"
-                  value={item.position}
+   
                   {...register("academicExperience_position", {
                     // required: 'Please select the position you worked in',
                   })}
                 >
                   <option selected="" disabled="" value="">
-                    Choose...
+                    Selected: {item.position}
                   </option>
                   <option value="professor">Professor</option>
                   <option value="associate-professor">
@@ -203,7 +203,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="DD/MM/YYYY"
                   type="date"
-                  value={item.dataFrom}
+                  defaultValue={item.dataFrom}
                   {...register("academicExperience_datefrom")}
                 />
                 {errors.academicExperience_datefrom && (
@@ -253,13 +253,13 @@ const PartFiveDetails = (props) => {
                 <Form.Label>Nature of Job</Form.Label>
                 <Form.Select
                   size="sm"
-                  value={item.natureOfJob}
+          
                   {...register("nonAcademicExperience_mode", {
                     // required: 'Please select the nature of your job',
                   })}
                 >
                   <option selected="" disabled="" value="">
-                    Choose...
+                    Selected: {item.natureOfJob}
                   </option>
                   <option value="regular">Regular</option>
                   <option value="part-time">Part-Time</option>
@@ -278,10 +278,10 @@ const PartFiveDetails = (props) => {
                   {...register("nonAcademicExperience_country", {
                     required: true,
                   })}
-                  value={item.country}
+  
                 >
                   <option selected="" disabled="" value="">
-                   Choose...
+                   Selected: {item.country}
                   </option>
                   {countries?.map((element) => {
                     return <option value={element.iso2}>{element.name}</option>;
@@ -317,7 +317,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="Designation Name"
                   type="text"
-                  value={item.designation}
+                  defaultValue={item.designation}
                   {...register("nonAcademicExperience_designation", {
                     // required: true,
                     maxLength: 100,
@@ -353,7 +353,7 @@ const PartFiveDetails = (props) => {
                   size="sm"
                   placeholder="DD/MM/YYYY"
                   type="date"
-                  value={props?.data?.nonAcademicExperience_datefrom}
+                  defaultValue={props?.data?.nonAcademicExperience_datefrom}
                   {...register("nonAcademicExperience_datefrom")}
                 />
               </Form.Group>

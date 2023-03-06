@@ -96,11 +96,11 @@ const PartNineTenDetails = (props) => {
                       type="text"
                       rows={3}
                       disabled={part9}
-                      value={item.status}
+
                       {...register("patent_status", {})}
                     >
                       <option selected="" disabled="" value="">
-                        Choose...
+                        Selected: {item.status}
                       </option>
                       <option>Filled</option>
                       <option>Granted</option>

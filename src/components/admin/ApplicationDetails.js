@@ -12,9 +12,11 @@ const ApplicationsDetails = () => {
   const [Accept, setAccept] = useState(false);
   const [Delete, setDelete] = useState(false);
 
+
   const handleClose = () => {
     setReject(false);
     setAccept(false);
+    setDelete(false);
   };
 
   const rejectApplication = async () => {
@@ -69,7 +71,7 @@ const ApplicationsDetails = () => {
     try {
       const response = await fetch(
         // `http://jobmuj.projects.chirag.sh:3000/applications/${id}/reject`,
-        `https://localhost:3000/applications/delete/${id}`,
+        `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
         {
           method: "DELETE",
 
@@ -126,6 +128,7 @@ const ApplicationsDetails = () => {
   const openInNewTab = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
+
   return (
     <>
       <div className="heading">
@@ -150,6 +153,8 @@ const ApplicationsDetails = () => {
         title="Application Deleted 🗑️"
         body="This application status is deleted"
       />
+
+
       <div
         className="card mb-3"
         style={{ maxWidth: "540px", marginTop: "3%", marginLeft: "6%" }}
@@ -199,6 +204,7 @@ const ApplicationsDetails = () => {
         reject={rejectApplication}
         accept={acceptApplication}
         delete={deleteApplication}
+        id={id}
       />
     </>
   );

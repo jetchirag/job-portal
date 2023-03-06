@@ -111,7 +111,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="First Name"
               type="text"
-              value={props?.data?.applicant?.firstName}
+              defaultValue={props?.data?.applicant?.firstName}
             />
           </Form.Group>
           {/* Last Name Details  */}
@@ -128,7 +128,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="Last Name"
               type="text"
-              value={props?.data?.applicant?.lastName}
+              defaultValue={props?.data?.applicant?.lastName}
             />
           </Form.Group>
           {/* Date of Birth Details  */}
@@ -148,9 +148,9 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Gender<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm" value={props.data?.applicant?.gender}>
+            <Form.Select size="sm">
               <option disabled="" value="">
-                Choose...
+             Selected:  {props.data?.applicant?.gender}
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -167,7 +167,7 @@ const PartTwoDetail = (props) => {
                 size="sm"
                 placeholder="Mobile No."
                 type="tel"
-                value={props?.data?.applicant?.mobile}
+                defaultValue={props?.data?.applicant?.mobile}
               />
               <br />
             </InputGroup>
@@ -183,7 +183,7 @@ const PartTwoDetail = (props) => {
                 size="sm"
                 placeholder="Email ID"
                 type="email"
-                value={props.data?.applicant?.email}
+                defaultValue={props.data?.applicant?.email}
               />
               <br />
             </InputGroup>
@@ -206,10 +206,9 @@ const PartTwoDetail = (props) => {
                 required: true,
               })}
               onChange={crcountryhandler}
-              value={props?.data?.cr_country}
             >
               <option selected="" disabled="" value="">
-                Choose...
+              Selected: {props?.data?.cr_country}
               </option>
               {countries?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -229,10 +228,10 @@ const PartTwoDetail = (props) => {
                 required: true,
               })}
               onChange={crcityhandler}
-              value={props?.data?.cr_state}
+    
             >
               <option selected="" disabled="" value="">
-                {props?.data?.cr_state}
+                Selected: {props?.data?.cr_state}
               </option>
               {new_cr_states?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -250,10 +249,10 @@ const PartTwoDetail = (props) => {
               {...register("cr_city", {
                 required: true,
               })}
-              value={props?.data?.cr_city}
+        
             >
               <option selected="" disabled="" value="">
-                {props?.data?.cr_city}
+               Selected: {props?.data?.cr_city}
               </option>
               {new_cr_city?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -298,7 +297,7 @@ const PartTwoDetail = (props) => {
               
             >
               <option selected="" disabled="" value="">
-              {props?.data?.native_country}
+              Selected: {props?.data?.native_country}
               </option>
               {countries?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -319,7 +318,7 @@ const PartTwoDetail = (props) => {
               onChange={ntcityhandler}
             >
               <option selected="" disabled="" value="">
-              {props?.data?.native_state}
+              Selected: {props?.data?.native_state}
               </option>
               {new_nt_states?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -340,7 +339,7 @@ const PartTwoDetail = (props) => {
               })}
             >
               <option selected="" disabled="" value="">
-              {props?.data?.native_city}
+             Selected: {props?.data?.native_city}
               </option>
               {new_nt_city?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -375,10 +374,10 @@ const PartTwoDetail = (props) => {
             <Form.Select
               size="sm"
               aria-label="Default select example"
-              value={props?.data?.applicant?.religion}
+      
             >
               <option selected="" disabled="" value="">
-                Choose...
+                Selected: {props?.data?.applicant?.religion}
               </option>
               <option value="buddh">Buddh</option>
               <option value="christian">Christian</option>
@@ -398,10 +397,10 @@ const PartTwoDetail = (props) => {
             <Form.Select
               size="sm"
               aria-label="Default select example"
-              value={props?.data?.applicant?.marital_status}
+         
             >
               <option selected="" disabled="" value="">
-                Choose...
+             Selected: {props?.data?.applicant?.marital_status}
               </option>
               <option value="single">Single</option>
               <option value="engaged">Engaged</option>
@@ -418,7 +417,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="Aadhaar Card"
               type="text"
-              value={props?.data?.aadhaar_card}
+              defaultValue={props?.data?.aadhaar_card}
             />
           </Form.Group>
           {/* PAN Card Details  */}
@@ -430,7 +429,7 @@ const PartTwoDetail = (props) => {
               size="sm"
               placeholder="PAN Card"
               type="text"
-              value={props?.data?.pan_card}
+              defaultValue={props?.data?.pan_card}
             />
           </Form.Group>
         </Row>
