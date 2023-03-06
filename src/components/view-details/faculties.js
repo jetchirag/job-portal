@@ -13,12 +13,12 @@ const facultiesList = {
     },
   
     "Faculty of Design": {
-      "School of design and Art": [
+      "School of Design and Art": [
         "Department Interior Design",
         "Department of Fine Arts",
         "Department of Fashion Design",
       ],
-      "School of Architecture and Design": [],
+      "School of Architecture and Design": ["Any"],
     },
   
     "Faculty of Engineering": {
