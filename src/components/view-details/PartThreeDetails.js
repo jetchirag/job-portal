@@ -1,34 +1,33 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { set, useFormContext } from "react-hook-form";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
-
 const PartThreeDetails = (props) => {
-    var headers = new Headers();
+  var headers = new Headers();
   headers.append(
-    'X-CSCAPI-KEY',
-    'ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=='
+    "X-CSCAPI-KEY",
+    "ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=="
   );
   var requestOptions = {
-    method: 'GET',
+    method: "GET",
     headers: headers,
-    redirect: 'follow',
+    redirect: "follow",
   };
-  const [countries, setCountries] = useState(['']);
+  const [countries, setCountries] = useState([""]);
   useEffect(() => {
     const getCountries = async () => {
       await fetch(
-        'https://api.countrystatecity.in/v1/countries',
+        "https://api.countrystatecity.in/v1/countries",
         requestOptions
       )
         .then((response) => response.json())
         .then((result) => {
           setCountries(result);
         })
-        .catch((error) => console.log('error', error));
+        .catch((error) => console.log("error", error));
     };
     getCountries();
   }, []);
@@ -116,14 +115,14 @@ const PartThreeDetails = (props) => {
             <Form.Label>
               Country<span style={{ color: "red" }}> *</span>
             </Form.Label>
-           <Form.Select
+            <Form.Select
               isInvalid={errors.aq_secondary_country}
-              size='sm'
-              {...register('aq_secondary_country', {
+              size="sm"
+              {...register("aq_secondary_country", {
                 required: true,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 Choose...
               </option>
               {countries?.map((element) => {
@@ -222,7 +221,7 @@ const PartThreeDetails = (props) => {
               })}
             >
               <option selected="" disabled="" value="">
-               choose...
+                choose...
               </option>
               <option value="first">First</option>
               <option value="second">Second</option>
@@ -262,21 +261,23 @@ const PartThreeDetails = (props) => {
                   <Form.Label>
                     Country<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                 <Form.Select
-              isInvalid={errors.aq_higher_secondary_country}
-              size='sm'
-              {...register('aq_higher_secondary_country', {
-                required: true,
-              })}
-              defaultValue={props?.data?.aq_higher_secondary_country}
-            >
-              <option selected='' disabled='' value=''>
-                Choose...
-              </option>
-              {countries?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })}
-            </Form.Select>
+                  <Form.Select
+                    isInvalid={errors.aq_higher_secondary_country}
+                    size="sm"
+                    {...register("aq_higher_secondary_country", {
+                      required: true,
+                    })}
+                    value={item.country}
+                  >
+                    <option selected="" disabled="" value="">
+                      Choose...
+                    </option>
+                    {countries?.map((element) => {
+                      return (
+                        <option value={element.iso2}>{element.name}</option>
+                      );
+                    })}
+                  </Form.Select>
                 </Form.Group>
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="graduation_mode">
@@ -285,14 +286,14 @@ const PartThreeDetails = (props) => {
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_mode}
-                   value={item.mode}
+                    value={item.mode}
                     size="sm"
                     {...register("graduation_mode", {
                       required: "Please select your mode of educatoin",
                     })}
                   >
                     <option selected="" disabled="" value="">
-                     Choose...
+                      Choose...
                     </option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
@@ -401,11 +402,7 @@ const PartThreeDetails = (props) => {
                       required: "Please select your course name",
                     })}
                   >
-                    <option
-                      selected=""
-                      disabled=""
-                      value=""
-                    >
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     <option value="btech">B.Tech</option>
@@ -456,11 +453,7 @@ const PartThreeDetails = (props) => {
                       required: "Please select your division",
                     })}
                   >
-                    <option
-                      selected=""
-                      disabled=""
-                      value=""
-                    >
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     <option value="first">First</option>
@@ -514,15 +507,15 @@ const PartThreeDetails = (props) => {
                   <Form.Label>
                     Country<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                       <Form.Select
+                  <Form.Select
                     isInvalid={errors.aq_graduation_country}
-                    size='sm'
-                    {...register('aq_graduation_country', {
+                    size="sm"
+                    {...register("aq_graduation_country", {
                       required: true,
                     })}
-                    defaultValue={props?.data?.aq_graduation_country}
+                    value={item.country}
                   >
-                    <option selected='' disabled='' value=''>
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     {countries?.map((element) => {
@@ -545,11 +538,7 @@ const PartThreeDetails = (props) => {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option
-                      selected=""
-                      disabled=""
-                      value=""
-                    >
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     <option value="regular">Regular</option>
@@ -661,11 +650,7 @@ const PartThreeDetails = (props) => {
                       required: "Please select your course",
                     })}
                   >
-                    <option
-                      selected=""
-                      disabled=""
-                      value=""
-                    >
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     <option value="first">MA</option>
@@ -708,11 +693,7 @@ const PartThreeDetails = (props) => {
                       required: "Please select your division",
                     })}
                   >
-                    <option
-                      selected=""
-                      disabled=""
-                      value=""
-                    >
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     <option value="first">First</option>
@@ -773,9 +754,7 @@ const PartThreeDetails = (props) => {
                     required: "Please select your status",
                   })}
                 >
-                  <option value="">
-                    Choose...
-                  </option>
+                  <option value="">Choose...</option>
                   <option value="pursuing">Pursuing</option>
                   <option value="awarded">awarded</option>
                   <option value="thesis-submitted">Thesis Submitted</option>
@@ -786,15 +765,15 @@ const PartThreeDetails = (props) => {
                 <Form.Label>
                   Country<span style={{ color: "red" }}> *</span>
                 </Form.Label>
-                   <Form.Select
+                <Form.Select
                   isInvalid={errors.aq_phd_country}
-                  size='sm'
-                  {...register('aq_phd_country', {
+                  size="sm"
+                  {...register("aq_phd_country", {
                     required: true,
                   })}
-                  defaultValue={props?.data?.aq_phd_country}
+                  value={item.country}
                 >
-                  <option selected='' disabled='' value=''>
+                  <option selected="" disabled="" value="">
                     Choose...
                   </option>
                   {countries?.map((element) => {
@@ -816,7 +795,6 @@ const PartThreeDetails = (props) => {
                     required: "Please select your mode of educatoin",
                   })}
                 >
-                 
                   <option value="regular">Regular</option>
                   <option value="part-time">Part-Time</option>
                   <option value="distance-learning-online">
@@ -907,7 +885,6 @@ const PartThreeDetails = (props) => {
                     required: "Please select your mode of educatoin",
                   })}
                 >
-                 
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </Form.Select>
@@ -956,15 +933,15 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="aq_mphil_country">
                   {/* Academic Qualification M Phil Country  */}
                   <Form.Label>Country</Form.Label>
-                    <Form.Select
+                  <Form.Select
                     isInvalid={errors.aq_mphil_country}
-                    size='sm'
-                    {...register('aq_mphil_country', {
+                    size="sm"
+                    {...register("aq_mphil_country", {
                       required: true,
                     })}
-                    defaultValue={props?.data?.aq_mphil_country}
+                    value={item.country}
                   >
-                    <option selected='' disabled='' value=''>
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     {countries?.map((element) => {
@@ -980,14 +957,11 @@ const PartThreeDetails = (props) => {
                   <Form.Select
                     isInvalid={errors.mphil_mode}
                     value={item.mode}
-               
                     {...register("mphil_mode", {
                       required: "Please select your mode of educatoin",
                     })}
                   >
-                    <option value="">
-                     Choose...
-                    </option>
+                    <option value="">Choose...</option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -1015,7 +989,6 @@ const PartThreeDetails = (props) => {
                   <Form.Control
                     isInvalid={errors.mphil_college}
                     value={item.college}
-              
                     placeholder="College Name"
                     type="text"
                     {...register("mphil_college", {
@@ -1058,15 +1031,12 @@ const PartThreeDetails = (props) => {
                   <Form.Label>Division</Form.Label>
                   <Form.Select
                     isInvalid={errors.mphil_division}
-               
                     value={item.division}
                     {...register("mphil_division", {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="">
-                    Choose..
-                    </option>
+                    <option value="">Choose..</option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -1125,15 +1095,15 @@ const PartThreeDetails = (props) => {
                 >
                   {/* Academic Qualification Post Doctoral Country  */}
                   <Form.Label>Country</Form.Label>
-                   <Form.Select
+                  <Form.Select
                     isInvalid={errors.aq_post_doctoral_country}
-                    size='sm'
-                    {...register('aq_post_doctoral_country', {
+                    size="sm"
+                    {...register("aq_post_doctoral_country", {
                       required: true,
                     })}
                     defaultValue={props?.data?.aq_post_doctoral_country}
                   >
-                    <option selected='' disabled='' value=''>
+                    <option selected="" disabled="" value="">
                       Choose...
                     </option>
                     {countries?.map((element) => {
@@ -1147,15 +1117,13 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_mode">
                   <Form.Label>Education Mode</Form.Label>
                   <Form.Select
-                   value={item.mode}
+                    value={item.mode}
                     isInvalid={errors.post_doctoral_mode}
                     {...register("post_doctoral_mode", {
                       required: "Please select your mode of education",
                     })}
                   >
-                    <option value="">
-                      Choose...
-                    </option>
+                    <option value="">Choose...</option>
                     <option value="regular">Regular</option>
                     <option value="part-time">Part-Time</option>
                     <option value="distance-learning-online">
@@ -1181,7 +1149,6 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_institute">
                   <Form.Label>University / Institute</Form.Label>
                   <Form.Control
-                
                     isInvalid={errors.post_doctoral_institute}
                     placeholder="University/Institute Name"
                     value={item.institute}
@@ -1196,7 +1163,6 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_college">
                   <Form.Label>College</Form.Label>
                   <Form.Control
-                  
                     isInvalid={errors.post_doctoral_college}
                     placeholder="College Name"
                     value={props?.data?.post_doctoral_college}
@@ -1211,7 +1177,6 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_year">
                   <Form.Label>Year</Form.Label>
                   <Form.Control
-              
                     placeholder="Graduation Year"
                     type="number"
                     value={item.year}
@@ -1227,7 +1192,6 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_area">
                   <Form.Label>Area</Form.Label>
                   <Form.Control
-          
                     placeholder="Area"
                     value={item.area}
                     type="text"
@@ -1242,7 +1206,6 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_course">
                   <Form.Label>Course Name</Form.Label>
                   <Form.Control
-               
                     isInvalid={errors.post_doctoral_course}
                     value={item.course}
                     placeholder="Course Name"
@@ -1257,16 +1220,13 @@ const PartThreeDetails = (props) => {
                 <Form.Group as={Col} md="2" controlId="post_doctoral_division">
                   <Form.Label>Division</Form.Label>
                   <Form.Select
-                 
-                   value= {item.division}
+                    value={item.division}
                     isInvalid={errors.post_doctoral_division}
                     {...register("post_doctoral_division", {
                       required: "Please select your division",
                     })}
                   >
-                    <option value="">
-                    Choose...
-                    </option>
+                    <option value="">Choose...</option>
                     <option value="first">First</option>
                     <option value="second">Second</option>
                     <option value="third">Third</option>
@@ -1280,7 +1240,6 @@ const PartThreeDetails = (props) => {
                 >
                   <Form.Label>Aggregate Percentage</Form.Label>
                   <Form.Control
-          
                     placeholder="Aggregate Percentage"
                     value={item.percentage}
                     type="number"
