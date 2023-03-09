@@ -18,7 +18,7 @@ const facultiesList = {
       'Department of Fine Arts',
       'Department of Fashion Design',
     ],
-    'School of Architecture and Design': [],
+    'School of Architecture and Design': ["Any"],
   },
 
   'Faculty of Engineering': {
