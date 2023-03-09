@@ -106,7 +106,7 @@ const PartFive = () => {
                   isInvalid={errors.academicExperience_country}
                   size="sm"
                   {...register("academicExperience_country", {
-                    required: true,
+                    required: false,
                   })}
                 >
                   <option selected="" disabled="" value="">
@@ -279,7 +279,7 @@ const PartFive = () => {
                   isInvalid={errors.nonAcademicExperience_country}
                   size="sm"
                   {...register("nonAcademicExperience_country", {
-                    required: true,
+                    required: false,
                   })}
                 >
                   <option selected="" disabled="" value="">

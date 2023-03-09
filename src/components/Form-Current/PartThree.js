@@ -312,13 +312,12 @@ const PartThree = () => {
             </Form.Select>
           </Form.Group>
           {/* School  */}
-
-          <Form.Group as={Col} md='2'>
+          <Form.Group as={Col} md='2' controlId='higher_secondary_school'>
             <Form.Label>
               School<span style={{ color: 'red' }}> *</span>
             </Form.Label>
             <Form.Control
-              isInvalid={errors.school}
+              isInvalid={errors.higher_secondary_school}
               size='sm'
               placeholder='School Name'
               type='text'
@@ -1194,13 +1193,13 @@ const PartThree = () => {
 
                 <Form.Group as={Col} md='2' controlId='mphil_year'>
                   <Form.Label>
-                    Completion Year<span style={{ color: 'red' }}> *</span>
+                    Completion Year
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.mphilVal}
                     size='sm'
                     {...register('mphil_year', {
-                      required: 'Please select completion year',
+                      required: 'true',
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -1386,7 +1385,7 @@ const PartThree = () => {
 
                 <Form.Group as={Col} md='2' controlId='post_doctoral_year'>
                   <Form.Label>
-                    Graduation Year<span style={{ color: 'red' }}> *</span>
+                    Graduation Year
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.post_doctoral_year}
