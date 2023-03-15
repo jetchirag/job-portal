@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import Form from "react-bootstrap/Form";
@@ -12,6 +12,15 @@ const PartSix = () => {
     formState: { errors },
   } = useFormContext();
   const [fellowship, setFellowship] = useState(["set"]);
+  const [years, setYears] = useState();
+  useEffect(() => {
+    let c = [];
+    for (let i = 1975; i <= 2023; i++) {
+      c = [...c, i];
+    }
+
+    setYears(c);
+  }, []);
   const addFellowship = () => {
     setFellowship([...fellowship, "set"]);
   };
@@ -22,19 +31,19 @@ const PartSix = () => {
     setFellowship(copyArr);
   };
   return (
-    <Accordion.Item eventKey="5">
+    <Accordion.Item eventKey='5'>
       <Accordion.Header>6. Fellowships Achieved</Accordion.Header>
       <Accordion.Body>
         {fellowship.map(() => {
           return (
-            <Row className="mb-3">
+            <Row className='mb-3'>
               {/* Fellowship Details  */}
-              <Form.Group as={Col} md="12" controlId="fellowship_details">
+              <Form.Group as={Col} md='12' controlId='fellowship_details'>
                 <Form.Label>Fellowship Detail</Form.Label>
                 <Form.Control
-                  size="sm"
-                  placeholder="Fellowship Detail"
-                  type="text"
+                  size='sm'
+                  placeholder='Fellowship Detail'
+                  type='text'
                   {...register("fellowship_details", {
                     required: false,
                     maxLength: 300,
@@ -46,13 +55,16 @@ const PartSix = () => {
                   </p>
                 )}
               </Form.Group>
+              <br />
+              <br />
+              <br />
               {/* Fellowship Year Detail  */}
-              <Form.Group as={Col} md="2" controlId="fellowship_year">
+              <Form.Group as={Col} md='2' controlId='fellowship_year'>
                 <Form.Label>Year</Form.Label>
                 <Form.Control
-                  size="sm"
-                  placeholder="Year"
-                  type="number"
+                  size='sm'
+                  placeholder='Year'
+                  type='number'
                   {...register("fellowship_year", {
                     maxLength: 4,
                     minLength: 4,
@@ -65,12 +77,12 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Amount Detail  */}
-              <Form.Group as={Col} md="2" controlId="fellowship_amount">
+              <Form.Group as={Col} md='2' controlId='fellowship_amount'>
                 <Form.Label>Amount per annum</Form.Label>
                 <Form.Control
-                  size="sm"
-                  placeholder="Amount per annum"
-                  type="number"
+                  size='sm'
+                  placeholder='Amount per annum'
+                  type='number'
                   {...register("fellowship_amount", {
                     maxLength: 15,
                     minLength: 0,
@@ -83,12 +95,16 @@ const PartSix = () => {
                 )}
               </Form.Group>
               {/* Fellowship Status Details  */}
-              <Form.Group as={Col} md="2" controlId="fellowship_status">
+              <Form.Group as={Col} md='2' controlId='fellowship_status'>
                 <Form.Label>Fellowship Status</Form.Label>
-                <Form.Select {...register("fellowship_status", {})}>
-                  <option value="" />
-                  <option value="ongoing">Ongoing</option>
-                  <option value="completed">Completed</option>
+                <Form.Select
+                  className='small'
+                  style={{ paddingTop: "4px", paddingBottom: "4px" }}
+                  {...register("fellowship_status", {})}
+                >
+                  <option value=''>choose...</option>
+                  <option value='ongoing'>Ongoing</option>
+                  <option value='completed'>Completed</option>
                 </Form.Select>
                 {errors.fellowship_status && (
                   <p style={{ color: "red" }}>
@@ -100,23 +116,17 @@ const PartSix = () => {
             </Row>
           );
         })}
-
         <button
           type='button'
           onClick={addFellowship}
-          
           className='btn btn-outline-success'
         >
-
           Add New
         </button>{" "}
         <button
-
           type='button'
-          
           onClick={removeFellowship}
           className='btn btn-outline-danger'
-
         >
           Remove Last
         </button>

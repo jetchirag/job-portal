@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import Form from "react-bootstrap/Form";
@@ -6,127 +6,145 @@ import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const PartFour = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
 
-const PartFour = () =>{
-    const { register, formState: { errors } } = useFormContext();
+  const [years, setYears] = useState();
+  useEffect(() => {
+    let c = [];
+    for (let i = 1975; i <= 2023; i++) {
+      c = [...c, i];
+    }
 
-    return(
-        <Accordion.Item eventKey="3">
-        <Accordion.Header>4.Qualified in:</Accordion.Header>
-        <Accordion.Body>
-          <Row className="mb-3">
-            {/* Gate Details  */}
-            <Form.Group as={Col} md="2" controlId="gate">
-              <Form.Label>Gate Year</Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="Gate Year"
-                type="number"
-                {...register("gate", {
-                  maxLength: 4,
-                  minLength: 4,
-                })}
-              />
-              {errors.gate && (
-                <p style={{ color: "red" }}>
-                  Please enter your gate year
-                </p>
-              )}
-            </Form.Group>
-            {/* UGC Net Details  */}
-            <Form.Group as={Col} md="2" controlId="ugcNet">
-              <Form.Label>UGC Net Year</Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="UGC Net Year"
-                type="number"
-                {...register("ugcNet", {
-                  maxLength: 4,
-                  minLength: 4,
-                })}
-              />
-              {errors.ugcNet && (
-                <p style={{ color: "red" }}>
-                  Please enter your UGC Net year
-                </p>
-              )}
-            </Form.Group>
-            {/* UGC JRF Details  */}
-            <Form.Group as={Col} md="2" controlId="ugcJrf">
-              <Form.Label>UGC JRF Year</Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="UGC JRF Year"
-                type="number"
-                {...register("ugcJrf", {
-                  maxLength: 4,
-                  minLength: 4,
-                })}
-              />
-              {errors.ugcJrf && (
-                <p style={{ color: "red" }}>
-                  Please enter your UGC JRF year
-                </p>
-              )}
-            </Form.Group>
-            {/* URC CSIR Details  */}
-            <Form.Group as={Col} md="2" controlId="urcCsir">
-              <Form.Label>URC CSIR Year</Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="URC CSIR Year"
-                type="number"
-                {...register("urcCsir", {
-                  maxLength: 4,
-                  minLength: 4,
-                })}
-              />
-              {errors.urcCsir && (
-                <p style={{ color: "red" }}>
-                  Please enter your URC CSIR year
-                </p>
-              )}
-            </Form.Group>
-            {/* ICMR Details  */}
-            <Form.Group as={Col} md="2" controlId="icmr">
-              <Form.Label>ICMR Year</Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="ICMR Year"
-                type="number"
-                {...register("icmr", {
-                  maxLength: 4,
-                  minLength: 4,
-                })}
-              />
-              {errors.icmr && (
-                <p style={{ color: "red" }}>
-                  Please enter your ICMR year
-                </p>
-              )}
-            </Form.Group>
-            {/* ICAR Details  */}
-            <Form.Group as={Col} md="2" controlId="icar">
-              <Form.Label>ICAR Year</Form.Label>
-              <Form.Control
-                size="sm"
-                placeholder="ICAR Year"
-                type="number"
-                {...register("icar", {
-                  maxLength: 4,
-                  minLength: 4,
-                })}
-              />
-              {errors.icar && (
-                <p style={{ color: "red" }}>
-                  Please enter your ICAR year
-                </p>
-              )}
-            </Form.Group>
-          </Row>
-        </Accordion.Body>
-      </Accordion.Item>
-    );
-}
+    setYears(c);
+  }, []);
+  return (
+    <Accordion.Item eventKey='3'>
+      <Accordion.Header>4.Qualified in:</Accordion.Header>
+      <Accordion.Body>
+        <Row className='mb-3'>
+          {/* Gate Details  */}
+
+          <Form.Group as={Col} md='2' controlId='gate'>
+            <Form.Label>Gate Year</Form.Label>
+            <Form.Select
+              isInvalid={errors.aq_secondary_country}
+              size='sm'
+              {...register("gate", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                Gate Year
+              </option>
+              {years.map((year) => {
+                return <option value={year}>{year}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+
+          {/* UGC Net Details  */}
+
+          <Form.Group as={Col} md='2' controlId='ugcNet'>
+            <Form.Label> UGC Net Year</Form.Label>
+            <Form.Select
+              isInvalid={errors.ugcNet}
+              size='sm'
+              {...register("ugcNet", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                UGC Net Year
+              </option>
+              {years.map((year) => {
+                return <option value={year}>{year}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+          {/* UGC JRF Details  */}
+
+          <Form.Group as={Col} md='2' controlId='ugcJrf'>
+            <Form.Label>UGC JRF Year</Form.Label>
+            <Form.Select
+              isInvalid={errors.ugcNet}
+              size='sm'
+              {...register("ugcJrf", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                UGC JRF Year
+              </option>
+              {years.map((year) => {
+                return <option value={year}>{year}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+          {/* URC CSIR Details  */}
+
+          <Form.Group as={Col} md='2' controlId='urcCsir'>
+            <Form.Label>URC CSIR Year</Form.Label>
+            <Form.Select
+              isInvalid={errors.ugcNet}
+              size='sm'
+              {...register("urcCsir", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                URC CSIR Year
+              </option>
+              {years.map((year) => {
+                return <option value={year}>{year}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+          {/* ICMR Details  */}
+
+          <Form.Group as={Col} md='2' controlId='icmr'>
+            <Form.Label>ICMR Year</Form.Label>
+            <Form.Select
+              isInvalid={errors.ugcNet}
+              size='sm'
+              {...register("icmr", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                ICMR Year
+              </option>
+              {years.map((year) => {
+                return <option value={year}>{year}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+          {/* ICAR Details  */}
+
+          <Form.Group as={Col} md='2' controlId='icar'>
+            <Form.Label>ICAR Year</Form.Label>
+            <Form.Select
+              isInvalid={errors.ugcNet}
+              size='sm'
+              {...register("icar", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                ICAR Year
+              </option>
+              {years.map((year) => {
+                return <option value={year}>{year}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+        </Row>
+      </Accordion.Body>
+    </Accordion.Item>
+  );
+};
 
 export default PartFour;
