@@ -12,7 +12,7 @@ const PartFour = () => {
     formState: { errors },
   } = useFormContext();
 
-  const [years, setYears] = useState();
+  const [years, setYears] = useState([]);
   useEffect(() => {
     let c = [];
     for (let i = 1975; i <= 2023; i++) {
