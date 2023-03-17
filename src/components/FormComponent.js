@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Accordion from 'react-bootstrap/Accordion';
-import { FormProvider, useForm } from 'react-hook-form';
-import Partone from './Form-Current/PartOne';
-import PartTwo from './Form-Current/PartTwo';
-import PartThree from './Form-Current/PartThree';
-import PartFour from './Form-Current/PartFour';
-import PartFive from './Form-Current/PartFive';
-import PartSix from './Form-Current/PartSix';
-import PartSeven from './Form-Current/PartSeven';
-import PartEight from './Form-Current/PartEight';
-import PartNineTen from './Form-Current/PartNineTen';
-import PartEleven from './Form-Current/PartEleven';
-import PartTwelve from './Form-Current/PartTwelve';
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Accordion from "react-bootstrap/Accordion";
+import { FormProvider, useForm } from "react-hook-form";
+import Partone from "./Form-Current/PartOne";
+import PartTwo from "./Form-Current/PartTwo";
+import PartThree from "./Form-Current/PartThree";
+import PartFour from "./Form-Current/PartFour";
+import PartFive from "./Form-Current/PartFive";
+import PartSix from "./Form-Current/PartSix";
+import PartSeven from "./Form-Current/PartSeven";
+import PartEight from "./Form-Current/PartEight";
+import PartNineTen from "./Form-Current/PartNineTen";
+import PartEleven from "./Form-Current/PartEleven";
+import PartTwelve from "./Form-Current/PartTwelve";
+import loadingImg from "../preloader.gif";
+import Col from "react-bootstrap/Col";
 
-import Col from 'react-bootstrap/Col';
-
-import './css/Recognition.css';
-import { Navigate, useNavigate } from 'react-router-dom';
-import FormUpload from './FormUpload';
+import "./css/Recognition.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import FormUpload from "./FormUpload";
 
 const FormComponent = ({ id, setId }) => {
   // const [cr_country, setcr_Country] = useState('');
@@ -33,7 +33,7 @@ const FormComponent = ({ id, setId }) => {
   //   useState('');
 
   const [part9, setPart9] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const handlePart9 = () => {
     setPart9(!part9);
   };
@@ -44,6 +44,7 @@ const FormComponent = ({ id, setId }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     let applicant = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -234,55 +235,55 @@ const FormComponent = ({ id, setId }) => {
     data.department = data.department;
     data.nature_of_job = data.natureofjob;
 
-    data['cr_country'] = data.cr_country;
-    data['cr_state'] = data.cr_states;
-    data['native_country'] = data.native_country;
-    data['native_state'] = data.native_state;
-    data['native_city'] = data.native_city;
-    data['applicant'] = applicant;
-    data['aq_secondary'] = aq_secondary;
-    data['aq_higher_secondary'] = aq_higher_secondary;
-    data['aq_graduation'] = aq_graduation;
-    data['aq_post_graduation'] = aq_post_graduation;
-    data['aq_mphil'] = aq_mphil;
-    data['aq_phd'] = aq_phd;
-    data['aq_post_doctoral'] = aq_post_doctoral;
-    data['academicQualification'] = academicQualification;
-    data['academicExperience'] = academicExperience;
-    data['nonAcademicExperience'] = nonAcademicExperience;
-    data['fellowships'] = fellowships;
-    data['research'] = research;
-    data['books'] = books;
-    data['patent'] = patent;
-    data['peerRecognition'] = peerRecognition;
+    data["cr_country"] = data.cr_country;
+    data["cr_state"] = data.cr_states;
+    data["native_country"] = data.native_country;
+    data["native_state"] = data.native_state;
+    data["native_city"] = data.native_city;
+    data["applicant"] = applicant;
+    data["aq_secondary"] = aq_secondary;
+    data["aq_higher_secondary"] = aq_higher_secondary;
+    data["aq_graduation"] = aq_graduation;
+    data["aq_post_graduation"] = aq_post_graduation;
+    data["aq_mphil"] = aq_mphil;
+    data["aq_phd"] = aq_phd;
+    data["aq_post_doctoral"] = aq_post_doctoral;
+    data["academicQualification"] = academicQualification;
+    data["academicExperience"] = academicExperience;
+    data["nonAcademicExperience"] = nonAcademicExperience;
+    data["fellowships"] = fellowships;
+    data["research"] = research;
+    data["books"] = books;
+    data["patent"] = patent;
+    data["peerRecognition"] = peerRecognition;
     // console.log(data);
     try {
-      alert('Uploading');
       const response = await fetch(
-        'https://hammerhead-app-qmja6.ondigitalocean.app/applications',
+        "https://hammerhead-app-qmja6.ondigitalocean.app/applications",
         {
           body: JSON.stringify(data),
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
       // console.log(response);
       setId(
         response.url.substring(
-          response.url.lastIndexOf('/') + 1,
+          response.url.lastIndexOf("/") + 1,
           response.url.length
         )
       );
       navigate(
         `/apply/upload/${response.url.substring(
-          response.url.lastIndexOf('/') + 1,
+          response.url.lastIndexOf("/") + 1,
           response.url.length
         )}`
       );
       const data1 = await response.json();
       if (data1) {
+        setLoading(false);
         setId(data1);
         navigate(`/apply/upload/${data1.applyId}`);
       }
@@ -306,46 +307,54 @@ const FormComponent = ({ id, setId }) => {
   const handleSub = () => {};
   return (
     <FormProvider {...methods}>
-      <div className='my-4'>
-        <div className='container'>
-          <div className='heading'>
-            <p>Job Application Form</p>
-          </div>
-        </div>
-        <Form onSubmit={methods.handleSubmit(onSubmit)}>
-          {/* This is part 1 */}
-          <Accordion
-            defalultActiveKey={['0']}
-            alwaysOpen
-            style={{ padding: '0 5%' }}
-          >
-            <Partone />
-            {/* This is part 2 */}
-            <PartTwo />
-            {/*This is part 3  */}
-            <PartThree />
-            {/* This is part 4  */}
-            <PartFour />
-            {/* This is part 5 */}
-            <PartFive />
-            {/* This is part 6 */}
-            <PartSix />
-            {/* This is part 7  */}
-            <PartSeven />
-            {/*This is part 8  */}
-            <PartEight />
-            {/* This is part 9 & 10 */}
-            <PartNineTen />
-            {/* This is part 11 */}
-            <PartEleven />
-            {/* This is part 12  */}
-            <PartTwelve />
-            <hr />
-            <Form.Group as={Col} md='12' controlId='accept'>
-              <Form.Label>
-                T&Cs<span style={{ color: 'red' }}> *</span>
-              </Form.Label>
-              {/* <Form.Check
+      {loading ? (
+        <img
+          src={loadingImg}
+          alt=''
+          style={{ height: "150px", marginTop: "2rem" }}
+        />
+      ) : (
+        <>
+          <div className='my-4'>
+            <div className='container'>
+              <div className='heading'>
+                <p>Job Application Form</p>
+              </div>
+            </div>
+            <Form onSubmit={methods.handleSubmit(onSubmit)}>
+              {/* This is part 1 */}
+              <Accordion
+                defalultActiveKey={["0"]}
+                alwaysOpen
+                style={{ padding: "0 5%" }}
+              >
+                <Partone />
+                {/* This is part 2 */}
+                <PartTwo />
+                {/*This is part 3  */}
+                <PartThree />
+                {/* This is part 4  */}
+                <PartFour />
+                {/* This is part 5 */}
+                <PartFive />
+                {/* This is part 6 */}
+                <PartSix />
+                {/* This is part 7  */}
+                <PartSeven />
+                {/*This is part 8  */}
+                <PartEight />
+                {/* This is part 9 & 10 */}
+                <PartNineTen />
+                {/* This is part 11 */}
+                <PartEleven />
+                {/* This is part 12  */}
+                <PartTwelve />
+                <hr />
+                <Form.Group as={Col} md='12' controlId='accept'>
+                  <Form.Label>
+                    T&Cs<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+                  {/* <Form.Check
                 type='checkbox'
                 isInvalid={errors.accept}
                 size='sm'
@@ -355,35 +364,37 @@ const FormComponent = ({ id, setId }) => {
                   required: true,
                 })}
               ></Form.Check> */}
-              <Form.Check
-                type='checkbox'
-                isInvalid={errors.accept}
-                label='I confirm that I have not been convicted by a court in India for any criminal offense and/or sentenced to imprisonment. There are no criminal proceedings pending against me before any court in India. I have not been issued a warrant or summons for appearance or a warrant for arrest by any court in India. I certify that the above statements made by me are true, complete and correct. I agree that in case Manipal University Jaipur will finds at any time that the information given by me in this form is not correct or incomplete, Manipal University Jaipur will have the right to withdraw my letter of appointment or to terminate my appointment at any time without notice or compensation.'
-                onClick={() => setCheck(!check)}
-              ></Form.Check>
-            </Form.Group>
-            <hr />
-            <p style={{ color: 'red' }}>
-              You'll need to upload all the necessary documents on the next
-              page.
-            </p>
-            {/*console.log(check)*/}
-            {check ? (
-              <Button type='submit' style={{ width: '10%' }}>
-                Next
-              </Button>
-            ) : (
-              <Button
-                disabled
-                type='submit'
-                style={{ width: '10%', background: 'grey' }}
-              >
-                Next
-              </Button>
-            )}
-          </Accordion>
-        </Form>
-      </div>
+                  <Form.Check
+                    type='checkbox'
+                    isInvalid={errors.accept}
+                    label='I confirm that I have not been convicted by a court in India for any criminal offense and/or sentenced to imprisonment. There are no criminal proceedings pending against me before any court in India. I have not been issued a warrant or summons for appearance or a warrant for arrest by any court in India. I certify that the above statements made by me are true, complete and correct. I agree that in case Manipal University Jaipur will finds at any time that the information given by me in this form is not correct or incomplete, Manipal University Jaipur will have the right to withdraw my letter of appointment or to terminate my appointment at any time without notice or compensation.'
+                    onClick={() => setCheck(!check)}
+                  ></Form.Check>
+                </Form.Group>
+                <hr />
+                <p style={{ color: "red" }}>
+                  You'll need to upload all the necessary documents on the next
+                  page.
+                </p>
+                {/*console.log(check)*/}
+                {check ? (
+                  <Button type='submit' style={{ width: "10%" }}>
+                    Next
+                  </Button>
+                ) : (
+                  <Button
+                    disabled
+                    type='submit'
+                    style={{ width: "10%", background: "grey" }}
+                  >
+                    Next
+                  </Button>
+                )}
+              </Accordion>
+            </Form>
+          </div>
+        </>
+      )}
     </FormProvider>
   );
 };

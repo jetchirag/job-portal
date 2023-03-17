@@ -31,10 +31,9 @@ const PartFour = () => {
           <Form.Group as={Col} md='2' controlId='gate'>
             <Form.Label>Gate Year</Form.Label>
             <Form.Select
-              isInvalid={errors.aq_secondary_country}
               size='sm'
               {...register("gate", {
-                required: true,
+                // required: true,
               })}
             >
               <option selected='' disabled='' value=''>
@@ -51,10 +50,9 @@ const PartFour = () => {
           <Form.Group as={Col} md='2' controlId='ugcNet'>
             <Form.Label> UGC Net Year</Form.Label>
             <Form.Select
-              isInvalid={errors.ugcNet}
               size='sm'
               {...register("ugcNet", {
-                required: true,
+                // required: true,
               })}
             >
               <option selected='' disabled='' value=''>
@@ -70,10 +68,9 @@ const PartFour = () => {
           <Form.Group as={Col} md='2' controlId='ugcJrf'>
             <Form.Label>UGC JRF Year</Form.Label>
             <Form.Select
-              isInvalid={errors.ugcNet}
               size='sm'
               {...register("ugcJrf", {
-                required: true,
+                // required: true,
               })}
             >
               <option selected='' disabled='' value=''>
@@ -89,10 +86,9 @@ const PartFour = () => {
           <Form.Group as={Col} md='2' controlId='urcCsir'>
             <Form.Label>URC CSIR Year</Form.Label>
             <Form.Select
-              isInvalid={errors.ugcNet}
               size='sm'
               {...register("urcCsir", {
-                required: true,
+                // required: true,
               })}
             >
               <option selected='' disabled='' value=''>
@@ -108,10 +104,9 @@ const PartFour = () => {
           <Form.Group as={Col} md='2' controlId='icmr'>
             <Form.Label>ICMR Year</Form.Label>
             <Form.Select
-              isInvalid={errors.ugcNet}
               size='sm'
               {...register("icmr", {
-                required: true,
+                // required: true,
               })}
             >
               <option selected='' disabled='' value=''>
@@ -127,10 +122,9 @@ const PartFour = () => {
           <Form.Group as={Col} md='2' controlId='icar'>
             <Form.Label>ICAR Year</Form.Label>
             <Form.Select
-              isInvalid={errors.ugcNet}
               size='sm'
               {...register("icar", {
-                required: true,
+                // required: true,
               })}
             >
               <option selected='' disabled='' value=''>
