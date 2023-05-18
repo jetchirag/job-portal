@@ -44,11 +44,24 @@ const PartFour = () => {
               })}
             </Form.Select>
           </Form.Group>
+          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+            <Form.Label>Gate Score</Form.Label>
+            <Form.Control
+              className='small'
+              isInvalid={errors.post_doctoral_institute}
+              placeholder='Gate Score'
+              type='text'
+              {...register("post_doctoral_institute", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
+          </Form.Group>
 
           {/* UGC Net Details  */}
 
           <Form.Group as={Col} md='2' controlId='ugcNet'>
-            <Form.Label> UGC Net Year</Form.Label>
+            <Form.Label> UGC-NET Year</Form.Label>
             <Form.Select
               size='sm'
               {...register("ugcNet", {
@@ -62,6 +75,20 @@ const PartFour = () => {
                 return <option value={year}>{year}</option>;
               })}
             </Form.Select>
+          </Form.Group>
+
+          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+            <Form.Label>UGC-NET Score</Form.Label>
+            <Form.Control
+              className='small'
+              isInvalid={errors.post_doctoral_institute}
+              placeholder='UGC-NET Score'
+              type='text'
+              {...register("post_doctoral_institute", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
           </Form.Group>
           {/* UGC JRF Details  */}
 
@@ -81,6 +108,21 @@ const PartFour = () => {
               })}
             </Form.Select>
           </Form.Group>
+
+          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+            <Form.Label>UGC-JRF Score</Form.Label>
+            <Form.Control
+              className='small'
+              isInvalid={errors.post_doctoral_institute}
+              placeholder='UGC-JRF Score'
+              type='text'
+              {...register("post_doctoral_institute", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
+          </Form.Group>
+
           {/* URC CSIR Details  */}
 
           <Form.Group as={Col} md='2' controlId='urcCsir'>
@@ -99,6 +141,21 @@ const PartFour = () => {
               })}
             </Form.Select>
           </Form.Group>
+
+          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+            <Form.Label style={{ width: "110%" }}>UGC-CSIR Score</Form.Label>
+            <Form.Control
+              className='small'
+              isInvalid={errors.post_doctoral_institute}
+              placeholder='UGC-CSIR Score'
+              type='text'
+              {...register("post_doctoral_institute", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
+          </Form.Group>
+
           {/* ICMR Details  */}
 
           <Form.Group as={Col} md='2' controlId='icmr'>
@@ -117,6 +174,21 @@ const PartFour = () => {
               })}
             </Form.Select>
           </Form.Group>
+
+          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+            <Form.Label style={{ width: "110%" }}>ICMR Score</Form.Label>
+            <Form.Control
+              className='small'
+              isInvalid={errors.post_doctoral_institute}
+              placeholder='ICMR Score'
+              type='text'
+              {...register("post_doctoral_institute", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
+          </Form.Group>
+
           {/* ICAR Details  */}
 
           <Form.Group as={Col} md='2' controlId='icar'>
@@ -134,6 +206,19 @@ const PartFour = () => {
                 return <option value={year}>{year}</option>;
               })}
             </Form.Select>
+          </Form.Group>
+          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+            <Form.Label style={{ width: "110%" }}>ICAR Score</Form.Label>
+            <Form.Control
+              className='small'
+              isInvalid={errors.post_doctoral_institute}
+              placeholder='ICAR Score'
+              type='text'
+              {...register("post_doctoral_institute", {
+                required: true,
+                maxLength: 100,
+              })}
+            />
           </Form.Group>
         </Row>
       </Accordion.Body>

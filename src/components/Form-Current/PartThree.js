@@ -1,33 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { set, useFormContext } from 'react-hook-form';
-import Accordion from 'react-bootstrap/Accordion';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
+import React, { useEffect, useState } from "react";
+import { set, useFormContext } from "react-hook-form";
+import Accordion from "react-bootstrap/Accordion";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 const PartThree = () => {
   var headers = new Headers();
   headers.append(
-    'X-CSCAPI-KEY',
-    'ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=='
+    "X-CSCAPI-KEY",
+    "ZVZzdnMxQkhYVW96MHlLYlhoaVBTWXpMVXBCR0I4NVVxWXBQTEZwaw=="
   );
   var requestOptions = {
-    method: 'GET',
+    method: "GET",
     headers: headers,
-    redirect: 'follow',
+    redirect: "follow",
   };
-  const [countries, setCountries] = useState(['']);
+  const [countries, setCountries] = useState([""]);
   useEffect(() => {
     const getCountries = async () => {
       await fetch(
-        'https://api.countrystatecity.in/v1/countries',
+        "https://api.countrystatecity.in/v1/countries",
         requestOptions
       )
         .then((response) => response.json())
         .then((result) => {
           setCountries(result);
         })
-        .catch((error) => console.log('error', error));
+        .catch((error) => console.log("error", error));
     };
     getCountries();
   }, []);
@@ -45,11 +45,11 @@ const PartThree = () => {
     formState: { errors },
   } = useFormContext();
 
-  const [graduate, setGraduate] = useState(['set']);
-  const [postGraduate, setPostGraduate] = useState(['set']);
-  const [mPhill, setMPhill] = useState(['set']);
-  const [phD, setPhD] = useState(['set']);
-  const [pDoctoral, setpDoctoral] = useState(['set']);
+  const [graduate, setGraduate] = useState(["set"]);
+  const [postGraduate, setPostGraduate] = useState(["set"]);
+  const [mPhill, setMPhill] = useState(["set"]);
+  const [phD, setPhD] = useState(["set"]);
+  const [pDoctoral, setpDoctoral] = useState(["set"]);
   const [years, setYears] = useState([]);
   useEffect(() => {
     let c = [];
@@ -60,7 +60,7 @@ const PartThree = () => {
     setYears(c);
   }, []);
   const addGrad = () => {
-    setGraduate([...graduate, 'set']);
+    setGraduate([...graduate, "set"]);
   };
   const removeGrad = () => {
     const copyArr = [...graduate];
@@ -69,7 +69,7 @@ const PartThree = () => {
     setGraduate(copyArr);
   };
   const addPostGrad = () => {
-    setPostGraduate([...postGraduate, 'set']);
+    setPostGraduate([...postGraduate, "set"]);
   };
   const removePostGrad = () => {
     const copyArr = [...postGraduate];
@@ -78,7 +78,7 @@ const PartThree = () => {
     setPostGraduate(copyArr);
   };
   const addMPhill = () => {
-    setMPhill([...mPhill, 'set']);
+    setMPhill([...mPhill, "set"]);
   };
   const removeMPHill = () => {
     const copyArr = [...mPhill];
@@ -87,7 +87,7 @@ const PartThree = () => {
     setMPhill(copyArr);
   };
   const addPhD = () => {
-    setPhD([...phD, 'set']);
+    setPhD([...phD, "set"]);
   };
   const removePhD = () => {
     const copyArr = [...phD];
@@ -96,7 +96,7 @@ const PartThree = () => {
     setPhD(copyArr);
   };
   const addPDoctoral = () => {
-    setpDoctoral([...pDoctoral, 'set']);
+    setpDoctoral([...pDoctoral, "set"]);
   };
   const removePostDoc = () => {
     const copyArr = [...pDoctoral];
@@ -121,7 +121,7 @@ const PartThree = () => {
             <Form.Select
               isInvalid={errors.aq_secondary_country}
               size='sm'
-              {...register('aq_secondary_country', {
+              {...register("aq_secondary_country", {
                 required: true,
               })}
             >
@@ -133,17 +133,59 @@ const PartThree = () => {
               })}
             </Form.Select>
           </Form.Group>
+          {/* State Details  */}
+          <Form.Group as={Col} md='2' controlId='cr_state'>
+            <Form.Label>
+              State<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+
+            <Form.Select
+              isInvalid={errors.cr_states}
+              size='sm'
+              {...register("cr_states", {
+                required: true,
+              })}
+              // onChange={/*To be entered*/}
+            >
+              <option selected='' disabled='' value=''>
+                Choose...
+              </option>
+              {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+            </Form.Select>
+          </Form.Group>
+          {/* City Details  */}
+          <Form.Group as={Col} md='2' controlId='cr_city'>
+            <Form.Label>
+              City<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              isInvalid={errors.cr_city}
+              size='sm'
+              {...register("cr_city", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                Choose...
+              </option>
+              {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+            </Form.Select>
+          </Form.Group>
           {/* Academic Qulalification Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
           <Form.Group as={Col} md='2' controlId='secondary_mode'>
             <Form.Label>
-              Education Mode<span style={{ color: 'red' }}> *</span>
+              Education Mode<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.secondary_mode}
               size='sm'
-              {...register('secondary_mode', {
-                required: 'Please select your mode of educatoin',
+              {...register("secondary_mode", {
+                required: "Please select your mode of educatoin",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -160,14 +202,14 @@ const PartThree = () => {
           {/* School  */}
           <Form.Group as={Col} md='2' controlId='secondary_school'>
             <Form.Label>
-              School<span style={{ color: 'red' }}> *</span>
+              School<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
               isInvalid={errors.secondary_school}
               size='sm'
               placeholder='School Name'
               type='text'
-              {...register('secondary_school', {
+              {...register("secondary_school", {
                 required: true,
                 maxLength: 50,
               })}
@@ -176,14 +218,14 @@ const PartThree = () => {
           {/* Board  */}
           <Form.Group as={Col} md='2' controlId='secondary_board'>
             <Form.Label>
-              Board<span style={{ color: 'red' }}> *</span>
+              Board<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
               isInvalid={errors.secondary_board}
               size='sm'
               placeholder='Board Name'
               type='text'
-              {...register('secondary_board', {
+              {...register("secondary_board", {
                 required: true,
                 maxLength: 50,
               })}
@@ -208,13 +250,13 @@ const PartThree = () => {
           </Form.Group> */}
           <Form.Group as={Col} md='2' controlId='secondary_passingYear'>
             <Form.Label>
-              Passing Year<span style={{ color: 'red' }}> *</span>
+              Passing Year<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.secondary_passingYear}
               size='sm'
-              {...register('secondary_passingYear', {
-                required: 'Please select your division',
+              {...register("secondary_passingYear", {
+                required: "Please select your division",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -229,13 +271,13 @@ const PartThree = () => {
           {/* Division Details  */}
           <Form.Group as={Col} md='2' controlId='secondary_division'>
             <Form.Label>
-              Division<span style={{ color: 'red' }}> *</span>
+              Division<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.secondary_division}
               size='sm'
-              {...register('secondary_division', {
-                required: 'Please select your division',
+              {...register("secondary_division", {
+                required: "Please select your division",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -249,7 +291,7 @@ const PartThree = () => {
           {/* Aggregate Percentage  */}
           <Form.Group as={Col} md='2' controlId='secondary_percentage'>
             <Form.Label>
-              Aggregate Percentage<span style={{ color: 'red' }}> *</span>
+              Aggregate Percentage<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
               isInvalid={errors.secondary_percentage}
@@ -257,7 +299,7 @@ const PartThree = () => {
               placeholder='Aggregate Percentage'
               type='number'
               step='.01'
-              {...register('secondary_percentage', {
+              {...register("secondary_percentage", {
                 required: true,
                 minValue: 0,
                 maxValue: 100,
@@ -275,7 +317,7 @@ const PartThree = () => {
             <Form.Select
               isInvalid={errors.aq_higher_secondary_country}
               size='sm'
-              {...register('aq_higher_secondary_country', {
+              {...register("aq_higher_secondary_country", {
                 required: true,
               })}
             >
@@ -287,17 +329,61 @@ const PartThree = () => {
               })}
             </Form.Select>
           </Form.Group>
+
+          {/* State Details  */}
+          <Form.Group as={Col} md='2' controlId='cr_state'>
+            <Form.Label>
+              State<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+
+            <Form.Select
+              isInvalid={errors.cr_states}
+              size='sm'
+              {...register("cr_states", {
+                required: true,
+              })}
+              // onChange={/*To be entered*/}
+            >
+              <option selected='' disabled='' value=''>
+                Choose...
+              </option>
+              {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+            </Form.Select>
+          </Form.Group>
+          {/* City Details  */}
+          <Form.Group as={Col} md='2' controlId='cr_city'>
+            <Form.Label>
+              City<span style={{ color: "red" }}> *</span>
+            </Form.Label>
+            <Form.Select
+              isInvalid={errors.cr_city}
+              size='sm'
+              {...register("cr_city", {
+                required: true,
+              })}
+            >
+              <option selected='' disabled='' value=''>
+                Choose...
+              </option>
+              {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+            </Form.Select>
+          </Form.Group>
+
           {/* Academic Qulalification Higher Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
           <Form.Group as={Col} md='2' controlId='higher_secondary_mode'>
             <Form.Label>
-              Education Mode<span style={{ color: 'red' }}> *</span>
+              Education Mode<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.higher_secondary_mode}
               size='sm'
-              {...register('higher_secondary_mode', {
-                required: 'Please select your mode of educatoin',
+              {...register("higher_secondary_mode", {
+                required: "Please select your mode of educatoin",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -314,14 +400,14 @@ const PartThree = () => {
           {/* School  */}
           <Form.Group as={Col} md='2' controlId='higher_secondary_school'>
             <Form.Label>
-              School<span style={{ color: 'red' }}> *</span>
+              School<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
               isInvalid={errors.higher_secondary_school}
               size='sm'
               placeholder='School Name'
               type='text'
-              {...register('higher_secondary_school', {
+              {...register("higher_secondary_school", {
                 required: true,
                 maxLength: 50,
               })}
@@ -331,14 +417,14 @@ const PartThree = () => {
 
           <Form.Group as={Col} md='2' controlId='higher_secondary_board'>
             <Form.Label>
-              Board<span style={{ color: 'red' }}> *</span>
+              Board<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
               isInvalid={errors.higher_secondary_board}
               size='sm'
               placeholder='Board Name'
               type='text'
-              {...register('higher_secondary_board', {
+              {...register("higher_secondary_board", {
                 required: true,
                 maxLength: 50,
               })}
@@ -347,13 +433,13 @@ const PartThree = () => {
           {/* Stream Details (Newly Added)  */}
           <Form.Group as={Col} md='2' controlId='higher_secondary_stream'>
             <Form.Label>
-              Stream<span style={{ color: 'red' }}> *</span>
+              Stream<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.higher_secondary_stream}
               size='sm'
-              {...register('higher_secondary_stream', {
-                required: 'Please select your stream',
+              {...register("higher_secondary_stream", {
+                required: "Please select your stream",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -368,13 +454,13 @@ const PartThree = () => {
 
           <Form.Group as={Col} md='2' controlId='higher_secondary_passingYear'>
             <Form.Label>
-              Passing Year<span style={{ color: 'red' }}> *</span>
+              Passing Year<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.higher_secondary_passingYear}
               size='sm'
-              {...register('higher_secondary_passingYear', {
-                required: 'Please select passing year',
+              {...register("higher_secondary_passingYear", {
+                required: "Please select passing year",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -390,13 +476,13 @@ const PartThree = () => {
 
           <Form.Group as={Col} md='2' controlId='higher_secondary_division'>
             <Form.Label>
-              Division<span style={{ color: 'red' }}> *</span>
+              Division<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
               isInvalid={errors.higher_secondary_division}
               size='sm'
-              {...register('higher_secondary_division', {
-                required: 'Please select your division',
+              {...register("higher_secondary_division", {
+                required: "Please select your division",
               })}
             >
               <option selected='' disabled='' value=''>
@@ -411,7 +497,7 @@ const PartThree = () => {
 
           <Form.Group as={Col} md='2' controlId='higher_secondary_percentage'>
             <Form.Label>
-              Aggregate Percentage<span style={{ color: 'red' }}> *</span>
+              Aggregate Percentage<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
               isInvalid={errors.higher_secondary_percentage}
@@ -419,7 +505,7 @@ const PartThree = () => {
               placeholder='Aggregate Percentage'
               type='number'
               step='.01'
-              {...register('higher_secondary_percentage', {
+              {...register("higher_secondary_percentage", {
                 required: true,
                 minValue: 0,
                 maxValue: 100,
@@ -440,7 +526,7 @@ const PartThree = () => {
                   <Form.Select
                     isInvalid={errors.aq_graduation_country}
                     size='sm'
-                    {...register('aq_graduation_country', {
+                    {...register("aq_graduation_country", {
                       required: true,
                     })}
                   >
@@ -454,16 +540,60 @@ const PartThree = () => {
                     })}
                   </Form.Select>
                 </Form.Group>
+
+                {/* State Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_state'>
+                  <Form.Label>
+                    State<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+
+                  <Form.Select
+                    isInvalid={errors.cr_states}
+                    size='sm'
+                    {...register("cr_states", {
+                      required: true,
+                    })}
+                    // onChange={/*To be entered*/}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+                {/* City Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_city'>
+                  <Form.Label>
+                    City<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+                  <Form.Select
+                    isInvalid={errors.cr_city}
+                    size='sm'
+                    {...register("cr_city", {
+                      required: true,
+                    })}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md='2' controlId='graduation_mode'>
                   <Form.Label>
-                    Education Mode<span style={{ color: 'red' }}> *</span>
+                    Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_mode}
                     size='sm'
-                    {...register('graduation_mode', {
-                      required: 'Please select your mode of educatoin',
+                    {...register("graduation_mode", {
+                      required: "Please select your mode of educatoin",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -481,14 +611,14 @@ const PartThree = () => {
                 <Form.Group as={Col} md='2' controlId='graduation_institute'>
                   <Form.Label>
                     University / Institute
-                    <span style={{ color: 'red' }}> *</span>
+                    <span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_institute}
                     size='sm'
                     placeholder='University/Institute Name'
                     type='text'
-                    {...register('graduation_institute', {
+                    {...register("graduation_institute", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -497,14 +627,14 @@ const PartThree = () => {
                 {/* College Name  */}
                 <Form.Group as={Col} md='2' controlId='graduation_college'>
                   <Form.Label>
-                    College<span style={{ color: 'red' }}> *</span>
+                    College<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_college}
                     size='sm'
                     placeholder='College Name'
                     type='text'
-                    {...register('graduation_college', {
+                    {...register("graduation_college", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -514,13 +644,13 @@ const PartThree = () => {
 
                 <Form.Group as={Col} md='2' controlId='graduation_year'>
                   <Form.Label>
-                    Graduation Year<span style={{ color: 'red' }}> *</span>
+                    Graduation Year<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_year}
                     size='sm'
-                    {...register('graduation_year', {
-                      required: 'Please select graduation year',
+                    {...register("graduation_year", {
+                      required: "Please select graduation year",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -534,13 +664,13 @@ const PartThree = () => {
                 {/* Course Details  */}
                 <Form.Group as={Col} md='2' controlId='graduation_course'>
                   <Form.Label>
-                    Course Name<span style={{ color: 'red' }}> *</span>
+                    Course Name<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_course}
                     size='sm'
-                    {...register('graduation_course', {
-                      required: 'Please select your course name',
+                    {...register("graduation_course", {
+                      required: "Please select your course name",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -584,14 +714,14 @@ const PartThree = () => {
                 {/* Area Details  */}
                 <Form.Group as={Col} md='2' controlId='graduation_area'>
                   <Form.Label>
-                    Specialization<span style={{ color: 'red' }}> *</span>
+                    Specialization<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_area}
                     size='sm'
                     placeholder='Specialization'
                     type='text'
-                    {...register('graduation_area', {
+                    {...register("graduation_area", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -616,13 +746,13 @@ const PartThree = () => {
                 {/* Graduation Division Details  */}
                 <Form.Group as={Col} md='2' controlId='graduation_division'>
                   <Form.Label>
-                    Division<span style={{ color: 'red' }}> *</span>
+                    Division<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.graduation_division}
                     size='sm'
-                    {...register('graduation_division', {
-                      required: 'Please select your division',
+                    {...register("graduation_division", {
+                      required: "Please select your division",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -636,7 +766,7 @@ const PartThree = () => {
                 {/* Graduation Aggregate Percentage  */}
                 <Form.Group as={Col} md='2' controlId='graduation_percentage'>
                   <Form.Label>
-                    Aggregate Percentage<span style={{ color: 'red' }}> *</span>
+                    Aggregate Percentage<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.graduation_percentage}
@@ -644,7 +774,7 @@ const PartThree = () => {
                     placeholder='Aggregate Percentage'
                     type='number'
                     step='.01'
-                    {...register('graduation_percentage', {
+                    {...register("graduation_percentage", {
                       required: true,
                       minValue: 0,
                       maxValue: 100,
@@ -661,7 +791,7 @@ const PartThree = () => {
           className='btn btn-outline-success'
         >
           Add New
-        </button>{' '}
+        </button>{" "}
         <button
           type='button'
           onClick={removeGrad}
@@ -686,7 +816,7 @@ const PartThree = () => {
                   <Form.Select
                     isInvalid={errors.aq_post_graduation_country}
                     size='sm'
-                    {...register('aq_post_graduation_country', {
+                    {...register("aq_post_graduation_country", {
                       required: true,
                     })}
                   >
@@ -700,17 +830,60 @@ const PartThree = () => {
                     })}
                   </Form.Select>
                 </Form.Group>
+                {/* State Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_state'>
+                  <Form.Label>
+                    State<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+
+                  <Form.Select
+                    isInvalid={errors.cr_states}
+                    size='sm'
+                    {...register("cr_states", {
+                      required: true,
+                    })}
+                    // onChange={/*To be entered*/}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+                {/* City Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_city'>
+                  <Form.Label>
+                    City<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+                  <Form.Select
+                    isInvalid={errors.cr_city}
+                    size='sm'
+                    {...register("cr_city", {
+                      required: true,
+                    })}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+
                 {/* Academic Qualification Education Mode Details  */}
 
                 <Form.Group as={Col} md='2' controlId='post_graduation_mode'>
                   <Form.Label>
-                    Education Mode<span style={{ color: 'red' }}> *</span>
+                    Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.post_graduation_mode}
                     size='sm'
-                    {...register('post_graduation_mode', {
-                      required: 'Please select your mode of educatoin',
+                    {...register("post_graduation_mode", {
+                      required: "Please select your mode of educatoin",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -732,14 +905,14 @@ const PartThree = () => {
                 >
                   <Form.Label>
                     University / Institute
-                    <span style={{ color: 'red' }}> *</span>
+                    <span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_institute}
                     placeholder='University/Institute Name'
                     className='small'
                     type='text'
-                    {...register('post_graduation_institute', {
+                    {...register("post_graduation_institute", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -748,14 +921,14 @@ const PartThree = () => {
                 {/* College Name  */}
                 <Form.Group as={Col} md='2' controlId='post_graduation_college'>
                   <Form.Label>
-                    College<span style={{ color: 'red' }}> *</span>
+                    College<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_college}
                     size='sm'
                     placeholder='College Name'
                     type='text'
-                    {...register('post_graduation_college', {
+                    {...register("post_graduation_college", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -765,13 +938,13 @@ const PartThree = () => {
 
                 <Form.Group as={Col} md='2' controlId='post_graduation_year'>
                   <Form.Label>
-                    Graduation Year<span style={{ color: 'red' }}> *</span>
+                    Graduation Year<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.post_graduation_year}
                     size='sm'
-                    {...register('post_graduation_year', {
-                      required: 'Please select graduation year',
+                    {...register("post_graduation_year", {
+                      required: "Please select graduation year",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -785,13 +958,13 @@ const PartThree = () => {
                 {/* Course Details  */}
                 <Form.Group as={Col} md='2' controlId='post_graduation_course'>
                   <Form.Label>
-                    Course<span style={{ color: 'red' }}> *</span>
+                    Course<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.post_graduation_course}
                     size='sm'
-                    {...register('post_graduation_course', {
-                      required: 'Please select your course',
+                    {...register("post_graduation_course", {
+                      required: "Please select your course",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -824,14 +997,14 @@ const PartThree = () => {
                 {/* Area Details  */}
                 <Form.Group as={Col} md='2' controlId='post_graduation_area'>
                   <Form.Label>
-                    Specialization<span style={{ color: 'red' }}> *</span>
+                    Specialization<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_area}
                     size='sm'
                     placeholder='Specialization'
                     type='text'
-                    {...register('post_graduation_area', {
+                    {...register("post_graduation_area", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -861,13 +1034,13 @@ const PartThree = () => {
                   controlId='post_graduation_division'
                 >
                   <Form.Label>
-                    Division<span style={{ color: 'red' }}> *</span>
+                    Division<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
                     isInvalid={errors.post_graduation_division}
                     size='sm'
-                    {...register('post_graduation_division', {
-                      required: 'Please select your division',
+                    {...register("post_graduation_division", {
+                      required: "Please select your division",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -885,7 +1058,7 @@ const PartThree = () => {
                   controlId='post_graduation_percentage'
                 >
                   <Form.Label>
-                    Aggregate Percentage<span style={{ color: 'red' }}> *</span>
+                    Aggregate Percentage<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
                     isInvalid={errors.post_graduation_percentage}
@@ -893,7 +1066,7 @@ const PartThree = () => {
                     placeholder='Aggregate Percentage'
                     type='number'
                     step='.01'
-                    {...register('post_graduation_percentage', {
+                    {...register("post_graduation_percentage", {
                       required: true,
                       minValue: 0,
                       maxValue: 100,
@@ -910,7 +1083,7 @@ const PartThree = () => {
           className='btn btn-outline-success'
         >
           Add New
-        </button>{' '}
+        </button>{" "}
         <button
           type='button'
           onClick={removePostGrad}
@@ -928,13 +1101,13 @@ const PartThree = () => {
               {/* PHD Status Details  */}
               <Form.Group as={Col} md='2' controlId='phd_status'>
                 <Form.Label>
-                  Status<span style={{ color: 'red' }}> *</span>
+                  Status<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Select
                   size='sm'
                   isInvalid={errors.phd_status}
-                  {...register('phd_status', {
-                    required: 'Please select your status',
+                  {...register("phd_status", {
+                    required: "Please select your status",
                   })}
                 >
                   <option value=''>Choose</option>
@@ -949,7 +1122,7 @@ const PartThree = () => {
                 <Form.Select
                   isInvalid={errors.aq_phd_country}
                   size='sm'
-                  {...register('aq_phd_country', {
+                  {...register("aq_phd_country", {
                     required: true,
                   })}
                 >
@@ -961,17 +1134,61 @@ const PartThree = () => {
                   })}
                 </Form.Select>
               </Form.Group>
+
+              {/* State Details  */}
+              <Form.Group as={Col} md='2' controlId='cr_state'>
+                <Form.Label>
+                  State<span style={{ color: "red" }}> *</span>
+                </Form.Label>
+
+                <Form.Select
+                  isInvalid={errors.cr_states}
+                  size='sm'
+                  {...register("cr_states", {
+                    required: true,
+                  })}
+                  // onChange={/*To be entered*/}
+                >
+                  <option selected='' disabled='' value=''>
+                    Choose...
+                  </option>
+                  {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                </Form.Select>
+              </Form.Group>
+              {/* City Details  */}
+              <Form.Group as={Col} md='2' controlId='cr_city'>
+                <Form.Label>
+                  City<span style={{ color: "red" }}> *</span>
+                </Form.Label>
+                <Form.Select
+                  isInvalid={errors.cr_city}
+                  size='sm'
+                  {...register("cr_city", {
+                    required: true,
+                  })}
+                >
+                  <option selected='' disabled='' value=''>
+                    Choose...
+                  </option>
+                  {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                </Form.Select>
+              </Form.Group>
+
               {/* Academic Qualification Education Mode Details  */}
               <Form.Group as={Col} md='2' controlId='phd_mode'>
                 <Form.Label>
-                  Education Mode<span style={{ color: 'red' }}> *</span>
+                  Education Mode<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Select
                   title='Choose..'
                   size='sm'
                   isInvalid={errors.phd_mode}
-                  {...register('phd_mode', {
-                    required: 'Please select your mode of educatoin',
+                  {...register("phd_mode", {
+                    required: "Please select your mode of educatoin",
                   })}
                 >
                   <option value='' selected=''></option>
@@ -986,14 +1203,14 @@ const PartThree = () => {
               {/* University / Institute  */}
               <Form.Group as={Col} md='2' controlId='phd_institute'>
                 <Form.Label>
-                  University / Institute<span style={{ color: 'red' }}> *</span>
+                  University / Institute<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Control
                   size='sm'
                   isInvalid={errors.phd_institute}
                   placeholder='University/Institute Name'
                   type='text'
-                  {...register('phd_institute', {
+                  {...register("phd_institute", {
                     required: true,
                     maxLength: 100,
                   })}
@@ -1002,14 +1219,14 @@ const PartThree = () => {
               {/* College Name  */}
               <Form.Group as={Col} md='2' controlId='phd_college'>
                 <Form.Label>
-                  College<span style={{ color: 'red' }}> *</span>
+                  College<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Control
                   size='sm'
                   isInvalid={errors.phd_college}
                   placeholder='College Name'
                   type='text'
-                  {...register('phd_college', {
+                  {...register("phd_college", {
                     required: true,
                     maxLength: 100,
                   })}
@@ -1018,13 +1235,13 @@ const PartThree = () => {
               {/* Completion Year  */}
               <Form.Group as={Col} md='2' controlId='phd_year'>
                 <Form.Label>
-                  Completion Year<span style={{ color: 'red' }}> *</span>
+                  Completion Year<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Select
                   isInvalid={errors.post_graduation_year}
                   size='sm'
-                  {...register('phd_year', {
-                    required: 'Please select completion year',
+                  {...register("phd_year", {
+                    required: "Please select completion year",
                   })}
                 >
                   <option selected='' disabled='' value=''>
@@ -1038,14 +1255,14 @@ const PartThree = () => {
               {/* Area Details  */}
               <Form.Group as={Col} md='2' controlId='phd_area'>
                 <Form.Label>
-                  Specialization<span style={{ color: 'red' }}> *</span>
+                  Specialization<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Control
                   isInvalid={errors.phd_area}
                   size='sm'
                   placeholder='Specialization'
                   type='text'
-                  {...register('phd_area', {
+                  {...register("phd_area", {
                     required: true,
                     maxLength: 100,
                   })}
@@ -1055,13 +1272,13 @@ const PartThree = () => {
               <Form.Group as={Col} md='2' controlId='phd_teaching_experience'>
                 <Form.Label>
                   If pursuing, teaching experience during PhD
-                  <span style={{ color: 'red' }}> *</span>
+                  <span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Select
                   isInvalid={errors.phd_teaching_experience}
                   size='sm'
-                  {...register('phd_teaching_experience', {
-                    required: 'Please select your mode of educatoin',
+                  {...register("phd_teaching_experience", {
+                    required: "Please select your mode of educatoin",
                   })}
                 >
                   <option value='' />
@@ -1073,13 +1290,13 @@ const PartThree = () => {
 
               <Form.Group as={Col} md='2' controlId='phd_anti_completion_yearr'>
                 <Form.Label>
-                  Completion Year<span style={{ color: 'red' }}> *</span>
+                  Completion Year<span style={{ color: "red" }}> *</span>
                 </Form.Label>
                 <Form.Select
                   isInvalid={errors.phd_anti_completion_year}
                   size='sm'
-                  {...register('phd_anti_completion_year', {
-                    required: 'Please select anticipated completion year',
+                  {...register("phd_anti_completion_year", {
+                    required: "Please select anticipated completion year",
                   })}
                 >
                   <option selected='' disabled='' value=''>
@@ -1099,7 +1316,7 @@ const PartThree = () => {
           className='btn btn-outline-success'
         >
           Add New
-        </button>{' '}
+        </button>{" "}
         <button
           type='button'
           onClick={removePhD}
@@ -1125,7 +1342,7 @@ const PartThree = () => {
                   <Form.Select
                     isInvalid={errors.aq_mphil_country}
                     size='sm'
-                    {...register('aq_mphil_country', {
+                    {...register("aq_mphil_country", {
                       required: true,
                     })}
                   >
@@ -1139,6 +1356,48 @@ const PartThree = () => {
                     })}
                   </Form.Select>
                 </Form.Group>
+                {/* State Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_state'>
+                  <Form.Label>
+                    State<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+
+                  <Form.Select
+                    isInvalid={errors.cr_states}
+                    size='sm'
+                    {...register("cr_states", {
+                      required: true,
+                    })}
+                    // onChange={/*To be entered*/}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+                {/* City Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_city'>
+                  <Form.Label>
+                    City<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+                  <Form.Select
+                    isInvalid={errors.cr_city}
+                    size='sm'
+                    {...register("cr_city", {
+                      required: true,
+                    })}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
 
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md='2' controlId='mphil_mode'>
@@ -1147,8 +1406,8 @@ const PartThree = () => {
                     isInvalid={errors.mphil_mode}
                     disabled={mphilVal}
                     className='small'
-                    {...register('mphil_mode', {
-                      required: 'Please select your mode of educatoin',
+                    {...register("mphil_mode", {
+                      required: "Please select your mode of educatoin",
                     })}
                   >
                     <option value='' />
@@ -1168,7 +1427,7 @@ const PartThree = () => {
                     placeholder='University/Institute Name'
                     type='text'
                     className='small'
-                    {...register('mphil_institute', {
+                    {...register("mphil_institute", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1183,7 +1442,7 @@ const PartThree = () => {
                     placeholder='College Name'
                     className='small'
                     type='text'
-                    {...register('mphil_college', {
+                    {...register("mphil_college", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1192,14 +1451,12 @@ const PartThree = () => {
                 {/* Graduation Year  */}
 
                 <Form.Group as={Col} md='2' controlId='mphil_year'>
-                  <Form.Label>
-                    Completion Year
-                  </Form.Label>
+                  <Form.Label>Completion Year</Form.Label>
                   <Form.Select
                     isInvalid={errors.mphilVal}
                     size='sm'
-                    {...register('mphil_year', {
-                      required: 'true',
+                    {...register("mphil_year", {
+                      required: "true",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -1220,7 +1477,7 @@ const PartThree = () => {
                     placeholder='Specialization'
                     className='small'
                     type='text'
-                    {...register('mphil_area', {
+                    {...register("mphil_area", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1233,8 +1490,8 @@ const PartThree = () => {
                     isInvalid={errors.mphil_division}
                     className='small'
                     disabled={mphilVal}
-                    {...register('mphil_division', {
-                      required: 'Please select your division',
+                    {...register("mphil_division", {
+                      required: "Please select your division",
                     })}
                   >
                     <option value='' />
@@ -1253,7 +1510,7 @@ const PartThree = () => {
                     type='number'
                     className='small'
                     step='.01'
-                    {...register('mphil_percentage', {
+                    {...register("mphil_percentage", {
                       required: true,
                       minValue: 0,
                       maxValue: 100,
@@ -1271,7 +1528,7 @@ const PartThree = () => {
               className='btn btn-outline-success'
             >
               Add New
-            </button>{' '}
+            </button>{" "}
             <button
               type='button'
               onClick={removeMPHill}
@@ -1304,7 +1561,7 @@ const PartThree = () => {
                     isInvalid={errors.aq_post_doctoral_country}
                     size='sm'
                     className='small'
-                    {...register('aq_post_doctoral_country', {
+                    {...register("aq_post_doctoral_country", {
                       required: true,
                     })}
                   >
@@ -1318,6 +1575,50 @@ const PartThree = () => {
                     })}
                   </Form.Select>
                 </Form.Group>
+
+                {/* State Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_state'>
+                  <Form.Label>
+                    State<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+
+                  <Form.Select
+                    isInvalid={errors.cr_states}
+                    size='sm'
+                    {...register("cr_states", {
+                      required: true,
+                    })}
+                    // onChange={/*To be entered*/}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_states?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+                {/* City Details  */}
+                <Form.Group as={Col} md='2' controlId='cr_city'>
+                  <Form.Label>
+                    City<span style={{ color: "red" }}> *</span>
+                  </Form.Label>
+                  <Form.Select
+                    isInvalid={errors.cr_city}
+                    size='sm'
+                    {...register("cr_city", {
+                      required: true,
+                    })}
+                  >
+                    <option selected='' disabled='' value=''>
+                      Choose...
+                    </option>
+                    {/* {new_cr_city?.map((element) => {
+                return <option value={element.iso2}>{element.name}</option>;
+              })} */}
+                  </Form.Select>
+                </Form.Group>
+
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md='2' controlId='post_doctoral_mode'>
                   <Form.Label>Education Mode</Form.Label>
@@ -1325,8 +1626,8 @@ const PartThree = () => {
                     className='small'
                     disabled={pdocVal}
                     isInvalid={errors.post_doctoral_mode}
-                    {...register('post_doctoral_mode', {
-                      required: 'Please select your mode of education',
+                    {...register("post_doctoral_mode", {
+                      required: "Please select your mode of education",
                     })}
                   >
                     <option value='' />
@@ -1360,7 +1661,7 @@ const PartThree = () => {
                     isInvalid={errors.post_doctoral_institute}
                     placeholder='University/Institute Name'
                     type='text'
-                    {...register('post_doctoral_institute', {
+                    {...register("post_doctoral_institute", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1375,7 +1676,7 @@ const PartThree = () => {
                     placeholder='College Name'
                     className='small'
                     type='text'
-                    {...register('post_doctoral_college', {
+                    {...register("post_doctoral_college", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1384,14 +1685,12 @@ const PartThree = () => {
                 {/* Graduation Year  */}
 
                 <Form.Group as={Col} md='2' controlId='post_doctoral_year'>
-                  <Form.Label>
-                    Graduation Year
-                  </Form.Label>
+                  <Form.Label>Graduation Year</Form.Label>
                   <Form.Select
                     isInvalid={errors.post_doctoral_year}
                     size='sm'
-                    {...register('post_doctoral_year', {
-                      required: 'Please select graduation year',
+                    {...register("post_doctoral_year", {
+                      required: "Please select graduation year",
                     })}
                   >
                     <option selected='' disabled='' value=''>
@@ -1412,7 +1711,7 @@ const PartThree = () => {
                     className='small'
                     type='text'
                     isInvalid={errors.post_doctoral_area}
-                    {...register('post_doctoral_area', {
+                    {...register("post_doctoral_area", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1427,7 +1726,7 @@ const PartThree = () => {
                     placeholder='Course Name'
                     className='small'
                     type='text'
-                    {...register('post_doctoral_course', {
+                    {...register("post_doctoral_course", {
                       required: true,
                       maxLength: 100,
                     })}
@@ -1440,8 +1739,8 @@ const PartThree = () => {
                     disabled={pdocVal}
                     className='small'
                     isInvalid={errors.post_doctoral_division}
-                    {...register('post_doctoral_division', {
-                      required: 'Please select your division',
+                    {...register("post_doctoral_division", {
+                      required: "Please select your division",
                     })}
                   >
                     <option value='' />
@@ -1464,7 +1763,7 @@ const PartThree = () => {
                     className='small'
                     step='.01'
                     isInvalid={errors.post_doctoral_percentage}
-                    {...register('post_doctoral_percentage', {
+                    {...register("post_doctoral_percentage", {
                       required: true,
                       minValue: 0,
                       maxValue: 100,
@@ -1482,7 +1781,7 @@ const PartThree = () => {
               className='btn btn-outline-success'
             >
               Add New
-            </button>{' '}
+            </button>{" "}
             <button
               type='button'
               onClick={removePostDoc}
