@@ -31,6 +31,7 @@ const FormDetails = (props) => {
   const onSubmit = async (data) => {
     let applicant = {
       firstName: data.firstName,
+      middleName: data.middleName,
       lastName: data.lastName,
       dob: data.dob,
       gender: data.gender,

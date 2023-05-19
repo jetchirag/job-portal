@@ -91,8 +91,10 @@ const PartEight = () => {
                       {...register('book_written', {})}
                     >
                       <option value='' />
-                      <option value='principal-writer'>Principal Writer</option>
-                      <option value='co-writer'>Co Writer</option>
+                      <option value='First Author'>First Author</option>
+                      <option value='Co-Author'>Co-Author</option>
+                      <option value='Editor'>Editor</option>
+                      <option value='Co-Editor'>Co-Editor</option>
                     </Form.Select>
                     {errors.book_written && (
                       <p style={{ color: 'red' }}>

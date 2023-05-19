@@ -26,7 +26,7 @@ const PartEleven = () => {
   }, []);
   return (
     <Accordion.Item eventKey='11'>
-      <Accordion.Header>11. Peer Recognition / Awards</Accordion.Header>
+      <Accordion.Header>11. Rewards & Recognition</Accordion.Header>
       <Accordion.Body>
         <Form.Check
           type='checkbox'
@@ -38,7 +38,7 @@ const PartEleven = () => {
             <Table responsive='sm'>
               <thead>
                 <td>Awards / Honors</td>
-                <td>Agency</td>
+                <td>Institute/Organization</td>
                 <td>Year</td>
               </thead>
               <tbody>

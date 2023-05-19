@@ -170,7 +170,10 @@ const ApplicationsDetails = () => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">
-                {data?.applicant?.firstName} {data?.applicant?.lastName}
+                {/* {data?.applicant?.firstName}  {data?.applicant?.lastName} */}
+                {data?.applicant?.firstName}{" "} 
+                {data?.applicant?.middleName && data?.applicant?.middleName}{" "}
+                {data?.applicant?.lastName}
               </h5>
               <p className="card-text">
                 <Button
