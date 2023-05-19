@@ -28,7 +28,12 @@ const PartTwo = () => {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setCRStates(result))
+      .then((result) => {
+        // sort alphabetically
+        result.sort((a, b) => (a.name > b.name ? 1 : -1));
+        setCRStates(result)
+      })
+      
       .catch((error) => console.log('error', error));
   };
 
@@ -39,7 +44,11 @@ const PartTwo = () => {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setNTStates(result))
+      .then((result) => {
+        // sort alphabetically
+        result.sort((a, b) => (a.name > b.name ? 1 : -1));
+        setNTStates(result)
+      })
       .catch((error) => console.log('error', error));
   };
 
@@ -49,7 +58,11 @@ const PartTwo = () => {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setCRCity(result))
+      .then((result) => {
+        // sort alphabetically
+        result.sort((a, b) => (a.name > b.name ? 1 : -1));
+        setCRCity(result)
+      })
       .catch((error) => console.log('error', error));
   };
 
@@ -59,7 +72,11 @@ const PartTwo = () => {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setNTCity(result))
+      .then((result) => {
+        // sort alphabetically
+        result.sort((a, b) => (a.name > b.name ? 1 : -1));
+        setNTCity(result)
+      })
       .catch((error) => console.log('error', error));
   };
   var headers = new Headers();
@@ -81,6 +98,11 @@ const PartTwo = () => {
       )
         .then((response) => response.json())
         .then((result) => {
+          // move india to first
+          const index = result.findIndex((x) => x.name === 'India');
+          const india = result.splice(index, 1);
+          result.unshift(india[0]);
+
           setCountries(result);
         })
         .catch((error) => console.log('error', error));
@@ -109,6 +131,26 @@ const PartTwo = () => {
               type='text'
               {...register('firstName', {
                 required: true,
+                maxLength: 20,
+              })}
+            />
+          </Form.Group>
+          {/* Middle Name Details  */}
+          <Form.Group as={Col} md='2' controlId='middleName'>
+            <Form.Label>
+              Middle Name
+              <span style={{ color: 'red', fontSize: '10px' }}>
+                {' '}
+                as per Aadhaar
+              </span>
+            </Form.Label>
+            <Form.Control
+              isInvalid={errors.middleName}
+              size='sm'
+              placeholder='Middle Name'
+              type='text'
+              {...register('middleName', {
+                required: false,
                 maxLength: 20,
               })}
             />
@@ -163,6 +205,7 @@ const PartTwo = () => {
               </option>
               <option value='male'>Male</option>
               <option value='female'>Female</option>
+              <option value='female'>Transgender</option>
             </Form.Select>
           </Form.Group>
           {/* Mobile Details */}
@@ -398,9 +441,9 @@ const PartTwo = () => {
               <option selected='' disabled='' value=''>
                 Choose...
               </option>
-              <option value='buddh'>Buddh</option>
+              <option value='buddh'>Buddhism</option>
               <option value='christian'>Christian</option>
-              <option value='hindu'>Hindu</option>
+              <option value='hindu'>Hinduism</option>
               <option value='islam'>Islam</option>
               <option value='jain'>Jain</option>
               <option value='sikh'>Sikh</option>
@@ -433,7 +476,7 @@ const PartTwo = () => {
           {/* Aadhaar Card Details  */}
           <Form.Group as={Col} md='2' controlId='aadhaar_card'>
             <Form.Label>
-              Aadhaar Card<span style={{ color: 'red' }}> *</span>
+              Aadhaar Card
             </Form.Label>
             <Form.Control
               isInvalid={errors.aadhaar_card}
@@ -441,7 +484,7 @@ const PartTwo = () => {
               placeholder='Aadhaar Card'
               type='text'
               {...register('aadhaar_card', {
-                required: true,
+                required: false,
                 minLength: 12,
                 maxLength: 12,
               })}
@@ -450,7 +493,7 @@ const PartTwo = () => {
           {/* PAN Card Details  */}
           <Form.Group as={Col} md='2' controlId='pan_card'>
             <Form.Label>
-              PAN Card<span style={{ color: 'red' }}> *</span>
+              PAN Card
             </Form.Label>
             <Form.Control
               isInvalid={errors.pan_card}
@@ -458,7 +501,7 @@ const PartTwo = () => {
               placeholder='PAN Card'
               type='text'
               {...register('pan_card', {
-                required: true,
+                required: false,
                 minLength: 10,
                 maxLength: 10,
               })}

@@ -120,6 +120,16 @@ const PartTwelve = () => {
                       placeholder='Department'
                     />
                   </Form.Group>
+                  <Form.Group as={Col} md='3'>
+                    <Form.Label>
+                      Relation<span style={{ color: 'red' }}> *</span>
+                    </Form.Label>
+                    <Form.Control
+                      size='sm'
+                      type='text'
+                      placeholder='Relation'
+                    />
+                  </Form.Group>
                   <h3></h3>
                   <br />
                 </>
