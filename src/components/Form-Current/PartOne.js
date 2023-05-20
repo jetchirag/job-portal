@@ -6,11 +6,25 @@ import Accordion from 'react-bootstrap/Accordion';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import { facultiesList } from './faculties';
+import { facultiesList, departmentList2 } from './faculties';
 
 const Partone = () => {
+  const [jobType, setJobType] = useState('');
   const [faculty, setFaculty] = useState('');
   const [school, setSchool] = useState('');
+
+  const handleJobTypeChange = (event) => {
+    setJobType(event.target.value);
+    if (event.target.value === 'non_academic') {
+      setFaculty('NA');
+      setSchool('NA');
+    }
+    else {
+      setFaculty('');
+      setSchool('');
+    }
+  };
+
   const {
     register,
     formState: { errors },
@@ -40,6 +54,7 @@ const Partone = () => {
               {...register('jobtype', {
                 required: true,
               })}
+              onChange={handleJobTypeChange}
             >
               <option selected='' disabled='' value=''>
                 Choose...
@@ -49,6 +64,8 @@ const Partone = () => {
               {/* <option value="administration">Administrative</option> */}
             </Form.Select>
           </Form.Group>
+          
+          {jobType === 'academic' && (
           <Form.Group as={Col} md='2' controlId='faculty'>
             <Form.Label>
               Faculty<span style={{ color: 'red' }}> *</span>
@@ -72,7 +89,8 @@ const Partone = () => {
               })}
             </Form.Select>
           </Form.Group>
-          {faculty && (
+          )}
+          {jobType === 'academic' && faculty && (
             <Form.Group as={Col} md='2' controlId='school'>
               <Form.Label>
                 School<span style={{ color: 'red' }}> *</span>
@@ -114,9 +132,21 @@ const Partone = () => {
                   Choose...
                 </option>
                 {school &&
-                  facultiesList[faculty][school].map((dept) => {
-                    return <option value={dept}>{dept}</option>;
-                  })}
+                  (school === 'NA' ? (
+                    // Custom department list when school is "NA"
+                    departmentList2.map((dept) => (
+                      <option key={dept} value={dept}>
+                        {dept}
+                      </option>
+                    ))
+                  ) : (
+                    // Regular department list based on facultiesList
+                    facultiesList[faculty][school].map((dept) => (
+                      <option key={dept} value={dept}>
+                        {dept}
+                      </option>
+                    ))
+                  ))}
               </Form.Select>
             </Form.Group>
           )}
