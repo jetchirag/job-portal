@@ -90,4 +90,22 @@ const list = [
 
   'Faculty of Law',
 ];
-export { facultiesList, list };
+
+const departmentList2 = [
+  'Directorate of Online Education',
+  'Finance',
+  'Human Resources',
+  'Information Technology',
+  'Training & Placement',
+  'Directorate of Research',
+  'Directorate of Quality & Compliance',
+  "Registrar's Office",
+  'Directorate of Admissions',
+  'Central Library',
+  'Office of Controller of Examinations',
+  'Directorate of Academics',
+  'Laboratory',
+  'Shared Service Department',
+];
+
+export { facultiesList, list, departmentList2 };
