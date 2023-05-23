@@ -73,7 +73,6 @@ const PartTwoDetail = (props) => {
       .catch((error) => console.log("error", error));
   };
 
-
   useEffect(() => {
     const getCountries = async () => {
       await fetch(
@@ -108,10 +107,16 @@ const PartTwoDetail = (props) => {
               <span style={{ color: "grey" }}> *</span>
             </Form.Label>
             <Form.Control
-              size="sm"
-              placeholder="First Name"
-              type="text"
-              defaultValue={props?.data?.applicant?.firstName}
+               isInvalid={errors.firstName}
+               size='sm'
+               placeholder='First Name'
+               type='text'
+               {...register('firstName', {
+                 required: true,
+                 maxLength: 20,
+               })}
+
+              // defaultValue={props?.data?.applicant?.firstName}
             />
           </Form.Group>
           {/* Last Name Details  */}
@@ -150,7 +155,7 @@ const PartTwoDetail = (props) => {
             </Form.Label>
             <Form.Select size="sm">
               <option disabled="" value="">
-             Selected:  {props.data?.applicant?.gender}
+                Selected: {props.data?.applicant?.gender}
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -208,7 +213,7 @@ const PartTwoDetail = (props) => {
               onChange={crcountryhandler}
             >
               <option selected="" disabled="" value="">
-              Selected: {props?.data?.cr_country}
+                Selected: {props?.data?.cr_country}
               </option>
               {countries?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -228,7 +233,6 @@ const PartTwoDetail = (props) => {
                 required: true,
               })}
               onChange={crcityhandler}
-    
             >
               <option selected="" disabled="" value="">
                 Selected: {props?.data?.cr_state}
@@ -249,10 +253,9 @@ const PartTwoDetail = (props) => {
               {...register("cr_city", {
                 required: true,
               })}
-        
             >
               <option selected="" disabled="" value="">
-               Selected: {props?.data?.cr_city}
+                Selected: {props?.data?.cr_city}
               </option>
               {new_cr_city?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -264,14 +267,13 @@ const PartTwoDetail = (props) => {
               Address<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
-            as={"textarea"}
+              as={"textarea"}
               isInvalid={errors.cr_address}
               size="sm"
               placeholder="Full Address"
               type="text"
               {...register("cr_address", {
                 required: true,
-              
               })}
               defaultValue={props?.data?.cr_address}
             />
@@ -294,10 +296,9 @@ const PartTwoDetail = (props) => {
                 required: true,
               })}
               onChange={ntcountryhandler}
-              
             >
               <option selected="" disabled="" value="">
-              Selected: {props?.data?.native_country}
+                Selected: {props?.data?.native_country}
               </option>
               {countries?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -318,7 +319,7 @@ const PartTwoDetail = (props) => {
               onChange={ntcityhandler}
             >
               <option selected="" disabled="" value="">
-              Selected: {props?.data?.native_state}
+                Selected: {props?.data?.native_state}
               </option>
               {new_nt_states?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -339,7 +340,7 @@ const PartTwoDetail = (props) => {
               })}
             >
               <option selected="" disabled="" value="">
-             Selected: {props?.data?.native_city}
+                Selected: {props?.data?.native_city}
               </option>
               {new_nt_city?.map((element) => {
                 return <option value={element.iso2}>{element.name}</option>;
@@ -351,14 +352,13 @@ const PartTwoDetail = (props) => {
               Address<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
-            as={"textarea"}
+              as={"textarea"}
               isInvalid={errors.native_address}
               size="sm"
               placeholder="Full Address"
               type="text"
               {...register("native_address", {
                 required: true,
-              
               })}
               defaultValue={props?.data?.native_address}
             />
@@ -371,11 +371,7 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Religion<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select
-              size="sm"
-              aria-label="Default select example"
-      
-            >
+            <Form.Select size="sm" aria-label="Default select example">
               <option selected="" disabled="" value="">
                 Selected: {props?.data?.applicant?.religion}
               </option>
@@ -394,13 +390,9 @@ const PartTwoDetail = (props) => {
             <Form.Label>
               Marital Status<span style={{ color: "grey" }}> *</span>
             </Form.Label>
-            <Form.Select
-              size="sm"
-              aria-label="Default select example"
-         
-            >
+            <Form.Select size="sm" aria-label="Default select example">
               <option selected="" disabled="" value="">
-             Selected: {props?.data?.applicant?.marital_status}
+                Selected: {props?.data?.applicant?.marital_status}
               </option>
               <option value="single">Single</option>
               <option value="engaged">Engaged</option>

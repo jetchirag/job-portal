@@ -15,13 +15,42 @@ import PartEightDetails from "../view-details/PartEightDetails";
 import PartNineTenDetails from "../view-details/PartNineTenDetails";
 import PartElevenDetails from "../view-details/PartEleven";
 import PartTwelveDetails from "../view-details/PartTwelveDetails";
+import PartTwo from "../Form-Current/PartTwo";
 
 const FormDetails = (props) => {
   const handleClose = () => {
     setUpdate(false);
   };
   const [Update, setUpdate] = useState(false);
-  const methods = useForm();
+  const methods = useForm({
+    defaultValues: async () => {
+      const response = await fetch(
+        `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${props.id}`,
+        // NEW - add a Content-Type header
+        {
+          method: "GET",
+
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      return {
+        firstName: data.applicant.firstName,
+        middleName: data?.applicant?.middleName,
+        lastName: data?.applicant?.lastName,
+        dob: data?.applicant?.dob,
+        gender:data?.applicant?.gender,
+        mobile:data?.applicant?.mobile,
+        email:data?.applicant?.email,
+        
+
+      };
+    },
+  });
   const {
     register,
     handleSubmit,
@@ -299,7 +328,8 @@ const FormDetails = (props) => {
             style={{ padding: "0 5%" }}
           >
             <PartOneDetails data={props.data} />
-            <PartTwoDetail data={props.data} />
+            {/* <PartTwoDetail data={props.data} /> */}
+            <PartTwo />
             <PartThreeDetails data={props.data} />
             <PartFourDetails data={props.data} />
             <PartFiveDetails data={props.data} />

@@ -12,7 +12,6 @@ const ApplicationsDetails = () => {
   const [Accept, setAccept] = useState(false);
   const [Delete, setDelete] = useState(false);
 
-
   const handleClose = () => {
     setReject(false);
     setAccept(false);
@@ -91,37 +90,37 @@ const ApplicationsDetails = () => {
     }
   };
 
-  useEffect(() => {
-    const FetchingApplicant = async () => {
-      try {
-        await fetch(
-          `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
-          // NEW - add a Content-Type header
-          {
-            method: "GET",
+  // useEffect(() => {
+  //   const FetchingApplicant = async () => {
+  //     try {
+  //       await fetch(
+  //         `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
+  //         // NEW - add a Content-Type header
+  //         {
+  //           method: "GET",
 
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-          }
-        )
-          .then((res) => {
-            if (!res.ok) {
-              throw new Error("Error Connecting to the database");
-            }
-            return res.json();
-          })
-          .then((val) => {
-            setData(val);
-            console.log(val);
-          });
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
-    FetchingApplicant();
-  }, [id]);
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Accept: "application/json",
+  //           },
+  //         }
+  //       )
+  //         .then((res) => {
+  //           if (!res.ok) {
+  //             throw new Error("Error Connecting to the database");
+  //           }
+  //           return res.json();
+  //         })
+  //         .then((val) => {
+  //           setData(val);
+  //           console.log(val);
+  //         });
+  //     } catch (err) {
+  //       console.error(err.message);
+  //     }
+  //   };
+  //   FetchingApplicant();
+  // }, [id]);
 
   console.log(data);
 
@@ -154,7 +153,6 @@ const ApplicationsDetails = () => {
         body="This application status is deleted"
       />
 
-
       <div
         className="card mb-3"
         style={{ maxWidth: "540px", marginTop: "3%", marginLeft: "6%" }}
@@ -171,7 +169,7 @@ const ApplicationsDetails = () => {
             <div className="card-body">
               <h5 className="card-title">
                 {/* {data?.applicant?.firstName}  {data?.applicant?.lastName} */}
-                {data?.applicant?.firstName}{" "} 
+                {data?.applicant?.firstName}{" "}
                 {data?.applicant?.middleName && data?.applicant?.middleName}{" "}
                 {data?.applicant?.lastName}
               </h5>
@@ -203,7 +201,6 @@ const ApplicationsDetails = () => {
       </div>
 
       <FormDetails
-        data={data}
         reject={rejectApplication}
         accept={acceptApplication}
         delete={deleteApplication}
