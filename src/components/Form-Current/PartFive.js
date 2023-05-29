@@ -120,15 +120,13 @@ const PartFive = () => {
 
               {/* State Details  */}
               <Form.Group as={Col} md='2' controlId='cr_state'>
-                <Form.Label>
-                  State<span style={{ color: "red" }}> *</span>
-                </Form.Label>
+                <Form.Label>State</Form.Label>
 
                 <Form.Select
                   isInvalid={errors.cr_states}
                   size='sm'
                   {...register("cr_states", {
-                    required: true,
+                    // required: true,
                   })}
                   // onChange={/*To be entered*/}
                 >
@@ -142,14 +140,12 @@ const PartFive = () => {
               </Form.Group>
               {/* City Details  */}
               <Form.Group as={Col} md='2' controlId='cr_city'>
-                <Form.Label>
-                  City<span style={{ color: "red" }}> *</span>
-                </Form.Label>
+                <Form.Label>City</Form.Label>
                 <Form.Select
                   isInvalid={errors.cr_city}
                   size='sm'
                   {...register("cr_city", {
-                    required: true,
+                    // required: true,
                   })}
                 >
                   <option selected='' disabled='' value=''>
@@ -287,7 +283,7 @@ const PartFive = () => {
         </button>
         <hr />
         <p>
-          <b>Non Academic</b>
+          <b>Administrative & Non Academic</b>
         </p>
         {nonAcad.map(() => {
           return (
@@ -337,15 +333,13 @@ const PartFive = () => {
 
               {/* State Details  */}
               <Form.Group as={Col} md='2' controlId='cr_state'>
-                <Form.Label>
-                  State<span style={{ color: "red" }}> *</span>
-                </Form.Label>
+                <Form.Label>State</Form.Label>
 
                 <Form.Select
                   isInvalid={errors.cr_states}
                   size='sm'
                   {...register("cr_states", {
-                    required: true,
+                    // required: true,
                   })}
                   // onChange={/*To be entered*/}
                 >
@@ -359,14 +353,12 @@ const PartFive = () => {
               </Form.Group>
               {/* City Details  */}
               <Form.Group as={Col} md='2' controlId='cr_city'>
-                <Form.Label>
-                  City<span style={{ color: "red" }}> *</span>
-                </Form.Label>
+                <Form.Label>City</Form.Label>
                 <Form.Select
                   isInvalid={errors.cr_city}
                   size='sm'
                   {...register("cr_city", {
-                    required: true,
+                    // required: true,
                   })}
                 >
                   <option selected='' disabled='' value=''>
