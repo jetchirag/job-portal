@@ -25,6 +25,9 @@ const PartThree = () => {
       )
         .then((response) => response.json())
         .then((result) => {
+          const index = result.findIndex((x) => x.name === 'India');
+          const india = result.splice(index, 1);
+          result.unshift(india[0]);
           setCountries(result);
         })
         .catch((error) => console.log("error", error));
@@ -134,46 +137,35 @@ const PartThree = () => {
             </Form.Select>
           </Form.Group>
           {/* State Details  */}
-          <Form.Group as={Col} md='2' controlId='cr_state'>
+          <Form.Group as={Col} md='2' controlId='aq_secondary_state'>
             <Form.Label>
               State<span style={{ color: "red" }}> *</span>
             </Form.Label>
 
-            <Form.Select
-              isInvalid={errors.cr_states}
+            <Form.Control
+              isInvalid={errors.aq_secondary_state}
               size='sm'
-              {...register("cr_states", {
+              placeholder='State'
+              type='text'
+              {...register("aq_secondary_state", {
                 required: true,
               })}
-              // onChange={/*To be entered*/}
-            >
-              <option selected='' disabled='' value=''>
-                Choose...
-              </option>
-              {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-            </Form.Select>
+            />
           </Form.Group>
           {/* City Details  */}
-          <Form.Group as={Col} md='2' controlId='cr_city'>
+          <Form.Group as={Col} md='2' controlId='aq_secondary_city'>
             <Form.Label>
               City<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Select
-              isInvalid={errors.cr_city}
+            <Form.Control
+              isInvalid={errors.aq_secondary_city}
               size='sm'
-              {...register("cr_city", {
+              placeholder='City'
+              type='text'
+              {...register("aq_secondary_city", {
                 required: true,
               })}
-            >
-              <option selected='' disabled='' value=''>
-                Choose...
-              </option>
-              {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-            </Form.Select>
+            />
           </Form.Group>
           {/* Academic Qulalification Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
@@ -331,46 +323,35 @@ const PartThree = () => {
           </Form.Group>
 
           {/* State Details  */}
-          <Form.Group as={Col} md='2' controlId='cr_state'>
+          <Form.Group as={Col} md='2' controlId='aq_higher_secondary_state'>
             <Form.Label>
               State<span style={{ color: "red" }}> *</span>
             </Form.Label>
 
-            <Form.Select
-              isInvalid={errors.cr_states}
+            <Form.Control
+              isInvalid={errors.aq_higher_secondary_state}
               size='sm'
-              {...register("cr_states", {
+              placeholder='State'
+              type='text'
+              {...register("aq_higher_secondary_state", {
                 required: true,
               })}
-              // onChange={/*To be entered*/}
-            >
-              <option selected='' disabled='' value=''>
-                Choose...
-              </option>
-              {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-            </Form.Select>
+            />
           </Form.Group>
           {/* City Details  */}
-          <Form.Group as={Col} md='2' controlId='cr_city'>
+          <Form.Group as={Col} md='2' controlId='aq_higher_secondary_city'>
             <Form.Label>
               City<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Select
-              isInvalid={errors.cr_city}
+            <Form.Control
+              isInvalid={errors.aq_higher_secondary_city}
               size='sm'
-              {...register("cr_city", {
+              placeholder='City'
+              type='text'
+              {...register("aq_higher_secondary_city", {
                 required: true,
               })}
-            >
-              <option selected='' disabled='' value=''>
-                Choose...
-              </option>
-              {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-            </Form.Select>
+            />
           </Form.Group>
 
           {/* Academic Qulalification Higher Secondary Country  */}
@@ -542,46 +523,35 @@ const PartThree = () => {
                 </Form.Group>
 
                 {/* State Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_state'>
+                <Form.Group as={Col} md='2' controlId='aq_graduation_state'>
                   <Form.Label>
                     State<span style={{ color: "red" }}> *</span>
                   </Form.Label>
 
-                  <Form.Select
-                    isInvalid={errors.cr_states}
+                  <Form.Control
+                    isInvalid={errors.aq_graduation_state}
                     size='sm'
-                    {...register("cr_states", {
+                    placeholder='State'
+                    type='text'
+                    {...register("aq_graduation_state", {
                       required: true,
                     })}
-                    // onChange={/*To be entered*/}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  />
                 </Form.Group>
                 {/* City Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_city'>
+                <Form.Group as={Col} md='2' controlId='aq_graduation_city'>
                   <Form.Label>
                     City<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                  <Form.Select
-                    isInvalid={errors.cr_city}
+                  <Form.Control
+                    isInvalid={errors.aq_graduation_city}
                     size='sm'
-                    {...register("cr_city", {
+                    placeholder='City'
+                    type='text'
+                    {...register("aq_graduation_city", {
                       required: true,
                     })}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  />
                 </Form.Group>
 
                 {/* Academic Qualification Education Mode Details  */}
@@ -831,46 +801,35 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* State Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_state'>
+                <Form.Group as={Col} md='2' controlId='aq_post_graduation_state'>
                   <Form.Label>
                     State<span style={{ color: "red" }}> *</span>
                   </Form.Label>
 
-                  <Form.Select
-                    isInvalid={errors.cr_states}
+                  <Form.Control
+                    isInvalid={errors.aq_post_graduation_state}
                     size='sm'
-                    {...register("cr_states", {
+                    placeholder='State'
+                    type='text'
+                    {...register("aq_post_graduation_state", {
                       required: true,
                     })}
-                    // onChange={/*To be entered*/}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  />
                 </Form.Group>
                 {/* City Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_city'>
+                <Form.Group as={Col} md='2' controlId='aq_post_graduation_city'>
                   <Form.Label>
                     City<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                  <Form.Select
-                    isInvalid={errors.cr_city}
+                  <Form.Control
+                    isInvalid={errors.aq_post_graduation_city}
                     size='sm'
-                    {...register("cr_city", {
+                    placeholder='City'
+                    type='text'
+                    {...register("aq_post_graduation_city", {
                       required: true,
                     })}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  />
                 </Form.Group>
 
                 {/* Academic Qualification Education Mode Details  */}
@@ -1136,46 +1095,35 @@ const PartThree = () => {
               </Form.Group>
 
               {/* State Details  */}
-              <Form.Group as={Col} md='2' controlId='cr_state'>
+              <Form.Group as={Col} md='2' controlId='aq_phd_state'>
                 <Form.Label>
                   State<span style={{ color: "red" }}> *</span>
                 </Form.Label>
 
-                <Form.Select
-                  isInvalid={errors.cr_states}
+                <Form.Control
+                  isInvalid={errors.aq_phd_state}
                   size='sm'
-                  {...register("cr_states", {
+                  placeholder='State'
+                  type='text'
+                  {...register("aq_phd_state", {
                     required: true,
                   })}
-                  // onChange={/*To be entered*/}
-                >
-                  <option selected='' disabled='' value=''>
-                    Choose...
-                  </option>
-                  {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                </Form.Select>
+                />
               </Form.Group>
               {/* City Details  */}
-              <Form.Group as={Col} md='2' controlId='cr_city'>
+              <Form.Group as={Col} md='2' controlId='aq_phd_city'>
                 <Form.Label>
                   City<span style={{ color: "red" }}> *</span>
                 </Form.Label>
-                <Form.Select
-                  isInvalid={errors.cr_city}
+                <Form.Control
+                  isInvalid={errors.aq_phd_city}
                   size='sm'
-                  {...register("cr_city", {
+                  placeholder='City'
+                  type='text'
+                  {...register("aq_phd_city", {
                     required: true,
                   })}
-                >
-                  <option selected='' disabled='' value=''>
-                    Choose...
-                  </option>
-                  {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                </Form.Select>
+                />
               </Form.Group>
 
               {/* Academic Qualification Education Mode Details  */}
@@ -1357,46 +1305,35 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* State Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_state'>
+                <Form.Group as={Col} md='2' controlId='aq_mphil_country'>
                   <Form.Label>
                     State<span style={{ color: "red" }}> *</span>
                   </Form.Label>
 
-                  <Form.Select
-                    isInvalid={errors.cr_states}
-                    size='sm'
-                    {...register("cr_states", {
-                      required: true,
-                    })}
-                    // onChange={/*To be entered*/}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  <Form.Control
+              isInvalid={errors.aq_mphil_country}
+              size='sm'
+              placeholder='State'
+              type='text'
+              {...register("aq_mphil_country", {
+                required: true,
+              })}
+            />
                 </Form.Group>
                 {/* City Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_city'>
+                <Form.Group as={Col} md='2' controlId='aq_mphil_city'>
                   <Form.Label>
                     City<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                  <Form.Select
-                    isInvalid={errors.cr_city}
-                    size='sm'
-                    {...register("cr_city", {
-                      required: true,
-                    })}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  <Form.Control
+              isInvalid={errors.aq_mphil_city}
+              size='sm'
+              placeholder='City'
+              type='text'
+              {...register("aq_mphil_city", {
+                required: true,
+              })}
+            />
                 </Form.Group>
 
                 {/* Academic Qualification Education Mode Details  */}
@@ -1577,46 +1514,35 @@ const PartThree = () => {
                 </Form.Group>
 
                 {/* State Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_state'>
+                <Form.Group as={Col} md='2' controlId='aq_post_doctoral_state'>
                   <Form.Label>
                     State<span style={{ color: "red" }}> *</span>
                   </Form.Label>
 
-                  <Form.Select
-                    isInvalid={errors.cr_states}
-                    size='sm'
-                    {...register("cr_states", {
-                      required: true,
-                    })}
-                    // onChange={/*To be entered*/}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_states?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  <Form.Control
+              isInvalid={errors.aq_post_doctoral_state}
+              size='sm'
+              placeholder='State'
+              type='text'
+              {...register("aq_post_doctoral_state", {
+                required: true,
+              })}
+            />
                 </Form.Group>
                 {/* City Details  */}
-                <Form.Group as={Col} md='2' controlId='cr_city'>
+                <Form.Group as={Col} md='2' controlId='aq_post_doctoral_city'>
                   <Form.Label>
                     City<span style={{ color: "red" }}> *</span>
                   </Form.Label>
-                  <Form.Select
-                    isInvalid={errors.cr_city}
-                    size='sm'
-                    {...register("cr_city", {
-                      required: true,
-                    })}
-                  >
-                    <option selected='' disabled='' value=''>
-                      Choose...
-                    </option>
-                    {/* {new_cr_city?.map((element) => {
-                return <option value={element.iso2}>{element.name}</option>;
-              })} */}
-                  </Form.Select>
+                  <Form.Control
+              isInvalid={errors.aq_post_doctoral_city}
+              size='sm'
+              placeholder='City'
+              type='text'
+              {...register("aq_post_doctoral_city", {
+                required: true,
+              })}
+            />
                 </Form.Group>
 
                 {/* Academic Qualification Education Mode Details  */}

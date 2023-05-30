@@ -18,6 +18,7 @@ const PartTwo = () => {
 
   const {
     register,
+    setValue,
     formState: { errors },
   } = useFormContext();
 
@@ -53,6 +54,7 @@ const PartTwo = () => {
   };
 
   const crcityhandler = async (e) => {
+    console.log(errors);
     await fetch(
       `https://api.countrystatecity.in/v1/countries/${selectcrcountry}/states/${e.target.value}/cities`,
       requestOptions
@@ -280,7 +282,7 @@ const PartTwo = () => {
             </Form.Select>
           </Form.Group>
           {/* State Details  */}
-          <Form.Group as={Col} md='2' controlId='cr_state'>
+          <Form.Group as={Col} md='2' controlId='cr_states'>
             <Form.Label>
               State<span style={{ color: 'red' }}> *</span>
             </Form.Label>
@@ -289,8 +291,9 @@ const PartTwo = () => {
               isInvalid={errors.cr_states}
               size='sm'
               {...register('cr_states', {
-                required: true,
+                required: "Please select your current residence state",
               })}
+              {...register("cr_states")}
               onChange={crcityhandler}
             >
               <option selected='' disabled='' value=''>
@@ -301,6 +304,15 @@ const PartTwo = () => {
               })}
             </Form.Select>
           </Form.Group>
+              {/* The above field always failed validation because */}
+              {/* it is not required but it is still showing as invalid */}
+              {/* I have commented out the required validation for now */}
+              {/* but it is still showing as invalid */}
+
+              {/* Reason: */}
+              {/* The above field always failed validation because */}
+
+          
           {/* City Details  */}
           <Form.Group as={Col} md='2' controlId='cr_city'>
             <Form.Label>
