@@ -46,7 +46,6 @@ const FormComponent = ({ id, setId }) => {
   const onSubmit = async (data) => {
     setLoading(true);
     let applicant = {
-<<<<<<< HEAD
       firstName: data.firstName,
       lastName: data.lastName,
       dob: new Date(data.dob).toISOString(),
@@ -142,89 +141,6 @@ const FormComponent = ({ id, setId }) => {
       course: data.post_doctoral_course,
       division: data.post_doctoral_division,
       percentage: data.post_doctoral_percentage,
-=======
-      firstName: data?.applicant?.firstName,
-      lastName: data?.applicant?.lastName,
-      dob: data?.applicant?.dob,
-      gender: data?.applicant?.gender,
-      religion: data?.applicant?.religion,
-      marital_status: data?.applicant?.marital_status,
-      mobile: data?.applicant?.mobile,
-      email: data?.applicant?.email,
-    };
-    let aq_secondary = {
-      country: data?.aq_secondary?.aq_secondary_country,
-      mode: data?.aq_secondary?.secondary_mode,
-      school: data?.aq_secondary?.secondary_school,
-      board: data?.aq_secondary?.secondary_board,
-      passingYear: data?.aq_secondary?.secondary_passingYear,
-      division: data?.aq_secondary?.secondary_division,
-      percentage: data?.aq_secondary?.secondary_percentage,
-    };
-    let aq_higher_secondary = {
-      country: data?.aq_higher_secondary?.aq_higher_secondary_country,
-      mode: data?.aq_higher_secondary?.higher_secondary_mode,
-      school: data?.aq_higher_secondary?.higher_secondary_school,
-      board: data?.aq_higher_secondary?.higher_secondary_board,
-      stream: data?.aq_higher_secondary?.higher_secondary_stream,
-      passingYear: data?.aq_higher_secondary?.higher_secondary_passingYear,
-      division: data?.aq_higher_secondary?.higher_secondary_division,
-      percentage: data?.aq_higher_secondary?.higher_secondary_percentage,
-    };
-    let aq_graduation = {
-      country: data?.aq_graduation?.aq_graduation_country,
-      mode: data?.aq_graduation?.graduation_mode,
-      institute: data?.aq_graduation?.graduation_institute,
-      college: data?.aq_graduation?.graduation_college,
-      year: data?.aq_graduation?.graduation_year,
-      area: data?.aq_graduation?.graduation_area,
-      course: data?.aq_graduation?.graduation_course,
-      division: data?.aq_graduation?.graduation_division,
-      percentage: data?.aq_graduation?.graduation_percentage,
-    };
-    let aq_post_graduation = {
-      country: data?.aq_post_graduation?.aq_post_graduation_country,
-      mode: data?.aq_post_graduation?.post_graduation_mode,
-      institute: data?.aq_post_graduation?.post_graduation_institute,
-      college: data?.aq_post_graduation?.post_graduation_college,
-      year: data?.aq_post_graduation?.post_graduation_year,
-      area: data?.aq_post_graduation?.post_graduation_area,
-      course: data?.aq_post_graduation?.post_graduation_course,
-      division: data?.aq_post_graduation?.post_graduation_division,
-      percentage: data?.aq_post_graduation?.post_graduation_percentage,
-    };
-    let aq_mphil = {
-      country: data?.aq_mphil?.aq_mphil_country,
-      mode: data?.aq_mphil?.mphil_mode,
-      institute: data?.aq_mphil?.mphil_institute,
-      college: data?.aq_mphil?.mphil_college,
-      year: data?.aq_mphil?.mphil_year,
-      area: data?.aq_mphil?.mphil_area,
-      division: data?.aq_mphil?.mphil_division,
-      percentage: data?.aq_mphil?.mphil_percentage,
-    };
-    let aq_phd = {
-      country: data?.aq_phd?.aq_phd_country,
-      status: data?.aq_phd?.phd_status,
-      mode: data?.aq_phd?.phd_mode,
-      institute: data?.aq_phd?.phd_institute,
-      college: data?.aq_phd?.phd_college,
-      year: data?.aq_phd?.phd_year,
-      area: data?.aq_phd?.phd_area,
-      teachingExperience: data?.aq_phd?.phd_teaching_experience,
-      year2: data?.aq_phd?.phd_anti_completion_year,
-    };
-    let aq_post_doctoral = {
-      country: data?.aq_post_doctoral?.aq_post_doctoral_country,
-      mode: data?.aq_post_doctoral?.post_doctoral_mode,
-      institute: data?.aq_post_doctoral?.post_doctoral_institute,
-      college: data?.aq_post_doctoral?.post_doctoral_college,
-      year: data?.aq_post_doctoral?.post_doctoral_year,
-      area: data?.aq_post_doctoral?.post_doctoral_area,
-      course: data?.aq_post_doctoral?.post_doctoral_course,
-      division: data?.aq_post_doctoral?.post_doctoral_division,
-      percentage: data?.aq_post_doctoral?.post_doctoral_percentage,
->>>>>>> 3f8b1d9484e5fae4cd480e6ef5dbfc1d717a787b
     };
     let academicQualification = {
       gate: data?.academicQualification?.gate,
@@ -235,7 +151,6 @@ const FormComponent = ({ id, setId }) => {
       icar: data?.academicQualification?.icar,
     };
     let academicExperience = {
-<<<<<<< HEAD
       natureOfJob: data.academicExperience_mode,
       country: data.academicExperience_country,
       state: data.academicExperience_state,
@@ -257,27 +172,6 @@ const FormComponent = ({ id, setId }) => {
       department: data.nonAcademicExperience_department,
       dateFrom: data.nonAcademicExperience_datefrom,
       dateTo: data.nonAcademicExperience_dateto,
-=======
-      natureOfJob: data?.academicExperience?.academicExperience_mode,
-      country: data?.academicExperience?.academicExperience_country,
-      university: data?.academicExperience?.academicExperience_university,
-      college: data?.academicExperience?.academicExperience_college,
-      position: data?.academicExperience?.academicExperience_position,
-      academicDomain: data?.academicExperience?.academicExperience_domain,
-      dateFrom: data?.academicExperience?.academicExperience_datefrom,
-      dateTo: data?.academicExperience?.academicExperience_dateto,
-    };
-    let nonAcademicExperience = {
-      natureOfJob: data?.nonAcademicExperience?.nonAcademicExperience_mode,
-      country: data?.nonAcademicExperience?.nonAcademicExperience_country,
-      organization:
-        data?.nonAcademicExperience?.nonAcademicExperience_organization,
-      designation:
-        data?.nonAcademicExperience?.nonAcademicExperience_designation,
-      department: data?.nonAcademicExperience?.nonAcademicExperience_department,
-      dateFrom: data?.nonAcademicExperience?.nonAcademicExperience_datefrom,
-      dateTo: data?.nonAcademicExperience?.nonAcademicExperience_dateto,
->>>>>>> 3f8b1d9484e5fae4cd480e6ef5dbfc1d717a787b
     };
     let fellowships = {
       fellowshipDetail: data?.fellowships?.fellowship_details,
