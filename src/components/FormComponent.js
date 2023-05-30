@@ -48,7 +48,7 @@ const FormComponent = ({ id, setId }) => {
     let applicant = {
       firstName: data.firstName,
       lastName: data.lastName,
-      dob: data.dob,
+      dob: new Date(data.dob).toISOString(),
       gender: data.gender,
       religion: data.religion,
       marital_status: data.marital_status,
@@ -57,6 +57,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_secondary = {
       country: data.aq_secondary_country,
+      state: data.aq_secondary_state,
+      city: data.aq_secondary_city,
       mode: data.secondary_mode,
       school: data.secondary_school,
       board: data.secondary_board,
@@ -66,6 +68,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_higher_secondary = {
       country: data.aq_higher_secondary_country,
+      state: data.aq_higher_secondary_state,
+      city: data.aq_higher_secondary_city,
       mode: data.higher_secondary_mode,
       school: data.higher_secondary_school,
       board: data.higher_secondary_board,
@@ -76,6 +80,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_graduation = {
       country: data.aq_graduation_country,
+      state: data.aq_graduation_state,
+      city: data.aq_graduation_city,
       mode: data.graduation_mode,
       institute: data.graduation_institute,
       college: data.graduation_college,
@@ -87,6 +93,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_post_graduation = {
       country: data.aq_post_graduation_country,
+      state: data.aq_post_graduation_state,
+      city: data.aq_post_graduation_city,
       mode: data.post_graduation_mode,
       institute: data.post_graduation_institute,
       college: data.post_graduation_college,
@@ -98,6 +106,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_mphil = {
       country: data.aq_mphil_country,
+      state: data.aq_mphil_state,
+      city: data.aq_mphil_city,
       mode: data.mphil_mode,
       institute: data.mphil_institute,
       college: data.mphil_college,
@@ -108,6 +118,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_phd = {
       country: data.aq_phd_country,
+      state: data.aq_phd_state,
+      city: data.aq_phd_city,
       status: data.phd_status,
       mode: data.phd_mode,
       institute: data.phd_institute,
@@ -119,6 +131,8 @@ const FormComponent = ({ id, setId }) => {
     };
     let aq_post_doctoral = {
       country: data.aq_post_doctoral_country,
+      state: data.aq_post_doctoral_state,
+      city: data.aq_post_doctoral_city,
       mode: data.post_doctoral_mode,
       institute: data.post_doctoral_institute,
       college: data.post_doctoral_college,
@@ -139,6 +153,8 @@ const FormComponent = ({ id, setId }) => {
     let academicExperience = {
       natureOfJob: data.academicExperience_mode,
       country: data.academicExperience_country,
+      state: data.academicExperience_state,
+      city: data.academicExperience_city,
       university: data.academicExperience_university,
       college: data.academicExperience_college,
       position: data.academicExperience_position,
@@ -149,6 +165,8 @@ const FormComponent = ({ id, setId }) => {
     let nonAcademicExperience = {
       natureOfJob: data.nonAcademicExperience_mode,
       country: data.nonAcademicExperience_country,
+      state: data.nonAcademicExperience_state,
+      city: data.nonAcademicExperience_city,
       organization: data.nonAcademicExperience_organization,
       designation: data.nonAcademicExperience_designation,
       department: data.nonAcademicExperience_department,
@@ -268,7 +286,6 @@ const FormComponent = ({ id, setId }) => {
           },
         }
       );
-      // console.log(response);
       setId(
         response.url.substring(
           response.url.lastIndexOf("/") + 1,
