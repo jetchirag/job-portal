@@ -276,7 +276,7 @@ const PartFive = () => {
         </button>
         <hr />
         <p>
-          <b>Non Academic</b>
+          <b>Administrative & Non Academic</b>
         </p>
         {nonAcad.map(() => {
           return (

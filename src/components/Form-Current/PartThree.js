@@ -496,7 +496,7 @@ const PartThree = () => {
         </Row>
         <hr />
         <p>
-          <b>Graduate</b>
+          <b>Graduation</b>
         </p>
         {graduate.map(() => {
           return (
@@ -771,7 +771,7 @@ const PartThree = () => {
         </button>
         <hr />
         <p>
-          <b>Post Graduate</b>
+          <b>Post Graduation</b>
         </p>
         {postGraduate.map(() => {
           return (
