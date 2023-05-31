@@ -5,6 +5,8 @@ import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col"; 
+
+import PartNineTen from "./PartNineTen";
 const PartSeven = () => {
   const {
     register,
@@ -12,7 +14,7 @@ const PartSeven = () => {
   } = useFormContext();
   return (
     <Accordion.Item eventKey="6">
-      <Accordion.Header>7. Research Work</Accordion.Header>
+      <Accordion.Header>7. Research & Consultancy</Accordion.Header>
       <Accordion.Body>
         <Row className="mb-3">
           {/* Research Work Main  */}
@@ -835,6 +837,8 @@ const PartSeven = () => {
             </Form.Group>
           </Row>
         </div>
+
+        <PartNineTen/>
       </Accordion.Body>
     </Accordion.Item>
   );

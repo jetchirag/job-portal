@@ -36,10 +36,10 @@ const PartFive = () => {
     register,
     formState: { errors },
   } = useFormContext();
-  const [academicExperience_country, setacademicExperience_country] =
-    useState("");
-  const [nonAcademicExperience_country, setnonAcademicExperience_country] =
-    useState("");
+  // const [academicExperience_country, setacademicExperience_country] =
+  //   useState("");
+  // const [nonAcademicExperience_country, setnonAcademicExperience_country] =
+  //   useState("");
   const [acad, setAcad] = useState(["set"]);
   const [nonAcad, setNonAcad] = useState(["set"]);
 
@@ -325,13 +325,13 @@ const PartFive = () => {
               </Form.Group>
 
               {/* State Details  */}
-              <Form.Group as={Col} md='2' controlId='nonAcademicExperience_country'>
+              <Form.Group as={Col} md='2' controlId='nonAcademicExperience_state'>
                 <Form.Label>
                   State<span style={{ color: "red" }}> *</span>
                 </Form.Label>
 
                 <Form.Control
-              isInvalid={errors.nonAcademicExperience_country}
+              isInvalid={errors.nonAcademicExperience_state}
               size='sm'
               placeholder='State'
               type='text'

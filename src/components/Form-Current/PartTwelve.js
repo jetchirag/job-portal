@@ -34,7 +34,7 @@ const PartTwelve = () => {
 
   return (
     <Accordion.Item eventKey='12'>
-      <Accordion.Header>12. Other Information</Accordion.Header>
+      <Accordion.Header>10. Other Information</Accordion.Header>
       <Accordion.Body>
         <Row className='mb-3'>
           {/* <Form.Group

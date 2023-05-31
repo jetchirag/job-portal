@@ -4,18 +4,21 @@ import { Accordion, Button } from "react-bootstrap";
 import Modal from "../modal/Modal";
 import Form from "react-bootstrap/Form";
 import PartOneDetails from "../view-details/PartOneDetails";
-import PartThreeDetails from "../view-details/PartThreeDetails";
-import PartTwoDetail from "../view-details/PartTwoDetail";
-import PartFourDetails from "../view-details/PartFourDetails";
-import PartFiveDetails from "../view-details/PartFiveDetails";
-import PartSixDetails from "../view-details/PartSixDetails";
+// import PartTwoDetail from "../view-details/PartTwoDetail";
+
 import { FormProvider, useForm } from "react-hook-form";
-import PartSevenDetails from "../view-details/PartSevenDetails";
-import PartEightDetails from "../view-details/PartEightDetails";
-import PartNineTenDetails from "../view-details/PartNineTenDetails";
-import PartElevenDetails from "../view-details/PartEleven";
-import PartTwelveDetails from "../view-details/PartTwelveDetails";
+
 import PartTwo from "../Form-Current/PartTwo";
+import dataFunction from "./defaultValues";
+import PartThree from "../Form-Current/PartThree";
+import PartFour from "../Form-Current/PartFour";
+import PartFive from "../Form-Current/PartFive";
+import PartSix from "../Form-Current/PartSix";
+import PartSeven from "../Form-Current/PartSeven";
+import PartEight from "../Form-Current/PartEight";
+import PartNineTen from "../Form-Current/PartNineTen";
+import PartEleven from "../Form-Current/PartEleven";
+import PartTwelve from "../Form-Current/PartTwelve";
 
 const FormDetails = (props) => {
   const handleClose = () => {
@@ -38,17 +41,7 @@ const FormDetails = (props) => {
       );
       const data = await response.json();
       console.log(data);
-      return {
-        firstName: data.applicant.firstName,
-        middleName: data?.applicant?.middleName,
-        lastName: data?.applicant?.lastName,
-        dob: data?.applicant?.dob,
-        gender:data?.applicant?.gender,
-        mobile:data?.applicant?.mobile,
-        email:data?.applicant?.email,
-        
-
-      };
+      return dataFunction(data);
     },
   });
   const {
@@ -130,6 +123,8 @@ const FormDetails = (props) => {
       area: data.phd_area,
       teachingExperience: data.phd_teaching_experience,
       year2: data.phd_anti_completion_year,
+      year3: data.phd_phd_enrollment_year,
+      //add year 3 to backend
     };
     let aq_post_doctoral = {
       country: data.aq_post_doctoral_country,
@@ -330,15 +325,15 @@ const FormDetails = (props) => {
             <PartOneDetails data={props.data} />
             {/* <PartTwoDetail data={props.data} /> */}
             <PartTwo />
-            <PartThreeDetails data={props.data} />
-            <PartFourDetails data={props.data} />
-            <PartFiveDetails data={props.data} />
-            <PartSixDetails data={props.data} />
-            <PartSevenDetails data={props.data} />
-            <PartEightDetails data={props.data} />
-            <PartNineTenDetails data={props.data} />
-            <PartElevenDetails data={props.data} />
-            <PartTwelveDetails data={props.data} />
+            <PartThree />
+            <PartFour />
+            <PartFive />
+            <PartSix />
+            <PartSeven />
+            <PartEight />
+            <PartNineTen />
+            <PartEleven />
+            <PartTwelve />
             <Button onClick={props.reject}>Reject</Button>
             <Button onClick={props.accept}>Accept</Button>
             <Button onClick={props.delete}>Delete</Button>

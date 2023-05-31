@@ -34,11 +34,14 @@ const PartNineTen = () => {
 
   return (
     <>
-      <Accordion.Item eventKey='9'>
+      {/* <Accordion.Item eventKey='9'>
         <Accordion.Header>
           9. Patent Details (in last three years)
         </Accordion.Header>
-        <Accordion.Body>
+        <Accordion.Body> */}
+          <p>Patent Details (in last three years)</p>
+        <div className="container border rounded-2"></div>
+        
           <Form.Check
             type='checkbox'
             label='if Yes?'
@@ -132,13 +135,15 @@ const PartNineTen = () => {
               </button>
             </>
           )}
-        </Accordion.Body>
-      </Accordion.Item>
-      <Accordion.Item eventKey='10'>
+        {/* </Accordion.Body>
+      </Accordion.Item> */}
+      {/* <Accordion.Item eventKey='10'>
         <Accordion.Header>
           10. Consultancy (in last three years)
         </Accordion.Header>
-        <Accordion.Body>
+        <Accordion.Body> */}
+         <p>Consultancy (in last three years)</p>
+        <div className="container border rounded-2"></div>
           <Form.Check
             type='checkbox'
             label='if Yes?'
@@ -195,8 +200,8 @@ const PartNineTen = () => {
               </Table>
             </Form.Group>
           )}
-        </Accordion.Body>
-      </Accordion.Item>
+        {/* </Accordion.Body>
+      </Accordion.Item> */}
     </>
   );
 };

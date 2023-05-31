@@ -363,7 +363,7 @@ const FormComponent = ({ id, setId }) => {
                 {/*This is part 8  */}
                 <PartEight />
                 {/* This is part 9 & 10 */}
-                <PartNineTen />
+                {/* <PartNineTen /> */}
                 {/* This is part 11 */}
                 <PartEleven />
                 {/* This is part 12  */}
