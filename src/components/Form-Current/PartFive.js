@@ -121,7 +121,7 @@ const PartFive = () => {
               {/* State Details  */}
               <Form.Group as={Col} md='2' controlId='academicExperience_state'>
                 <Form.Label>
-                  State<span style={{ color: "red" }}> *</span>
+                  State
                 </Form.Label>
 
                 <Form.Control
@@ -130,14 +130,14 @@ const PartFive = () => {
               placeholder='State'
               type='text'
               {...register("academicExperience_state", {
-                required: true,
+                required: false,
               })}
             />
               </Form.Group>
               {/* City Details  */}
               <Form.Group as={Col} md='2' controlId='academicExperience_city'>
                 <Form.Label>
-                  City<span style={{ color: "red" }}> *</span>
+                  City
                 </Form.Label>
                 <Form.Control
               isInvalid={errors.academicExperience_city}
@@ -145,7 +145,7 @@ const PartFive = () => {
               placeholder='City'
               type='text'
               {...register("academicExperience_city", {
-                required: true,
+                required: false,
               })}
             />
               </Form.Group>
@@ -327,7 +327,7 @@ const PartFive = () => {
               {/* State Details  */}
               <Form.Group as={Col} md='2' controlId='nonAcademicExperience_state'>
                 <Form.Label>
-                  State<span style={{ color: "red" }}> *</span>
+                  State
                 </Form.Label>
 
                 <Form.Control
@@ -336,14 +336,14 @@ const PartFive = () => {
               placeholder='State'
               type='text'
               {...register("nonAcademicExperience_country", {
-                required: true,
+                required: false,
               })}
             />
               </Form.Group>
               {/* City Details  */}
               <Form.Group as={Col} md='2' controlId='nonAcademicExperience_city'>
                 <Form.Label>
-                  City<span style={{ color: "red" }}> *</span>
+                  City
                 </Form.Label>
                 <Form.Control
               isInvalid={errors.nonAcademicExperience_city}
@@ -351,7 +351,7 @@ const PartFive = () => {
               placeholder='City'
               type='text'
               {...register("nonAcademicExperience_city", {
-                required: true,
+                required: false,
               })}
             />
               </Form.Group>

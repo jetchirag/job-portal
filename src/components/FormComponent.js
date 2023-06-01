@@ -47,6 +47,7 @@ const FormComponent = ({ id, setId }) => {
     setLoading(true);
     let applicant = {
       firstName: data.firstName,
+      middleName: data.middleName,
       lastName: data.lastName,
       dob: new Date(data.dob).toISOString(),
       gender: data.gender,
@@ -149,6 +150,12 @@ const FormComponent = ({ id, setId }) => {
       urcCsir: data?.academicQualification?.urcCsir,
       icmr: data?.academicQualification?.icmr,
       icar: data?.academicQualification?.icar,
+      gate_score: data?.academicQualification?.gate_score,
+      ugcNet_score: data?.academicQualification?.ugcNet_score,
+      ugcJrf_score: data?.academicQualification?.ugcJrf_score,
+      urcCsir_score: data?.academicQualification?.urcCsir_score,
+      icmr_score: data?.academicQualification?.icmr_score,
+      icar_score: data?.academicQualification?.icar_score,
     };
     let academicExperience = {
       natureOfJob: data.academicExperience_mode,

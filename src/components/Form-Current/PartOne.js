@@ -65,7 +65,7 @@ const Partone = () => {
           {/* </Form.Select> */}
           {/* </Form.Group> */}
 
-          <Form.Group as={Col} md="2" controlId="deparment">
+          <Form.Group as={Col} md="4" controlId="deparment">
             <Form.Label>
               Department<span style={{ color: "red" }}> *</span>
             </Form.Label>
@@ -89,18 +89,22 @@ const Partone = () => {
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md="2" controlId="school">
+          <Form.Group as={Col} md="4" controlId="school">
             <Form.Label>
               School<span style={{ color: "red" }}> *</span>
             </Form.Label>
-            <Form.Select size="sm" aria-label="Default School Type" disabled={true}>
+            <Form.Select
+              size="sm"
+              aria-label="Default School Type"
+              disabled={true}
+            >
               <option selected="" disabled="" value="">
-                {dept&&Object.keys(Data[dept])}
+                {dept && Object.keys(Data[dept])}
               </option>
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md="2" controlId="department">
+          <Form.Group as={Col} md="4" controlId="department">
             <Form.Label>
               Faculty<span style={{ color: "red" }}> *</span>
             </Form.Label>
@@ -110,7 +114,7 @@ const Partone = () => {
               disabled={true}
             >
               <option selected="" disabled="" value="">
-                {dept&& Object.keys(Data[dept][Object.keys(Data[dept])[0]])}
+                {dept && Object.keys(Data[dept][Object.keys(Data[dept])[0]])}
               </option>
             </Form.Select>
           </Form.Group>

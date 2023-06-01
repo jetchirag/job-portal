@@ -22,21 +22,21 @@ const PartFour = () => {
     setYears(c);
   }, []);
   return (
-    <Accordion.Item eventKey='3'>
+    <Accordion.Item eventKey="3">
       <Accordion.Header>4.Qualified in:</Accordion.Header>
       <Accordion.Body>
-        <Row className='mb-3'>
+        <Row className="mb-3">
           {/* Gate Details  */}
 
-          <Form.Group as={Col} md='2' controlId='gate'>
+          <Form.Group as={Col} md="2" controlId="gate">
             <Form.Label>Gate Year</Form.Label>
             <Form.Select
-              size='sm'
+              size="sm"
               {...register("gate", {
-                // required: true,
+                // required: false,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 Gate Year
               </option>
               {years.map((year) => {
@@ -44,15 +44,15 @@ const PartFour = () => {
               })}
             </Form.Select>
           </Form.Group>
-          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+          <Form.Group as={Col} md="2" controlId="gate_score">
             <Form.Label>Gate Score</Form.Label>
             <Form.Control
-              className='small'
-              isInvalid={errors.post_doctoral_institute}
-              placeholder='Gate Score'
-              type='text'
-              {...register("post_doctoral_institute", {
-                required: true,
+              className="small"
+              isInvalid={errors.gate_score}
+              placeholder="Gate Score"
+              type="text"
+              {...register("gate_score", {
+                required: false,
                 maxLength: 100,
               })}
             />
@@ -60,15 +60,15 @@ const PartFour = () => {
 
           {/* UGC Net Details  */}
 
-          <Form.Group as={Col} md='2' controlId='ugcNet'>
+          <Form.Group as={Col} md="2" controlId="ugcNet">
             <Form.Label> UGC-NET Year</Form.Label>
             <Form.Select
-              size='sm'
+              size="sm"
               {...register("ugcNet", {
-                // required: true,
+                // required: false,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 UGC Net Year
               </option>
               {years.map((year) => {
@@ -77,30 +77,30 @@ const PartFour = () => {
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+          <Form.Group as={Col} md="2" controlId="ugcNet_score">
             <Form.Label>UGC-NET Score</Form.Label>
             <Form.Control
-              className='small'
-              isInvalid={errors.post_doctoral_institute}
-              placeholder='UGC-NET Score'
-              type='text'
-              {...register("post_doctoral_institute", {
-                required: true,
+              className="small"
+              isInvalid={errors.ugcNet_score}
+              placeholder="UGC-NET Score"
+              type="text"
+              {...register("ugcNet_score", {
+                required: false,
                 maxLength: 100,
               })}
             />
           </Form.Group>
           {/* UGC JRF Details  */}
 
-          <Form.Group as={Col} md='2' controlId='ugcJrf'>
+          <Form.Group as={Col} md="2" controlId="ugcJrf">
             <Form.Label>UGC JRF Year</Form.Label>
             <Form.Select
-              size='sm'
+              size="sm"
               {...register("ugcJrf", {
-                // required: true,
+                // required: false,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 UGC JRF Year
               </option>
               {years.map((year) => {
@@ -109,15 +109,15 @@ const PartFour = () => {
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+          <Form.Group as={Col} md="2" controlId="ugcJrf_score">
             <Form.Label>UGC-JRF Score</Form.Label>
             <Form.Control
-              className='small'
-              isInvalid={errors.post_doctoral_institute}
-              placeholder='UGC-JRF Score'
-              type='text'
-              {...register("post_doctoral_institute", {
-                required: true,
+              className="small"
+              isInvalid={errors.ugcJrf_score}
+              placeholder="UGC-JRF Score"
+              type="text"
+              {...register("ugcJrf_score", {
+                required: false,
                 maxLength: 100,
               })}
             />
@@ -125,15 +125,15 @@ const PartFour = () => {
 
           {/* URC CSIR Details  */}
 
-          <Form.Group as={Col} md='2' controlId='urcCsir'>
+          <Form.Group as={Col} md="2" controlId="urcCsir">
             <Form.Label>URC CSIR Year</Form.Label>
             <Form.Select
-              size='sm'
+              size="sm"
               {...register("urcCsir", {
-                // required: true,
+                // required: false,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 URC CSIR Year
               </option>
               {years.map((year) => {
@@ -142,15 +142,15 @@ const PartFour = () => {
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+          <Form.Group as={Col} md="2" controlId="urcCsir_score">
             <Form.Label style={{ width: "110%" }}>UGC-CSIR Score</Form.Label>
             <Form.Control
-              className='small'
-              isInvalid={errors.post_doctoral_institute}
-              placeholder='UGC-CSIR Score'
-              type='text'
-              {...register("post_doctoral_institute", {
-                required: true,
+              className="small"
+              isInvalid={errors.urcCsir_score}
+              placeholder="UGC-CSIR Score"
+              type="text"
+              {...register("urcCsir_score", {
+                required: false,
                 maxLength: 100,
               })}
             />
@@ -158,15 +158,15 @@ const PartFour = () => {
 
           {/* ICMR Details  */}
 
-          <Form.Group as={Col} md='2' controlId='icmr'>
+          <Form.Group as={Col} md="2" controlId="icmr">
             <Form.Label>ICMR Year</Form.Label>
             <Form.Select
-              size='sm'
+              size="sm"
               {...register("icmr", {
-                // required: true,
+                // required: false,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 ICMR Year
               </option>
               {years.map((year) => {
@@ -175,15 +175,15 @@ const PartFour = () => {
             </Form.Select>
           </Form.Group>
 
-          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+          <Form.Group as={Col} md="2" controlId="icmr_score">
             <Form.Label style={{ width: "110%" }}>ICMR Score</Form.Label>
             <Form.Control
-              className='small'
-              isInvalid={errors.post_doctoral_institute}
-              placeholder='ICMR Score'
-              type='text'
-              {...register("post_doctoral_institute", {
-                required: true,
+              className="small"
+              isInvalid={errors.icmr_score}
+              placeholder="ICMR Score"
+              type="text"
+              {...register("icmr_score", {
+                required: false,
                 maxLength: 100,
               })}
             />
@@ -191,15 +191,15 @@ const PartFour = () => {
 
           {/* ICAR Details  */}
 
-          <Form.Group as={Col} md='2' controlId='icar'>
+          <Form.Group as={Col} md="2" controlId="icar">
             <Form.Label>ICAR Year</Form.Label>
             <Form.Select
-              size='sm'
+              size="sm"
               {...register("icar", {
-                // required: true,
+                // required: false,
               })}
             >
-              <option selected='' disabled='' value=''>
+              <option selected="" disabled="" value="">
                 ICAR Year
               </option>
               {years.map((year) => {
@@ -207,15 +207,15 @@ const PartFour = () => {
               })}
             </Form.Select>
           </Form.Group>
-          <Form.Group as={Col} md='2' controlId='post_doctoral_institute'>
+          <Form.Group as={Col} md="2" controlId="icar_score">
             <Form.Label style={{ width: "110%" }}>ICAR Score</Form.Label>
             <Form.Control
-              className='small'
-              isInvalid={errors.post_doctoral_institute}
-              placeholder='ICAR Score'
-              type='text'
-              {...register("post_doctoral_institute", {
-                required: true,
+              className="small"
+              isInvalid={errors.icar_score}
+              placeholder="ICAR Score"
+              type="text"
+              {...register("icar_score", {
+                required: false,
                 maxLength: 100,
               })}
             />
