@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 // import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import Accordion from "react-bootstrap/Accordion";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col"; 
+import Col from "react-bootstrap/Col";
 
 import PartNineTen from "./PartNineTen";
 const PartSeven = () => {
+  const organisedRef = useRef("0");
+  const attendedRef = useRef("0");
+  const presentedRef = useRef("0");
+  const [totalVal, setTotal] = useState(0);
+  const totalCalculator = () => {
+    const organisedVal = parseInt(organisedRef?.current?.value) || 0;
+    const presentedVal = parseInt(presentedRef?.current?.value) || 0;
+    const attendedVal = parseInt(attendedRef?.current?.value) || 0;
+  
+    const val = organisedVal + presentedVal + attendedVal;
+  
+    setTotal(val);
+  };
   const {
     register,
     formState: { errors },
@@ -462,6 +475,8 @@ const PartSeven = () => {
               {...register("research_presented_total", {
                 maxLength: 15,
               })}
+              ref={presentedRef}
+              onChange={totalCalculator}
             />
             {errors.research_presented_total && (
               <p style={{ color: "red" }}>
@@ -524,6 +539,8 @@ const PartSeven = () => {
               {...register("research_attended_total", {
                 maxLength: 15,
               })}
+              ref={attendedRef}
+              onChange={totalCalculator}
             />
             {errors.research_attended_total && (
               <p style={{ color: "red" }}>
@@ -586,6 +603,8 @@ const PartSeven = () => {
               {...register("research_organized_total", {
                 maxLength: 15,
               })}
+              ref={organisedRef}
+              onChange={totalCalculator}
             />
             {errors.research_organized_total && (
               <p style={{ color: "red" }}>
@@ -635,6 +654,20 @@ const PartSeven = () => {
                 years)
               </p>
             )}
+          </Form.Group>
+        </Row>
+        <hr />
+        <p>Grand Total </p>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4">
+            <Form.Label>
+              Total Conferences, Seminars, Workshops, Training programmes{" "}
+            </Form.Label>
+            <Form.Control
+              size="sm"
+              value={totalVal}
+              onClick={totalCalculator}
+            ></Form.Control>
           </Form.Group>
         </Row>
         {/* Research Guidance (in last three years) */}
@@ -838,11 +871,10 @@ const PartSeven = () => {
           </Row>
         </div>
 
-        <PartNineTen/>
+        <PartNineTen />
       </Accordion.Body>
     </Accordion.Item>
   );
 };
-
 
 export default PartSeven;
