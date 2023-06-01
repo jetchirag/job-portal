@@ -1,0 +1,183 @@
+{
+    "Arts": {
+      "School of Humanities and Social Sciences": {
+        "Faculty of Arts": {}
+      }
+    },
+    "Economics": {
+      "School of Humanities and Social Sciences": {
+        "Faculty of Arts": {}
+      }
+    },
+    "Psychology": {
+      "School of Humanities and Social Sciences": {
+        "Faculty of Arts": {}
+      }
+    },
+    "Languages, Literatures and Cultural Studies": {
+      "School of Humanities and Social Sciences": {
+        "Faculty of Arts": {}
+      }
+    },
+    "Journalism and Mass Communication": {
+      "School of Media and Communication": {
+        "Faculty of Arts": {}
+      }
+    },
+    "Architecture": {
+      "School of Architecture and Design": {
+        "Faculty of Design": {}
+      }
+    },
+    "Fashion Design": {
+      "School of Design & Planning": {
+        "Faculty of Design": {}
+      }
+    },
+    "Fine Arts": {
+      "School of Design & Planning": {
+        "Faculty of Design": {}
+      }
+    },
+    "Interior Design": {
+      "School of Design & Planning": {
+        "Faculty of Design": {}
+      }
+    },
+    "Automobile Engineering": {
+      "School of Automobile, Mechatronics, Mechanical": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Mechanical Engineering": {
+      "School of Automobile, Mechatronics, Mechanical": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Mechatronics Engineering": {
+      "School of Automobile, Mechatronics, Mechanical": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Chemical Engineering": {
+      "School of Civil and Chemical Engineering": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Civil Engineering": {
+      "School of Civil and Chemical Engineering": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Information Technology": {
+      "School of Information Technology": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Data Science and Engineering": {
+      "School of Information Technology": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Computer Science and Engineering": {
+      "School of Computer Science and Engineering": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Artificial Intelligence and Machine Learning": {
+      "School of Computer Science and Engineering": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Computers and Communication Engineering": {
+      "School of Computers and Communication Engineering": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "IoT & Intelligent Systems": {
+      "School of Computers and Communication Engineering": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Electrical Engineering": {
+      "School of Electrical, Electronics and Communications": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Electronics and Communication Engineering": {
+      "School of Electrical, Electronics and Communications": {
+        "Faculty of Engineering": {}
+      }
+    },
+    "Law": {
+      "School of Law": {
+        "Faculty of Law": {}
+      }
+    },
+    "Business Administration": {
+      "School of Business and Commerce": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Commerce": {
+      "School of Business and Commerce": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Management": {
+      "TAPMI School of Business": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Hotel Management": {
+      "School of Hospitality and Tourism Management": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Bio-Sciences": {
+      "School of Basic Sciences": {
+        "Faculty of Science": {}
+      }
+    },
+    "Chemistry": {
+      "School of Basic Sciences": {
+        "Faculty of Science": {}
+      }
+    },
+    "Mathematics and Statistics": {
+      "School of Basic Sciences": {
+        "Faculty of Science": {}
+      }
+    },
+    "Physics": {
+      "School of Basic Sciences": {
+        "Faculty of Science": {}
+      }
+    },
+    "Computer Applications": {
+      "School of Basic Sciences": {
+        "Faculty of Science": {}
+      }
+    },
+    "Management Online Course": {
+      "Directorate of Online Education": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Commerce Online Course": {
+      "Directorate of Online Education": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Computer Application": {
+      "Directorate of Online Education": {
+        "Faculty of Management and Commerce": {}
+      }
+    },
+    "Journalism and Mass Communication Online Course": {
+      "Directorate of Online Education": {
+        "Faculty of Management and Commerce": {}
+      }
+    }
+  }
+  
