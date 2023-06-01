@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Accordion from 'react-bootstrap/Accordion';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Table } from 'react-bootstrap';
+import { FormCheck, Table } from 'react-bootstrap';
 
 const PartNineTen = () => {
   const {
@@ -154,8 +154,9 @@ const PartNineTen = () => {
               <Table responsive='sm'>
                 <thead>
                   <td>#</td>
-                  <td>No. assignments</td>
-                  <td>for Amount (in INR)</td>
+                  <td>Number of consultancy</td>
+                  <td>for Amount (in INR/USD)</td>
+                  
                 </thead>
                 <tbody>
                   <tr>
