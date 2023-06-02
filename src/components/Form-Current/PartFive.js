@@ -335,7 +335,7 @@ const PartFive = () => {
               size='sm'
               placeholder='State'
               type='text'
-              {...register("nonAcademicExperience_country", {
+              {...register("nonAcademicExperience_state", {
                 required: false,
               })}
             />

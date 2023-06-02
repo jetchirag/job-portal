@@ -1344,17 +1344,17 @@ const PartThree = () => {
                   </Form.Select>
                 </Form.Group>
                 {/* State Details  */}
-                <Form.Group as={Col} md="2" controlId="aq_mphil_country">
+                <Form.Group as={Col} md="2" controlId="aq_mphil_state">
                   <Form.Label>
                     State<span style={{ color: "red" }}> *</span>
                   </Form.Label>
 
                   <Form.Control
-                    isInvalid={errors.aq_mphil_country}
+                    isInvalid={errors.aq_mphil_state}
                     size="sm"
                     placeholder="State"
                     type="text"
-                    {...register("aq_mphil_country", {
+                    {...register("aq_mphil_state", {
                       required: true,
                     })}
                   />
