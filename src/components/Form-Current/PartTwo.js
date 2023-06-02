@@ -118,7 +118,7 @@ const PartTwo = () => {
         <Row className="mb-3">
           {/* First Name Details  */}
           <Form.Group as={Col} md="2" controlId="firstName">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               First Name
               <span style={{ color: "red", fontSize: "10px" }}>
                 {" "}
@@ -139,7 +139,7 @@ const PartTwo = () => {
           </Form.Group>
           {/* Middle Name Details  */}
           <Form.Group as={Col} md="2" controlId="middleName">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               Middle Name
               <span style={{ color: "red", fontSize: "10px" }}>
                 {" "}
@@ -159,7 +159,7 @@ const PartTwo = () => {
           </Form.Group>
           {/* Last Name Details  */}
           <Form.Group as={Col} md="2" controlId="lastName">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               Last Name
               <span style={{ color: "red", fontSize: "10px" }}>
                 {" "}

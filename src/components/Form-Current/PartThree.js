@@ -176,7 +176,7 @@ const PartThree = () => {
           {/* Academic Qulalification Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
           <Form.Group as={Col} md="2" controlId="secondary_mode">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               Education Mode<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
@@ -288,7 +288,7 @@ const PartThree = () => {
           </Form.Group>
           {/* Aggregate Percentage  */}
           <Form.Group as={Col} md="2" controlId="secondary_percentage">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               Aggregate Percentage<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
@@ -365,7 +365,7 @@ const PartThree = () => {
           {/* Academic Qulalification Higher Secondary Country  */}
           {/* Academic Qualification Education Mode Details  */}
           <Form.Group as={Col} md="2" controlId="higher_secondary_mode">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               Education Mode<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Select
@@ -485,7 +485,7 @@ const PartThree = () => {
           {/* Aggregate Percentage  */}
 
           <Form.Group as={Col} md="2" controlId="higher_secondary_percentage">
-            <Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>
               Aggregate Percentage<span style={{ color: "red" }}> *</span>
             </Form.Label>
             <Form.Control
@@ -566,7 +566,7 @@ const PartThree = () => {
 
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="graduation_mode">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
@@ -589,7 +589,7 @@ const PartThree = () => {
                 </Form.Group>
                 {/* University / Institute  */}
                 <Form.Group as={Col} md="2" controlId="graduation_institute">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     University / Institute
                     <span style={{ color: "red" }}> *</span>
                   </Form.Label>
@@ -745,7 +745,7 @@ const PartThree = () => {
                 </Form.Group>
                 {/* Graduation Aggregate Percentage  */}
                 <Form.Group as={Col} md="2" controlId="graduation_percentage">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Aggregate Percentage<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
@@ -851,7 +851,7 @@ const PartThree = () => {
                 {/* Academic Qualification Education Mode Details  */}
 
                 <Form.Group as={Col} md="2" controlId="post_graduation_mode">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
@@ -878,7 +878,7 @@ const PartThree = () => {
                   md="2"
                   controlId="post_graduation_institute"
                 >
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     University / Institute
                     <span style={{ color: "red" }}> *</span>
                   </Form.Label>
@@ -1032,7 +1032,7 @@ const PartThree = () => {
                   md="2"
                   controlId="post_graduation_percentage"
                 >
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Aggregate Percentage<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
@@ -1154,7 +1154,7 @@ const PartThree = () => {
 
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="phd_mode">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
@@ -1178,7 +1178,7 @@ const PartThree = () => {
                 </Form.Group>
                 {/* University / Institute  */}
                 <Form.Group as={Col} md="2" controlId="phd_institute">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     University / Institute
                     <span style={{ color: "red" }}> *</span>
                   </Form.Label>
@@ -1377,7 +1377,7 @@ const PartThree = () => {
 
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="mphil_mode">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
@@ -1400,7 +1400,7 @@ const PartThree = () => {
                 </Form.Group>
                 {/* University / Institute  */}
                 <Form.Group as={Col} md="2" controlId="mphil_institute">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     University / Institute
                     <span style={{ color: "red" }}> *</span>
                   </Form.Label>
@@ -1495,7 +1495,7 @@ const PartThree = () => {
                 </Form.Group>
                 {/* M Phil Aggregate Percentage  */}
                 <Form.Group as={Col} md="2" controlId="mphil_percentage">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Aggregate Percentage<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control
@@ -1607,7 +1607,7 @@ const PartThree = () => {
 
                 {/* Academic Qualification Education Mode Details  */}
                 <Form.Group as={Col} md="2" controlId="post_doctoral_mode">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Education Mode<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Select
@@ -1644,7 +1644,7 @@ const PartThree = () => {
                 </Form.Group>
                 {/* University / Institute  */}
                 <Form.Group as={Col} md="2" controlId="post_doctoral_institute">
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     University / Institute
                     <span style={{ color: "red" }}> *</span>
                   </Form.Label>
@@ -1760,7 +1760,7 @@ const PartThree = () => {
                   md="2"
                   controlId="post_doctoral_percentage"
                 >
-                  <Form.Label>
+                  <Form.Label style={{whiteSpace: "nowrap"}}>
                     Aggregate Percentage<span style={{ color: "red" }}> *</span>
                   </Form.Label>
                   <Form.Control

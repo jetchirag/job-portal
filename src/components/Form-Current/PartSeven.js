@@ -129,7 +129,7 @@ const PartSeven = () => {
           </Form.Group>
           {/* As per UGC Care List */}
           <Form.Group as={Col} md="2" controlId="research_nop_ugc_care_list">
-            <Form.Label>As per UGC Care List</Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>As per UGC Care List</Form.Label>
             <Form.Control
               size="sm"
               placeholder="As per UGC Care List"
@@ -243,7 +243,7 @@ const PartSeven = () => {
             md="2"
             controlId="research_nop_three_ugc_care_list"
           >
-            <Form.Label>As per UGC Care List</Form.Label>
+            <Form.Label style={{whiteSpace: "nowrap"}}>As per UGC Care List</Form.Label>
             <Form.Control
               size="sm"
               placeholder="As per UGC Care List"
