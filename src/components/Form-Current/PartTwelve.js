@@ -13,6 +13,7 @@ const PartTwelve = () => {
   } = useFormContext();
 
   const [knowanyone, setKnowAnyone] = useState(false);
+
   const handleKnowAnyone = () => {
     setKnowAnyone(!knowanyone);
   };
@@ -31,6 +32,19 @@ const PartTwelve = () => {
     else return;
     setKnow(copyArr);
   };
+
+  const [offerGiven, setOfferGiven] = useState(false);
+
+  const handleOfferGiven = (e) => {
+    setOfferGiven(e.target.value);
+  };
+
+  const [offerJoined, setOfferJoined] = useState(false);
+
+  const handleOfferJoined = (e) => {
+    setOfferJoined(e.target.value);
+  };
+
 
   return (
     <Accordion.Item eventKey='12'>
@@ -75,17 +89,17 @@ const PartTwelve = () => {
               // {...register("knowanyone", {
               //   required: true,
               // })}
+              checked={knowanyone === true}
               onClick={handleKnowAnyone}
             ></Form.Check>
-            {/* <Form.Check
-              type="radio"
-              label="No"
-              value={"No"}
-              name={"knowanyone"}
-              {...register("knowanyone", {
-                required: true,
-              })}
-            ></Form.Check> */}
+            <Form.Check
+              type='checkbox'
+              label='No'
+              value={'No'}
+              name={'knowanyone'}
+              onClick={handleKnowAnyone}
+              checked={knowanyone === false}
+            ></Form.Check>
             {errors.knowanyone && <p style={{ color: 'red' }}>Please enter</p>}
           </Form.Group>
           <h3></h3>
@@ -162,15 +176,79 @@ const PartTwelve = () => {
               type='checkbox'
               label='Yes?'
               value={'Yes'}
-              name={'knowanyone'}
-              // {...register("knowanyone", {
-              //   required: true,
-              // })}
+              name={'interviewed'}
+              checked={interviewed === true}
               onClick={interviewedHandle}
+            ></Form.Check>
+            <Form.Check
+              type='checkbox'
+              label='No'
+              value={'No'}
+              name={'interviewed'}
+              onClick={interviewedHandle}
+              checked={interviewed === false}
             ></Form.Check>
           </Form.Group>
           {interviewed && (
             <>
+
+              {/* Details */}
+              <Form.Group as={Col} md='3'>
+                <Form.Label>
+                  Date of Interview<span style={{ color: 'red' }}> *</span>
+                </Form.Label>
+                <Form.Control
+                  isInvalid={errors.interviewed_date}
+                  size="sm"
+                  type="date"
+                  // {...register("interviewed_date", {
+                  //   required: interviewed,
+                  // })}
+                />
+              </Form.Group>
+              <Form.Group as={Col} md='3'>
+                <Form.Label>
+                  Designation<span style={{ color: 'red' }}> *</span>
+                </Form.Label>
+                <Form.Control
+                  isInvalid={errors.interviewed_designation}
+                  size='sm'
+                  type='text'
+                  placeholder='Designation'
+                  {...register('interviewed_designation', {
+                    required: interviewed,
+                  })}
+                />
+              </Form.Group>
+              <Form.Group as={Col} md='3'>
+                <Form.Label>
+                  Department<span style={{ color: 'red' }}> *</span>
+                </Form.Label>
+                <Form.Control
+                  isInvalid={errors.interviewed_department}
+                  size='sm'
+                  type='text'
+                  placeholder='Department'
+                  // {...register('interviewed_department', {
+                  //   required: interviewed,
+                  // })}
+                />
+              </Form.Group>
+              <Form.Group as={Col} md='3'>
+                <Form.Label>
+                  Result of Interview<span style={{ color: 'red' }}> *</span>
+                </Form.Label>
+                <Form.Control
+                  isInvalid={errors.interviewed_result}
+                  size='sm'
+                  type='text'
+                  placeholder='Result'
+                  // {...register('interviewed_result', {
+                  //   required: interviewed,
+                  // })}
+                />
+              </Form.Group>
+
               <Form.Group as={Col} md='12'>
                 <Form.Label>
                   Given Offer to join?<span style={{ color: 'red' }}> *</span>
@@ -180,6 +258,8 @@ const PartTwelve = () => {
                   label='Yes'
                   value={'Yes'}
                   name={'offerjoined'}
+                  checked={offerGiven === 'Yes'}
+                  onClick={handleOfferGiven}
                   {...register('offerjoined', {
                     required: true,
                   })}
@@ -189,6 +269,8 @@ const PartTwelve = () => {
                   label='No'
                   value={'No'}
                   name={'offerjoined'}
+                  checked={offerGiven === 'No'}
+                  onClick={handleOfferGiven}
                   {...register('offerjoined', {
                     required: true,
                   })}
@@ -197,6 +279,9 @@ const PartTwelve = () => {
                   <p style={{ color: 'red' }}>Please enter</p>
                 )}
               </Form.Group>
+              {/* if given the offer to join show another radio */}
+              {offerGiven === 'Yes' && (
+                <>
               <Form.Group as={Col} md='12'>
                 <Form.Label>
                   Joined?<span style={{ color: 'red' }}> *</span>
@@ -206,14 +291,44 @@ const PartTwelve = () => {
                   label='Yes'
                   value={'Yes'}
                   name={'joined'}
+                  checked={offerJoined === 'Yes'}
+                  onClick={handleOfferJoined}
+                  {...register('joined', {
+                    required: true,
+                  })}
+
                 ></Form.Check>
                 <Form.Check
                   type='radio'
                   label='No'
                   value={'No'}
                   name={'joined'}
+                  checked={offerJoined === 'No'}
+                  onClick={handleOfferJoined}
+                  {...register('joined', {
+                    required: true,
+                  })}
+
                 ></Form.Check>
               </Form.Group>
+              {offerJoined === 'No' && (
+                <Form.Group as={Col} md='12'>
+                  <Form.Label>
+                    Reason for not joining<span style={{ color: 'red' }}> *</span>
+                  </Form.Label>
+                  <Form.Control
+                    size='sm'
+                    type='text'
+                    placeholder='Reason'
+                    {...register('reason', {
+                      required: true,
+                    })}
+                  />
+                </Form.Group>
+
+              )}
+              </>
+              )}
             </>
           )}
           <Form.Group as={Col} md='12'>
