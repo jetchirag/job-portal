@@ -23,15 +23,7 @@ const PartTwelve = () => {
     setInterviewed(!interviewed);
   };
   const [know, setKnow] = useState(['set']);
-  const addKnow = () => {
-    setKnow([...know, 'set']);
-  };
-  const removeKnow = () => {
-    const copyArr = [...know];
-    if (copyArr.length > 1) copyArr.splice(-1);
-    else return;
-    setKnow(copyArr);
-  };
+ 
 
   const [offerGiven, setOfferGiven] = useState(false);
 
@@ -86,9 +78,9 @@ const PartTwelve = () => {
               label='Yes'
               value={'Yes'}
               name={'knowanyone'}
-              // {...register("knowanyone", {
-              //   required: true,
-              // })}
+              {...register("knowanyone", {
+                required: true,
+              })}
               checked={knowanyone === true}
               onClick={handleKnowAnyone}
             ></Form.Check>
@@ -97,22 +89,33 @@ const PartTwelve = () => {
               label='No'
               value={'No'}
               name={'knowanyone'}
+              {...register("knowanyone", {
+                required: true,
+              })}
               onClick={handleKnowAnyone}
               checked={knowanyone === false}
             ></Form.Check>
             {errors.knowanyone && <p style={{ color: 'red' }}>Please enter</p>}
           </Form.Group>
           <h3></h3>
-          {knowanyone &&
-            know.map(() => {
-              return (
-                <>
+
                   <br />
+                  {knowanyone && (
+                    <>
                   <Form.Group as={Col} md='3'>
                     <Form.Label>
                       Name<span style={{ color: 'red' }}> *</span>
                     </Form.Label>
-                    <Form.Control size='sm' type='text' placeholder='Name' />
+                    <Form.Control 
+                    size='sm' 
+                    type='text' 
+                    placeholder='Name'
+                    name={'knowanyone_name'}
+                    {...register('knowanyone_name', {
+                      required: knowanyone,
+                    })}
+
+                    />
                   </Form.Group>
                   <Form.Group as={Col} md='3'>
                     <Form.Label>
@@ -122,6 +125,10 @@ const PartTwelve = () => {
                       size='sm'
                       type='text'
                       placeholder='Designation'
+                      name={'knowanyone_designation'}
+                      {...register('knowanyone_designation', {
+                        required: knowanyone,
+                      })}
                     />
                   </Form.Group>
                   <Form.Group as={Col} md='3'>
@@ -132,6 +139,10 @@ const PartTwelve = () => {
                       size='sm'
                       type='text'
                       placeholder='Department'
+                      name={'knowanyone_department'}
+                      {...register('knowanyone_department', {
+                        required: knowanyone,
+                      })}
                     />
                   </Form.Group>
                   <Form.Group as={Col} md='3'>
@@ -142,31 +153,17 @@ const PartTwelve = () => {
                       size='sm'
                       type='text'
                       placeholder='Relation'
+                      name={'knowanyone_relation'}
+                      {...register('knowanyone_relation', {
+                        required: knowanyone,
+                      })}
                     />
                   </Form.Group>
                   <h3></h3>
                   <br />
-                </>
-              );
-            })}
-          {knowanyone && (
-            <>
-              <button
-                type='button'
-                onClick={addKnow}
-                className='add-more-btn sm'
-              >
-                Add More
-              </button>{' '}
-              <button
-                type='button'
-                onClick={removeKnow}
-                className='add-more-btn sm'
-              >
-                Remove Last
-              </button>
-            </>
-          )}
+                  </>
+                  )}
+
           <Form.Group as={Col} md='12'>
             <Form.Label>
               Have you ever been interviewed in MUJ earlier?
@@ -179,6 +176,9 @@ const PartTwelve = () => {
               name={'interviewed'}
               checked={interviewed === true}
               onClick={interviewedHandle}
+              {...register('interviewed', {
+                required: true,
+              })}
             ></Form.Check>
             <Form.Check
               type='checkbox'
@@ -187,6 +187,9 @@ const PartTwelve = () => {
               name={'interviewed'}
               onClick={interviewedHandle}
               checked={interviewed === false}
+              {...register('interviewed', {
+                required: true,
+              })}
             ></Form.Check>
           </Form.Group>
           {interviewed && (
@@ -201,9 +204,9 @@ const PartTwelve = () => {
                   isInvalid={errors.interviewed_date}
                   size="sm"
                   type="date"
-                  // {...register("interviewed_date", {
-                  //   required: interviewed,
-                  // })}
+                  {...register("interviewed_date", {
+                    required: interviewed,
+                  })}
                 />
               </Form.Group>
               <Form.Group as={Col} md='3'>
@@ -229,9 +232,9 @@ const PartTwelve = () => {
                   size='sm'
                   type='text'
                   placeholder='Department'
-                  // {...register('interviewed_department', {
-                  //   required: interviewed,
-                  // })}
+                  {...register('interviewed_department', {
+                    required: interviewed,
+                  })}
                 />
               </Form.Group>
               <Form.Group as={Col} md='3'>
@@ -243,9 +246,9 @@ const PartTwelve = () => {
                   size='sm'
                   type='text'
                   placeholder='Result'
-                  // {...register('interviewed_result', {
-                  //   required: interviewed,
-                  // })}
+                  {...register('interviewed_result', {
+                    required: interviewed,
+                  })}
                 />
               </Form.Group>
 
