@@ -256,6 +256,32 @@ const FormComponent = ({ id, setId }) => {
       year: data?.peerRecognition?.peerRecognition_year,
     };
 
+    // other data
+    let knowanyone = {
+      knowanyone: data.knowanyone[0],
+    };
+
+    if (knowanyone.knowanyone === 'Yes') {
+      knowanyone["name"] = data.knowanyone_name;
+      knowanyone["designation"] = data.knowanyone_designation;
+      knowanyone["department"] = data.knowanyone_department;
+      knowanyone["relation"] = data.knowanyone_relation;
+    }
+
+    let interviewed = {
+      interviewed: data.interviewed[0],
+    };
+
+    if (interviewed.interviewed === 'Yes') {
+      interviewed["date"] = new Date(data.interviewed_date).toISOString();
+      interviewed["designation"] = data.interviewed_designation;
+      interviewed["department"] = data.interviewed_department;
+      interviewed["result"] = data.interviewed_result;
+      interviewed['givenOffer'] = data.offerjoined;
+      interviewed['offerJoined'] = data.joined;
+      interviewed['reason'] = data.reason;
+    }
+
     data.jobType = data.jobtype;
     data.faculty = data.faculty;
     data.school_main = data.school;
@@ -283,7 +309,11 @@ const FormComponent = ({ id, setId }) => {
     data["books"] = books;
     data["patent"] = patent;
     data["peerRecognition"] = peerRecognition;
-    // console.log(data);
+    data['detailsOfKnown'] = knowanyone;
+    data['interviewed'] = interviewed;
+    console.log(data.interviewed);
+    console.log(data.detailsOfKnown);
+    return;
     try {
       const response = await fetch(
         "https://hammerhead-app-qmja6.ondigitalocean.app/applications",
@@ -330,6 +360,18 @@ const FormComponent = ({ id, setId }) => {
     handleSubmit,
     formState: { errors },
   } = methods;
+
+  const testSubmit = async () => {
+    try {
+      // if (formState.isValid) {
+        console.log(methods.getValues());
+        onSubmit(methods.getValues());
+      // }
+    } catch (error) {
+      console.error('Form validation error:', error);
+    }
+  };
+
   const handleSub = () => {};
   return (
     <FormProvider {...methods}>
@@ -416,6 +458,13 @@ const FormComponent = ({ id, setId }) => {
                     Next
                   </Button>
                 )}
+                {/* testSubmit */}
+                {/* <Button
+                  onClick={testSubmit}
+                >
+                  Test
+                </Button> */}
+
               </Accordion>
             </Form>
           </div>
