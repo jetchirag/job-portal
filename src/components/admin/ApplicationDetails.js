@@ -90,37 +90,37 @@ const ApplicationsDetails = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const FetchingApplicant = async () => {
-  //     try {
-  //       await fetch(
-  //         `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
-  //         // NEW - add a Content-Type header
-  //         {
-  //           method: "GET",
+  useEffect(() => {
+    const FetchingApplicant = async () => {
+      try {
+        await fetch(
+          `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${id}`,
+          // NEW - add a Content-Type header
+          {
+            method: "GET",
 
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Accept: "application/json",
-  //           },
-  //         }
-  //       )
-  //         .then((res) => {
-  //           if (!res.ok) {
-  //             throw new Error("Error Connecting to the database");
-  //           }
-  //           return res.json();
-  //         })
-  //         .then((val) => {
-  //           setData(val);
-  //           console.log(val);
-  //         });
-  //     } catch (err) {
-  //       console.error(err.message);
-  //     }
-  //   };
-  //   FetchingApplicant();
-  // }, [id]);
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        )
+          .then((res) => {
+            if (!res.ok) {
+              throw new Error("Error Connecting to the database");
+            }
+            return res.json();
+          })
+          .then((val) => {
+            setData(val);
+            console.log(val);
+          });
+      } catch (err) {
+        console.error(err.message);
+      }
+    };
+    FetchingApplicant();
+  }, [id]);
 
   console.log(data);
 

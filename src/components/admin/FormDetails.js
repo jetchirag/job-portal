@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Accordion, Button } from "react-bootstrap";
 import Modal from "../modal/Modal";
 import Form from "react-bootstrap/Form";
-import PartOneDetails from "../view-details/PartOneDetails";
-// import PartTwoDetail from "../view-details/PartTwoDetail";
 
 import { FormProvider, useForm } from "react-hook-form";
 
@@ -19,6 +17,7 @@ import PartEight from "../Form-Current/PartEight";
 import PartNineTen from "../Form-Current/PartNineTen";
 import PartEleven from "../Form-Current/PartEleven";
 import PartTwelve from "../Form-Current/PartTwelve";
+import Partone from "../Form-Current/PartOne";
 
 const FormDetails = (props) => {
   const handleClose = () => {
@@ -266,18 +265,17 @@ const FormDetails = (props) => {
     data["patent"] = patent;
     data["peerRecognition"] = peerRecognition;
     // console.log(data);
+    // const URL = `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${props.id}/udpate`;
+    const URL = `http://localhost:3001/applications/${props.id}/udpate`;
     try {
-      const response = await fetch(
-        `https://hammerhead-app-qmja6.ondigitalocean.app/applications/${props.id}/udpate`,
-        {
-          body: JSON.stringify(data),
-          method: "UPDATE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      // console.log(response);
+      const response = await fetch(URL, {
+        body: JSON.stringify(data),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response);
       // setId(
       //   response.url.substring(
       //     response.url.lastIndexOf('/') + 1,
@@ -322,7 +320,7 @@ const FormDetails = (props) => {
             alwaysClose
             style={{ padding: "0 5%" }}
           >
-            <PartOneDetails data={props.data} />
+            <Partone />
             {/* <PartTwoDetail data={props.data} /> */}
             <PartTwo />
             <PartThree />
