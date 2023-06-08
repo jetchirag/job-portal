@@ -44,7 +44,7 @@ const FormComponent = ({ id, setId }) => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    setLoading(true);
+    // setLoading(true);
     let applicant = {
       firstName: data.firstName,
       middleName: data.middleName,
@@ -79,32 +79,49 @@ const FormComponent = ({ id, setId }) => {
       division: data.higher_secondary_division,
       percentage: data.higher_secondary_percentage,
     };
-    let aq_graduation = {
-      country: data.aq_graduation_country,
-      state: data.aq_graduation_state,
-      city: data.aq_graduation_city,
-      mode: data.graduation_mode,
-      institute: data.graduation_institute,
-      college: data.graduation_college,
-      year: data.graduation_year,
-      area: data.graduation_area,
-      course: data.graduation_course,
-      division: data.graduation_division,
-      percentage: data.graduation_percentage,
-    };
-    let aq_post_graduation = {
-      country: data.aq_post_graduation_country,
-      state: data.aq_post_graduation_state,
-      city: data.aq_post_graduation_city,
-      mode: data.post_graduation_mode,
-      institute: data.post_graduation_institute,
-      college: data.post_graduation_college,
-      year: data.post_graduation_year,
-      area: data.post_graduation_area,
-      course: data.post_graduation_course,
-      division: data.post_graduation_division,
-      percentage: data.post_graduation_percentage,
-    };
+
+    let aq_graduation = [];
+
+    let i = 0;
+    while (data[`aq_graduation_country_${i}`] !== undefined) {
+      aq_graduation.push({
+        country: data[`aq_graduation_country_${i}`],
+        state: data[`aq_graduation_state_${i}`],
+        city: data[`aq_graduation_city_${i}`],
+        mode: data[`graduation_mode_${i}`],
+        institute: data[`graduation_institute_${i}`],
+        college: data[`graduation_college_${i}`],
+        year: data[`graduation_year_${i}`],
+        area: data[`graduation_area_${i}`],
+        course: data[`graduation_course_${i}`],
+        division: data[`graduation_division_${i}`],
+        percentage: data[`graduation_percentage_${i}`],
+      });
+      i++;
+    }
+
+    let aq_post_graduation = [];
+    // check if aq_post_graduation_country_# exists and then add it to the array
+    i = 0;
+    while (data[`aq_post_graduation_country_${i}`] !== undefined) {
+      aq_post_graduation.push({
+        country: data[`aq_post_graduation_country_${i}`],
+        state: data[`aq_post_graduation_state_${i}`],
+        city: data[`aq_post_graduation_city_${i}`],
+        mode: data[`post_graduation_mode_${i}`],
+        institute: data[`post_graduation_institute_${i}`],
+        college: data[`post_graduation_college_${i}`],
+        year: data[`post_graduation_year_${i}`],
+        area: data[`post_graduation_area_${i}`],
+        course: data[`post_graduation_course_${i}`],
+        division: data[`post_graduation_division_${i}`],
+        percentage: data[`post_graduation_percentage_${i}`],
+      });
+      i++;
+    }
+
+
+
     let aq_mphil = {
       country: data.aq_mphil_country,
       state: data.aq_mphil_state,
@@ -363,8 +380,7 @@ const FormComponent = ({ id, setId }) => {
 
   const testSubmit = async () => {
     try {
-      // if (formState.isValid) {
-        console.log(methods.getValues());
+        
         onSubmit(methods.getValues());
       // }
     } catch (error) {
@@ -458,12 +474,14 @@ const FormComponent = ({ id, setId }) => {
                     Next
                   </Button>
                 )}
-                {/* testSubmit */}
-                {/* <Button
+
+
+                <Button
                   onClick={testSubmit}
                 >
                   Test
-                </Button> */}
+                </Button>
+                
 
               </Accordion>
             </Form>
