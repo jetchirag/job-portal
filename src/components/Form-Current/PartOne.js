@@ -97,8 +97,12 @@ const Partone = () => {
               size="sm"
               aria-label="Default School Type"
               disabled={true}
+            
+              {...register("school", {
+    
+              })}
             >
-              <option selected="" disabled="" value="">
+              <option selected>
                 {dept && Object.keys(Data[dept])}
               </option>
             </Form.Select>
@@ -112,8 +116,12 @@ const Partone = () => {
               size="sm"
               aria-label="Default Faculty Type"
               disabled={true}
+            
+              {...register("faculty", {
+            
+              })}
             >
-              <option selected="" disabled="" value="">
+              <option selected>
                 {dept && Object.keys(Data[dept][Object.keys(Data[dept])[0]])}
               </option>
             </Form.Select>
